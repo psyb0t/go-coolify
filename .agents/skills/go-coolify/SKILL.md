@@ -1,6 +1,7 @@
 ---
 name: go-coolify
-description: "Use go-coolify when writing Go code that calls the Coolify API or already imports github.com/psyb0t/go-coolify. The unofficial generated package coolify covers applications, deployments, databases, services, projects, servers and teams."
+description: "Writes Go code with go-coolify (package coolify, github.com/psyb0t/go-coolify), an unofficial generated client for the Coolify API covering applications, deployments, databases, services, projects, servers and teams. Use when Go code calls the Coolify API or already imports github.com/psyb0t/go-coolify."
+license: MIT
 homepage: https://github.com/psyb0t/go-coolify
 user-invocable: true
 metadata:
@@ -9,9 +10,6 @@ metadata:
     requires:
       bins:
         - go
-      env:
-        - COOLIFY_BASE_URL
-        - COOLIFY_API_TOKEN
 permissions:
   filesystem: "Guides edits to the Go source of the current project. The library reads and writes no files."
   shell: "The Go toolchain (`go get`, `go build`, `go test`) to add and compile the dependency."
@@ -24,7 +22,7 @@ Unofficial, typed Go client for the Coolify API, in package `coolify` at the mod
 
 Read [references/setup.md](references/setup.md) before adding the dependency or choosing operations. It covers authentication, base URLs, response handling and selected operations.
 
-## Security and safety
+## Security & safety
 
 - Read the user-supplied instance API URL from `COOLIFY_BASE_URL`, including `/api/v1`. There is no default host. Use HTTPS for remote instances and send credentials only to the intended instance.
 - The spec's `bearerAuth` scheme uses `Authorization: Bearer <token>`. Read the token from `COOLIFY_API_TOKEN` in a request editor. Never hardcode, commit or log it, or print requests containing the authorization header.
@@ -41,6 +39,20 @@ Read [references/setup.md](references/setup.md) before adding the dependency or 
 - The code is not Go. This module ships only a Go package.
 - You need a client maintained by Coolify. This one is unofficial and not affiliated with Coolify.
 - You want to change the generated client itself. Read the repository's `AGENTS.md` instead.
+
+## Finding endpoints and types
+
+The examples cover a few calls. Every operation in the spec has a generated method, and the spec's descriptions are on them as Go doc comments. Look names and fields up instead of guessing. After `go get github.com/psyb0t/go-coolify`, from inside your module:
+
+```bash
+go doc github.com/psyb0t/go-coolify ClientWithResponsesInterface  # every endpoint method
+go doc github.com/psyb0t/go-coolify ListApplicationsParams        # one method, params type or model
+go doc -all github.com/psyb0t/go-coolify                          # the whole package
+```
+
+The same documentation is at https://pkg.go.dev/github.com/psyb0t/go-coolify.
+
+Method names come from the spec's operation IDs, which are short action names (`ListProjects`, `GetProjectByUuid`). `<OperationId>WithResponse` takes the context, then the path parameters in order, then `*<OperationId>Params` when the operation has query or header parameters, then the request body when it has one. The `JSON200` field (or `JSON201` and so on, per declared status) holds the decoded body; it is nil for any other status.
 
 ## Usage
 

@@ -2,6 +2,18 @@
 
 This module is unofficial and not affiliated with Coolify.
 
+## Contents
+
+- [Requirements](#requirements)
+- [Install](#install)
+- [Base URL](#base-url)
+- [Auth](#auth)
+- [Usage](#usage)
+- [Client](#client)
+- [Operations](#operations)
+- [Responses](#responses)
+- [Pagination and retries](#pagination-and-retries)
+
 ## Requirements
 
 - Go 1.26.9 or newer, per the module's `go.mod`.
@@ -16,7 +28,7 @@ go get github.com/psyb0t/go-coolify
 
 ## Base URL
 
-The user must supply the base URL. For a self-hosted instance it might be `https://coolify.example.com/api/v1`. The generated operation paths are relative to that API prefix. Never substitute a hosted service URL or send the user's token to a different instance.
+The user must supply the base URL; the generated client has no default. For a self-hosted instance it might be `https://coolify.example.com/api/v1`. The spec's only server entry is Coolify Cloud, `https://app.coolify.io/api/v1`; use it only when the user's account is on Coolify Cloud. The generated operation paths are relative to that API prefix. Never send the user's token to a different instance.
 
 ## Auth
 

@@ -60,7 +60,9 @@ func main() {
 }
 ```
 
-The same code is in `example_test.go`, so `make test` checks that it compiles. Set `COOLIFY_BASE_URL` to your instance's API URL, including `/api/v1`, for example `https://coolify.example.com/api/v1`. The client always needs a user-supplied base URL.
+The same code is in `example_test.go`, so `make test` checks that it compiles. Set `COOLIFY_BASE_URL` to your instance's API URL, including `/api/v1`, for example `https://coolify.example.com/api/v1`, or `https://app.coolify.io/api/v1` for Coolify Cloud, the server the spec lists. The client always needs a user-supplied base URL.
+
+The full API is in the [Go reference](https://pkg.go.dev/github.com/psyb0t/go-coolify); after `go get`, `go doc github.com/psyb0t/go-coolify` prints it locally.
 
 The error return covers request, transport and decoding failures. HTTP errors can return a nil error; check `StatusCode()`, the appropriate `JSON...` field and `Body`. Check pointer fields before dereferencing. With raw client methods, close the response body. Pass `coolify.WithHTTPClient` with your own `*http.Client` to set a timeout.
 

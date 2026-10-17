@@ -10,7 +10,7 @@ One generated package, `coolify`, at the module root, driven by `gen.go`:
 
 The patch converts nullable type arrays into a single type plus `nullable: true`, and defines the missing `components.responses.403` with the description `Forbidden.`. It does not invent a body schema.
 
-Seven identical log-line query unions become references to a named `LogTailLines` component, so the generated union has exported helpers. The integer and `all` alternatives stay intact. Description-only dash punctuation becomes commas.
+Seven identical log-line query unions become references to a named `LogTailLines` component, so the generated union has exported helpers. The integer and `all` alternatives stay intact.
 
 ## Stack
 

@@ -4,7 +4,6 @@
 # add a description-only definition without inventing its response body.
 # Promote log-line query unions to a named component so oapi-codegen emits
 # exported union helpers instead of unusable anonymous structs.
-# Normalize dash punctuation in descriptions before generating comments.
 set -euo pipefail
 trap 'on_error "$?" "$LINENO"' ERR
 
@@ -75,16 +74,11 @@ main() {
               ) end
           else error("log-line schemas differ; review named union patch") end
         else . end
-      | walk(
-          if type == "object" and (.description? | type == "string") then
-            .description |= gsub(" *[—–] *"; ", ")
-          else . end
-        )
     ' "$SPEC_IN" >"$tmp"
 
 	chmod 0644 "$tmp"
 	mv -- "$tmp" "$SPEC_OUT"
-	log INFO "patched nullable types, 403 response, log-line unions and descriptions"
+	log INFO "patched nullable types, 403 response and log-line unions"
 }
 
 main "$@"

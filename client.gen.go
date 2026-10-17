@@ -7353,7 +7353,7 @@ type ClientInterface interface {
 
 	// MoveApplicationByUuidWithBody Move
 	//
-	// Move application to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
+	// Move application to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -7362,7 +7362,7 @@ type ClientInterface interface {
 
 	// MoveApplicationByUuid Move
 	//
-	// Move application to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
+	// Move application to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -8205,7 +8205,7 @@ type ClientInterface interface {
 
 	// MoveDatabaseByUuidWithBody Move
 	//
-	// Move database to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
+	// Move database to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -8214,7 +8214,7 @@ type ClientInterface interface {
 
 	// MoveDatabaseByUuid Move
 	//
-	// Move database to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
+	// Move database to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9762,7 +9762,7 @@ type ClientInterface interface {
 
 	// MoveServiceByUuidWithBody Move
 	//
-	// Move service to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
+	// Move service to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9771,7 +9771,7 @@ type ClientInterface interface {
 
 	// MoveServiceByUuid Move
 	//
-	// Move service to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
+	// Move service to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -10763,7 +10763,7 @@ func (c *Client) MigrateApplicationByUuid(ctx context.Context, uuid string, body
 
 // MoveApplicationByUuidWithBody Move
 //
-// Move application to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
+// Move application to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes any type of body and a specified content type.
 //
@@ -10782,7 +10782,7 @@ func (c *Client) MoveApplicationByUuidWithBody(ctx context.Context, uuid string,
 
 // MoveApplicationByUuid Move
 //
-// Move application to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
+// Move application to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -12655,7 +12655,7 @@ func (c *Client) MigrateDatabaseByUuid(ctx context.Context, uuid string, body Mi
 
 // MoveDatabaseByUuidWithBody Move
 //
-// Move database to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
+// Move database to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes any type of body and a specified content type.
 //
@@ -12674,7 +12674,7 @@ func (c *Client) MoveDatabaseByUuidWithBody(ctx context.Context, uuid string, co
 
 // MoveDatabaseByUuid Move
 //
-// Move database to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
+// Move database to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -16222,7 +16222,7 @@ func (c *Client) MigrateServiceByUuid(ctx context.Context, uuid string, body Mig
 
 // MoveServiceByUuidWithBody Move
 //
-// Move service to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
+// Move service to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes any type of body and a specified content type.
 //
@@ -16241,7 +16241,7 @@ func (c *Client) MoveServiceByUuidWithBody(ctx context.Context, uuid string, con
 
 // MoveServiceByUuid Move
 //
-// Move service to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
+// Move service to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -29985,7 +29985,7 @@ type ClientWithResponsesInterface interface {
 
 	// MoveApplicationByUuidWithBodyWithResponse Move
 	//
-	// Move application to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
+	// Move application to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -29994,7 +29994,7 @@ type ClientWithResponsesInterface interface {
 
 	// MoveApplicationByUuidWithResponse Move
 	//
-	// Move application to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
+	// Move application to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -30913,7 +30913,7 @@ type ClientWithResponsesInterface interface {
 
 	// MoveDatabaseByUuidWithBodyWithResponse Move
 	//
-	// Move database to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
+	// Move database to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -30922,7 +30922,7 @@ type ClientWithResponsesInterface interface {
 
 	// MoveDatabaseByUuidWithResponse Move
 	//
-	// Move database to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
+	// Move database to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32704,7 +32704,7 @@ type ClientWithResponsesInterface interface {
 
 	// MoveServiceByUuidWithBodyWithResponse Move
 	//
-	// Move service to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
+	// Move service to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32713,7 +32713,7 @@ type ClientWithResponsesInterface interface {
 
 	// MoveServiceByUuidWithResponse Move
 	//
-	// Move service to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
+	// Move service to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -51971,7 +51971,7 @@ func (c *ClientWithResponses) MigrateApplicationByUuidWithResponse(ctx context.C
 
 // MoveApplicationByUuidWithBodyWithResponse Move
 //
-// Move application to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
+// Move application to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -51986,7 +51986,7 @@ func (c *ClientWithResponses) MoveApplicationByUuidWithBodyWithResponse(ctx cont
 
 // MoveApplicationByUuidWithResponse Move
 //
-// Move application to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
+// Move application to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the application will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -53523,7 +53523,7 @@ func (c *ClientWithResponses) MigrateDatabaseByUuidWithResponse(ctx context.Cont
 
 // MoveDatabaseByUuidWithBodyWithResponse Move
 //
-// Move database to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
+// Move database to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -53538,7 +53538,7 @@ func (c *ClientWithResponses) MoveDatabaseByUuidWithBodyWithResponse(ctx context
 
 // MoveDatabaseByUuidWithResponse Move
 //
-// Move database to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
+// Move database to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the database will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -56520,7 +56520,7 @@ func (c *ClientWithResponses) MigrateServiceByUuidWithResponse(ctx context.Conte
 
 // MoveServiceByUuidWithBodyWithResponse Move
 //
-// Move service to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
+// Move service to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -56535,7 +56535,7 @@ func (c *ClientWithResponses) MoveServiceByUuidWithBodyWithResponse(ctx context.
 
 // MoveServiceByUuidWithResponse Move
 //
-// Move service to another project/environment. This is a purely organizational change, running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
+// Move service to another project/environment. This is a purely organizational change — running containers are not affected. Note: after moving, the service will pick up shared environment variables from the new environment on the next deployment.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //

@@ -80,7 +80,7 @@ make generate
 
 - `scripts/fetch-spec.sh` downloads `https://raw.githubusercontent.com/coollabsio/coolify/main/openapi.json` to `api/openapi.json`.
 - `scripts/patch-spec.sh` writes `api/openapi.patched.json`. It rewrites OpenAPI 3.1 nullable type arrays into a single `type` plus `nullable: true`, and supplies the missing `components.responses.403` with the description `Forbidden.` so references resolve. It adds no response body schema.
-- The patch also names seven identical log-line query unions `LogTailLines`, preserving their integer or `all` alternatives while exposing usable union helpers. It replaces dash punctuation in descriptions with commas.
+- The patch also names seven identical log-line query unions `LogTailLines`, preserving their integer or `all` alternatives while exposing usable union helpers.
 - oapi-codegen runs with `config.yaml`. The config maps unformatted `number` fields to `float64` rather than the default `float32`, and generates all operations.
 
 `.github/workflows/regen.yml` does the same every day in CI. When the new spec changes the client, it runs `make lint`, `make test` and `make sec`. If a check fails, Claude edits the code and the checks run again, up to three times, and a review step reads the result. A passing change is committed with a CHANGELOG entry and tagged as the next release: a patch version for fixes and additions, a minor version for breaking changes.

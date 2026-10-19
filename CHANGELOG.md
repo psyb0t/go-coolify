@@ -2,6 +2,14 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.2.0, 2026-10-19
+
+- `CreateServerDestinationResponse.JSON422` and its `GetJSON422` method are removed. The spec no longer documents a 422 response for creating a server destination.
+- `ApplicationSetting` gets a new `IncludeCoolifyDefaultVariables` field.
+- `ApplicationSetting` and the application create, update and patch request bodies (`CreateDockerfileApplicationJSONBody`, `CreateDockerfileApplicationJSONRequestBody`, `CreateDockerimageApplicationJSONBody`, `CreateDockerimageApplicationJSONRequestBody`, `CreatePrivateDeployKeyApplicationJSONBody`, `CreatePrivateDeployKeyApplicationJSONRequestBody`, `CreatePrivateGithubAppApplicationJSONBody`, `CreatePrivateGithubAppApplicationJSONRequestBody`, `CreatePublicApplicationJSONBody`, `CreatePublicApplicationJSONRequestBody`, `PatchServiceApplicationByServiceAndAppUuidJSONBody`, `PatchServiceApplicationByServiceAndAppUuidJSONRequestBody`, `UpdateApplicationByUuidJSONBody`, `UpdateApplicationByUuidJSONRequestBody`) get a new `IsPermanentRedirectEnabled` field, to pick permanent 301/308 redirects instead of the default temporary 302/307 ones.
+- Response parsers for several endpoints, for example `CreateDockerfileApplicationWithResponse` and `ExecuteScheduledTaskByServiceUuidWithResponse`, now recognize an HTTP 403 status explicitly. The spec still defines no body for it, so parsing just stops without an error.
+- Generated doc comments for several methods now state the permission a token needs. For example, `DeleteApplicationByUuidWithResponse` needs the write and deploy permissions, and `SetServiceStorageBackupScheduleWithResponse` needs the deploy permission when the body sets `stop_during_backup`.
+
 ## v0.1.2, 2026-10-17
 
 - Documentation only. The agent skill explains how to look up every endpoint, parameter and model with `go doc` or on pkg.go.dev, and declares its license.

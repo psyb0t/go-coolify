@@ -1618,6 +1618,7 @@ type ApplicationSetting struct {
 	GpuDeviceIds                     *string `json:"gpu_device_ids,omitempty"`
 	GpuDriver                        *string `json:"gpu_driver,omitempty"`
 	GpuOptions                       *string `json:"gpu_options,omitempty"`
+	IncludeCoolifyDefaultVariables   *bool   `json:"include_coolify_default_variables,omitempty"`
 	IncludeSourceCommitInBuild       *bool   `json:"include_source_commit_in_build,omitempty"`
 	InjectBuildArgsToDockerfile      *bool   `json:"inject_build_args_to_dockerfile,omitempty"`
 	IsAutoDeployEnabled              *bool   `json:"is_auto_deploy_enabled,omitempty"`
@@ -1635,15 +1636,18 @@ type ApplicationSetting struct {
 	IsGzipEnabled                    *bool   `json:"is_gzip_enabled,omitempty"`
 	IsIncludeTimestamps              *bool   `json:"is_include_timestamps,omitempty"`
 	IsLogDrainEnabled                *bool   `json:"is_log_drain_enabled,omitempty"`
-	IsPrDeploymentsPublicEnabled     *bool   `json:"is_pr_deployments_public_enabled,omitempty"`
-	IsPreserveRepositoryEnabled      *bool   `json:"is_preserve_repository_enabled,omitempty"`
-	IsPreviewDeploymentsEnabled      *bool   `json:"is_preview_deployments_enabled,omitempty"`
-	IsRawComposeDeploymentEnabled    *bool   `json:"is_raw_compose_deployment_enabled,omitempty"`
-	IsSpa                            *bool   `json:"is_spa,omitempty"`
-	IsStatic                         *bool   `json:"is_static,omitempty"`
-	IsStripprefixEnabled             *bool   `json:"is_stripprefix_enabled,omitempty"`
-	IsSwarmOnlyWorkerNodes           *bool   `json:"is_swarm_only_worker_nodes,omitempty"`
-	StopGracePeriod                  *int    `json:"stop_grace_period,omitempty"`
+
+	// IsPermanentRedirectEnabled Use permanent (301/308) instead of temporary (302/307) proxy redirects.
+	IsPermanentRedirectEnabled    *bool `json:"is_permanent_redirect_enabled,omitempty"`
+	IsPrDeploymentsPublicEnabled  *bool `json:"is_pr_deployments_public_enabled,omitempty"`
+	IsPreserveRepositoryEnabled   *bool `json:"is_preserve_repository_enabled,omitempty"`
+	IsPreviewDeploymentsEnabled   *bool `json:"is_preview_deployments_enabled,omitempty"`
+	IsRawComposeDeploymentEnabled *bool `json:"is_raw_compose_deployment_enabled,omitempty"`
+	IsSpa                         *bool `json:"is_spa,omitempty"`
+	IsStatic                      *bool `json:"is_static,omitempty"`
+	IsStripprefixEnabled          *bool `json:"is_stripprefix_enabled,omitempty"`
+	IsSwarmOnlyWorkerNodes        *bool `json:"is_swarm_only_worker_nodes,omitempty"`
+	StopGracePeriod               *int  `json:"stop_grace_period,omitempty"`
 
 	// TraefikCertificateResolver Traefik certificate resolver override. Null uses the server setting, "none" uses no resolver.
 	TraefikCertificateResolver *string `json:"traefik_certificate_resolver,omitempty"`
@@ -2169,8 +2173,10 @@ type VolumeBackupScheduleRequest struct {
 	RetentionMaxStorageS3         *float32 `json:"retention_max_storage_s3,omitempty"`
 	S3StorageUuid                 *string  `json:"s3_storage_uuid,omitempty"`
 	SaveS3                        *bool    `json:"save_s3,omitempty"`
-	StopDuringBackup              *bool    `json:"stop_during_backup,omitempty"`
-	Timeout                       *int     `json:"timeout,omitempty"`
+
+	// StopDuringBackup Stop the resource containers during the backup. Needs a token with the deploy permission.
+	StopDuringBackup *bool `json:"stop_during_backup,omitempty"`
+	Timeout          *int  `json:"timeout,omitempty"`
 }
 
 // VolumeBackupScheduleResponse defines model for VolumeBackupScheduleResponse.
@@ -2385,6 +2391,9 @@ type CreateDockerfileApplicationJSONBody struct {
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
 
+	// IsPermanentRedirectEnabled Use permanent redirects (301/308) instead of temporary (302/307) for the HTTP to HTTPS and www redirects. Defaults to false.
+	IsPermanentRedirectEnabled *bool `json:"is_permanent_redirect_enabled,omitempty"`
+
 	// IsPrDeploymentsPublicEnabled Make pull request deployments public.
 	IsPrDeploymentsPublicEnabled *bool `json:"is_pr_deployments_public_enabled,omitempty"`
 
@@ -2418,16 +2427,16 @@ type CreateDockerfileApplicationJSONBody struct {
 	// LimitsMemorySwappiness Memory swappiness.
 	LimitsMemorySwappiness *int `json:"limits_memory_swappiness,omitempty"`
 
-	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket.
+	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket. Needs the deploy ability.
 	ManualWebhookSecretBitbucket *string `json:"manual_webhook_secret_bitbucket,omitempty"`
 
-	// ManualWebhookSecretGitea Manual webhook secret for Gitea.
+	// ManualWebhookSecretGitea Manual webhook secret for Gitea. Needs the deploy ability.
 	ManualWebhookSecretGitea *string `json:"manual_webhook_secret_gitea,omitempty"`
 
-	// ManualWebhookSecretGithub Manual webhook secret for Github.
+	// ManualWebhookSecretGithub Manual webhook secret for Github. Needs the deploy ability.
 	ManualWebhookSecretGithub *string `json:"manual_webhook_secret_github,omitempty"`
 
-	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab.
+	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab. Needs the deploy ability.
 	ManualWebhookSecretGitlab *string `json:"manual_webhook_secret_gitlab,omitempty"`
 
 	// MaxRestartCount Maximum container restart count before stopping.
@@ -2640,6 +2649,9 @@ type CreateDockerimageApplicationJSONBody struct {
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
 
+	// IsPermanentRedirectEnabled Use permanent redirects (301/308) instead of temporary (302/307) for the HTTP to HTTPS and www redirects. Defaults to false.
+	IsPermanentRedirectEnabled *bool `json:"is_permanent_redirect_enabled,omitempty"`
+
 	// IsPrDeploymentsPublicEnabled Make pull request deployments public.
 	IsPrDeploymentsPublicEnabled *bool `json:"is_pr_deployments_public_enabled,omitempty"`
 
@@ -2673,16 +2685,16 @@ type CreateDockerimageApplicationJSONBody struct {
 	// LimitsMemorySwappiness Memory swappiness.
 	LimitsMemorySwappiness *int `json:"limits_memory_swappiness,omitempty"`
 
-	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket.
+	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket. Needs the deploy ability.
 	ManualWebhookSecretBitbucket *string `json:"manual_webhook_secret_bitbucket,omitempty"`
 
-	// ManualWebhookSecretGitea Manual webhook secret for Gitea.
+	// ManualWebhookSecretGitea Manual webhook secret for Gitea. Needs the deploy ability.
 	ManualWebhookSecretGitea *string `json:"manual_webhook_secret_gitea,omitempty"`
 
-	// ManualWebhookSecretGithub Manual webhook secret for Github.
+	// ManualWebhookSecretGithub Manual webhook secret for Github. Needs the deploy ability.
 	ManualWebhookSecretGithub *string `json:"manual_webhook_secret_github,omitempty"`
 
-	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab.
+	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab. Needs the deploy ability.
 	ManualWebhookSecretGitlab *string `json:"manual_webhook_secret_gitlab,omitempty"`
 
 	// MaxRestartCount Maximum container restart count before stopping.
@@ -2943,6 +2955,9 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
 
+	// IsPermanentRedirectEnabled Use permanent redirects (301/308) instead of temporary (302/307) for the HTTP to HTTPS and www redirects. Defaults to false.
+	IsPermanentRedirectEnabled *bool `json:"is_permanent_redirect_enabled,omitempty"`
+
 	// IsPrDeploymentsPublicEnabled Make pull request deployments public.
 	IsPrDeploymentsPublicEnabled *bool `json:"is_pr_deployments_public_enabled,omitempty"`
 
@@ -2985,16 +3000,16 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 	// LimitsMemorySwappiness Memory swappiness.
 	LimitsMemorySwappiness *int `json:"limits_memory_swappiness,omitempty"`
 
-	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket.
+	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket. Needs the deploy ability.
 	ManualWebhookSecretBitbucket *string `json:"manual_webhook_secret_bitbucket,omitempty"`
 
-	// ManualWebhookSecretGitea Manual webhook secret for Gitea.
+	// ManualWebhookSecretGitea Manual webhook secret for Gitea. Needs the deploy ability.
 	ManualWebhookSecretGitea *string `json:"manual_webhook_secret_gitea,omitempty"`
 
-	// ManualWebhookSecretGithub Manual webhook secret for Github.
+	// ManualWebhookSecretGithub Manual webhook secret for Github. Needs the deploy ability.
 	ManualWebhookSecretGithub *string `json:"manual_webhook_secret_github,omitempty"`
 
-	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab.
+	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab. Needs the deploy ability.
 	ManualWebhookSecretGitlab *string `json:"manual_webhook_secret_gitlab,omitempty"`
 
 	// MaxRestartCount Maximum container restart count before stopping.
@@ -3282,6 +3297,9 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
 
+	// IsPermanentRedirectEnabled Use permanent redirects (301/308) instead of temporary (302/307) for the HTTP to HTTPS and www redirects. Defaults to false.
+	IsPermanentRedirectEnabled *bool `json:"is_permanent_redirect_enabled,omitempty"`
+
 	// IsPrDeploymentsPublicEnabled Make pull request deployments public.
 	IsPrDeploymentsPublicEnabled *bool `json:"is_pr_deployments_public_enabled,omitempty"`
 
@@ -3324,16 +3342,16 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 	// LimitsMemorySwappiness Memory swappiness.
 	LimitsMemorySwappiness *int `json:"limits_memory_swappiness,omitempty"`
 
-	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket.
+	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket. Needs the deploy ability.
 	ManualWebhookSecretBitbucket *string `json:"manual_webhook_secret_bitbucket,omitempty"`
 
-	// ManualWebhookSecretGitea Manual webhook secret for Gitea.
+	// ManualWebhookSecretGitea Manual webhook secret for Gitea. Needs the deploy ability.
 	ManualWebhookSecretGitea *string `json:"manual_webhook_secret_gitea,omitempty"`
 
-	// ManualWebhookSecretGithub Manual webhook secret for Github.
+	// ManualWebhookSecretGithub Manual webhook secret for Github. Needs the deploy ability.
 	ManualWebhookSecretGithub *string `json:"manual_webhook_secret_github,omitempty"`
 
-	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab.
+	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab. Needs the deploy ability.
 	ManualWebhookSecretGitlab *string `json:"manual_webhook_secret_gitlab,omitempty"`
 
 	// MaxRestartCount Maximum container restart count before stopping.
@@ -3615,6 +3633,9 @@ type CreatePublicApplicationJSONBody struct {
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
 
+	// IsPermanentRedirectEnabled Use permanent redirects (301/308) instead of temporary (302/307) for the HTTP to HTTPS and www redirects. Defaults to false.
+	IsPermanentRedirectEnabled *bool `json:"is_permanent_redirect_enabled,omitempty"`
+
 	// IsPrDeploymentsPublicEnabled Make pull request deployments public.
 	IsPrDeploymentsPublicEnabled *bool `json:"is_pr_deployments_public_enabled,omitempty"`
 
@@ -3657,16 +3678,16 @@ type CreatePublicApplicationJSONBody struct {
 	// LimitsMemorySwappiness Memory swappiness.
 	LimitsMemorySwappiness *int `json:"limits_memory_swappiness,omitempty"`
 
-	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket.
+	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket. Needs the deploy ability.
 	ManualWebhookSecretBitbucket *string `json:"manual_webhook_secret_bitbucket,omitempty"`
 
-	// ManualWebhookSecretGitea Manual webhook secret for Gitea.
+	// ManualWebhookSecretGitea Manual webhook secret for Gitea. Needs the deploy ability.
 	ManualWebhookSecretGitea *string `json:"manual_webhook_secret_gitea,omitempty"`
 
-	// ManualWebhookSecretGithub Manual webhook secret for Github.
+	// ManualWebhookSecretGithub Manual webhook secret for Github. Needs the deploy ability.
 	ManualWebhookSecretGithub *string `json:"manual_webhook_secret_github,omitempty"`
 
-	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab.
+	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab. Needs the deploy ability.
 	ManualWebhookSecretGitlab *string `json:"manual_webhook_secret_gitlab,omitempty"`
 
 	// MaxRestartCount Maximum container restart count before stopping.
@@ -3945,6 +3966,9 @@ type UpdateApplicationByUuidJSONBody struct {
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
 
+	// IsPermanentRedirectEnabled Use permanent redirects (301/308) instead of temporary (302/307) for the HTTP to HTTPS and www redirects. Defaults to false.
+	IsPermanentRedirectEnabled *bool `json:"is_permanent_redirect_enabled,omitempty"`
+
 	// IsPrDeploymentsPublicEnabled Make pull request deployments public.
 	IsPrDeploymentsPublicEnabled *bool `json:"is_pr_deployments_public_enabled,omitempty"`
 
@@ -3987,16 +4011,16 @@ type UpdateApplicationByUuidJSONBody struct {
 	// LimitsMemorySwappiness Memory swappiness.
 	LimitsMemorySwappiness *int `json:"limits_memory_swappiness,omitempty"`
 
-	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket.
+	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket. Needs the deploy ability.
 	ManualWebhookSecretBitbucket *string `json:"manual_webhook_secret_bitbucket,omitempty"`
 
-	// ManualWebhookSecretGitea Manual webhook secret for Gitea.
+	// ManualWebhookSecretGitea Manual webhook secret for Gitea. Needs the deploy ability.
 	ManualWebhookSecretGitea *string `json:"manual_webhook_secret_gitea,omitempty"`
 
-	// ManualWebhookSecretGithub Manual webhook secret for Github.
+	// ManualWebhookSecretGithub Manual webhook secret for Github. Needs the deploy ability.
 	ManualWebhookSecretGithub *string `json:"manual_webhook_secret_github,omitempty"`
 
-	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab.
+	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab. Needs the deploy ability.
 	ManualWebhookSecretGitlab *string `json:"manual_webhook_secret_gitlab,omitempty"`
 
 	// MaxRestartCount Maximum container restart count before stopping.
@@ -4068,7 +4092,7 @@ type UpdateApplicationByUuid409JSONResponseBodyConflictsResourceType string
 
 // CloneApplicationByUuidJSONBody defines parameters for CloneApplicationByUuid.
 type CloneApplicationByUuidJSONBody struct {
-	// CloneVolumes Whether to clone volume data.
+	// CloneVolumes Whether to clone volume data. Needs the deploy ability.
 	CloneVolumes *bool `json:"clone_volumes,omitempty"`
 
 	// DestinationUuid UUID of the destination to clone into.
@@ -4238,7 +4262,7 @@ type CreateScheduledTaskByApplicationUuidJSONBody struct {
 	// Container The container where the command should be executed.
 	Container *string `json:"container,omitempty"`
 
-	// Enabled The flag to indicate if the scheduled task is enabled.
+	// Enabled The flag to indicate if the scheduled task is enabled. An enabled task requires the deploy ability.
 	Enabled *bool `json:"enabled,omitempty"`
 
 	// Frequency The frequency of the scheduled task.
@@ -4259,7 +4283,7 @@ type UpdateScheduledTaskByApplicationUuidJSONBody struct {
 	// Container The container where the command should be executed.
 	Container *string `json:"container,omitempty"`
 
-	// Enabled The flag to indicate if the scheduled task is enabled.
+	// Enabled The flag to indicate if the scheduled task is enabled. An enabled task requires the deploy ability.
 	Enabled *bool `json:"enabled,omitempty"`
 
 	// Frequency The frequency of the scheduled task.
@@ -4322,7 +4346,7 @@ type UpdateStorageByApplicationUuidJSONBodyType string
 
 // CreateStorageByApplicationUuidJSONBody defines parameters for CreateStorageByApplicationUuid.
 type CreateStorageByApplicationUuidJSONBody struct {
-	// Content File content (file only, optional).
+	// Content File content (file only, optional). Needs the deploy ability when set.
 	Content *string `json:"content,omitempty"`
 
 	// FsPath Host path. Required for directory mounts and host file mounts. Optional for file mounts with content (default: inside the resource directory). An absolute path can be anywhere on the host; a relative path is inside the resource directory. A directory or file mount outside the resource directory needs a token with the deploy permission. Coolify never deletes a path outside the resource directory.
@@ -5098,7 +5122,7 @@ type UpdateDatabaseByUuidJSONBody struct {
 	// InstantDeploy Restart the database after the update. Requires the deploy ability.
 	InstantDeploy *bool `json:"instant_deploy,omitempty"`
 
-	// IsPublic Is the database public?
+	// IsPublic Is the database public? Changing it starts or stops the database proxy, so it needs a token with the deploy permission.
 	IsPublic *bool `json:"is_public,omitempty"`
 
 	// KeydbConf KeyDB conf
@@ -5191,7 +5215,7 @@ type UpdateDatabaseByUuidJSONBody struct {
 	// PostgresUser PostgreSQL user
 	PostgresUser *string `json:"postgres_user,omitempty"`
 
-	// PublicPort Public port of the database
+	// PublicPort Public port of the database (1024-65535)
 	PublicPort *int `json:"public_port,omitempty"`
 
 	// PublicPortTimeout Public port timeout in seconds (default: 3600)
@@ -5209,7 +5233,7 @@ type UpdateDatabaseByUuidJSONBody struct {
 
 // CreateDatabaseBackupJSONBody defines parameters for CreateDatabaseBackup.
 type CreateDatabaseBackupJSONBody struct {
-	// BackupNow Whether to trigger backup immediately after creation
+	// BackupNow Whether to trigger backup immediately after creation. Needs a token with the deploy permission.
 	BackupNow *bool `json:"backup_now,omitempty"`
 
 	// DatabaseBackupRetentionAmountLocally Number of backups to retain locally
@@ -5263,7 +5287,7 @@ type DeleteBackupConfigurationByUuidParams struct {
 
 // UpdateDatabaseBackupJSONBody defines parameters for UpdateDatabaseBackup.
 type UpdateDatabaseBackupJSONBody struct {
-	// BackupNow Whether to take a backup now or not
+	// BackupNow Whether to take a backup now or not. Needs a token with the deploy permission.
 	BackupNow *bool `json:"backup_now,omitempty"`
 
 	// DatabaseBackupRetentionAmountLocally Retention amount of the backup locally
@@ -5317,6 +5341,7 @@ type DeleteBackupExecutionByUuidParams struct {
 
 // CloneDatabaseByUuidJSONBody defines parameters for CloneDatabaseByUuid.
 type CloneDatabaseByUuidJSONBody struct {
+	// CloneVolumes Whether to clone volume data. Needs the deploy ability.
 	CloneVolumes    *bool   `json:"clone_volumes,omitempty"`
 	DestinationUuid string  `json:"destination_uuid"`
 	Name            *string `json:"name,omitempty"`
@@ -5437,7 +5462,7 @@ type UpdateStorageByDatabaseUuidJSONBodyType string
 
 // CreateStorageByDatabaseUuidJSONBody defines parameters for CreateStorageByDatabaseUuid.
 type CreateStorageByDatabaseUuidJSONBody struct {
-	// Content File content (file only, optional).
+	// Content File content (file only, optional). Needs the deploy ability when set.
 	Content *string `json:"content,omitempty"`
 
 	// FsPath Host path. Required for directory mounts and host file mounts. Optional for file mounts with content (default: inside the resource directory). An absolute path can be anywhere on the host; a relative path is inside the resource directory. A directory or file mount outside the resource directory needs a token with the deploy permission. Coolify never deletes a path outside the resource directory.
@@ -5874,7 +5899,7 @@ type CreateServerJSONBody struct {
 	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	IsBuildServer *bool `json:"is_build_server,omitempty"`
 
-	// Name The name of the server.
+	// Name The name of the server. Must not contain control characters such as new lines.
 	Name *string `json:"name,omitempty"`
 
 	// Port The port of the server.
@@ -5901,7 +5926,7 @@ type CreateServerJSONBodyServerRole string
 
 // CreateHetznerServerJSONBody defines parameters for CreateHetznerServer.
 type CreateHetznerServerJSONBody struct {
-	// CloudInitScript Cloud-init YAML script (optional)
+	// CloudInitScript Cloud-init YAML script (optional). Needs a token with the deploy permission.
 	CloudInitScript *string `json:"cloud_init_script,omitempty"`
 
 	// CloudProviderTokenId Deprecated: Use cloud_provider_token_uuid instead. Cloud provider token UUID.
@@ -5926,7 +5951,7 @@ type CreateHetznerServerJSONBody struct {
 	// HetznerNetworkIds Existing Hetzner network IDs to attach during server creation
 	HetznerNetworkIds *[]int `json:"hetzner_network_ids,omitempty"`
 
-	// HetznerSshKeyIds Additional Hetzner SSH key IDs
+	// HetznerSshKeyIds Additional Hetzner SSH key IDs. Needs a token with the deploy permission.
 	HetznerSshKeyIds *[]int `json:"hetzner_ssh_key_ids,omitempty"`
 
 	// Image Hetzner image ID
@@ -5950,7 +5975,9 @@ type CreateHetznerServerJSONBody struct {
 
 // CreateServerDestinationJSONBody defines parameters for CreateServerDestination.
 type CreateServerDestinationJSONBody struct {
-	Name    *string                              `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
+
+	// Network Name of a new Docker network. Must not be bridge, host, none, or a network that already exists on the server.
 	Network string                               `json:"network"`
 	Type    *CreateServerDestinationJSONBodyType `json:"type,omitempty"`
 }
@@ -5960,10 +5987,10 @@ type CreateServerDestinationJSONBodyType string
 
 // DeleteServerByUuidParams defines parameters for DeleteServerByUuid.
 type DeleteServerByUuidParams struct {
-	// Force Also delete all resources on the server.
+	// Force Also delete all resources on the server. Needs the deploy permission.
 	Force *bool `form:"force,omitempty" json:"force,omitempty"`
 
-	// DeleteFromProvider Also delete the server from its cloud provider (Hetzner, Vultr or DigitalOcean). This cannot be undone.
+	// DeleteFromProvider Also delete the server from its cloud provider (Hetzner, Vultr or DigitalOcean). This cannot be undone. Needs the deploy permission.
 	DeleteFromProvider *bool `form:"delete_from_provider,omitempty" json:"delete_from_provider,omitempty"`
 }
 
@@ -5994,7 +6021,7 @@ type UpdateServerByUuidJSONBody struct {
 	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
 	IsBuildServer *bool `json:"is_build_server,omitempty"`
 
-	// Name The name of the server.
+	// Name The name of the server. Must not contain control characters such as new lines.
 	Name *string `json:"name,omitempty"`
 
 	// Port The port of the server.
@@ -6003,7 +6030,7 @@ type UpdateServerByUuidJSONBody struct {
 	// PrivateKeyUuid The UUID of the private key.
 	PrivateKeyUuid *string `json:"private_key_uuid,omitempty"`
 
-	// ProxyType The proxy type.
+	// ProxyType The proxy type. Changing it starts the new proxy on the server and needs the deploy permission.
 	ProxyType *UpdateServerByUuidJSONBodyProxyType `json:"proxy_type,omitempty"`
 
 	// ServerDiskUsageCheckFrequency Cron expression for disk usage check frequency.
@@ -6068,7 +6095,7 @@ type UpdateServerLogDrainsJSONBody struct {
 type UpdateServerProxyJSONBody struct {
 	GenerateExactLabels *bool `json:"generate_exact_labels,omitempty"`
 
-	// ProxyType Proxy type (case-insensitive).
+	// ProxyType Proxy type (case-insensitive). Changing it starts the new proxy on the server and needs the deploy permission.
 	ProxyType       *UpdateServerProxyJSONBodyProxyType `json:"proxy_type,omitempty"`
 	RedirectEnabled *bool                               `json:"redirect_enabled,omitempty"`
 
@@ -6130,7 +6157,7 @@ type UpdateServerSentinelJSONBodyTrafficIpMode string
 
 // ValidateServerByUuidJSONBody defines parameters for ValidateServerByUuid.
 type ValidateServerByUuidJSONBody struct {
-	// Install Install missing prerequisites and Docker. This can restart the Docker daemon.
+	// Install Install missing prerequisites and Docker, then start the proxy. This can restart the Docker daemon. Needs the deploy permission.
 	Install *bool `json:"install,omitempty"`
 }
 
@@ -6247,14 +6274,17 @@ type UpdateServiceByUuid409JSONResponseBodyConflictsResourceType string
 
 // PatchServiceApplicationByServiceAndAppUuidJSONBody defines parameters for PatchServiceApplicationByServiceAndAppUuid.
 type PatchServiceApplicationByServiceAndAppUuidJSONBody struct {
-	Description          *string `json:"description,omitempty"`
-	ExcludeFromStatus    *bool   `json:"exclude_from_status,omitempty"`
-	HumanName            *string `json:"human_name,omitempty"`
-	Image                *string `json:"image,omitempty"`
-	IsForceHttpsEnabled  *bool   `json:"is_force_https_enabled,omitempty"`
-	IsGzipEnabled        *bool   `json:"is_gzip_enabled,omitempty"`
-	IsLogDrainEnabled    *bool   `json:"is_log_drain_enabled,omitempty"`
-	IsStripprefixEnabled *bool   `json:"is_stripprefix_enabled,omitempty"`
+	Description         *string `json:"description,omitempty"`
+	ExcludeFromStatus   *bool   `json:"exclude_from_status,omitempty"`
+	HumanName           *string `json:"human_name,omitempty"`
+	Image               *string `json:"image,omitempty"`
+	IsForceHttpsEnabled *bool   `json:"is_force_https_enabled,omitempty"`
+	IsGzipEnabled       *bool   `json:"is_gzip_enabled,omitempty"`
+	IsLogDrainEnabled   *bool   `json:"is_log_drain_enabled,omitempty"`
+
+	// IsPermanentRedirectEnabled Use permanent redirects (301/308) instead of temporary (302/307) for the HTTP to HTTPS and www redirects. Defaults to false.
+	IsPermanentRedirectEnabled *bool `json:"is_permanent_redirect_enabled,omitempty"`
+	IsStripprefixEnabled       *bool `json:"is_stripprefix_enabled,omitempty"`
 
 	// MaxRestartCount Maximum Docker restart count before Coolify stops the container. Set to 0 to disable the limit.
 	MaxRestartCount *int `json:"max_restart_count,omitempty"`
@@ -6295,6 +6325,7 @@ type PostStartServiceApplicationByServiceAndAppUuidParams struct {
 
 // CloneServiceByUuidJSONBody defines parameters for CloneServiceByUuid.
 type CloneServiceByUuidJSONBody struct {
+	// CloneVolumes Whether to clone volume data. Needs the deploy ability.
 	CloneVolumes    *bool   `json:"clone_volumes,omitempty"`
 	DestinationUuid string  `json:"destination_uuid"`
 	Name            *string `json:"name,omitempty"`
@@ -6307,9 +6338,11 @@ type PatchServiceDatabaseByServiceAndDatabaseUuidJSONBody struct {
 	HumanName         *string `json:"human_name,omitempty"`
 	Image             *string `json:"image,omitempty"`
 	IsLogDrainEnabled *bool   `json:"is_log_drain_enabled,omitempty"`
-	IsPublic          *bool   `json:"is_public,omitempty"`
-	PublicPort        *int    `json:"public_port,omitempty"`
-	PublicPortTimeout *int    `json:"public_port_timeout,omitempty"`
+
+	// IsPublic Changing it starts or stops the database proxy, so it needs a token with the deploy permission.
+	IsPublic          *bool `json:"is_public,omitempty"`
+	PublicPort        *int  `json:"public_port,omitempty"`
+	PublicPortTimeout *int  `json:"public_port_timeout,omitempty"`
 }
 
 // GetServiceDatabaseLogsByServiceAndDatabaseUuidParams defines parameters for GetServiceDatabaseLogsByServiceAndDatabaseUuid.
@@ -6430,7 +6463,7 @@ type CreateScheduledTaskByServiceUuidJSONBody struct {
 	// Container The container where the command should be executed.
 	Container *string `json:"container,omitempty"`
 
-	// Enabled The flag to indicate if the scheduled task is enabled.
+	// Enabled The flag to indicate if the scheduled task is enabled. An enabled task requires the deploy ability.
 	Enabled *bool `json:"enabled,omitempty"`
 
 	// Frequency The frequency of the scheduled task.
@@ -6451,7 +6484,7 @@ type UpdateScheduledTaskByServiceUuidJSONBody struct {
 	// Container The container where the command should be executed.
 	Container *string `json:"container,omitempty"`
 
-	// Enabled The flag to indicate if the scheduled task is enabled.
+	// Enabled The flag to indicate if the scheduled task is enabled. An enabled task requires the deploy ability.
 	Enabled *bool `json:"enabled,omitempty"`
 
 	// Frequency The frequency of the scheduled task.
@@ -6499,7 +6532,7 @@ type UpdateStorageByServiceUuidJSONBodyType string
 
 // CreateStorageByServiceUuidJSONBody defines parameters for CreateStorageByServiceUuid.
 type CreateStorageByServiceUuidJSONBody struct {
-	// Content File content (file only, optional).
+	// Content File content (file only, optional). Needs the deploy ability when set.
 	Content *string `json:"content,omitempty"`
 
 	// FsPath Host path. Required for directory mounts and host file mounts. Optional for file mounts with content (default: inside the resource directory). An absolute path can be anywhere on the host; a relative path is inside the resource directory. A directory or file mount outside the resource directory needs a token with the deploy permission. Coolify never deletes a path outside the resource directory.
@@ -7178,7 +7211,7 @@ type ClientInterface interface {
 
 	// DeleteApplicationByUuid Delete
 	//
-	// Delete application by UUID.
+	// Delete application by UUID. Needs a token with the write and deploy permissions.
 	//
 	// Corresponds with DELETE /applications/{uuid} (the `DeleteApplicationByUuid` operationId).
 	DeleteApplicationByUuid(ctx context.Context, uuid string, params *DeleteApplicationByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -7396,7 +7429,7 @@ type ClientInterface interface {
 
 	// DeletePreviewDeploymentByPullRequestId Delete Preview Deployment
 	//
-	// Delete a preview deployment for a pull request. Cancels active deployments, stops containers, removes volumes/networks, and deletes the preview record.
+	// Delete a preview deployment for a pull request. Cancels active deployments, stops containers, removes volumes/networks, and deletes the preview record. Needs a token with the write and deploy permissions.
 	//
 	// Corresponds with DELETE /applications/{uuid}/previews/{pull_request_id} (the `DeletePreviewDeploymentByPullRequestId` operationId).
 	DeletePreviewDeploymentByPullRequestId(ctx context.Context, uuid string, pullRequestId int, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -7517,7 +7550,7 @@ type ClientInterface interface {
 
 	// ExecuteScheduledTaskByApplicationUuid Execute Task
 	//
-	// Queue immediate execution of a scheduled task for an application.
+	// Queue immediate execution of a scheduled task for an application. Requires the deploy ability.
 	//
 	// Corresponds with POST /applications/{uuid}/scheduled-tasks/{task_uuid}/execute (the `ExecuteScheduledTaskByApplicationUuid` operationId).
 	ExecuteScheduledTaskByApplicationUuid(ctx context.Context, uuid string, taskUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -7620,7 +7653,7 @@ type ClientInterface interface {
 
 	// SetApplicationStorageBackupScheduleWithBody Set application storage backup schedule
 	//
-	// Create or replace the backup schedule for an application persistent volume or directory storage.
+	// Create or replace the backup schedule for an application persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -7629,7 +7662,7 @@ type ClientInterface interface {
 
 	// SetApplicationStorageBackupSchedule Set application storage backup schedule
 	//
-	// Create or replace the backup schedule for an application persistent volume or directory storage.
+	// Create or replace the backup schedule for an application persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -7638,7 +7671,7 @@ type ClientInterface interface {
 
 	// RunApplicationStorageBackup Run application storage backup
 	//
-	// Queue an immediate volume backup for an application storage that has a schedule.
+	// Queue an immediate volume backup for an application storage that has a schedule. Needs a token with the write and deploy permissions.
 	//
 	// Corresponds with POST /applications/{uuid}/storages/{storage_uuid}/backups/run (the `RunApplicationStorageBackup` operationId).
 	RunApplicationStorageBackup(ctx context.Context, uuid string, storageUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -7974,7 +8007,7 @@ type ClientInterface interface {
 
 	// DeleteDatabaseByUuid Delete
 	//
-	// Delete database by UUID.
+	// Delete database by UUID. Needs a token with the write and deploy permissions.
 	//
 	// Corresponds with DELETE /databases/{uuid} (the `DeleteDatabaseByUuid` operationId).
 	DeleteDatabaseByUuid(ctx context.Context, uuid string, params *DeleteDatabaseByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8156,12 +8189,16 @@ type ClientInterface interface {
 
 	// CreateDatabaseImportWithBody Import database backup
 	//
+	// Restore a backup into the database. Every import source requires the deploy ability.
+	//
 	// Takes any type of body and a specified content type.
 	//
 	// Corresponds with POST /databases/{uuid}/imports (the `CreateDatabaseImport` operationId).
 	CreateDatabaseImportWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CreateDatabaseImport Import database backup
+	//
+	// Restore a backup into the database. Every import source requires the deploy ability.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -8301,7 +8338,7 @@ type ClientInterface interface {
 
 	// SetDatabaseStorageBackupScheduleWithBody Set database storage backup schedule
 	//
-	// Create or replace the backup schedule for a database persistent volume or directory storage.
+	// Create or replace the backup schedule for a database persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -8310,7 +8347,7 @@ type ClientInterface interface {
 
 	// SetDatabaseStorageBackupSchedule Set database storage backup schedule
 	//
-	// Create or replace the backup schedule for a database persistent volume or directory storage.
+	// Create or replace the backup schedule for a database persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -8319,7 +8356,7 @@ type ClientInterface interface {
 
 	// RunDatabaseStorageBackup Run database storage backup
 	//
-	// Queue an immediate volume backup for a database storage that has a schedule.
+	// Queue an immediate volume backup for a database storage that has a schedule. Needs a token with the write and deploy permissions.
 	//
 	// Corresponds with POST /databases/{uuid}/storages/{storage_uuid}/backups/run (the `RunDatabaseStorageBackup` operationId).
 	RunDatabaseStorageBackup(ctx context.Context, uuid string, storageUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -9068,12 +9105,14 @@ type ClientInterface interface {
 
 	// CreateDigitaloceanServer Create a server on DigitalOcean
 	//
+	// Create a DigitalOcean droplet and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
+	//
 	// Corresponds with POST /servers/digitalocean (the `CreateDigitaloceanServer` operationId).
 	CreateDigitaloceanServer(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CreateHetznerServerWithBody Create Hetzner Server
 	//
-	// Create a new server on Hetzner and register it in Coolify.
+	// Create a new server on Hetzner and register it in Coolify. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9082,7 +9121,7 @@ type ClientInterface interface {
 
 	// CreateHetznerServer Create Hetzner Server
 	//
-	// Create a new server on Hetzner and register it in Coolify.
+	// Create a new server on Hetzner and register it in Coolify. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9091,7 +9130,7 @@ type ClientInterface interface {
 
 	// CreateVultrServer Create Vultr Server
 	//
-	// Create a Vultr instance and link it as a Coolify server.
+	// Create a Vultr instance and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 	//
 	// Corresponds with POST /servers/vultr (the `CreateVultrServer` operationId).
 	CreateVultrServer(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -9105,7 +9144,7 @@ type ClientInterface interface {
 
 	// CreateServerDestinationWithBody Create destination
 	//
-	// Create a Docker network destination on a server owned by the authenticated team.
+	// Create a Docker network destination on a server owned by the authenticated team. The network must be new: Docker's built-in networks (bridge, host, none) and networks that already exist on a standalone server are rejected, because Coolify connects the proxy to the destination network.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9114,7 +9153,7 @@ type ClientInterface interface {
 
 	// CreateServerDestination Create destination
 	//
-	// Create a Docker network destination on a server owned by the authenticated team.
+	// Create a Docker network destination on a server owned by the authenticated team. The network must be new: Docker's built-in networks (bridge, host, none) and networks that already exist on a standalone server are rejected, because Coolify connects the proxy to the destination network.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9123,7 +9162,7 @@ type ClientInterface interface {
 
 	// DeleteServerByUuid Delete
 	//
-	// Delete server by UUID.
+	// Delete server by UUID. With force or delete_from_provider, needs a token with the write and deploy permissions.
 	//
 	// Corresponds with DELETE /servers/{uuid} (the `DeleteServerByUuid` operationId).
 	DeleteServerByUuid(ctx context.Context, uuid string, params *DeleteServerByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -9137,7 +9176,7 @@ type ClientInterface interface {
 
 	// UpdateServerByUuidWithBody Update
 	//
-	// Update Server.
+	// Update Server. Changing proxy_type needs a token with the write and deploy permissions.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9146,7 +9185,7 @@ type ClientInterface interface {
 
 	// UpdateServerByUuid Update
 	//
-	// Update Server.
+	// Update Server. Changing proxy_type needs a token with the write and deploy permissions.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9201,7 +9240,7 @@ type ClientInterface interface {
 
 	// UpdateServerDockerCleanupWithBody Update Docker cleanup settings
 	//
-	// Update Docker cleanup settings for a server owned by the authenticated team.
+	// Update Docker cleanup settings for a server owned by the authenticated team. Turning on `delete_unused_volumes` needs a token with the `deploy` permission.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9210,7 +9249,7 @@ type ClientInterface interface {
 
 	// UpdateServerDockerCleanup Update Docker cleanup settings
 	//
-	// Update Docker cleanup settings for a server owned by the authenticated team.
+	// Update Docker cleanup settings for a server owned by the authenticated team. Turning on `delete_unused_volumes` needs a token with the `deploy` permission.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9226,7 +9265,7 @@ type ClientInterface interface {
 
 	// RunServerDockerCleanupWithBody Run Docker cleanup
 	//
-	// Dispatch a manual Docker cleanup job for a server owned by the authenticated team.
+	// Dispatch a manual Docker cleanup job for a server owned by the authenticated team. Needs a token with the write and deploy permissions.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9235,7 +9274,7 @@ type ClientInterface interface {
 
 	// RunServerDockerCleanup Run Docker cleanup
 	//
-	// Dispatch a manual Docker cleanup job for a server owned by the authenticated team.
+	// Dispatch a manual Docker cleanup job for a server owned by the authenticated team. Needs a token with the write and deploy permissions.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9286,7 +9325,7 @@ type ClientInterface interface {
 
 	// UpdateServerLogDrainsWithBody Update log drain settings
 	//
-	// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team.
+	// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team. Needs a token with the write and deploy permissions. Custom configs cannot use the lua, wasm, exec, exec_wasi, or file plugins, @INCLUDE, or plugins_file, and the parser file can only contain [PARSER] and [MULTILINE_PARSER] sections.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9295,7 +9334,7 @@ type ClientInterface interface {
 
 	// UpdateServerLogDrains Update log drain settings
 	//
-	// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team.
+	// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team. Needs a token with the write and deploy permissions. Custom configs cannot use the lua, wasm, exec, exec_wasi, or file plugins, @INCLUDE, or plugins_file, and the parser file can only contain [PARSER] and [MULTILINE_PARSER] sections.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9311,7 +9350,7 @@ type ClientInterface interface {
 
 	// UpdateServerProxyWithBody Update server proxy
 	//
-	// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server.
+	// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server. Changing proxy_type needs a token with the `write` and `deploy` permissions.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9320,7 +9359,7 @@ type ClientInterface interface {
 
 	// UpdateServerProxy Update server proxy
 	//
-	// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server.
+	// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server. Changing proxy_type needs a token with the `write` and `deploy` permissions.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9329,7 +9368,7 @@ type ClientInterface interface {
 
 	// SaveServerProxyConfigurationWithBody Save server proxy configuration
 	//
-	// Save the raw proxy Docker Compose configuration for a team-owned server. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
+	// Save the raw proxy Docker Compose configuration for a team-owned server. Needs a token with the `write` and `deploy` permissions. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9338,7 +9377,7 @@ type ClientInterface interface {
 
 	// SaveServerProxyConfiguration Save server proxy configuration
 	//
-	// Save the raw proxy Docker Compose configuration for a team-owned server. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
+	// Save the raw proxy Docker Compose configuration for a team-owned server. Needs a token with the `write` and `deploy` permissions. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9347,7 +9386,7 @@ type ClientInterface interface {
 
 	// RestartServerProxy Restart server proxy
 	//
-	// Queue a proxy restart for a team-owned server.
+	// Queue a proxy restart for a team-owned server. Needs a token with the `deploy` permission.
 	//
 	// Corresponds with POST /servers/{uuid}/proxy/restart (the `RestartServerProxy` operationId).
 	RestartServerProxy(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -9361,7 +9400,7 @@ type ClientInterface interface {
 
 	// LoginServerRegistryWithBody Log in to a registry on a server
 	//
-	// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login.
+	// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login. Needs a token with the write and deploy permissions.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9370,7 +9409,7 @@ type ClientInterface interface {
 
 	// LoginServerRegistry Log in to a registry on a server
 	//
-	// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login.
+	// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login. Needs a token with the write and deploy permissions.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9407,7 +9446,7 @@ type ClientInterface interface {
 
 	// UpdateServerSentinelWithBody Update Sentinel settings
 	//
-	// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel.
+	// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel. Needs a token with the write and deploy permissions.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9416,7 +9455,7 @@ type ClientInterface interface {
 
 	// UpdateServerSentinel Update Sentinel settings
 	//
-	// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel.
+	// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel. Needs a token with the write and deploy permissions.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9425,7 +9464,7 @@ type ClientInterface interface {
 
 	// ValidateServerByUuidWithBody Validate
 	//
-	// Validate server by UUID.
+	// Validate server by UUID. With install=true, needs a token with the write and deploy permissions.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9434,7 +9473,7 @@ type ClientInterface interface {
 
 	// ValidateServerByUuid Validate
 	//
-	// Validate server by UUID.
+	// Validate server by UUID. With install=true, needs a token with the write and deploy permissions.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9468,7 +9507,7 @@ type ClientInterface interface {
 
 	// DeleteServiceByUuid Delete
 	//
-	// Delete service by UUID.
+	// Delete service by UUID. Needs a token with the write and deploy permissions.
 	//
 	// Corresponds with DELETE /services/{uuid} (the `DeleteServiceByUuid` operationId).
 	DeleteServiceByUuid(ctx context.Context, uuid string, params *DeleteServiceByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -9617,12 +9656,16 @@ type ClientInterface interface {
 
 	// CreateServiceDatabaseImportWithBody Import service database backup
 	//
+	// Restore a backup into the service database. Every import source requires the deploy ability.
+	//
 	// Takes any type of body and a specified content type.
 	//
 	// Corresponds with POST /services/{uuid}/databases/{database_uuid}/imports (the `CreateServiceDatabaseImport` operationId).
 	CreateServiceDatabaseImportWithBody(ctx context.Context, uuid string, databaseUuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CreateServiceDatabaseImport Import service database backup
+	//
+	// Restore a backup into the service database. Every import source requires the deploy ability.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9837,7 +9880,7 @@ type ClientInterface interface {
 
 	// ExecuteScheduledTaskByServiceUuid Execute Task
 	//
-	// Queue immediate execution of a scheduled task for a service.
+	// Queue immediate execution of a scheduled task for a service. Requires the deploy ability.
 	//
 	// Corresponds with POST /services/{uuid}/scheduled-tasks/{task_uuid}/execute (the `ExecuteScheduledTaskByServiceUuid` operationId).
 	ExecuteScheduledTaskByServiceUuid(ctx context.Context, uuid string, taskUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -9922,7 +9965,7 @@ type ClientInterface interface {
 
 	// SetServiceStorageBackupScheduleWithBody Set service storage backup schedule
 	//
-	// Create or replace the backup schedule for a service persistent volume or directory storage.
+	// Create or replace the backup schedule for a service persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9931,7 +9974,7 @@ type ClientInterface interface {
 
 	// SetServiceStorageBackupSchedule Set service storage backup schedule
 	//
-	// Create or replace the backup schedule for a service persistent volume or directory storage.
+	// Create or replace the backup schedule for a service persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9940,7 +9983,7 @@ type ClientInterface interface {
 
 	// RunServiceStorageBackup Run service storage backup
 	//
-	// Queue an immediate volume backup for a service storage that has a schedule.
+	// Queue an immediate volume backup for a service storage that has a schedule. Needs a token with the write and deploy permissions.
 	//
 	// Corresponds with POST /services/{uuid}/storages/{storage_uuid}/backups/run (the `RunServiceStorageBackup` operationId).
 	RunServiceStorageBackup(ctx context.Context, uuid string, storageUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -10378,7 +10421,7 @@ func (c *Client) CreatePublicApplication(ctx context.Context, body CreatePublicA
 
 // DeleteApplicationByUuid Delete
 //
-// Delete application by UUID.
+// Delete application by UUID. Needs a token with the write and deploy permissions.
 //
 // Corresponds with DELETE /applications/{uuid} (the `DeleteApplicationByUuid` operationId).
 func (c *Client) DeleteApplicationByUuid(ctx context.Context, uuid string, params *DeleteApplicationByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -10856,7 +10899,7 @@ func (c *Client) CreatePreviewDeploymentByApplicationUuid(ctx context.Context, u
 
 // DeletePreviewDeploymentByPullRequestId Delete Preview Deployment
 //
-// Delete a preview deployment for a pull request. Cancels active deployments, stops containers, removes volumes/networks, and deletes the preview record.
+// Delete a preview deployment for a pull request. Cancels active deployments, stops containers, removes volumes/networks, and deletes the preview record. Needs a token with the write and deploy permissions.
 //
 // Corresponds with DELETE /applications/{uuid}/previews/{pull_request_id} (the `DeletePreviewDeploymentByPullRequestId` operationId).
 func (c *Client) DeletePreviewDeploymentByPullRequestId(ctx context.Context, uuid string, pullRequestId int, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -11127,7 +11170,7 @@ func (c *Client) UpdateScheduledTaskByApplicationUuid(ctx context.Context, uuid 
 
 // ExecuteScheduledTaskByApplicationUuid Execute Task
 //
-// Queue immediate execution of a scheduled task for an application.
+// Queue immediate execution of a scheduled task for an application. Requires the deploy ability.
 //
 // Corresponds with POST /applications/{uuid}/scheduled-tasks/{task_uuid}/execute (the `ExecuteScheduledTaskByApplicationUuid` operationId).
 func (c *Client) ExecuteScheduledTaskByApplicationUuid(ctx context.Context, uuid string, taskUuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -11360,7 +11403,7 @@ func (c *Client) DeleteApplicationStorageBackupSchedule(ctx context.Context, uui
 
 // SetApplicationStorageBackupScheduleWithBody Set application storage backup schedule
 //
-// Create or replace the backup schedule for an application persistent volume or directory storage.
+// Create or replace the backup schedule for an application persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes any type of body and a specified content type.
 //
@@ -11379,7 +11422,7 @@ func (c *Client) SetApplicationStorageBackupScheduleWithBody(ctx context.Context
 
 // SetApplicationStorageBackupSchedule Set application storage backup schedule
 //
-// Create or replace the backup schedule for an application persistent volume or directory storage.
+// Create or replace the backup schedule for an application persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -11398,7 +11441,7 @@ func (c *Client) SetApplicationStorageBackupSchedule(ctx context.Context, uuid s
 
 // RunApplicationStorageBackup Run application storage backup
 //
-// Queue an immediate volume backup for an application storage that has a schedule.
+// Queue an immediate volume backup for an application storage that has a schedule. Needs a token with the write and deploy permissions.
 //
 // Corresponds with POST /applications/{uuid}/storages/{storage_uuid}/backups/run (the `RunApplicationStorageBackup` operationId).
 func (c *Client) RunApplicationStorageBackup(ctx context.Context, uuid string, storageUuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -12134,7 +12177,7 @@ func (c *Client) CreateDatabaseSqlite(ctx context.Context, body CreateDatabaseSq
 
 // DeleteDatabaseByUuid Delete
 //
-// Delete database by UUID.
+// Delete database by UUID. Needs a token with the write and deploy permissions.
 //
 // Corresponds with DELETE /databases/{uuid} (the `DeleteDatabaseByUuid` operationId).
 func (c *Client) DeleteDatabaseByUuid(ctx context.Context, uuid string, params *DeleteDatabaseByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -12536,6 +12579,8 @@ func (c *Client) DeleteEnvByDatabaseUuid(ctx context.Context, uuid string, envUu
 
 // CreateDatabaseImportWithBody Import database backup
 //
+// Restore a backup into the database. Every import source requires the deploy ability.
+//
 // Takes any type of body and a specified content type.
 //
 // Corresponds with POST /databases/{uuid}/imports (the `CreateDatabaseImport` operationId).
@@ -12552,6 +12597,8 @@ func (c *Client) CreateDatabaseImportWithBody(ctx context.Context, uuid string, 
 }
 
 // CreateDatabaseImport Import database backup
+//
+// Restore a backup into the database. Every import source requires the deploy ability.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -12871,7 +12918,7 @@ func (c *Client) DeleteDatabaseStorageBackupSchedule(ctx context.Context, uuid s
 
 // SetDatabaseStorageBackupScheduleWithBody Set database storage backup schedule
 //
-// Create or replace the backup schedule for a database persistent volume or directory storage.
+// Create or replace the backup schedule for a database persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes any type of body and a specified content type.
 //
@@ -12890,7 +12937,7 @@ func (c *Client) SetDatabaseStorageBackupScheduleWithBody(ctx context.Context, u
 
 // SetDatabaseStorageBackupSchedule Set database storage backup schedule
 //
-// Create or replace the backup schedule for a database persistent volume or directory storage.
+// Create or replace the backup schedule for a database persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -12909,7 +12956,7 @@ func (c *Client) SetDatabaseStorageBackupSchedule(ctx context.Context, uuid stri
 
 // RunDatabaseStorageBackup Run database storage backup
 //
-// Queue an immediate volume backup for a database storage that has a schedule.
+// Queue an immediate volume backup for a database storage that has a schedule. Needs a token with the write and deploy permissions.
 //
 // Corresponds with POST /databases/{uuid}/storages/{storage_uuid}/backups/run (the `RunDatabaseStorageBackup` operationId).
 func (c *Client) RunDatabaseStorageBackup(ctx context.Context, uuid string, storageUuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -14648,6 +14695,8 @@ func (c *Client) CreateServer(ctx context.Context, body CreateServerJSONRequestB
 
 // CreateDigitaloceanServer Create a server on DigitalOcean
 //
+// Create a DigitalOcean droplet and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
+//
 // Corresponds with POST /servers/digitalocean (the `CreateDigitaloceanServer` operationId).
 func (c *Client) CreateDigitaloceanServer(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCreateDigitaloceanServerRequest(c.Server)
@@ -14663,7 +14712,7 @@ func (c *Client) CreateDigitaloceanServer(ctx context.Context, reqEditors ...Req
 
 // CreateHetznerServerWithBody Create Hetzner Server
 //
-// Create a new server on Hetzner and register it in Coolify.
+// Create a new server on Hetzner and register it in Coolify. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 //
 // Takes any type of body and a specified content type.
 //
@@ -14682,7 +14731,7 @@ func (c *Client) CreateHetznerServerWithBody(ctx context.Context, contentType st
 
 // CreateHetznerServer Create Hetzner Server
 //
-// Create a new server on Hetzner and register it in Coolify.
+// Create a new server on Hetzner and register it in Coolify. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -14701,7 +14750,7 @@ func (c *Client) CreateHetznerServer(ctx context.Context, body CreateHetznerServ
 
 // CreateVultrServer Create Vultr Server
 //
-// Create a Vultr instance and link it as a Coolify server.
+// Create a Vultr instance and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 //
 // Corresponds with POST /servers/vultr (the `CreateVultrServer` operationId).
 func (c *Client) CreateVultrServer(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -14735,7 +14784,7 @@ func (c *Client) ListServerDestinations(ctx context.Context, serverUuid string, 
 
 // CreateServerDestinationWithBody Create destination
 //
-// Create a Docker network destination on a server owned by the authenticated team.
+// Create a Docker network destination on a server owned by the authenticated team. The network must be new: Docker's built-in networks (bridge, host, none) and networks that already exist on a standalone server are rejected, because Coolify connects the proxy to the destination network.
 //
 // Takes any type of body and a specified content type.
 //
@@ -14754,7 +14803,7 @@ func (c *Client) CreateServerDestinationWithBody(ctx context.Context, serverUuid
 
 // CreateServerDestination Create destination
 //
-// Create a Docker network destination on a server owned by the authenticated team.
+// Create a Docker network destination on a server owned by the authenticated team. The network must be new: Docker's built-in networks (bridge, host, none) and networks that already exist on a standalone server are rejected, because Coolify connects the proxy to the destination network.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -14773,7 +14822,7 @@ func (c *Client) CreateServerDestination(ctx context.Context, serverUuid string,
 
 // DeleteServerByUuid Delete
 //
-// Delete server by UUID.
+// Delete server by UUID. With force or delete_from_provider, needs a token with the write and deploy permissions.
 //
 // Corresponds with DELETE /servers/{uuid} (the `DeleteServerByUuid` operationId).
 func (c *Client) DeleteServerByUuid(ctx context.Context, uuid string, params *DeleteServerByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -14807,7 +14856,7 @@ func (c *Client) GetServerByUuid(ctx context.Context, uuid string, reqEditors ..
 
 // UpdateServerByUuidWithBody Update
 //
-// Update Server.
+// Update Server. Changing proxy_type needs a token with the write and deploy permissions.
 //
 // Takes any type of body and a specified content type.
 //
@@ -14826,7 +14875,7 @@ func (c *Client) UpdateServerByUuidWithBody(ctx context.Context, uuid string, co
 
 // UpdateServerByUuid Update
 //
-// Update Server.
+// Update Server. Changing proxy_type needs a token with the write and deploy permissions.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -14951,7 +15000,7 @@ func (c *Client) GetServerDockerCleanup(ctx context.Context, uuid string, reqEdi
 
 // UpdateServerDockerCleanupWithBody Update Docker cleanup settings
 //
-// Update Docker cleanup settings for a server owned by the authenticated team.
+// Update Docker cleanup settings for a server owned by the authenticated team. Turning on `delete_unused_volumes` needs a token with the `deploy` permission.
 //
 // Takes any type of body and a specified content type.
 //
@@ -14970,7 +15019,7 @@ func (c *Client) UpdateServerDockerCleanupWithBody(ctx context.Context, uuid str
 
 // UpdateServerDockerCleanup Update Docker cleanup settings
 //
-// Update Docker cleanup settings for a server owned by the authenticated team.
+// Update Docker cleanup settings for a server owned by the authenticated team. Turning on `delete_unused_volumes` needs a token with the `deploy` permission.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -15006,7 +15055,7 @@ func (c *Client) ListServerDockerCleanupExecutions(ctx context.Context, uuid str
 
 // RunServerDockerCleanupWithBody Run Docker cleanup
 //
-// Dispatch a manual Docker cleanup job for a server owned by the authenticated team.
+// Dispatch a manual Docker cleanup job for a server owned by the authenticated team. Needs a token with the write and deploy permissions.
 //
 // Takes any type of body and a specified content type.
 //
@@ -15025,7 +15074,7 @@ func (c *Client) RunServerDockerCleanupWithBody(ctx context.Context, uuid string
 
 // RunServerDockerCleanup Run Docker cleanup
 //
-// Dispatch a manual Docker cleanup job for a server owned by the authenticated team.
+// Dispatch a manual Docker cleanup job for a server owned by the authenticated team. Needs a token with the write and deploy permissions.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -15146,7 +15195,7 @@ func (c *Client) GetServerLogDrains(ctx context.Context, uuid string, reqEditors
 
 // UpdateServerLogDrainsWithBody Update log drain settings
 //
-// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team.
+// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team. Needs a token with the write and deploy permissions. Custom configs cannot use the lua, wasm, exec, exec_wasi, or file plugins, @INCLUDE, or plugins_file, and the parser file can only contain [PARSER] and [MULTILINE_PARSER] sections.
 //
 // Takes any type of body and a specified content type.
 //
@@ -15165,7 +15214,7 @@ func (c *Client) UpdateServerLogDrainsWithBody(ctx context.Context, uuid string,
 
 // UpdateServerLogDrains Update log drain settings
 //
-// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team.
+// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team. Needs a token with the write and deploy permissions. Custom configs cannot use the lua, wasm, exec, exec_wasi, or file plugins, @INCLUDE, or plugins_file, and the parser file can only contain [PARSER] and [MULTILINE_PARSER] sections.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -15201,7 +15250,7 @@ func (c *Client) GetServerProxy(ctx context.Context, uuid string, reqEditors ...
 
 // UpdateServerProxyWithBody Update server proxy
 //
-// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server.
+// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server. Changing proxy_type needs a token with the `write` and `deploy` permissions.
 //
 // Takes any type of body and a specified content type.
 //
@@ -15220,7 +15269,7 @@ func (c *Client) UpdateServerProxyWithBody(ctx context.Context, uuid string, con
 
 // UpdateServerProxy Update server proxy
 //
-// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server.
+// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server. Changing proxy_type needs a token with the `write` and `deploy` permissions.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -15239,7 +15288,7 @@ func (c *Client) UpdateServerProxy(ctx context.Context, uuid string, body Update
 
 // SaveServerProxyConfigurationWithBody Save server proxy configuration
 //
-// Save the raw proxy Docker Compose configuration for a team-owned server. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
+// Save the raw proxy Docker Compose configuration for a team-owned server. Needs a token with the `write` and `deploy` permissions. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
 //
 // Takes any type of body and a specified content type.
 //
@@ -15258,7 +15307,7 @@ func (c *Client) SaveServerProxyConfigurationWithBody(ctx context.Context, uuid 
 
 // SaveServerProxyConfiguration Save server proxy configuration
 //
-// Save the raw proxy Docker Compose configuration for a team-owned server. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
+// Save the raw proxy Docker Compose configuration for a team-owned server. Needs a token with the `write` and `deploy` permissions. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
 //
 // Takes a body of the `application/json` content type.
 //
@@ -15277,7 +15326,7 @@ func (c *Client) SaveServerProxyConfiguration(ctx context.Context, uuid string, 
 
 // RestartServerProxy Restart server proxy
 //
-// Queue a proxy restart for a team-owned server.
+// Queue a proxy restart for a team-owned server. Needs a token with the `deploy` permission.
 //
 // Corresponds with POST /servers/{uuid}/proxy/restart (the `RestartServerProxy` operationId).
 func (c *Client) RestartServerProxy(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -15311,7 +15360,7 @@ func (c *Client) ListServerRegistries(ctx context.Context, uuid string, reqEdito
 
 // LoginServerRegistryWithBody Log in to a registry on a server
 //
-// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login.
+// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login. Needs a token with the write and deploy permissions.
 //
 // Takes any type of body and a specified content type.
 //
@@ -15330,7 +15379,7 @@ func (c *Client) LoginServerRegistryWithBody(ctx context.Context, uuid string, c
 
 // LoginServerRegistry Log in to a registry on a server
 //
-// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login.
+// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login. Needs a token with the write and deploy permissions.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -15417,7 +15466,7 @@ func (c *Client) GetServerSentinel(ctx context.Context, uuid string, reqEditors 
 
 // UpdateServerSentinelWithBody Update Sentinel settings
 //
-// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel.
+// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel. Needs a token with the write and deploy permissions.
 //
 // Takes any type of body and a specified content type.
 //
@@ -15436,7 +15485,7 @@ func (c *Client) UpdateServerSentinelWithBody(ctx context.Context, uuid string, 
 
 // UpdateServerSentinel Update Sentinel settings
 //
-// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel.
+// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel. Needs a token with the write and deploy permissions.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -15455,7 +15504,7 @@ func (c *Client) UpdateServerSentinel(ctx context.Context, uuid string, body Upd
 
 // ValidateServerByUuidWithBody Validate
 //
-// Validate server by UUID.
+// Validate server by UUID. With install=true, needs a token with the write and deploy permissions.
 //
 // Takes any type of body and a specified content type.
 //
@@ -15474,7 +15523,7 @@ func (c *Client) ValidateServerByUuidWithBody(ctx context.Context, uuid string, 
 
 // ValidateServerByUuid Validate
 //
-// Validate server by UUID.
+// Validate server by UUID. With install=true, needs a token with the write and deploy permissions.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -15548,7 +15597,7 @@ func (c *Client) CreateService(ctx context.Context, body CreateServiceJSONReques
 
 // DeleteServiceByUuid Delete
 //
-// Delete service by UUID.
+// Delete service by UUID. Needs a token with the write and deploy permissions.
 //
 // Corresponds with DELETE /services/{uuid} (the `DeleteServiceByUuid` operationId).
 func (c *Client) DeleteServiceByUuid(ctx context.Context, uuid string, params *DeleteServiceByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -15887,6 +15936,8 @@ func (c *Client) PatchServiceDatabaseByServiceAndDatabaseUuid(ctx context.Contex
 
 // CreateServiceDatabaseImportWithBody Import service database backup
 //
+// Restore a backup into the service database. Every import source requires the deploy ability.
+//
 // Takes any type of body and a specified content type.
 //
 // Corresponds with POST /services/{uuid}/databases/{database_uuid}/imports (the `CreateServiceDatabaseImport` operationId).
@@ -15903,6 +15954,8 @@ func (c *Client) CreateServiceDatabaseImportWithBody(ctx context.Context, uuid s
 }
 
 // CreateServiceDatabaseImport Import service database backup
+//
+// Restore a backup into the service database. Every import source requires the deploy ability.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -16387,7 +16440,7 @@ func (c *Client) UpdateScheduledTaskByServiceUuid(ctx context.Context, uuid stri
 
 // ExecuteScheduledTaskByServiceUuid Execute Task
 //
-// Queue immediate execution of a scheduled task for a service.
+// Queue immediate execution of a scheduled task for a service. Requires the deploy ability.
 //
 // Corresponds with POST /services/{uuid}/scheduled-tasks/{task_uuid}/execute (the `ExecuteScheduledTaskByServiceUuid` operationId).
 func (c *Client) ExecuteScheduledTaskByServiceUuid(ctx context.Context, uuid string, taskUuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -16582,7 +16635,7 @@ func (c *Client) DeleteServiceStorageBackupSchedule(ctx context.Context, uuid st
 
 // SetServiceStorageBackupScheduleWithBody Set service storage backup schedule
 //
-// Create or replace the backup schedule for a service persistent volume or directory storage.
+// Create or replace the backup schedule for a service persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes any type of body and a specified content type.
 //
@@ -16601,7 +16654,7 @@ func (c *Client) SetServiceStorageBackupScheduleWithBody(ctx context.Context, uu
 
 // SetServiceStorageBackupSchedule Set service storage backup schedule
 //
-// Create or replace the backup schedule for a service persistent volume or directory storage.
+// Create or replace the backup schedule for a service persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -16620,7 +16673,7 @@ func (c *Client) SetServiceStorageBackupSchedule(ctx context.Context, uuid strin
 
 // RunServiceStorageBackup Run service storage backup
 //
-// Queue an immediate volume backup for a service storage that has a schedule.
+// Queue an immediate volume backup for a service storage that has a schedule. Needs a token with the write and deploy permissions.
 //
 // Corresponds with POST /services/{uuid}/storages/{storage_uuid}/backups/run (the `RunServiceStorageBackup` operationId).
 func (c *Client) RunServiceStorageBackup(ctx context.Context, uuid string, storageUuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -29796,7 +29849,7 @@ type ClientWithResponsesInterface interface {
 
 	// DeleteApplicationByUuidWithResponse Delete
 	//
-	// Delete application by UUID.
+	// Delete application by UUID. Needs a token with the write and deploy permissions.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -30030,7 +30083,7 @@ type ClientWithResponsesInterface interface {
 
 	// DeletePreviewDeploymentByPullRequestIdWithResponse Delete Preview Deployment
 	//
-	// Delete a preview deployment for a pull request. Cancels active deployments, stops containers, removes volumes/networks, and deletes the preview record.
+	// Delete a preview deployment for a pull request. Cancels active deployments, stops containers, removes volumes/networks, and deletes the preview record. Needs a token with the write and deploy permissions.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -30165,7 +30218,7 @@ type ClientWithResponsesInterface interface {
 
 	// ExecuteScheduledTaskByApplicationUuidWithResponse Execute Task
 	//
-	// Queue immediate execution of a scheduled task for an application.
+	// Queue immediate execution of a scheduled task for an application. Requires the deploy ability.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -30282,7 +30335,7 @@ type ClientWithResponsesInterface interface {
 
 	// SetApplicationStorageBackupScheduleWithBodyWithResponse Set application storage backup schedule
 	//
-	// Create or replace the backup schedule for an application persistent volume or directory storage.
+	// Create or replace the backup schedule for an application persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -30291,7 +30344,7 @@ type ClientWithResponsesInterface interface {
 
 	// SetApplicationStorageBackupScheduleWithResponse Set application storage backup schedule
 	//
-	// Create or replace the backup schedule for an application persistent volume or directory storage.
+	// Create or replace the backup schedule for an application persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -30300,7 +30353,7 @@ type ClientWithResponsesInterface interface {
 
 	// RunApplicationStorageBackupWithResponse Run application storage backup
 	//
-	// Queue an immediate volume backup for an application storage that has a schedule.
+	// Queue an immediate volume backup for an application storage that has a schedule. Needs a token with the write and deploy permissions.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -30660,7 +30713,7 @@ type ClientWithResponsesInterface interface {
 
 	// DeleteDatabaseByUuidWithResponse Delete
 	//
-	// Delete database by UUID.
+	// Delete database by UUID. Needs a token with the write and deploy permissions.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -30858,12 +30911,16 @@ type ClientWithResponsesInterface interface {
 
 	// CreateDatabaseImportWithBodyWithResponse Import database backup
 	//
+	// Restore a backup into the database. Every import source requires the deploy ability.
+	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /databases/{uuid}/imports (the `CreateDatabaseImport` operationId).
 	CreateDatabaseImportWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateDatabaseImportResponse, error)
 
 	// CreateDatabaseImportWithResponse Import database backup
+	//
+	// Restore a backup into the database. Every import source requires the deploy ability.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -31021,7 +31078,7 @@ type ClientWithResponsesInterface interface {
 
 	// SetDatabaseStorageBackupScheduleWithBodyWithResponse Set database storage backup schedule
 	//
-	// Create or replace the backup schedule for a database persistent volume or directory storage.
+	// Create or replace the backup schedule for a database persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -31030,7 +31087,7 @@ type ClientWithResponsesInterface interface {
 
 	// SetDatabaseStorageBackupScheduleWithResponse Set database storage backup schedule
 	//
-	// Create or replace the backup schedule for a database persistent volume or directory storage.
+	// Create or replace the backup schedule for a database persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -31039,7 +31096,7 @@ type ClientWithResponsesInterface interface {
 
 	// RunDatabaseStorageBackupWithResponse Run database storage backup
 	//
-	// Queue an immediate volume backup for a database storage that has a schedule.
+	// Queue an immediate volume backup for a database storage that has a schedule. Needs a token with the write and deploy permissions.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -31922,6 +31979,8 @@ type ClientWithResponsesInterface interface {
 
 	// CreateDigitaloceanServerWithResponse Create a server on DigitalOcean
 	//
+	// Create a DigitalOcean droplet and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
+	//
 	// Returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /servers/digitalocean (the `CreateDigitaloceanServer` operationId).
@@ -31929,7 +31988,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateHetznerServerWithBodyWithResponse Create Hetzner Server
 	//
-	// Create a new server on Hetzner and register it in Coolify.
+	// Create a new server on Hetzner and register it in Coolify. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -31938,7 +31997,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateHetznerServerWithResponse Create Hetzner Server
 	//
-	// Create a new server on Hetzner and register it in Coolify.
+	// Create a new server on Hetzner and register it in Coolify. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -31947,7 +32006,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateVultrServerWithResponse Create Vultr Server
 	//
-	// Create a Vultr instance and link it as a Coolify server.
+	// Create a Vultr instance and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -31965,7 +32024,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateServerDestinationWithBodyWithResponse Create destination
 	//
-	// Create a Docker network destination on a server owned by the authenticated team.
+	// Create a Docker network destination on a server owned by the authenticated team. The network must be new: Docker's built-in networks (bridge, host, none) and networks that already exist on a standalone server are rejected, because Coolify connects the proxy to the destination network.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -31974,7 +32033,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreateServerDestinationWithResponse Create destination
 	//
-	// Create a Docker network destination on a server owned by the authenticated team.
+	// Create a Docker network destination on a server owned by the authenticated team. The network must be new: Docker's built-in networks (bridge, host, none) and networks that already exist on a standalone server are rejected, because Coolify connects the proxy to the destination network.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -31983,7 +32042,7 @@ type ClientWithResponsesInterface interface {
 
 	// DeleteServerByUuidWithResponse Delete
 	//
-	// Delete server by UUID.
+	// Delete server by UUID. With force or delete_from_provider, needs a token with the write and deploy permissions.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -32001,7 +32060,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerByUuidWithBodyWithResponse Update
 	//
-	// Update Server.
+	// Update Server. Changing proxy_type needs a token with the write and deploy permissions.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32010,7 +32069,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerByUuidWithResponse Update
 	//
-	// Update Server.
+	// Update Server. Changing proxy_type needs a token with the write and deploy permissions.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32073,7 +32132,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerDockerCleanupWithBodyWithResponse Update Docker cleanup settings
 	//
-	// Update Docker cleanup settings for a server owned by the authenticated team.
+	// Update Docker cleanup settings for a server owned by the authenticated team. Turning on `delete_unused_volumes` needs a token with the `deploy` permission.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32082,7 +32141,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerDockerCleanupWithResponse Update Docker cleanup settings
 	//
-	// Update Docker cleanup settings for a server owned by the authenticated team.
+	// Update Docker cleanup settings for a server owned by the authenticated team. Turning on `delete_unused_volumes` needs a token with the `deploy` permission.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32100,7 +32159,7 @@ type ClientWithResponsesInterface interface {
 
 	// RunServerDockerCleanupWithBodyWithResponse Run Docker cleanup
 	//
-	// Dispatch a manual Docker cleanup job for a server owned by the authenticated team.
+	// Dispatch a manual Docker cleanup job for a server owned by the authenticated team. Needs a token with the write and deploy permissions.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32109,7 +32168,7 @@ type ClientWithResponsesInterface interface {
 
 	// RunServerDockerCleanupWithResponse Run Docker cleanup
 	//
-	// Dispatch a manual Docker cleanup job for a server owned by the authenticated team.
+	// Dispatch a manual Docker cleanup job for a server owned by the authenticated team. Needs a token with the write and deploy permissions.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32172,7 +32231,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerLogDrainsWithBodyWithResponse Update log drain settings
 	//
-	// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team.
+	// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team. Needs a token with the write and deploy permissions. Custom configs cannot use the lua, wasm, exec, exec_wasi, or file plugins, @INCLUDE, or plugins_file, and the parser file can only contain [PARSER] and [MULTILINE_PARSER] sections.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32181,7 +32240,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerLogDrainsWithResponse Update log drain settings
 	//
-	// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team.
+	// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team. Needs a token with the write and deploy permissions. Custom configs cannot use the lua, wasm, exec, exec_wasi, or file plugins, @INCLUDE, or plugins_file, and the parser file can only contain [PARSER] and [MULTILINE_PARSER] sections.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32199,7 +32258,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerProxyWithBodyWithResponse Update server proxy
 	//
-	// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server.
+	// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server. Changing proxy_type needs a token with the `write` and `deploy` permissions.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32208,7 +32267,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerProxyWithResponse Update server proxy
 	//
-	// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server.
+	// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server. Changing proxy_type needs a token with the `write` and `deploy` permissions.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32217,7 +32276,7 @@ type ClientWithResponsesInterface interface {
 
 	// SaveServerProxyConfigurationWithBodyWithResponse Save server proxy configuration
 	//
-	// Save the raw proxy Docker Compose configuration for a team-owned server. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
+	// Save the raw proxy Docker Compose configuration for a team-owned server. Needs a token with the `write` and `deploy` permissions. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32226,7 +32285,7 @@ type ClientWithResponsesInterface interface {
 
 	// SaveServerProxyConfigurationWithResponse Save server proxy configuration
 	//
-	// Save the raw proxy Docker Compose configuration for a team-owned server. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
+	// Save the raw proxy Docker Compose configuration for a team-owned server. Needs a token with the `write` and `deploy` permissions. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32235,7 +32294,7 @@ type ClientWithResponsesInterface interface {
 
 	// RestartServerProxyWithResponse Restart server proxy
 	//
-	// Queue a proxy restart for a team-owned server.
+	// Queue a proxy restart for a team-owned server. Needs a token with the `deploy` permission.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -32253,7 +32312,7 @@ type ClientWithResponsesInterface interface {
 
 	// LoginServerRegistryWithBodyWithResponse Log in to a registry on a server
 	//
-	// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login.
+	// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login. Needs a token with the write and deploy permissions.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32262,7 +32321,7 @@ type ClientWithResponsesInterface interface {
 
 	// LoginServerRegistryWithResponse Log in to a registry on a server
 	//
-	// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login.
+	// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login. Needs a token with the write and deploy permissions.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32307,7 +32366,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerSentinelWithBodyWithResponse Update Sentinel settings
 	//
-	// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel.
+	// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel. Needs a token with the write and deploy permissions.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32316,7 +32375,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerSentinelWithResponse Update Sentinel settings
 	//
-	// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel.
+	// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel. Needs a token with the write and deploy permissions.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32325,7 +32384,7 @@ type ClientWithResponsesInterface interface {
 
 	// ValidateServerByUuidWithBodyWithResponse Validate
 	//
-	// Validate server by UUID.
+	// Validate server by UUID. With install=true, needs a token with the write and deploy permissions.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32334,7 +32393,7 @@ type ClientWithResponsesInterface interface {
 
 	// ValidateServerByUuidWithResponse Validate
 	//
-	// Validate server by UUID.
+	// Validate server by UUID. With install=true, needs a token with the write and deploy permissions.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32370,7 +32429,7 @@ type ClientWithResponsesInterface interface {
 
 	// DeleteServiceByUuidWithResponse Delete
 	//
-	// Delete service by UUID.
+	// Delete service by UUID. Needs a token with the write and deploy permissions.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -32541,12 +32600,16 @@ type ClientWithResponsesInterface interface {
 
 	// CreateServiceDatabaseImportWithBodyWithResponse Import service database backup
 	//
+	// Restore a backup into the service database. Every import source requires the deploy ability.
+	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /services/{uuid}/databases/{database_uuid}/imports (the `CreateServiceDatabaseImport` operationId).
 	CreateServiceDatabaseImportWithBodyWithResponse(ctx context.Context, uuid string, databaseUuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateServiceDatabaseImportResponse, error)
 
 	// CreateServiceDatabaseImportWithResponse Import service database backup
+	//
+	// Restore a backup into the service database. Every import source requires the deploy ability.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32785,7 +32848,7 @@ type ClientWithResponsesInterface interface {
 
 	// ExecuteScheduledTaskByServiceUuidWithResponse Execute Task
 	//
-	// Queue immediate execution of a scheduled task for a service.
+	// Queue immediate execution of a scheduled task for a service. Requires the deploy ability.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -32884,7 +32947,7 @@ type ClientWithResponsesInterface interface {
 
 	// SetServiceStorageBackupScheduleWithBodyWithResponse Set service storage backup schedule
 	//
-	// Create or replace the backup schedule for a service persistent volume or directory storage.
+	// Create or replace the backup schedule for a service persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32893,7 +32956,7 @@ type ClientWithResponsesInterface interface {
 
 	// SetServiceStorageBackupScheduleWithResponse Set service storage backup schedule
 	//
-	// Create or replace the backup schedule for a service persistent volume or directory storage.
+	// Create or replace the backup schedule for a service persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32902,7 +32965,7 @@ type ClientWithResponsesInterface interface {
 
 	// RunServiceStorageBackupWithResponse Run service storage backup
 	//
-	// Queue an immediate volume backup for a service storage that has a schedule.
+	// Queue an immediate volume backup for a service storage that has a schedule. Needs a token with the write and deploy permissions.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -44918,8 +44981,6 @@ type CreateServerDestinationResponse struct {
 	JSON401 *N401
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *N404
-	// JSON422 the response for an HTTP 422 `application/json` response
-	JSON422 *N422
 }
 
 // GetJSON201 returns the response for an HTTP 201 `application/json` response
@@ -44935,11 +44996,6 @@ func (r CreateServerDestinationResponse) GetJSON401() *N401 {
 // GetJSON404 returns the response for an HTTP 404 `application/json` response
 func (r CreateServerDestinationResponse) GetJSON404() *N404 {
 	return r.JSON404
-}
-
-// GetJSON422 returns the response for an HTTP 422 `application/json` response
-func (r CreateServerDestinationResponse) GetJSON422() *N422 {
-	return r.JSON422
 }
 
 // GetBody returns the raw response body bytes
@@ -51656,7 +51712,7 @@ func (c *ClientWithResponses) CreatePublicApplicationWithResponse(ctx context.Co
 
 // DeleteApplicationByUuidWithResponse Delete
 //
-// Delete application by UUID.
+// Delete application by UUID. Needs a token with the write and deploy permissions.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -52046,7 +52102,7 @@ func (c *ClientWithResponses) CreatePreviewDeploymentByApplicationUuidWithRespon
 
 // DeletePreviewDeploymentByPullRequestIdWithResponse Delete Preview Deployment
 //
-// Delete a preview deployment for a pull request. Cancels active deployments, stops containers, removes volumes/networks, and deletes the preview record.
+// Delete a preview deployment for a pull request. Cancels active deployments, stops containers, removes volumes/networks, and deletes the preview record. Needs a token with the write and deploy permissions.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -52271,7 +52327,7 @@ func (c *ClientWithResponses) UpdateScheduledTaskByApplicationUuidWithResponse(c
 
 // ExecuteScheduledTaskByApplicationUuidWithResponse Execute Task
 //
-// Queue immediate execution of a scheduled task for an application.
+// Queue immediate execution of a scheduled task for an application. Requires the deploy ability.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -52466,7 +52522,7 @@ func (c *ClientWithResponses) DeleteApplicationStorageBackupScheduleWithResponse
 
 // SetApplicationStorageBackupScheduleWithBodyWithResponse Set application storage backup schedule
 //
-// Create or replace the backup schedule for an application persistent volume or directory storage.
+// Create or replace the backup schedule for an application persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -52481,7 +52537,7 @@ func (c *ClientWithResponses) SetApplicationStorageBackupScheduleWithBodyWithRes
 
 // SetApplicationStorageBackupScheduleWithResponse Set application storage backup schedule
 //
-// Create or replace the backup schedule for an application persistent volume or directory storage.
+// Create or replace the backup schedule for an application persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -52496,7 +52552,7 @@ func (c *ClientWithResponses) SetApplicationStorageBackupScheduleWithResponse(ct
 
 // RunApplicationStorageBackupWithResponse Run application storage backup
 //
-// Queue an immediate volume backup for an application storage that has a schedule.
+// Queue an immediate volume backup for an application storage that has a schedule. Needs a token with the write and deploy permissions.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -53096,7 +53152,7 @@ func (c *ClientWithResponses) CreateDatabaseSqliteWithResponse(ctx context.Conte
 
 // DeleteDatabaseByUuidWithResponse Delete
 //
-// Delete database by UUID.
+// Delete database by UUID. Needs a token with the write and deploy permissions.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -53426,6 +53482,8 @@ func (c *ClientWithResponses) DeleteEnvByDatabaseUuidWithResponse(ctx context.Co
 
 // CreateDatabaseImportWithBodyWithResponse Import database backup
 //
+// Restore a backup into the database. Every import source requires the deploy ability.
+//
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with POST /databases/{uuid}/imports (the `CreateDatabaseImport` operationId).
@@ -53438,6 +53496,8 @@ func (c *ClientWithResponses) CreateDatabaseImportWithBodyWithResponse(ctx conte
 }
 
 // CreateDatabaseImportWithResponse Import database backup
+//
+// Restore a backup into the database. Every import source requires the deploy ability.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -53703,7 +53763,7 @@ func (c *ClientWithResponses) DeleteDatabaseStorageBackupScheduleWithResponse(ct
 
 // SetDatabaseStorageBackupScheduleWithBodyWithResponse Set database storage backup schedule
 //
-// Create or replace the backup schedule for a database persistent volume or directory storage.
+// Create or replace the backup schedule for a database persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -53718,7 +53778,7 @@ func (c *ClientWithResponses) SetDatabaseStorageBackupScheduleWithBodyWithRespon
 
 // SetDatabaseStorageBackupScheduleWithResponse Set database storage backup schedule
 //
-// Create or replace the backup schedule for a database persistent volume or directory storage.
+// Create or replace the backup schedule for a database persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -53733,7 +53793,7 @@ func (c *ClientWithResponses) SetDatabaseStorageBackupScheduleWithResponse(ctx c
 
 // RunDatabaseStorageBackupWithResponse Run database storage backup
 //
-// Queue an immediate volume backup for a database storage that has a schedule.
+// Queue an immediate volume backup for a database storage that has a schedule. Needs a token with the write and deploy permissions.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -55210,6 +55270,8 @@ func (c *ClientWithResponses) CreateServerWithResponse(ctx context.Context, body
 
 // CreateDigitaloceanServerWithResponse Create a server on DigitalOcean
 //
+// Create a DigitalOcean droplet and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
+//
 // Returns a wrapper object for the known response body format(s).
 //
 // Corresponds with POST /servers/digitalocean (the `CreateDigitaloceanServer` operationId).
@@ -55223,7 +55285,7 @@ func (c *ClientWithResponses) CreateDigitaloceanServerWithResponse(ctx context.C
 
 // CreateHetznerServerWithBodyWithResponse Create Hetzner Server
 //
-// Create a new server on Hetzner and register it in Coolify.
+// Create a new server on Hetzner and register it in Coolify. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55238,7 +55300,7 @@ func (c *ClientWithResponses) CreateHetznerServerWithBodyWithResponse(ctx contex
 
 // CreateHetznerServerWithResponse Create Hetzner Server
 //
-// Create a new server on Hetzner and register it in Coolify.
+// Create a new server on Hetzner and register it in Coolify. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55253,7 +55315,7 @@ func (c *ClientWithResponses) CreateHetznerServerWithResponse(ctx context.Contex
 
 // CreateVultrServerWithResponse Create Vultr Server
 //
-// Create a Vultr instance and link it as a Coolify server.
+// Create a Vultr instance and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -55283,7 +55345,7 @@ func (c *ClientWithResponses) ListServerDestinationsWithResponse(ctx context.Con
 
 // CreateServerDestinationWithBodyWithResponse Create destination
 //
-// Create a Docker network destination on a server owned by the authenticated team.
+// Create a Docker network destination on a server owned by the authenticated team. The network must be new: Docker's built-in networks (bridge, host, none) and networks that already exist on a standalone server are rejected, because Coolify connects the proxy to the destination network.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55298,7 +55360,7 @@ func (c *ClientWithResponses) CreateServerDestinationWithBodyWithResponse(ctx co
 
 // CreateServerDestinationWithResponse Create destination
 //
-// Create a Docker network destination on a server owned by the authenticated team.
+// Create a Docker network destination on a server owned by the authenticated team. The network must be new: Docker's built-in networks (bridge, host, none) and networks that already exist on a standalone server are rejected, because Coolify connects the proxy to the destination network.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55313,7 +55375,7 @@ func (c *ClientWithResponses) CreateServerDestinationWithResponse(ctx context.Co
 
 // DeleteServerByUuidWithResponse Delete
 //
-// Delete server by UUID.
+// Delete server by UUID. With force or delete_from_provider, needs a token with the write and deploy permissions.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -55343,7 +55405,7 @@ func (c *ClientWithResponses) GetServerByUuidWithResponse(ctx context.Context, u
 
 // UpdateServerByUuidWithBodyWithResponse Update
 //
-// Update Server.
+// Update Server. Changing proxy_type needs a token with the write and deploy permissions.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55358,7 +55420,7 @@ func (c *ClientWithResponses) UpdateServerByUuidWithBodyWithResponse(ctx context
 
 // UpdateServerByUuidWithResponse Update
 //
-// Update Server.
+// Update Server. Changing proxy_type needs a token with the write and deploy permissions.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55463,7 +55525,7 @@ func (c *ClientWithResponses) GetServerDockerCleanupWithResponse(ctx context.Con
 
 // UpdateServerDockerCleanupWithBodyWithResponse Update Docker cleanup settings
 //
-// Update Docker cleanup settings for a server owned by the authenticated team.
+// Update Docker cleanup settings for a server owned by the authenticated team. Turning on `delete_unused_volumes` needs a token with the `deploy` permission.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55478,7 +55540,7 @@ func (c *ClientWithResponses) UpdateServerDockerCleanupWithBodyWithResponse(ctx 
 
 // UpdateServerDockerCleanupWithResponse Update Docker cleanup settings
 //
-// Update Docker cleanup settings for a server owned by the authenticated team.
+// Update Docker cleanup settings for a server owned by the authenticated team. Turning on `delete_unused_volumes` needs a token with the `deploy` permission.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55508,7 +55570,7 @@ func (c *ClientWithResponses) ListServerDockerCleanupExecutionsWithResponse(ctx 
 
 // RunServerDockerCleanupWithBodyWithResponse Run Docker cleanup
 //
-// Dispatch a manual Docker cleanup job for a server owned by the authenticated team.
+// Dispatch a manual Docker cleanup job for a server owned by the authenticated team. Needs a token with the write and deploy permissions.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55523,7 +55585,7 @@ func (c *ClientWithResponses) RunServerDockerCleanupWithBodyWithResponse(ctx con
 
 // RunServerDockerCleanupWithResponse Run Docker cleanup
 //
-// Dispatch a manual Docker cleanup job for a server owned by the authenticated team.
+// Dispatch a manual Docker cleanup job for a server owned by the authenticated team. Needs a token with the write and deploy permissions.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55628,7 +55690,7 @@ func (c *ClientWithResponses) GetServerLogDrainsWithResponse(ctx context.Context
 
 // UpdateServerLogDrainsWithBodyWithResponse Update log drain settings
 //
-// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team.
+// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team. Needs a token with the write and deploy permissions. Custom configs cannot use the lua, wasm, exec, exec_wasi, or file plugins, @INCLUDE, or plugins_file, and the parser file can only contain [PARSER] and [MULTILINE_PARSER] sections.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55643,7 +55705,7 @@ func (c *ClientWithResponses) UpdateServerLogDrainsWithBodyWithResponse(ctx cont
 
 // UpdateServerLogDrainsWithResponse Update log drain settings
 //
-// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team.
+// Update New Relic, Axiom, or custom log drain settings for a server owned by the authenticated team. Needs a token with the write and deploy permissions. Custom configs cannot use the lua, wasm, exec, exec_wasi, or file plugins, @INCLUDE, or plugins_file, and the parser file can only contain [PARSER] and [MULTILINE_PARSER] sections.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55673,7 +55735,7 @@ func (c *ClientWithResponses) GetServerProxyWithResponse(ctx context.Context, uu
 
 // UpdateServerProxyWithBodyWithResponse Update server proxy
 //
-// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server.
+// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server. Changing proxy_type needs a token with the `write` and `deploy` permissions.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55688,7 +55750,7 @@ func (c *ClientWithResponses) UpdateServerProxyWithBodyWithResponse(ctx context.
 
 // UpdateServerProxyWithResponse Update server proxy
 //
-// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server.
+// Update proxy redirect settings, exact labels generation, the Traefik certificate resolver, and optionally the proxy type for a team-owned server. Changing proxy_type needs a token with the `write` and `deploy` permissions.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55703,7 +55765,7 @@ func (c *ClientWithResponses) UpdateServerProxyWithResponse(ctx context.Context,
 
 // SaveServerProxyConfigurationWithBodyWithResponse Save server proxy configuration
 //
-// Save the raw proxy Docker Compose configuration for a team-owned server. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
+// Save the raw proxy Docker Compose configuration for a team-owned server. Needs a token with the `write` and `deploy` permissions. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55718,7 +55780,7 @@ func (c *ClientWithResponses) SaveServerProxyConfigurationWithBodyWithResponse(c
 
 // SaveServerProxyConfigurationWithResponse Save server proxy configuration
 //
-// Save the raw proxy Docker Compose configuration for a team-owned server. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
+// Save the raw proxy Docker Compose configuration for a team-owned server. Needs a token with the `write` and `deploy` permissions. Multi-line configuration must be base64 encoded (same pattern as other compose payloads).
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55733,7 +55795,7 @@ func (c *ClientWithResponses) SaveServerProxyConfigurationWithResponse(ctx conte
 
 // RestartServerProxyWithResponse Restart server proxy
 //
-// Queue a proxy restart for a team-owned server.
+// Queue a proxy restart for a team-owned server. Needs a token with the `deploy` permission.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -55763,7 +55825,7 @@ func (c *ClientWithResponses) ListServerRegistriesWithResponse(ctx context.Conte
 
 // LoginServerRegistryWithBodyWithResponse Log in to a registry on a server
 //
-// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login.
+// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login. Needs a token with the write and deploy permissions.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55778,7 +55840,7 @@ func (c *ClientWithResponses) LoginServerRegistryWithBodyWithResponse(ctx contex
 
 // LoginServerRegistryWithResponse Log in to a registry on a server
 //
-// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login.
+// Run docker login on the server, writing to the Docker config that deployments use. Logging in again to the same registry replaces the saved login. Needs a token with the write and deploy permissions.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55853,7 +55915,7 @@ func (c *ClientWithResponses) GetServerSentinelWithResponse(ctx context.Context,
 
 // UpdateServerSentinelWithBodyWithResponse Update Sentinel settings
 //
-// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel.
+// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel. Needs a token with the write and deploy permissions.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55868,7 +55930,7 @@ func (c *ClientWithResponses) UpdateServerSentinelWithBodyWithResponse(ctx conte
 
 // UpdateServerSentinelWithResponse Update Sentinel settings
 //
-// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel.
+// Update Sentinel settings for a server owned by the authenticated team. Changing token/metrics timing fields may restart Sentinel. Needs a token with the write and deploy permissions.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55883,7 +55945,7 @@ func (c *ClientWithResponses) UpdateServerSentinelWithResponse(ctx context.Conte
 
 // ValidateServerByUuidWithBodyWithResponse Validate
 //
-// Validate server by UUID.
+// Validate server by UUID. With install=true, needs a token with the write and deploy permissions.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55898,7 +55960,7 @@ func (c *ClientWithResponses) ValidateServerByUuidWithBodyWithResponse(ctx conte
 
 // ValidateServerByUuidWithResponse Validate
 //
-// Validate server by UUID.
+// Validate server by UUID. With install=true, needs a token with the write and deploy permissions.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55958,7 +56020,7 @@ func (c *ClientWithResponses) CreateServiceWithResponse(ctx context.Context, bod
 
 // DeleteServiceByUuidWithResponse Delete
 //
-// Delete service by UUID.
+// Delete service by UUID. Needs a token with the write and deploy permissions.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -56243,6 +56305,8 @@ func (c *ClientWithResponses) PatchServiceDatabaseByServiceAndDatabaseUuidWithRe
 
 // CreateServiceDatabaseImportWithBodyWithResponse Import service database backup
 //
+// Restore a backup into the service database. Every import source requires the deploy ability.
+//
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with POST /services/{uuid}/databases/{database_uuid}/imports (the `CreateServiceDatabaseImport` operationId).
@@ -56255,6 +56319,8 @@ func (c *ClientWithResponses) CreateServiceDatabaseImportWithBodyWithResponse(ct
 }
 
 // CreateServiceDatabaseImportWithResponse Import service database backup
+//
+// Restore a backup into the service database. Every import source requires the deploy ability.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -56655,7 +56721,7 @@ func (c *ClientWithResponses) UpdateScheduledTaskByServiceUuidWithResponse(ctx c
 
 // ExecuteScheduledTaskByServiceUuidWithResponse Execute Task
 //
-// Queue immediate execution of a scheduled task for a service.
+// Queue immediate execution of a scheduled task for a service. Requires the deploy ability.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -56820,7 +56886,7 @@ func (c *ClientWithResponses) DeleteServiceStorageBackupScheduleWithResponse(ctx
 
 // SetServiceStorageBackupScheduleWithBodyWithResponse Set service storage backup schedule
 //
-// Create or replace the backup schedule for a service persistent volume or directory storage.
+// Create or replace the backup schedule for a service persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -56835,7 +56901,7 @@ func (c *ClientWithResponses) SetServiceStorageBackupScheduleWithBodyWithRespons
 
 // SetServiceStorageBackupScheduleWithResponse Set service storage backup schedule
 //
-// Create or replace the backup schedule for a service persistent volume or directory storage.
+// Create or replace the backup schedule for a service persistent volume or directory storage. A schedule with stop_during_backup needs a token with the deploy permission.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -56850,7 +56916,7 @@ func (c *ClientWithResponses) SetServiceStorageBackupScheduleWithResponse(ctx co
 
 // RunServiceStorageBackupWithResponse Run service storage backup
 //
-// Queue an immediate volume backup for a service storage that has a schedule.
+// Queue an immediate volume backup for a service storage that has a schedule. Needs a token with the write and deploy permissions.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -57375,6 +57441,9 @@ func ParseCreateDockerfileApplicationResponse(rsp *http.Response) (*CreateDocker
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
 		var dest struct {
 			Conflicts *[]struct {
@@ -57433,6 +57502,9 @@ func ParseCreateDockerimageApplicationResponse(rsp *http.Response) (*CreateDocke
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
 		var dest struct {
@@ -57493,6 +57565,9 @@ func ParseCreatePrivateDeployKeyApplicationResponse(rsp *http.Response) (*Create
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
 		var dest struct {
 			Conflicts *[]struct {
@@ -57551,6 +57626,9 @@ func ParseCreatePrivateGithubAppApplicationResponse(rsp *http.Response) (*Create
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
 		var dest struct {
@@ -57611,6 +57689,9 @@ func ParseCreatePublicApplicationResponse(rsp *http.Response) (*CreatePublicAppl
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
 		var dest struct {
 			Conflicts *[]struct {
@@ -57669,6 +57750,9 @@ func ParseDeleteApplicationByUuidResponse(rsp *http.Response) (*DeleteApplicatio
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -57766,6 +57850,9 @@ func ParseUpdateApplicationByUuidResponse(rsp *http.Response) (*UpdateApplicatio
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -57832,6 +57919,9 @@ func ParseCloneApplicationByUuidResponse(rsp *http.Response) (*CloneApplicationB
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -58519,6 +58609,9 @@ func ParseDeletePreviewDeploymentByPullRequestIdResponse(rsp *http.Response) (*D
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -58913,6 +59006,9 @@ func ParseCreateScheduledTaskByApplicationUuidResponse(rsp *http.Response) (*Cre
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -59002,6 +59098,9 @@ func ParseUpdateScheduledTaskByApplicationUuidResponse(rsp *http.Response) (*Upd
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -59044,6 +59143,9 @@ func ParseExecuteScheduledTaskByApplicationUuidResponse(rsp *http.Response) (*Ex
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -59591,6 +59693,9 @@ func ParseRunApplicationStorageBackupResponse(rsp *http.Response) (*RunApplicati
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -60758,6 +60863,9 @@ func ParseDeleteDatabaseByUuidResponse(rsp *http.Response) (*DeleteDatabaseByUui
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -60847,6 +60955,9 @@ func ParseUpdateDatabaseByUuidResponse(rsp *http.Response) (*UpdateDatabaseByUui
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -60952,6 +61063,9 @@ func ParseCreateDatabaseBackupResponse(rsp *http.Response) (*CreateDatabaseBacku
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -61038,6 +61152,9 @@ func ParseUpdateDatabaseBackupResponse(rsp *http.Response) (*UpdateDatabaseBacku
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -61163,6 +61280,9 @@ func ParseCloneDatabaseByUuidResponse(rsp *http.Response) (*CloneDatabaseByUuidR
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -61458,6 +61578,9 @@ func ParseCreateDatabaseImportResponse(rsp *http.Response) (*CreateDatabaseImpor
 
 	switch {
 	case rsp.StatusCode == 202:
+		break // No content-type
+
+	case rsp.StatusCode == 403:
 		break // No content-type
 
 	case rsp.StatusCode == 409:
@@ -62203,6 +62326,9 @@ func ParseRunDatabaseStorageBackupResponse(rsp *http.Response) (*RunDatabaseStor
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -65976,6 +66102,9 @@ func ParseCreateDigitaloceanServerResponse(rsp *http.Response) (*CreateDigitaloc
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case rsp.StatusCode == 422:
 		break // No content-type
 
@@ -66030,6 +66159,9 @@ func ParseCreateHetznerServerResponse(rsp *http.Response) (*CreateHetznerServerR
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -66093,6 +66225,9 @@ func ParseCreateVultrServerResponse(rsp *http.Response) (*CreateVultrServerRespo
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case rsp.StatusCode == 422:
 		break // No content-type
@@ -66183,12 +66318,8 @@ func ParseCreateServerDestinationResponse(rsp *http.Response) (*CreateServerDest
 	case rsp.StatusCode == 409:
 		break // No content-type
 
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
-		var dest N422
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON422 = &dest
+	case rsp.StatusCode == 422:
+		break // No content-type
 
 	}
 
@@ -66231,6 +66362,9 @@ func ParseDeleteServerByUuidResponse(rsp *http.Response) (*DeleteServerByUuidRes
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -66332,6 +66466,9 @@ func ParseUpdateServerByUuidResponse(rsp *http.Response) (*UpdateServerByUuidRes
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -66649,6 +66786,9 @@ func ParseUpdateServerDockerCleanupResponse(rsp *http.Response) (*UpdateServerDo
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -66758,6 +66898,9 @@ func ParseRunServerDockerCleanupResponse(rsp *http.Response) (*RunServerDockerCl
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -67078,6 +67221,9 @@ func ParseUpdateServerLogDrainsResponse(rsp *http.Response) (*UpdateServerLogDra
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -67197,6 +67343,9 @@ func ParseUpdateServerProxyResponse(rsp *http.Response) (*UpdateServerProxyRespo
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -67427,6 +67576,9 @@ func ParseLoginServerRegistryResponse(rsp *http.Response) (*LoginServerRegistryR
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -67712,6 +67864,9 @@ func ParseUpdateServerSentinelResponse(rsp *http.Response) (*UpdateServerSentine
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -67767,6 +67922,9 @@ func ParseValidateServerByUuidResponse(rsp *http.Response) (*ValidateServerByUui
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -67933,6 +68091,9 @@ func ParseDeleteServiceByUuidResponse(rsp *http.Response) (*DeleteServiceByUuidR
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -68491,6 +68652,9 @@ func ParseCloneServiceByUuidResponse(rsp *http.Response) (*CloneServiceByUuidRes
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -68625,6 +68789,9 @@ func ParsePatchServiceDatabaseByServiceAndDatabaseUuidResponse(rsp *http.Respons
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -68659,6 +68826,9 @@ func ParseCreateServiceDatabaseImportResponse(rsp *http.Response) (*CreateServic
 
 	switch {
 	case rsp.StatusCode == 202:
+		break // No content-type
+
+	case rsp.StatusCode == 403:
 		break // No content-type
 
 	case rsp.StatusCode == 409:
@@ -69481,6 +69651,9 @@ func ParseCreateScheduledTaskByServiceUuidResponse(rsp *http.Response) (*CreateS
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -69570,6 +69743,9 @@ func ParseUpdateScheduledTaskByServiceUuidResponse(rsp *http.Response) (*UpdateS
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -69612,6 +69788,9 @@ func ParseExecuteScheduledTaskByServiceUuidResponse(rsp *http.Response) (*Execut
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -70112,6 +70291,9 @@ func ParseRunServiceStorageBackupResponse(rsp *http.Response) (*RunServiceStorag
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404

@@ -63,6 +63,24 @@ func (e ApplicationHealthCheckType) Valid() bool {
 	}
 }
 
+// Defines values for ApplicationHttpBasicAuthHashAlgorithm.
+const (
+	ApplicationHttpBasicAuthHashAlgorithmArgon2id ApplicationHttpBasicAuthHashAlgorithm = "argon2id"
+	ApplicationHttpBasicAuthHashAlgorithmBcrypt   ApplicationHttpBasicAuthHashAlgorithm = "bcrypt"
+)
+
+// Valid indicates whether the value is a known member of the ApplicationHttpBasicAuthHashAlgorithm enum.
+func (e ApplicationHttpBasicAuthHashAlgorithm) Valid() bool {
+	switch e {
+	case ApplicationHttpBasicAuthHashAlgorithmArgon2id:
+		return true
+	case ApplicationHttpBasicAuthHashAlgorithmBcrypt:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ApplicationRedirect.
 const (
 	ApplicationRedirectBoth   ApplicationRedirect = "both"
@@ -312,6 +330,24 @@ func (e CreateDockerfileApplicationJSONBodyBuildPack) Valid() bool {
 	}
 }
 
+// Defines values for CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithm.
+const (
+	CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithm = "argon2id"
+	CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt   CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithm = "bcrypt"
+)
+
+// Valid indicates whether the value is a known member of the CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithm enum.
+func (e CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithm) Valid() bool {
+	switch e {
+	case CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id:
+		return true
+	case CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CreateDockerfileApplicationJSONBodyRedirect.
 const (
 	CreateDockerfileApplicationJSONBodyRedirectBoth   CreateDockerfileApplicationJSONBodyRedirect = "both"
@@ -348,6 +384,24 @@ func (e CreateDockerfileApplication409JSONResponseBodyConflictsResourceType) Val
 	case CreateDockerfileApplication409JSONResponseBodyConflictsResourceTypeInstance:
 		return true
 	case CreateDockerfileApplication409JSONResponseBodyConflictsResourceTypeService:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithm.
+const (
+	CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithm = "argon2id"
+	CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt   CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithm = "bcrypt"
+)
+
+// Valid indicates whether the value is a known member of the CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithm enum.
+func (e CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithm) Valid() bool {
+	switch e {
+	case CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id:
+		return true
+	case CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt:
 		return true
 	default:
 		return false
@@ -438,6 +492,24 @@ func (e CreatePrivateDeployKeyApplicationJSONBodyDockerComposeDomainsRedirect) V
 	case CreatePrivateDeployKeyApplicationJSONBodyDockerComposeDomainsRedirectNonWww:
 		return true
 	case CreatePrivateDeployKeyApplicationJSONBodyDockerComposeDomainsRedirectWww:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithm.
+const (
+	CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithm = "argon2id"
+	CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt   CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithm = "bcrypt"
+)
+
+// Valid indicates whether the value is a known member of the CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithm enum.
+func (e CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithm) Valid() bool {
+	switch e {
+	case CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id:
+		return true
+	case CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt:
 		return true
 	default:
 		return false
@@ -549,6 +621,24 @@ func (e CreatePrivateGithubAppApplicationJSONBodyDockerComposeDomainsRedirect) V
 	}
 }
 
+// Defines values for CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithm.
+const (
+	CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithm = "argon2id"
+	CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt   CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithm = "bcrypt"
+)
+
+// Valid indicates whether the value is a known member of the CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithm enum.
+func (e CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithm) Valid() bool {
+	switch e {
+	case CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id:
+		return true
+	case CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CreatePrivateGithubAppApplicationJSONBodyRedirect.
 const (
 	CreatePrivateGithubAppApplicationJSONBodyRedirectBoth   CreatePrivateGithubAppApplicationJSONBodyRedirect = "both"
@@ -648,6 +738,24 @@ func (e CreatePublicApplicationJSONBodyDockerComposeDomainsRedirect) Valid() boo
 	case CreatePublicApplicationJSONBodyDockerComposeDomainsRedirectNonWww:
 		return true
 	case CreatePublicApplicationJSONBodyDockerComposeDomainsRedirectWww:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithm.
+const (
+	CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithm = "argon2id"
+	CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt   CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithm = "bcrypt"
+)
+
+// Valid indicates whether the value is a known member of the CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithm enum.
+func (e CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithm) Valid() bool {
+	switch e {
+	case CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id:
+		return true
+	case CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt:
 		return true
 	default:
 		return false
@@ -759,6 +867,24 @@ func (e UpdateApplicationByUuidJSONBodyDockerComposeDomainsRedirect) Valid() boo
 	}
 }
 
+// Defines values for UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithm.
+const (
+	UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithmArgon2id UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithm = "argon2id"
+	UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithmBcrypt   UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithm = "bcrypt"
+)
+
+// Valid indicates whether the value is a known member of the UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithm enum.
+func (e UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithm) Valid() bool {
+	switch e {
+	case UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithmArgon2id:
+		return true
+	case UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithmBcrypt:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for UpdateApplicationByUuidJSONBodyRedirect.
 const (
 	UpdateApplicationByUuidJSONBodyRedirectBoth   UpdateApplicationByUuidJSONBodyRedirect = "both"
@@ -846,6 +972,24 @@ func (e UpdatePreviewDomainsByPullRequestIdJSONBodyDockerComposeDomainsRedirect)
 	}
 }
 
+// Defines values for ListApplicationRollbackImages200JSONResponseBodyImagesSource.
+const (
+	ListApplicationRollbackImages200JSONResponseBodyImagesSourceLocal    ListApplicationRollbackImages200JSONResponseBodyImagesSource = "local"
+	ListApplicationRollbackImages200JSONResponseBodyImagesSourceRegistry ListApplicationRollbackImages200JSONResponseBodyImagesSource = "registry"
+)
+
+// Valid indicates whether the value is a known member of the ListApplicationRollbackImages200JSONResponseBodyImagesSource enum.
+func (e ListApplicationRollbackImages200JSONResponseBodyImagesSource) Valid() bool {
+	switch e {
+	case ListApplicationRollbackImages200JSONResponseBodyImagesSourceLocal:
+		return true
+	case ListApplicationRollbackImages200JSONResponseBodyImagesSourceRegistry:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for UpdateStorageByApplicationUuidJSONBodyType.
 const (
 	UpdateStorageByApplicationUuidJSONBodyTypeFile       UpdateStorageByApplicationUuidJSONBodyType = "file"
@@ -919,6 +1063,7 @@ func (e ListAuditEventsParamsSource) Valid() bool {
 const (
 	ListCloudTokens200JSONResponseBodyProviderDigitalocean ListCloudTokens200JSONResponseBodyProvider = "digitalocean"
 	ListCloudTokens200JSONResponseBodyProviderHetzner      ListCloudTokens200JSONResponseBodyProvider = "hetzner"
+	ListCloudTokens200JSONResponseBodyProviderHostinger    ListCloudTokens200JSONResponseBodyProvider = "hostinger"
 	ListCloudTokens200JSONResponseBodyProviderVultr        ListCloudTokens200JSONResponseBodyProvider = "vultr"
 )
 
@@ -928,6 +1073,8 @@ func (e ListCloudTokens200JSONResponseBodyProvider) Valid() bool {
 	case ListCloudTokens200JSONResponseBodyProviderDigitalocean:
 		return true
 	case ListCloudTokens200JSONResponseBodyProviderHetzner:
+		return true
+	case ListCloudTokens200JSONResponseBodyProviderHostinger:
 		return true
 	case ListCloudTokens200JSONResponseBodyProviderVultr:
 		return true
@@ -940,6 +1087,7 @@ func (e ListCloudTokens200JSONResponseBodyProvider) Valid() bool {
 const (
 	CreateCloudTokenJSONBodyProviderDigitalocean CreateCloudTokenJSONBodyProvider = "digitalocean"
 	CreateCloudTokenJSONBodyProviderHetzner      CreateCloudTokenJSONBodyProvider = "hetzner"
+	CreateCloudTokenJSONBodyProviderHostinger    CreateCloudTokenJSONBodyProvider = "hostinger"
 	CreateCloudTokenJSONBodyProviderVultr        CreateCloudTokenJSONBodyProvider = "vultr"
 )
 
@@ -949,6 +1097,8 @@ func (e CreateCloudTokenJSONBodyProvider) Valid() bool {
 	case CreateCloudTokenJSONBodyProviderDigitalocean:
 		return true
 	case CreateCloudTokenJSONBodyProviderHetzner:
+		return true
+	case CreateCloudTokenJSONBodyProviderHostinger:
 		return true
 	case CreateCloudTokenJSONBodyProviderVultr:
 		return true
@@ -1418,6 +1568,18 @@ type Application struct {
 	// HealthCheckType Health check type: http or cmd.
 	HealthCheckType *ApplicationHealthCheckType `json:"health_check_type,omitempty"`
 
+	// HttpBasicAuthArgon2idMemoryCost Argon2id memory cost in KiB for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idMemoryCost *int `json:"http_basic_auth_argon2id_memory_cost,omitempty"`
+
+	// HttpBasicAuthArgon2idTimeCost Argon2id time cost (iterations) for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idTimeCost *int `json:"http_basic_auth_argon2id_time_cost,omitempty"`
+
+	// HttpBasicAuthBcryptCost Bcrypt cost for the HTTP Basic Authentication password.
+	HttpBasicAuthBcryptCost *int `json:"http_basic_auth_bcrypt_cost,omitempty"`
+
+	// HttpBasicAuthHashAlgorithm Hash algorithm for the HTTP Basic Authentication password. Argon2id needs the Caddy proxy, version 2.11 or newer.
+	HttpBasicAuthHashAlgorithm *ApplicationHttpBasicAuthHashAlgorithm `json:"http_basic_auth_hash_algorithm,omitempty"`
+
 	// HttpBasicAuthPassword Password for HTTP Basic Authentication
 	HttpBasicAuthPassword *string `json:"http_basic_auth_password,omitempty"`
 
@@ -1545,6 +1707,9 @@ type ApplicationBuildPack string
 // ApplicationHealthCheckType Health check type: http or cmd.
 type ApplicationHealthCheckType string
 
+// ApplicationHttpBasicAuthHashAlgorithm Hash algorithm for the HTTP Basic Authentication password. Argon2id needs the Caddy proxy, version 2.11 or newer.
+type ApplicationHttpBasicAuthHashAlgorithm string
+
 // ApplicationRedirect How to set redirect with Traefik / Caddy. www<->non-www.
 type ApplicationRedirect string
 
@@ -1647,7 +1812,10 @@ type ApplicationSetting struct {
 	IsStatic                      *bool `json:"is_static,omitempty"`
 	IsStripprefixEnabled          *bool `json:"is_stripprefix_enabled,omitempty"`
 	IsSwarmOnlyWorkerNodes        *bool `json:"is_swarm_only_worker_nodes,omitempty"`
-	StopGracePeriod               *int  `json:"stop_grace_period,omitempty"`
+
+	// RedactAllEnvValuesInLogs Hide every environment variable value in logs. When false, only locked values are hidden.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
+	StopGracePeriod          *int  `json:"stop_grace_period,omitempty"`
 
 	// TraefikCertificateResolver Traefik certificate resolver override. Null uses the server setting, "none" uses no resolver.
 	TraefikCertificateResolver *string `json:"traefik_certificate_resolver,omitempty"`
@@ -1988,6 +2156,7 @@ type ServerSetting struct {
 	IsGeoipEnabled                    *bool                    `json:"is_geoip_enabled,omitempty"`
 	IsJumpServer                      *bool                    `json:"is_jump_server,omitempty"`
 	IsLogdrainAxiomEnabled            *bool                    `json:"is_logdrain_axiom_enabled,omitempty"`
+	IsLogdrainCloudwatchEnabled       *bool                    `json:"is_logdrain_cloudwatch_enabled,omitempty"`
 	IsLogdrainCustomEnabled           *bool                    `json:"is_logdrain_custom_enabled,omitempty"`
 	IsLogdrainHighlightEnabled        *bool                    `json:"is_logdrain_highlight_enabled,omitempty"`
 	IsLogdrainNewrelicEnabled         *bool                    `json:"is_logdrain_newrelic_enabled,omitempty"`
@@ -2001,6 +2170,9 @@ type ServerSetting struct {
 	IsUsable                          *bool                    `json:"is_usable,omitempty"`
 	LogdrainAxiomApiKey               *string                  `json:"logdrain_axiom_api_key,omitempty"`
 	LogdrainAxiomDatasetName          *string                  `json:"logdrain_axiom_dataset_name,omitempty"`
+	LogdrainCloudwatchGroup           *string                  `json:"logdrain_cloudwatch_group,omitempty"`
+	LogdrainCloudwatchRegion          *string                  `json:"logdrain_cloudwatch_region,omitempty"`
+	LogdrainCloudwatchStreamPrefix    *string                  `json:"logdrain_cloudwatch_stream_prefix,omitempty"`
 	LogdrainCustomConfig              *string                  `json:"logdrain_custom_config,omitempty"`
 	LogdrainCustomConfigParser        *string                  `json:"logdrain_custom_config_parser,omitempty"`
 	LogdrainHighlightProjectId        *string                  `json:"logdrain_highlight_project_id,omitempty"`
@@ -2072,6 +2244,9 @@ type Service struct {
 
 	// Name The name of the service.
 	Name *string `json:"name,omitempty"`
+
+	// RedactAllEnvValuesInLogs Hide every environment variable value in logs. When false, only locked values are hidden.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
 
 	// ServerId The unique identifier of the server where the service is running.
 	ServerId *int `json:"server_id,omitempty"`
@@ -2171,8 +2346,13 @@ type VolumeBackupScheduleRequest struct {
 	RetentionDaysS3               *int     `json:"retention_days_s3,omitempty"`
 	RetentionMaxStorageLocally    *float32 `json:"retention_max_storage_locally,omitempty"`
 	RetentionMaxStorageS3         *float32 `json:"retention_max_storage_s3,omitempty"`
-	S3StorageUuid                 *string  `json:"s3_storage_uuid,omitempty"`
-	SaveS3                        *bool    `json:"save_s3,omitempty"`
+
+	// S3StorageUuid Primary S3 storage UUID. Sent without s3_storage_uuids, it selects this storage as the only destination.
+	S3StorageUuid *string `json:"s3_storage_uuid,omitempty"`
+
+	// S3StorageUuids UUIDs of every S3 storage the backup is uploaded to. When s3_storage_uuid is also sent, it must be in this list and becomes the primary destination; otherwise the first entry is the primary destination. save_s3 requires at least one destination.
+	S3StorageUuids *[]string `json:"s3_storage_uuids,omitempty"`
+	SaveS3         *bool     `json:"save_s3,omitempty"`
 
 	// StopDuringBackup Stop the resource containers during the backup. Needs a token with the deploy permission.
 	StopDuringBackup *bool `json:"stop_during_backup,omitempty"`
@@ -2181,24 +2361,29 @@ type VolumeBackupScheduleRequest struct {
 
 // VolumeBackupScheduleResponse defines model for VolumeBackupScheduleResponse.
 type VolumeBackupScheduleResponse struct {
-	DisableLocalBackup            bool                                    `json:"disable_local_backup"`
-	Enabled                       bool                                    `json:"enabled"`
-	Frequency                     string                                  `json:"frequency"`
-	Message                       string                                  `json:"message"`
-	MissingBackupNotificationDays int                                     `json:"missing_backup_notification_days"`
-	RetentionAmountLocally        int                                     `json:"retention_amount_locally"`
-	RetentionAmountS3             int                                     `json:"retention_amount_s3"`
-	RetentionDaysLocally          int                                     `json:"retention_days_locally"`
-	RetentionDaysS3               int                                     `json:"retention_days_s3"`
-	RetentionMaxStorageLocally    float32                                 `json:"retention_max_storage_locally"`
-	RetentionMaxStorageS3         float32                                 `json:"retention_max_storage_s3"`
-	S3StorageUuid                 *string                                 `json:"s3_storage_uuid,omitempty"`
-	SaveS3                        bool                                    `json:"save_s3"`
-	StopDuringBackup              bool                                    `json:"stop_during_backup"`
-	StorageType                   VolumeBackupScheduleResponseStorageType `json:"storage_type"`
-	StorageUuid                   string                                  `json:"storage_uuid"`
-	Timeout                       int                                     `json:"timeout"`
-	Uuid                          string                                  `json:"uuid"`
+	DisableLocalBackup            bool    `json:"disable_local_backup"`
+	Enabled                       bool    `json:"enabled"`
+	Frequency                     string  `json:"frequency"`
+	Message                       string  `json:"message"`
+	MissingBackupNotificationDays int     `json:"missing_backup_notification_days"`
+	RetentionAmountLocally        int     `json:"retention_amount_locally"`
+	RetentionAmountS3             int     `json:"retention_amount_s3"`
+	RetentionDaysLocally          int     `json:"retention_days_locally"`
+	RetentionDaysS3               int     `json:"retention_days_s3"`
+	RetentionMaxStorageLocally    float32 `json:"retention_max_storage_locally"`
+	RetentionMaxStorageS3         float32 `json:"retention_max_storage_s3"`
+
+	// S3StorageUuid Primary S3 destination.
+	S3StorageUuid *string `json:"s3_storage_uuid,omitempty"`
+
+	// S3StorageUuids Every S3 destination, primary first.
+	S3StorageUuids   *[]string                               `json:"s3_storage_uuids,omitempty"`
+	SaveS3           bool                                    `json:"save_s3"`
+	StopDuringBackup bool                                    `json:"stop_during_backup"`
+	StorageType      VolumeBackupScheduleResponseStorageType `json:"storage_type"`
+	StorageUuid      string                                  `json:"storage_uuid"`
+	Timeout          int                                     `json:"timeout"`
+	Uuid             string                                  `json:"uuid"`
 }
 
 // VolumeBackupScheduleResponseStorageType defines model for VolumeBackupScheduleResponse.StorageType.
@@ -2343,6 +2528,18 @@ type CreateDockerfileApplicationJSONBody struct {
 	// HealthCheckTimeout Health check timeout in seconds.
 	HealthCheckTimeout *int `json:"health_check_timeout,omitempty"`
 
+	// HttpBasicAuthArgon2idMemoryCost Argon2id memory cost in KiB for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idMemoryCost *int `json:"http_basic_auth_argon2id_memory_cost,omitempty"`
+
+	// HttpBasicAuthArgon2idTimeCost Argon2id time cost (iterations) for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idTimeCost *int `json:"http_basic_auth_argon2id_time_cost,omitempty"`
+
+	// HttpBasicAuthBcryptCost Bcrypt cost for the HTTP Basic Authentication password.
+	HttpBasicAuthBcryptCost *int `json:"http_basic_auth_bcrypt_cost,omitempty"`
+
+	// HttpBasicAuthHashAlgorithm Hash algorithm for the HTTP Basic Authentication password. Argon2id needs the Caddy proxy, version 2.11 or newer.
+	HttpBasicAuthHashAlgorithm *CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithm `json:"http_basic_auth_hash_algorithm,omitempty"`
+
 	// HttpBasicAuthPassword Password for HTTP Basic Authentication
 	HttpBasicAuthPassword *string `json:"http_basic_auth_password,omitempty"`
 
@@ -2472,6 +2669,9 @@ type CreateDockerfileApplicationJSONBody struct {
 	// ProjectUuid The project UUID.
 	ProjectUuid string `json:"project_uuid"`
 
+	// RedactAllEnvValuesInLogs Redact all environment variable values in logs. When false, only locked (shown once) values are redacted. Requires team admin permissions.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
+
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *CreateDockerfileApplicationJSONBodyRedirect `json:"redirect,omitempty"`
 
@@ -2496,6 +2696,9 @@ type CreateDockerfileApplicationJSONBody struct {
 
 // CreateDockerfileApplicationJSONBodyBuildPack defines parameters for CreateDockerfileApplication.
 type CreateDockerfileApplicationJSONBodyBuildPack string
+
+// CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithm defines parameters for CreateDockerfileApplication.
+type CreateDockerfileApplicationJSONBodyHttpBasicAuthHashAlgorithm string
 
 // CreateDockerfileApplicationJSONBodyRedirect defines parameters for CreateDockerfileApplication.
 type CreateDockerfileApplicationJSONBodyRedirect string
@@ -2601,6 +2804,18 @@ type CreateDockerimageApplicationJSONBody struct {
 	// HealthCheckTimeout Health check timeout in seconds.
 	HealthCheckTimeout *int `json:"health_check_timeout,omitempty"`
 
+	// HttpBasicAuthArgon2idMemoryCost Argon2id memory cost in KiB for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idMemoryCost *int `json:"http_basic_auth_argon2id_memory_cost,omitempty"`
+
+	// HttpBasicAuthArgon2idTimeCost Argon2id time cost (iterations) for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idTimeCost *int `json:"http_basic_auth_argon2id_time_cost,omitempty"`
+
+	// HttpBasicAuthBcryptCost Bcrypt cost for the HTTP Basic Authentication password.
+	HttpBasicAuthBcryptCost *int `json:"http_basic_auth_bcrypt_cost,omitempty"`
+
+	// HttpBasicAuthHashAlgorithm Hash algorithm for the HTTP Basic Authentication password. Argon2id needs the Caddy proxy, version 2.11 or newer.
+	HttpBasicAuthHashAlgorithm *CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithm `json:"http_basic_auth_hash_algorithm,omitempty"`
+
 	// HttpBasicAuthPassword Password for HTTP Basic Authentication
 	HttpBasicAuthPassword *string `json:"http_basic_auth_password,omitempty"`
 
@@ -2730,6 +2945,9 @@ type CreateDockerimageApplicationJSONBody struct {
 	// ProjectUuid The project UUID.
 	ProjectUuid string `json:"project_uuid"`
 
+	// RedactAllEnvValuesInLogs Redact all environment variable values in logs. When false, only locked (shown once) values are redacted. Requires team admin permissions.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
+
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *CreateDockerimageApplicationJSONBodyRedirect `json:"redirect,omitempty"`
 
@@ -2751,6 +2969,9 @@ type CreateDockerimageApplicationJSONBody struct {
 	// UseBuildServer Use build server.
 	UseBuildServer *bool `json:"use_build_server,omitempty"`
 }
+
+// CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithm defines parameters for CreateDockerimageApplication.
+type CreateDockerimageApplicationJSONBodyHttpBasicAuthHashAlgorithm string
 
 // CreateDockerimageApplicationJSONBodyRedirect defines parameters for CreateDockerimageApplication.
 type CreateDockerimageApplicationJSONBodyRedirect string
@@ -2900,6 +3121,18 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 
 	// HealthCheckTimeout Health check timeout in seconds.
 	HealthCheckTimeout *int `json:"health_check_timeout,omitempty"`
+
+	// HttpBasicAuthArgon2idMemoryCost Argon2id memory cost in KiB for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idMemoryCost *int `json:"http_basic_auth_argon2id_memory_cost,omitempty"`
+
+	// HttpBasicAuthArgon2idTimeCost Argon2id time cost (iterations) for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idTimeCost *int `json:"http_basic_auth_argon2id_time_cost,omitempty"`
+
+	// HttpBasicAuthBcryptCost Bcrypt cost for the HTTP Basic Authentication password.
+	HttpBasicAuthBcryptCost *int `json:"http_basic_auth_bcrypt_cost,omitempty"`
+
+	// HttpBasicAuthHashAlgorithm Hash algorithm for the HTTP Basic Authentication password. Argon2id needs the Caddy proxy, version 2.11 or newer.
+	HttpBasicAuthHashAlgorithm *CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithm `json:"http_basic_auth_hash_algorithm,omitempty"`
 
 	// HttpBasicAuthPassword Password for HTTP Basic Authentication
 	HttpBasicAuthPassword *string `json:"http_basic_auth_password,omitempty"`
@@ -3051,6 +3284,9 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 	// PublishDirectory The publish directory.
 	PublishDirectory *string `json:"publish_directory,omitempty"`
 
+	// RedactAllEnvValuesInLogs Redact all environment variable values in logs. When false, only locked (shown once) values are redacted. Requires team admin permissions.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
+
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *CreatePrivateDeployKeyApplicationJSONBodyRedirect `json:"redirect,omitempty"`
 
@@ -3087,6 +3323,9 @@ type CreatePrivateDeployKeyApplicationJSONBodyBuildPack string
 
 // CreatePrivateDeployKeyApplicationJSONBodyDockerComposeDomainsRedirect defines parameters for CreatePrivateDeployKeyApplication.
 type CreatePrivateDeployKeyApplicationJSONBodyDockerComposeDomainsRedirect string
+
+// CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithm defines parameters for CreatePrivateDeployKeyApplication.
+type CreatePrivateDeployKeyApplicationJSONBodyHttpBasicAuthHashAlgorithm string
 
 // CreatePrivateDeployKeyApplicationJSONBodyRedirect defines parameters for CreatePrivateDeployKeyApplication.
 type CreatePrivateDeployKeyApplicationJSONBodyRedirect string
@@ -3243,6 +3482,18 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 	// HealthCheckTimeout Health check timeout in seconds.
 	HealthCheckTimeout *int `json:"health_check_timeout,omitempty"`
 
+	// HttpBasicAuthArgon2idMemoryCost Argon2id memory cost in KiB for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idMemoryCost *int `json:"http_basic_auth_argon2id_memory_cost,omitempty"`
+
+	// HttpBasicAuthArgon2idTimeCost Argon2id time cost (iterations) for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idTimeCost *int `json:"http_basic_auth_argon2id_time_cost,omitempty"`
+
+	// HttpBasicAuthBcryptCost Bcrypt cost for the HTTP Basic Authentication password.
+	HttpBasicAuthBcryptCost *int `json:"http_basic_auth_bcrypt_cost,omitempty"`
+
+	// HttpBasicAuthHashAlgorithm Hash algorithm for the HTTP Basic Authentication password. Argon2id needs the Caddy proxy, version 2.11 or newer.
+	HttpBasicAuthHashAlgorithm *CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithm `json:"http_basic_auth_hash_algorithm,omitempty"`
+
 	// HttpBasicAuthPassword Password for HTTP Basic Authentication
 	HttpBasicAuthPassword *string `json:"http_basic_auth_password,omitempty"`
 
@@ -3390,6 +3641,9 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 	// PublishDirectory The publish directory.
 	PublishDirectory *string `json:"publish_directory,omitempty"`
 
+	// RedactAllEnvValuesInLogs Redact all environment variable values in logs. When false, only locked (shown once) values are redacted. Requires team admin permissions.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
+
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *CreatePrivateGithubAppApplicationJSONBodyRedirect `json:"redirect,omitempty"`
 
@@ -3426,6 +3680,9 @@ type CreatePrivateGithubAppApplicationJSONBodyBuildPack string
 
 // CreatePrivateGithubAppApplicationJSONBodyDockerComposeDomainsRedirect defines parameters for CreatePrivateGithubAppApplication.
 type CreatePrivateGithubAppApplicationJSONBodyDockerComposeDomainsRedirect string
+
+// CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithm defines parameters for CreatePrivateGithubAppApplication.
+type CreatePrivateGithubAppApplicationJSONBodyHttpBasicAuthHashAlgorithm string
 
 // CreatePrivateGithubAppApplicationJSONBodyRedirect defines parameters for CreatePrivateGithubAppApplication.
 type CreatePrivateGithubAppApplicationJSONBodyRedirect string
@@ -3579,6 +3836,18 @@ type CreatePublicApplicationJSONBody struct {
 	// HealthCheckTimeout Health check timeout in seconds.
 	HealthCheckTimeout *int `json:"health_check_timeout,omitempty"`
 
+	// HttpBasicAuthArgon2idMemoryCost Argon2id memory cost in KiB for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idMemoryCost *int `json:"http_basic_auth_argon2id_memory_cost,omitempty"`
+
+	// HttpBasicAuthArgon2idTimeCost Argon2id time cost (iterations) for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idTimeCost *int `json:"http_basic_auth_argon2id_time_cost,omitempty"`
+
+	// HttpBasicAuthBcryptCost Bcrypt cost for the HTTP Basic Authentication password.
+	HttpBasicAuthBcryptCost *int `json:"http_basic_auth_bcrypt_cost,omitempty"`
+
+	// HttpBasicAuthHashAlgorithm Hash algorithm for the HTTP Basic Authentication password. Argon2id needs the Caddy proxy, version 2.11 or newer.
+	HttpBasicAuthHashAlgorithm *CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithm `json:"http_basic_auth_hash_algorithm,omitempty"`
+
 	// HttpBasicAuthPassword Password for HTTP Basic Authentication
 	HttpBasicAuthPassword *string `json:"http_basic_auth_password,omitempty"`
 
@@ -3726,6 +3995,9 @@ type CreatePublicApplicationJSONBody struct {
 	// PublishDirectory The publish directory.
 	PublishDirectory *string `json:"publish_directory,omitempty"`
 
+	// RedactAllEnvValuesInLogs Redact all environment variable values in logs. When false, only locked (shown once) values are redacted. Requires team admin permissions.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
+
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *CreatePublicApplicationJSONBodyRedirect `json:"redirect,omitempty"`
 
@@ -3762,6 +4034,9 @@ type CreatePublicApplicationJSONBodyBuildPack string
 
 // CreatePublicApplicationJSONBodyDockerComposeDomainsRedirect defines parameters for CreatePublicApplication.
 type CreatePublicApplicationJSONBodyDockerComposeDomainsRedirect string
+
+// CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithm defines parameters for CreatePublicApplication.
+type CreatePublicApplicationJSONBodyHttpBasicAuthHashAlgorithm string
 
 // CreatePublicApplicationJSONBodyRedirect defines parameters for CreatePublicApplication.
 type CreatePublicApplicationJSONBodyRedirect string
@@ -3921,6 +4196,18 @@ type UpdateApplicationByUuidJSONBody struct {
 	// HealthCheckTimeout Health check timeout in seconds.
 	HealthCheckTimeout *int `json:"health_check_timeout,omitempty"`
 
+	// HttpBasicAuthArgon2idMemoryCost Argon2id memory cost in KiB for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idMemoryCost *int `json:"http_basic_auth_argon2id_memory_cost,omitempty"`
+
+	// HttpBasicAuthArgon2idTimeCost Argon2id time cost (iterations) for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idTimeCost *int `json:"http_basic_auth_argon2id_time_cost,omitempty"`
+
+	// HttpBasicAuthBcryptCost Bcrypt cost for the HTTP Basic Authentication password.
+	HttpBasicAuthBcryptCost *int `json:"http_basic_auth_bcrypt_cost,omitempty"`
+
+	// HttpBasicAuthHashAlgorithm Hash algorithm for the HTTP Basic Authentication password. Argon2id needs the Caddy proxy, version 2.11 or newer.
+	HttpBasicAuthHashAlgorithm *UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithm `json:"http_basic_auth_hash_algorithm,omitempty"`
+
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
 
@@ -4056,6 +4343,9 @@ type UpdateApplicationByUuidJSONBody struct {
 	// PublishDirectory The publish directory.
 	PublishDirectory *string `json:"publish_directory,omitempty"`
 
+	// RedactAllEnvValuesInLogs Redact all environment variable values in logs. When false, only locked (shown once) values are redacted. Requires team admin permissions.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
+
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *UpdateApplicationByUuidJSONBodyRedirect `json:"redirect,omitempty"`
 
@@ -4083,6 +4373,9 @@ type UpdateApplicationByUuidJSONBodyBuildPack string
 
 // UpdateApplicationByUuidJSONBodyDockerComposeDomainsRedirect defines parameters for UpdateApplicationByUuid.
 type UpdateApplicationByUuidJSONBodyDockerComposeDomainsRedirect string
+
+// UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithm defines parameters for UpdateApplicationByUuid.
+type UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithm string
 
 // UpdateApplicationByUuidJSONBodyRedirect defines parameters for UpdateApplicationByUuid.
 type UpdateApplicationByUuidJSONBodyRedirect string
@@ -4253,6 +4546,9 @@ type RollbackApplicationByUuidJSONBody struct {
 	// Commit Image tag / commit to roll back to.
 	Commit string `json:"commit"`
 }
+
+// ListApplicationRollbackImages200JSONResponseBodyImagesSource defines parameters for ListApplicationRollbackImages.
+type ListApplicationRollbackImages200JSONResponseBodyImagesSource string
 
 // CreateScheduledTaskByApplicationUuidJSONBody defines parameters for CreateScheduledTaskByApplicationUuid.
 type CreateScheduledTaskByApplicationUuidJSONBody struct {
@@ -5221,6 +5517,9 @@ type UpdateDatabaseByUuidJSONBody struct {
 	// PublicPortTimeout Public port timeout in seconds (default: 3600)
 	PublicPortTimeout *int `json:"public_port_timeout,omitempty"`
 
+	// RedactAllEnvValuesInLogs Redact all environment variable values in logs. When false, only locked (shown once) values, database passwords, and remote secrets are redacted. Requires team admin permissions.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
+
 	// RedisConf Redis conf
 	RedisConf *string `json:"redis_conf,omitempty"`
 
@@ -5269,8 +5568,11 @@ type CreateDatabaseBackupJSONBody struct {
 	// MissingBackupNotificationDays Alert after this many days without an execution; 0 disables alerts
 	MissingBackupNotificationDays *int `json:"missing_backup_notification_days,omitempty"`
 
-	// S3StorageUuid S3 storage UUID (required if save_s3 is true)
+	// S3StorageUuid Primary S3 storage UUID. Sent without s3_storage_uuids, it selects this storage as the only destination. Either field is required if save_s3 is true.
 	S3StorageUuid *string `json:"s3_storage_uuid,omitempty"`
+
+	// S3StorageUuids UUIDs of every S3 storage the backup is uploaded to. Replaces the current destinations. When s3_storage_uuid is also sent, it must be in this list and becomes the primary destination; otherwise the first entry is the primary destination.
+	S3StorageUuids *[]string `json:"s3_storage_uuids,omitempty"`
 
 	// SaveS3 Whether to save backups to S3
 	SaveS3 *bool `json:"save_s3,omitempty"`
@@ -5323,8 +5625,11 @@ type UpdateDatabaseBackupJSONBody struct {
 	// MissingBackupNotificationDays Alert after this many days without an execution; 0 disables alerts
 	MissingBackupNotificationDays *int `json:"missing_backup_notification_days,omitempty"`
 
-	// S3StorageUuid S3 storage UUID
+	// S3StorageUuid Primary S3 storage UUID. Sent without s3_storage_uuids, it selects this storage as the only destination; when it is already a destination, it becomes the primary destination and the other destinations stay.
 	S3StorageUuid *string `json:"s3_storage_uuid,omitempty"`
+
+	// S3StorageUuids UUIDs of every S3 storage the backup is uploaded to. Replaces the current destinations. When s3_storage_uuid is also sent, it must be in this list and becomes the primary destination; otherwise the first entry is the primary destination.
+	S3StorageUuids *[]string `json:"s3_storage_uuids,omitempty"`
 
 	// SaveS3 Whether data is saved in s3 or not
 	SaveS3 *bool `json:"save_s3,omitempty"`
@@ -5881,7 +6186,7 @@ type CreatePrivateKeyJSONBody struct {
 type UpdatePrivateKeyJSONBody struct {
 	Description *string `json:"description,omitempty"`
 	Name        *string `json:"name,omitempty"`
-	PrivateKey  string  `json:"private_key"`
+	PrivateKey  *string `json:"private_key,omitempty"`
 }
 
 // CreateServerJSONBody defines parameters for CreateServer.
@@ -5971,6 +6276,31 @@ type CreateHetznerServerJSONBody struct {
 
 	// ServerType Hetzner server type name
 	ServerType string `json:"server_type"`
+}
+
+// ImportServerTransferBundleJSONBody defines parameters for ImportServerTransferBundle.
+type ImportServerTransferBundleJSONBody struct {
+	// AdoptMode Import without forcing redeploy; keep statuses for adoption
+	AdoptMode *bool `json:"adopt_mode,omitempty"`
+
+	// Bundle Transfer bundle
+	Bundle        *map[string]interface{} `json:"bundle,omitempty"`
+	DryRun        *bool                   `json:"dry_run,omitempty"`
+	PreserveUuids *bool                   `json:"preserve_uuids,omitempty"`
+}
+
+// CheckServerImportParams defines parameters for CheckServerImport.
+type CheckServerImportParams struct {
+	ServerUuid    string `form:"server_uuid" json:"server_uuid"`
+	Ip            string `form:"ip" json:"ip"`
+	Port          *int   `form:"port,omitempty" json:"port,omitempty"`
+	SchemaVersion *int   `form:"schema_version,omitempty" json:"schema_version,omitempty"`
+
+	// SystemGithubApps UUIDs of system-wide GitHub Apps that the server uses. The response lists the ones this instance does not have.
+	SystemGithubApps *[]string `form:"system_github_apps[],omitempty" json:"system_github_apps[],omitempty"`
+
+	// SystemGitlabApps UUIDs of system-wide GitLab Apps that the server uses. The response lists the ones this instance does not have.
+	SystemGitlabApps *[]string `form:"system_gitlab_apps[],omitempty" json:"system_gitlab_apps[],omitempty"`
 }
 
 // CreateServerDestinationJSONBody defines parameters for CreateServerDestination.
@@ -6080,15 +6410,28 @@ type RunServerDockerCleanupJSONBody struct {
 
 // UpdateServerLogDrainsJSONBody defines parameters for UpdateServerLogDrains.
 type UpdateServerLogDrainsJSONBody struct {
-	IsLogdrainAxiomEnabled     *bool   `json:"is_logdrain_axiom_enabled,omitempty"`
-	IsLogdrainCustomEnabled    *bool   `json:"is_logdrain_custom_enabled,omitempty"`
-	IsLogdrainNewrelicEnabled  *bool   `json:"is_logdrain_newrelic_enabled,omitempty"`
-	LogdrainAxiomApiKey        *string `json:"logdrain_axiom_api_key,omitempty"`
-	LogdrainAxiomDatasetName   *string `json:"logdrain_axiom_dataset_name,omitempty"`
-	LogdrainCustomConfig       *string `json:"logdrain_custom_config,omitempty"`
-	LogdrainCustomConfigParser *string `json:"logdrain_custom_config_parser,omitempty"`
-	LogdrainNewrelicBaseUri    *string `json:"logdrain_newrelic_base_uri,omitempty"`
-	LogdrainNewrelicLicenseKey *string `json:"logdrain_newrelic_license_key,omitempty"`
+	IsLogdrainAxiomEnabled      *bool   `json:"is_logdrain_axiom_enabled,omitempty"`
+	IsLogdrainCloudwatchEnabled *bool   `json:"is_logdrain_cloudwatch_enabled,omitempty"`
+	IsLogdrainCustomEnabled     *bool   `json:"is_logdrain_custom_enabled,omitempty"`
+	IsLogdrainNewrelicEnabled   *bool   `json:"is_logdrain_newrelic_enabled,omitempty"`
+	LogdrainAxiomApiKey         *string `json:"logdrain_axiom_api_key,omitempty"`
+	LogdrainAxiomDatasetName    *string `json:"logdrain_axiom_dataset_name,omitempty"`
+	LogdrainCloudwatchGroup     *string `json:"logdrain_cloudwatch_group,omitempty"`
+	LogdrainCloudwatchRegion    *string `json:"logdrain_cloudwatch_region,omitempty"`
+
+	// LogdrainCloudwatchStreamPrefix Prepended to the container name to form the log stream name.
+	LogdrainCloudwatchStreamPrefix *string `json:"logdrain_cloudwatch_stream_prefix,omitempty"`
+	LogdrainCustomConfig           *string `json:"logdrain_custom_config,omitempty"`
+	LogdrainCustomConfigParser     *string `json:"logdrain_custom_config_parser,omitempty"`
+	LogdrainNewrelicBaseUri        *string `json:"logdrain_newrelic_base_uri,omitempty"`
+	LogdrainNewrelicLicenseKey     *string `json:"logdrain_newrelic_license_key,omitempty"`
+}
+
+// MigrateServerBetweenInstancesJSONBody defines parameters for MigrateServerBetweenInstances.
+type MigrateServerBetweenInstancesJSONBody struct {
+	// TargetToken API token on the target instance (root or write)
+	TargetToken string `json:"target_token"`
+	TargetUrl   string `json:"target_url"`
 }
 
 // UpdateServerProxyJSONBody defines parameters for UpdateServerProxy.
@@ -6155,6 +6498,12 @@ type UpdateServerSentinelJSONBody struct {
 // UpdateServerSentinelJSONBodyTrafficIpMode defines parameters for UpdateServerSentinel.
 type UpdateServerSentinelJSONBodyTrafficIpMode string
 
+// CompleteServerTransferJSONBody defines parameters for CompleteServerTransfer.
+type CompleteServerTransferJSONBody struct {
+	ExportId          *string `json:"export_id,omitempty"`
+	TargetInstanceUrl *string `json:"target_instance_url,omitempty"`
+}
+
 // ValidateServerByUuidJSONBody defines parameters for ValidateServerByUuid.
 type ValidateServerByUuidJSONBody struct {
 	// Install Install missing prerequisites and Docker, then start the proxy. This can restart the Docker daemon. Needs the deploy permission.
@@ -6195,6 +6544,9 @@ type CreateServiceJSONBody struct {
 
 	// ProjectUuid Project UUID.
 	ProjectUuid string `json:"project_uuid"`
+
+	// RedactAllEnvValuesInLogs Redact all environment variable values in logs. When false, only locked (shown once) values are redacted. Requires team admin permissions.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
 
 	// ServerUuid Server UUID.
 	ServerUuid string `json:"server_uuid"`
@@ -6258,6 +6610,9 @@ type UpdateServiceByUuidJSONBody struct {
 
 	// Name The service name.
 	Name *string `json:"name,omitempty"`
+
+	// RedactAllEnvValuesInLogs Redact all environment variable values in logs. When false, only locked (shown once) values are redacted. Requires team admin permissions.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
 
 	// Urls Array of URLs to be applied to containers of a service.
 	Urls *[]struct {
@@ -6792,6 +7147,9 @@ type CreateServerJSONRequestBody CreateServerJSONBody
 // CreateHetznerServerJSONRequestBody defines body for CreateHetznerServer for application/json ContentType.
 type CreateHetznerServerJSONRequestBody CreateHetznerServerJSONBody
 
+// ImportServerTransferBundleJSONRequestBody defines body for ImportServerTransferBundle for application/json ContentType.
+type ImportServerTransferBundleJSONRequestBody ImportServerTransferBundleJSONBody
+
 // CreateServerDestinationJSONRequestBody defines body for CreateServerDestination for application/json ContentType.
 type CreateServerDestinationJSONRequestBody CreateServerDestinationJSONBody
 
@@ -6810,6 +7168,9 @@ type RunServerDockerCleanupJSONRequestBody RunServerDockerCleanupJSONBody
 // UpdateServerLogDrainsJSONRequestBody defines body for UpdateServerLogDrains for application/json ContentType.
 type UpdateServerLogDrainsJSONRequestBody UpdateServerLogDrainsJSONBody
 
+// MigrateServerBetweenInstancesJSONRequestBody defines body for MigrateServerBetweenInstances for application/json ContentType.
+type MigrateServerBetweenInstancesJSONRequestBody MigrateServerBetweenInstancesJSONBody
+
 // UpdateServerProxyJSONRequestBody defines body for UpdateServerProxy for application/json ContentType.
 type UpdateServerProxyJSONRequestBody UpdateServerProxyJSONBody
 
@@ -6821,6 +7182,9 @@ type LoginServerRegistryJSONRequestBody LoginServerRegistryJSONBody
 
 // UpdateServerSentinelJSONRequestBody defines body for UpdateServerSentinel for application/json ContentType.
 type UpdateServerSentinelJSONRequestBody UpdateServerSentinelJSONBody
+
+// CompleteServerTransferJSONRequestBody defines body for CompleteServerTransfer for application/json ContentType.
+type CompleteServerTransferJSONRequestBody CompleteServerTransferJSONBody
 
 // ValidateServerByUuidJSONRequestBody defines body for ValidateServerByUuid for application/json ContentType.
 type ValidateServerByUuidJSONRequestBody ValidateServerByUuidJSONBody
@@ -7493,7 +7857,7 @@ type ClientInterface interface {
 
 	// ListApplicationRollbackImages List Rollback Images
 	//
-	// List available Docker images for rolling back an application. Returns an empty list when the server is unavailable or remote inspection is not possible.
+	// List available Docker images for rolling back an application: images on the server (`local`) and, when a Docker registry image name is set, images of recent successful deployments in the registry (`registry`). Returns an empty list when the server is unavailable or remote inspection is not possible.
 	//
 	// Corresponds with GET /applications/{uuid}/rollback-images (the `ListApplicationRollbackImages` operationId).
 	ListApplicationRollbackImages(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8089,7 +8453,7 @@ type ClientInterface interface {
 
 	// ListBackupExecutions List backup executions
 	//
-	// Get all executions for a specific backup configuration.
+	// Get all executions for a specific backup configuration. The execution `message` is only returned (redacted) to tokens with the `read:sensitive` or `root` ability; otherwise it is `null`.
 	//
 	// Corresponds with GET /databases/{uuid}/backups/{scheduled_backup_uuid}/executions (the `ListBackupExecutions` operationId).
 	ListBackupExecutions(ctx context.Context, uuid string, scheduledBackupUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8494,13 +8858,6 @@ type ClientInterface interface {
 	// Corresponds with POST /disable (the `DisableApi` operationId).
 	DisableApi(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// EnableApi Enable API
-	//
-	// Enable API (only with root permissions).
-	//
-	// Corresponds with POST /enable (the `EnableApi` operationId).
-	EnableApi(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
-
 	// ListGithubApps List
 	//
 	// List all GitHub apps.
@@ -8663,6 +9020,31 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /hetzner/ssh-keys (the `GetHetznerSshKeys` operationId).
 	GetHetznerSshKeys(ctx context.Context, params *GetHetznerSshKeysParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetHostingerCatalog Get Hostinger VPS plans and prices
+	//
+	// Corresponds with GET /hostinger/catalog (the `GetHostingerCatalog` operationId).
+	GetHostingerCatalog(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetHostingerDataCenters Get Hostinger VPS data centers
+	//
+	// Corresponds with GET /hostinger/data-centers (the `GetHostingerDataCenters` operationId).
+	GetHostingerDataCenters(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetHostingerPostInstallScripts Get Hostinger post-install scripts
+	//
+	// Corresponds with GET /hostinger/post-install-scripts (the `GetHostingerPostInstallScripts` operationId).
+	GetHostingerPostInstallScripts(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetHostingerSshKeys Get Hostinger account SSH keys
+	//
+	// Corresponds with GET /hostinger/ssh-keys (the `GetHostingerSshKeys` operationId).
+	GetHostingerSshKeys(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetHostingerTemplates Get Hostinger VPS operating system templates
+	//
+	// Corresponds with GET /hostinger/templates (the `GetHostingerTemplates` operationId).
+	GetHostingerTemplates(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// DisableMcp Disable MCP Server
 	//
@@ -9128,6 +9510,36 @@ type ClientInterface interface {
 	// Corresponds with POST /servers/hetzner (the `CreateHetznerServer` operationId).
 	CreateHetznerServer(ctx context.Context, body CreateHetznerServerJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// CreateHostingerServer Purchase a Hostinger VPS and create a linked server
+	//
+	// Corresponds with POST /servers/hostinger (the `CreateHostingerServer` operationId).
+	CreateHostingerServer(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ImportServerTransferBundleWithBody Import server transfer bundle
+	//
+	// Import a server transfer bundle into this Coolify instance (adopt mode by default). This instance then manages the server, and Sentinel reports to it. Needs a token with the write and deploy permissions.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /servers/import (the `ImportServerTransferBundle` operationId).
+	ImportServerTransferBundleWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ImportServerTransferBundle Import server transfer bundle
+	//
+	// Import a server transfer bundle into this Coolify instance (adopt mode by default). This instance then manages the server, and Sentinel reports to it. Needs a token with the write and deploy permissions.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /servers/import (the `ImportServerTransferBundle` operationId).
+	ImportServerTransferBundle(ctx context.Context, body ImportServerTransferBundleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CheckServerImport Check server import
+	//
+	// Check that this instance can import a server, before the source instance starts the transfer. It checks the token, the bundle version, the server limit, servers with the same UUID or IP, and that this instance can reach the SSH port of the server.
+	//
+	// Corresponds with GET /servers/import/check (the `CheckServerImport` operationId).
+	CheckServerImport(ctx context.Context, params *CheckServerImportParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// CreateVultrServer Create Vultr Server
 	//
 	// Create a Vultr instance and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
@@ -9341,6 +9753,24 @@ type ClientInterface interface {
 	// Corresponds with PATCH /servers/{uuid}/log-drains (the `UpdateServerLogDrains` operationId).
 	UpdateServerLogDrains(ctx context.Context, uuid string, body UpdateServerLogDrainsJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// MigrateServerBetweenInstancesWithBody Migrate server to another Coolify instance
+	//
+	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /servers/{uuid}/migrate (the `MigrateServerBetweenInstances` operationId).
+	MigrateServerBetweenInstancesWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// MigrateServerBetweenInstances Migrate server to another Coolify instance
+	//
+	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /servers/{uuid}/migrate (the `MigrateServerBetweenInstances` operationId).
+	MigrateServerBetweenInstances(ctx context.Context, uuid string, body MigrateServerBetweenInstancesJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetServerProxy Get server proxy
 	//
 	// Get proxy settings for a server owned by the authenticated team. The raw proxy configuration is only returned when the token has `read:sensitive` (or `root`) and the user is a team admin/owner, and only when already stored in the database (no remote fetch).
@@ -9461,6 +9891,31 @@ type ClientInterface interface {
 	//
 	// Corresponds with PATCH /servers/{uuid}/sentinel (the `UpdateServerSentinel` operationId).
 	UpdateServerSentinel(ctx context.Context, uuid string, body UpdateServerSentinelJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetServerTransferStatus Get server transfer status
+	//
+	// Show the transfer state of a server on this instance: the import/claim state (transfer) and the state of a running or finished transfer to another instance (migration).
+	//
+	// Corresponds with GET /servers/{uuid}/transfer (the `GetServerTransferStatus` operationId).
+	GetServerTransferStatus(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CompleteServerTransferWithBody Mark server transferred
+	//
+	// Source-instance recovery step: disable automations here when the target already manages the server but the transfer could not finish on this instance.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /servers/{uuid}/transfer/complete (the `CompleteServerTransfer` operationId).
+	CompleteServerTransferWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CompleteServerTransfer Mark server transferred
+	//
+	// Source-instance recovery step: disable automations here when the target already manages the server but the transfer could not finish on this instance.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /servers/{uuid}/transfer/complete (the `CompleteServerTransfer` operationId).
+	CompleteServerTransfer(ctx context.Context, uuid string, body CompleteServerTransferJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ValidateServerByUuidWithBody Validate
 	//
@@ -11043,7 +11498,7 @@ func (c *Client) RollbackApplicationByUuid(ctx context.Context, uuid string, bod
 
 // ListApplicationRollbackImages List Rollback Images
 //
-// List available Docker images for rolling back an application. Returns an empty list when the server is unavailable or remote inspection is not possible.
+// List available Docker images for rolling back an application: images on the server (`local`) and, when a Docker registry image name is set, images of recent successful deployments in the registry (`registry`). Returns an empty list when the server is unavailable or remote inspection is not possible.
 //
 // Corresponds with GET /applications/{uuid}/rollback-images (the `ListApplicationRollbackImages` operationId).
 func (c *Client) ListApplicationRollbackImages(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -12359,7 +12814,7 @@ func (c *Client) UpdateDatabaseBackup(ctx context.Context, uuid string, schedule
 
 // ListBackupExecutions List backup executions
 //
-// Get all executions for a specific backup configuration.
+// Get all executions for a specific backup configuration. The execution `message` is only returned (redacted) to tokens with the `read:sensitive` or `root` ability; otherwise it is `null`.
 //
 // Corresponds with GET /databases/{uuid}/backups/{scheduled_backup_uuid}/executions (the `ListBackupExecutions` operationId).
 func (c *Client) ListBackupExecutions(ctx context.Context, uuid string, scheduledBackupUuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -13294,23 +13749,6 @@ func (c *Client) DisableApi(ctx context.Context, reqEditors ...RequestEditorFn) 
 	return c.Client.Do(req)
 }
 
-// EnableApi Enable API
-//
-// Enable API (only with root permissions).
-//
-// Corresponds with POST /enable (the `EnableApi` operationId).
-func (c *Client) EnableApi(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewEnableApiRequest(c.Server)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
 // ListGithubApps List
 //
 // List all GitHub apps.
@@ -13674,6 +14112,81 @@ func (c *Client) GetHetznerServerTypes(ctx context.Context, params *GetHetznerSe
 // Corresponds with GET /hetzner/ssh-keys (the `GetHetznerSshKeys` operationId).
 func (c *Client) GetHetznerSshKeys(ctx context.Context, params *GetHetznerSshKeysParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetHetznerSshKeysRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetHostingerCatalog Get Hostinger VPS plans and prices
+//
+// Corresponds with GET /hostinger/catalog (the `GetHostingerCatalog` operationId).
+func (c *Client) GetHostingerCatalog(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetHostingerCatalogRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetHostingerDataCenters Get Hostinger VPS data centers
+//
+// Corresponds with GET /hostinger/data-centers (the `GetHostingerDataCenters` operationId).
+func (c *Client) GetHostingerDataCenters(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetHostingerDataCentersRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetHostingerPostInstallScripts Get Hostinger post-install scripts
+//
+// Corresponds with GET /hostinger/post-install-scripts (the `GetHostingerPostInstallScripts` operationId).
+func (c *Client) GetHostingerPostInstallScripts(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetHostingerPostInstallScriptsRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetHostingerSshKeys Get Hostinger account SSH keys
+//
+// Corresponds with GET /hostinger/ssh-keys (the `GetHostingerSshKeys` operationId).
+func (c *Client) GetHostingerSshKeys(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetHostingerSshKeysRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetHostingerTemplates Get Hostinger VPS operating system templates
+//
+// Corresponds with GET /hostinger/templates (the `GetHostingerTemplates` operationId).
+func (c *Client) GetHostingerTemplates(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetHostingerTemplatesRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -14748,6 +15261,76 @@ func (c *Client) CreateHetznerServer(ctx context.Context, body CreateHetznerServ
 	return c.Client.Do(req)
 }
 
+// CreateHostingerServer Purchase a Hostinger VPS and create a linked server
+//
+// Corresponds with POST /servers/hostinger (the `CreateHostingerServer` operationId).
+func (c *Client) CreateHostingerServer(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateHostingerServerRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ImportServerTransferBundleWithBody Import server transfer bundle
+//
+// Import a server transfer bundle into this Coolify instance (adopt mode by default). This instance then manages the server, and Sentinel reports to it. Needs a token with the write and deploy permissions.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /servers/import (the `ImportServerTransferBundle` operationId).
+func (c *Client) ImportServerTransferBundleWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewImportServerTransferBundleRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ImportServerTransferBundle Import server transfer bundle
+//
+// Import a server transfer bundle into this Coolify instance (adopt mode by default). This instance then manages the server, and Sentinel reports to it. Needs a token with the write and deploy permissions.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /servers/import (the `ImportServerTransferBundle` operationId).
+func (c *Client) ImportServerTransferBundle(ctx context.Context, body ImportServerTransferBundleJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewImportServerTransferBundleRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CheckServerImport Check server import
+//
+// Check that this instance can import a server, before the source instance starts the transfer. It checks the token, the bundle version, the server limit, servers with the same UUID or IP, and that this instance can reach the SSH port of the server.
+//
+// Corresponds with GET /servers/import/check (the `CheckServerImport` operationId).
+func (c *Client) CheckServerImport(ctx context.Context, params *CheckServerImportParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCheckServerImportRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // CreateVultrServer Create Vultr Server
 //
 // Create a Vultr instance and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
@@ -15231,6 +15814,44 @@ func (c *Client) UpdateServerLogDrains(ctx context.Context, uuid string, body Up
 	return c.Client.Do(req)
 }
 
+// MigrateServerBetweenInstancesWithBody Migrate server to another Coolify instance
+//
+// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /servers/{uuid}/migrate (the `MigrateServerBetweenInstances` operationId).
+func (c *Client) MigrateServerBetweenInstancesWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewMigrateServerBetweenInstancesRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// MigrateServerBetweenInstances Migrate server to another Coolify instance
+//
+// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /servers/{uuid}/migrate (the `MigrateServerBetweenInstances` operationId).
+func (c *Client) MigrateServerBetweenInstances(ctx context.Context, uuid string, body MigrateServerBetweenInstancesJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewMigrateServerBetweenInstancesRequest(c.Server, uuid, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // GetServerProxy Get server proxy
 //
 // Get proxy settings for a server owned by the authenticated team. The raw proxy configuration is only returned when the token has `read:sensitive` (or `root`) and the user is a team admin/owner, and only when already stored in the database (no remote fetch).
@@ -15492,6 +16113,61 @@ func (c *Client) UpdateServerSentinelWithBody(ctx context.Context, uuid string, 
 // Corresponds with PATCH /servers/{uuid}/sentinel (the `UpdateServerSentinel` operationId).
 func (c *Client) UpdateServerSentinel(ctx context.Context, uuid string, body UpdateServerSentinelJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewUpdateServerSentinelRequest(c.Server, uuid, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetServerTransferStatus Get server transfer status
+//
+// Show the transfer state of a server on this instance: the import/claim state (transfer) and the state of a running or finished transfer to another instance (migration).
+//
+// Corresponds with GET /servers/{uuid}/transfer (the `GetServerTransferStatus` operationId).
+func (c *Client) GetServerTransferStatus(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetServerTransferStatusRequest(c.Server, uuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CompleteServerTransferWithBody Mark server transferred
+//
+// Source-instance recovery step: disable automations here when the target already manages the server but the transfer could not finish on this instance.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /servers/{uuid}/transfer/complete (the `CompleteServerTransfer` operationId).
+func (c *Client) CompleteServerTransferWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCompleteServerTransferRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CompleteServerTransfer Mark server transferred
+//
+// Source-instance recovery step: disable automations here when the target already manages the server but the transfer could not finish on this instance.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /servers/{uuid}/transfer/complete (the `CompleteServerTransfer` operationId).
+func (c *Client) CompleteServerTransfer(ctx context.Context, uuid string, body CompleteServerTransferJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCompleteServerTransferRequest(c.Server, uuid, body)
 	if err != nil {
 		return nil, err
 	}
@@ -22694,33 +23370,6 @@ func NewDisableApiRequest(server string) (*http.Request, error) {
 	return req, nil
 }
 
-// NewEnableApiRequest constructs an http.Request for the EnableApi method
-func NewEnableApiRequest(server string) (*http.Request, error) {
-	var err error
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/enable")
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
 // NewListGithubAppsRequest constructs an http.Request for the ListGithubApps method
 func NewListGithubAppsRequest(server string) (*http.Request, error) {
 	var err error
@@ -23512,6 +24161,141 @@ func NewGetHetznerSshKeysRequest(server string, params *GetHetznerSshKeysParams)
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
 		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetHostingerCatalogRequest constructs an http.Request for the GetHostingerCatalog method
+func NewGetHostingerCatalogRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/hostinger/catalog")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetHostingerDataCentersRequest constructs an http.Request for the GetHostingerDataCenters method
+func NewGetHostingerDataCentersRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/hostinger/data-centers")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetHostingerPostInstallScriptsRequest constructs an http.Request for the GetHostingerPostInstallScripts method
+func NewGetHostingerPostInstallScriptsRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/hostinger/post-install-scripts")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetHostingerSshKeysRequest constructs an http.Request for the GetHostingerSshKeys method
+func NewGetHostingerSshKeysRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/hostinger/ssh-keys")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetHostingerTemplatesRequest constructs an http.Request for the GetHostingerTemplates method
+func NewGetHostingerTemplatesRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/hostinger/templates")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
 	}
 
 	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
@@ -25226,6 +26010,179 @@ func NewCreateHetznerServerRequestWithBody(server string, contentType string, bo
 	return req, nil
 }
 
+// NewCreateHostingerServerRequest constructs an http.Request for the CreateHostingerServer method
+func NewCreateHostingerServerRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/servers/hostinger")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewImportServerTransferBundleRequest calls the generic ImportServerTransferBundle builder with application/json body
+func NewImportServerTransferBundleRequest(server string, body ImportServerTransferBundleJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewImportServerTransferBundleRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewImportServerTransferBundleRequestWithBody constructs an http.Request for the ImportServerTransferBundle method, with any body, and a specified content type
+func NewImportServerTransferBundleRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/servers/import")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCheckServerImportRequest constructs an http.Request for the CheckServerImport method
+func NewCheckServerImportRequest(server string, params *CheckServerImportParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/servers/import/check")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "server_uuid", params.ServerUuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+			return nil, err
+		} else {
+			for _, qp := range strings.Split(queryFrag, "&") {
+				rawQueryFragments = append(rawQueryFragments, qp)
+			}
+		}
+
+		if queryFrag, err := runtime.StyleParamWithOptions("form", true, "ip", params.Ip, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+			return nil, err
+		} else {
+			for _, qp := range strings.Split(queryFrag, "&") {
+				rawQueryFragments = append(rawQueryFragments, qp)
+			}
+		}
+
+		if params.Port != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "port", *params.Port, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.SchemaVersion != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "schema_version", *params.SchemaVersion, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.SystemGithubApps != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "system_github_apps[]", *params.SystemGithubApps, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "array", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.SystemGitlabApps != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "system_gitlab_apps[]", *params.SystemGitlabApps, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "array", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewCreateVultrServerRequest constructs an http.Request for the CreateVultrServer method
 func NewCreateVultrServerRequest(server string) (*http.Request, error) {
 	var err error
@@ -26064,6 +27021,53 @@ func NewUpdateServerLogDrainsRequestWithBody(server string, uuid string, content
 	return req, nil
 }
 
+// NewMigrateServerBetweenInstancesRequest calls the generic MigrateServerBetweenInstances builder with application/json body
+func NewMigrateServerBetweenInstancesRequest(server string, uuid string, body MigrateServerBetweenInstancesJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewMigrateServerBetweenInstancesRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewMigrateServerBetweenInstancesRequestWithBody constructs an http.Request for the MigrateServerBetweenInstances method, with any body, and a specified content type
+func NewMigrateServerBetweenInstancesRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/servers/%s/migrate", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewGetServerProxyRequest constructs an http.Request for the GetServerProxy method
 func NewGetServerProxyRequest(server string, uuid string) (*http.Request, error) {
 	var err error
@@ -26495,6 +27499,87 @@ func NewUpdateServerSentinelRequestWithBody(server string, uuid string, contentT
 	}
 
 	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewGetServerTransferStatusRequest constructs an http.Request for the GetServerTransferStatus method
+func NewGetServerTransferStatusRequest(server string, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/servers/%s/transfer", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCompleteServerTransferRequest calls the generic CompleteServerTransfer builder with application/json body
+func NewCompleteServerTransferRequest(server string, uuid string, body CompleteServerTransferJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCompleteServerTransferRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewCompleteServerTransferRequestWithBody constructs an http.Request for the CompleteServerTransfer method, with any body, and a specified content type
+func NewCompleteServerTransferRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/servers/%s/transfer/complete", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
@@ -30155,7 +31240,7 @@ type ClientWithResponsesInterface interface {
 
 	// ListApplicationRollbackImagesWithResponse List Rollback Images
 	//
-	// List available Docker images for rolling back an application. Returns an empty list when the server is unavailable or remote inspection is not possible.
+	// List available Docker images for rolling back an application: images on the server (`local`) and, when a Docker registry image name is set, images of recent successful deployments in the registry (`registry`). Returns an empty list when the server is unavailable or remote inspection is not possible.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -30803,7 +31888,7 @@ type ClientWithResponsesInterface interface {
 
 	// ListBackupExecutionsWithResponse List backup executions
 	//
-	// Get all executions for a specific backup configuration.
+	// Get all executions for a specific backup configuration. The execution `message` is only returned (redacted) to tokens with the `read:sensitive` or `root` ability; otherwise it is `null`.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -31266,15 +32351,6 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /disable (the `DisableApi` operationId).
 	DisableApiWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*DisableApiResponse, error)
 
-	// EnableApiWithResponse Enable API
-	//
-	// Enable API (only with root permissions).
-	//
-	// Returns a wrapper object for the known response body format(s).
-	//
-	// Corresponds with POST /enable (the `EnableApi` operationId).
-	EnableApiWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*EnableApiResponse, error)
-
 	// ListGithubAppsWithResponse List
 	//
 	// List all GitHub apps.
@@ -31463,6 +32539,41 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /hetzner/ssh-keys (the `GetHetznerSshKeys` operationId).
 	GetHetznerSshKeysWithResponse(ctx context.Context, params *GetHetznerSshKeysParams, reqEditors ...RequestEditorFn) (*GetHetznerSshKeysResponse, error)
+
+	// GetHostingerCatalogWithResponse Get Hostinger VPS plans and prices
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /hostinger/catalog (the `GetHostingerCatalog` operationId).
+	GetHostingerCatalogWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetHostingerCatalogResponse, error)
+
+	// GetHostingerDataCentersWithResponse Get Hostinger VPS data centers
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /hostinger/data-centers (the `GetHostingerDataCenters` operationId).
+	GetHostingerDataCentersWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetHostingerDataCentersResponse, error)
+
+	// GetHostingerPostInstallScriptsWithResponse Get Hostinger post-install scripts
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /hostinger/post-install-scripts (the `GetHostingerPostInstallScripts` operationId).
+	GetHostingerPostInstallScriptsWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetHostingerPostInstallScriptsResponse, error)
+
+	// GetHostingerSshKeysWithResponse Get Hostinger account SSH keys
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /hostinger/ssh-keys (the `GetHostingerSshKeys` operationId).
+	GetHostingerSshKeysWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetHostingerSshKeysResponse, error)
+
+	// GetHostingerTemplatesWithResponse Get Hostinger VPS operating system templates
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /hostinger/templates (the `GetHostingerTemplates` operationId).
+	GetHostingerTemplatesWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetHostingerTemplatesResponse, error)
 
 	// DisableMcpWithResponse Disable MCP Server
 	//
@@ -32004,6 +33115,40 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /servers/hetzner (the `CreateHetznerServer` operationId).
 	CreateHetznerServerWithResponse(ctx context.Context, body CreateHetznerServerJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateHetznerServerResponse, error)
 
+	// CreateHostingerServerWithResponse Purchase a Hostinger VPS and create a linked server
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /servers/hostinger (the `CreateHostingerServer` operationId).
+	CreateHostingerServerWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*CreateHostingerServerResponse, error)
+
+	// ImportServerTransferBundleWithBodyWithResponse Import server transfer bundle
+	//
+	// Import a server transfer bundle into this Coolify instance (adopt mode by default). This instance then manages the server, and Sentinel reports to it. Needs a token with the write and deploy permissions.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /servers/import (the `ImportServerTransferBundle` operationId).
+	ImportServerTransferBundleWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ImportServerTransferBundleResponse, error)
+
+	// ImportServerTransferBundleWithResponse Import server transfer bundle
+	//
+	// Import a server transfer bundle into this Coolify instance (adopt mode by default). This instance then manages the server, and Sentinel reports to it. Needs a token with the write and deploy permissions.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /servers/import (the `ImportServerTransferBundle` operationId).
+	ImportServerTransferBundleWithResponse(ctx context.Context, body ImportServerTransferBundleJSONRequestBody, reqEditors ...RequestEditorFn) (*ImportServerTransferBundleResponse, error)
+
+	// CheckServerImportWithResponse Check server import
+	//
+	// Check that this instance can import a server, before the source instance starts the transfer. It checks the token, the bundle version, the server limit, servers with the same UUID or IP, and that this instance can reach the SSH port of the server.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /servers/import/check (the `CheckServerImport` operationId).
+	CheckServerImportWithResponse(ctx context.Context, params *CheckServerImportParams, reqEditors ...RequestEditorFn) (*CheckServerImportResponse, error)
+
 	// CreateVultrServerWithResponse Create Vultr Server
 	//
 	// Create a Vultr instance and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
@@ -32247,6 +33392,24 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with PATCH /servers/{uuid}/log-drains (the `UpdateServerLogDrains` operationId).
 	UpdateServerLogDrainsWithResponse(ctx context.Context, uuid string, body UpdateServerLogDrainsJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateServerLogDrainsResponse, error)
 
+	// MigrateServerBetweenInstancesWithBodyWithResponse Migrate server to another Coolify instance
+	//
+	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /servers/{uuid}/migrate (the `MigrateServerBetweenInstances` operationId).
+	MigrateServerBetweenInstancesWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*MigrateServerBetweenInstancesResponse, error)
+
+	// MigrateServerBetweenInstancesWithResponse Migrate server to another Coolify instance
+	//
+	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /servers/{uuid}/migrate (the `MigrateServerBetweenInstances` operationId).
+	MigrateServerBetweenInstancesWithResponse(ctx context.Context, uuid string, body MigrateServerBetweenInstancesJSONRequestBody, reqEditors ...RequestEditorFn) (*MigrateServerBetweenInstancesResponse, error)
+
 	// GetServerProxyWithResponse Get server proxy
 	//
 	// Get proxy settings for a server owned by the authenticated team. The raw proxy configuration is only returned when the token has `read:sensitive` (or `root`) and the user is a team admin/owner, and only when already stored in the database (no remote fetch).
@@ -32381,6 +33544,33 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with PATCH /servers/{uuid}/sentinel (the `UpdateServerSentinel` operationId).
 	UpdateServerSentinelWithResponse(ctx context.Context, uuid string, body UpdateServerSentinelJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateServerSentinelResponse, error)
+
+	// GetServerTransferStatusWithResponse Get server transfer status
+	//
+	// Show the transfer state of a server on this instance: the import/claim state (transfer) and the state of a running or finished transfer to another instance (migration).
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /servers/{uuid}/transfer (the `GetServerTransferStatus` operationId).
+	GetServerTransferStatusWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*GetServerTransferStatusResponse, error)
+
+	// CompleteServerTransferWithBodyWithResponse Mark server transferred
+	//
+	// Source-instance recovery step: disable automations here when the target already manages the server but the transfer could not finish on this instance.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /servers/{uuid}/transfer/complete (the `CompleteServerTransfer` operationId).
+	CompleteServerTransferWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CompleteServerTransferResponse, error)
+
+	// CompleteServerTransferWithResponse Mark server transferred
+	//
+	// Source-instance recovery step: disable automations here when the target already manages the server but the transfer could not finish on this instance.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /servers/{uuid}/transfer/complete (the `CompleteServerTransfer` operationId).
+	CompleteServerTransferWithResponse(ctx context.Context, uuid string, body CompleteServerTransferJSONRequestBody, reqEditors ...RequestEditorFn) (*CompleteServerTransferResponse, error)
 
 	// ValidateServerByUuidWithBodyWithResponse Validate
 	//
@@ -35251,9 +36441,10 @@ type ListApplicationRollbackImagesResponse struct {
 	JSON200 *struct {
 		Current *string `json:"current,omitempty"`
 		Images  *[]struct {
-			CreatedAt *string `json:"created_at,omitempty"`
-			IsCurrent *bool   `json:"is_current,omitempty"`
-			Tag       *string `json:"tag,omitempty"`
+			CreatedAt *string                                                       `json:"created_at,omitempty"`
+			IsCurrent *bool                                                         `json:"is_current,omitempty"`
+			Source    *ListApplicationRollbackImages200JSONResponseBodyImagesSource `json:"source,omitempty"`
+			Tag       *string                                                       `json:"tag,omitempty"`
 		} `json:"images,omitempty"`
 	}
 	// JSON401 the response for an HTTP 401 `application/json` response
@@ -35266,9 +36457,10 @@ type ListApplicationRollbackImagesResponse struct {
 func (r ListApplicationRollbackImagesResponse) GetJSON200() *struct {
 	Current *string `json:"current,omitempty"`
 	Images  *[]struct {
-		CreatedAt *string `json:"created_at,omitempty"`
-		IsCurrent *bool   `json:"is_current,omitempty"`
-		Tag       *string `json:"tag,omitempty"`
+		CreatedAt *string                                                       `json:"created_at,omitempty"`
+		IsCurrent *bool                                                         `json:"is_current,omitempty"`
+		Source    *ListApplicationRollbackImages200JSONResponseBodyImagesSource `json:"source,omitempty"`
+		Tag       *string                                                       `json:"tag,omitempty"`
 	} `json:"images,omitempty"`
 } {
 	return r.JSON200
@@ -38229,10 +39421,12 @@ type ListBackupExecutionsResponse struct {
 		Executions *[]struct {
 			CreatedAt *string `json:"created_at,omitempty"`
 			Filename  *string `json:"filename,omitempty"`
-			Message   *string `json:"message,omitempty"`
-			Size      *int    `json:"size,omitempty"`
-			Status    *string `json:"status,omitempty"`
-			Uuid      *string `json:"uuid,omitempty"`
+
+			// Message Redacted execution output. Null unless the token has the `read:sensitive` or `root` ability.
+			Message *string `json:"message,omitempty"`
+			Size    *int    `json:"size,omitempty"`
+			Status  *string `json:"status,omitempty"`
+			Uuid    *string `json:"uuid,omitempty"`
 		} `json:"executions,omitempty"`
 	}
 }
@@ -38242,10 +39436,12 @@ func (r ListBackupExecutionsResponse) GetJSON200() *struct {
 	Executions *[]struct {
 		CreatedAt *string `json:"created_at,omitempty"`
 		Filename  *string `json:"filename,omitempty"`
-		Message   *string `json:"message,omitempty"`
-		Size      *int    `json:"size,omitempty"`
-		Status    *string `json:"status,omitempty"`
-		Uuid      *string `json:"uuid,omitempty"`
+
+		// Message Redacted execution output. Null unless the token has the `read:sensitive` or `root` ability.
+		Message *string `json:"message,omitempty"`
+		Size    *int    `json:"size,omitempty"`
+		Status  *string `json:"status,omitempty"`
+		Uuid    *string `json:"uuid,omitempty"`
 	} `json:"executions,omitempty"`
 } {
 	return r.JSON200
@@ -40691,76 +41887,6 @@ func (r DisableApiResponse) ContentType() string {
 	return ""
 }
 
-type EnableApiResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *struct {
-		Message *string `json:"message,omitempty"`
-	}
-	// JSON400 the response for an HTTP 400 `application/json` response
-	JSON400 *N400
-	// JSON401 the response for an HTTP 401 `application/json` response
-	JSON401 *N401
-	// JSON403 the response for an HTTP 403 `application/json` response
-	JSON403 *struct {
-		Message *string `json:"message,omitempty"`
-	}
-}
-
-// GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r EnableApiResponse) GetJSON200() *struct {
-	Message *string `json:"message,omitempty"`
-} {
-	return r.JSON200
-}
-
-// GetJSON400 returns the response for an HTTP 400 `application/json` response
-func (r EnableApiResponse) GetJSON400() *N400 {
-	return r.JSON400
-}
-
-// GetJSON401 returns the response for an HTTP 401 `application/json` response
-func (r EnableApiResponse) GetJSON401() *N401 {
-	return r.JSON401
-}
-
-// GetJSON403 returns the response for an HTTP 403 `application/json` response
-func (r EnableApiResponse) GetJSON403() *struct {
-	Message *string `json:"message,omitempty"`
-} {
-	return r.JSON403
-}
-
-// GetBody returns the raw response body bytes
-func (r EnableApiResponse) GetBody() []byte {
-	return r.Body
-}
-
-// Status returns HTTPResponse.Status
-func (r EnableApiResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r EnableApiResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
-// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
-func (r EnableApiResponse) ContentType() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Header.Get("Content-Type")
-	}
-	return ""
-}
-
 type ListGithubAppsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -41935,6 +43061,211 @@ func (r GetHetznerSshKeysResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r GetHetznerSshKeysResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetHostingerCatalogResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetHostingerCatalogResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r GetHostingerCatalogResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetHostingerCatalogResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetHostingerCatalogResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetHostingerCatalogResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetHostingerDataCentersResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetHostingerDataCentersResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r GetHostingerDataCentersResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetHostingerDataCentersResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetHostingerDataCentersResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetHostingerDataCentersResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetHostingerPostInstallScriptsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetHostingerPostInstallScriptsResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r GetHostingerPostInstallScriptsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetHostingerPostInstallScriptsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetHostingerPostInstallScriptsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetHostingerPostInstallScriptsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetHostingerSshKeysResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetHostingerSshKeysResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r GetHostingerSshKeysResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetHostingerSshKeysResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetHostingerSshKeysResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetHostingerSshKeysResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetHostingerTemplatesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetHostingerTemplatesResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r GetHostingerTemplatesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetHostingerTemplatesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetHostingerTemplatesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetHostingerTemplatesResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -44876,6 +46207,129 @@ func (r CreateHetznerServerResponse) ContentType() string {
 	return ""
 }
 
+type CreateHostingerServerResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r CreateHostingerServerResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateHostingerServerResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateHostingerServerResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateHostingerServerResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateHostingerServerResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ImportServerTransferBundleResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ImportServerTransferBundleResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r ImportServerTransferBundleResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ImportServerTransferBundleResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ImportServerTransferBundleResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ImportServerTransferBundleResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CheckServerImportResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r CheckServerImportResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r CheckServerImportResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CheckServerImportResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CheckServerImportResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CheckServerImportResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type CreateVultrServerResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -46067,13 +47521,19 @@ type GetServerLogDrainsResponse struct {
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
 	JSON200 *struct {
-		IsLogdrainAxiomEnabled    *bool `json:"is_logdrain_axiom_enabled,omitempty"`
-		IsLogdrainCustomEnabled   *bool `json:"is_logdrain_custom_enabled,omitempty"`
-		IsLogdrainNewrelicEnabled *bool `json:"is_logdrain_newrelic_enabled,omitempty"`
+		IsLogdrainAxiomEnabled      *bool `json:"is_logdrain_axiom_enabled,omitempty"`
+		IsLogdrainCloudwatchEnabled *bool `json:"is_logdrain_cloudwatch_enabled,omitempty"`
+		IsLogdrainCustomEnabled     *bool `json:"is_logdrain_custom_enabled,omitempty"`
+		IsLogdrainNewrelicEnabled   *bool `json:"is_logdrain_newrelic_enabled,omitempty"`
 
 		// LogdrainAxiomApiKey Only present with read:sensitive.
 		LogdrainAxiomApiKey      *string `json:"logdrain_axiom_api_key,omitempty"`
 		LogdrainAxiomDatasetName *string `json:"logdrain_axiom_dataset_name,omitempty"`
+		LogdrainCloudwatchGroup  *string `json:"logdrain_cloudwatch_group,omitempty"`
+		LogdrainCloudwatchRegion *string `json:"logdrain_cloudwatch_region,omitempty"`
+
+		// LogdrainCloudwatchStreamPrefix Prepended to the container name to form the log stream name.
+		LogdrainCloudwatchStreamPrefix *string `json:"logdrain_cloudwatch_stream_prefix,omitempty"`
 
 		// LogdrainCustomConfig Only present with read:sensitive.
 		LogdrainCustomConfig *string `json:"logdrain_custom_config,omitempty"`
@@ -46095,13 +47555,19 @@ type GetServerLogDrainsResponse struct {
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
 func (r GetServerLogDrainsResponse) GetJSON200() *struct {
-	IsLogdrainAxiomEnabled    *bool `json:"is_logdrain_axiom_enabled,omitempty"`
-	IsLogdrainCustomEnabled   *bool `json:"is_logdrain_custom_enabled,omitempty"`
-	IsLogdrainNewrelicEnabled *bool `json:"is_logdrain_newrelic_enabled,omitempty"`
+	IsLogdrainAxiomEnabled      *bool `json:"is_logdrain_axiom_enabled,omitempty"`
+	IsLogdrainCloudwatchEnabled *bool `json:"is_logdrain_cloudwatch_enabled,omitempty"`
+	IsLogdrainCustomEnabled     *bool `json:"is_logdrain_custom_enabled,omitempty"`
+	IsLogdrainNewrelicEnabled   *bool `json:"is_logdrain_newrelic_enabled,omitempty"`
 
 	// LogdrainAxiomApiKey Only present with read:sensitive.
 	LogdrainAxiomApiKey      *string `json:"logdrain_axiom_api_key,omitempty"`
 	LogdrainAxiomDatasetName *string `json:"logdrain_axiom_dataset_name,omitempty"`
+	LogdrainCloudwatchGroup  *string `json:"logdrain_cloudwatch_group,omitempty"`
+	LogdrainCloudwatchRegion *string `json:"logdrain_cloudwatch_region,omitempty"`
+
+	// LogdrainCloudwatchStreamPrefix Prepended to the container name to form the log stream name.
+	LogdrainCloudwatchStreamPrefix *string `json:"logdrain_cloudwatch_stream_prefix,omitempty"`
 
 	// LogdrainCustomConfig Only present with read:sensitive.
 	LogdrainCustomConfig *string `json:"logdrain_custom_config,omitempty"`
@@ -46216,6 +47682,47 @@ func (r UpdateServerLogDrainsResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r UpdateServerLogDrainsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type MigrateServerBetweenInstancesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r MigrateServerBetweenInstancesResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r MigrateServerBetweenInstancesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r MigrateServerBetweenInstancesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r MigrateServerBetweenInstancesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r MigrateServerBetweenInstancesResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -47098,6 +48605,95 @@ func (r UpdateServerSentinelResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r UpdateServerSentinelResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetServerTransferStatusResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetServerTransferStatusResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r GetServerTransferStatusResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r GetServerTransferStatusResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetServerTransferStatusResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetServerTransferStatusResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetServerTransferStatusResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CompleteServerTransferResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r CompleteServerTransferResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r CompleteServerTransferResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CompleteServerTransferResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CompleteServerTransferResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CompleteServerTransferResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -52222,7 +53818,7 @@ func (c *ClientWithResponses) RollbackApplicationByUuidWithResponse(ctx context.
 
 // ListApplicationRollbackImagesWithResponse List Rollback Images
 //
-// List available Docker images for rolling back an application. Returns an empty list when the server is unavailable or remote inspection is not possible.
+// List available Docker images for rolling back an application: images on the server (`local`) and, when a Docker registry image name is set, images of recent successful deployments in the registry (`registry`). Returns an empty list when the server is unavailable or remote inspection is not possible.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -53302,7 +54898,7 @@ func (c *ClientWithResponses) UpdateDatabaseBackupWithResponse(ctx context.Conte
 
 // ListBackupExecutionsWithResponse List backup executions
 //
-// Get all executions for a specific backup configuration.
+// Get all executions for a specific backup configuration. The execution `message` is only returned (redacted) to tokens with the `read:sensitive` or `root` ability; otherwise it is `null`.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -54083,21 +55679,6 @@ func (c *ClientWithResponses) DisableApiWithResponse(ctx context.Context, reqEdi
 	return ParseDisableApiResponse(rsp)
 }
 
-// EnableApiWithResponse Enable API
-//
-// Enable API (only with root permissions).
-//
-// Returns a wrapper object for the known response body format(s).
-//
-// Corresponds with POST /enable (the `EnableApi` operationId).
-func (c *ClientWithResponses) EnableApiWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*EnableApiResponse, error) {
-	rsp, err := c.EnableApi(ctx, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseEnableApiResponse(rsp)
-}
-
 // ListGithubAppsWithResponse List
 //
 // List all GitHub apps.
@@ -54411,6 +55992,71 @@ func (c *ClientWithResponses) GetHetznerSshKeysWithResponse(ctx context.Context,
 		return nil, err
 	}
 	return ParseGetHetznerSshKeysResponse(rsp)
+}
+
+// GetHostingerCatalogWithResponse Get Hostinger VPS plans and prices
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /hostinger/catalog (the `GetHostingerCatalog` operationId).
+func (c *ClientWithResponses) GetHostingerCatalogWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetHostingerCatalogResponse, error) {
+	rsp, err := c.GetHostingerCatalog(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetHostingerCatalogResponse(rsp)
+}
+
+// GetHostingerDataCentersWithResponse Get Hostinger VPS data centers
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /hostinger/data-centers (the `GetHostingerDataCenters` operationId).
+func (c *ClientWithResponses) GetHostingerDataCentersWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetHostingerDataCentersResponse, error) {
+	rsp, err := c.GetHostingerDataCenters(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetHostingerDataCentersResponse(rsp)
+}
+
+// GetHostingerPostInstallScriptsWithResponse Get Hostinger post-install scripts
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /hostinger/post-install-scripts (the `GetHostingerPostInstallScripts` operationId).
+func (c *ClientWithResponses) GetHostingerPostInstallScriptsWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetHostingerPostInstallScriptsResponse, error) {
+	rsp, err := c.GetHostingerPostInstallScripts(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetHostingerPostInstallScriptsResponse(rsp)
+}
+
+// GetHostingerSshKeysWithResponse Get Hostinger account SSH keys
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /hostinger/ssh-keys (the `GetHostingerSshKeys` operationId).
+func (c *ClientWithResponses) GetHostingerSshKeysWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetHostingerSshKeysResponse, error) {
+	rsp, err := c.GetHostingerSshKeys(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetHostingerSshKeysResponse(rsp)
+}
+
+// GetHostingerTemplatesWithResponse Get Hostinger VPS operating system templates
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /hostinger/templates (the `GetHostingerTemplates` operationId).
+func (c *ClientWithResponses) GetHostingerTemplatesWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetHostingerTemplatesResponse, error) {
+	rsp, err := c.GetHostingerTemplates(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetHostingerTemplatesResponse(rsp)
 }
 
 // DisableMcpWithResponse Disable MCP Server
@@ -55313,6 +56959,64 @@ func (c *ClientWithResponses) CreateHetznerServerWithResponse(ctx context.Contex
 	return ParseCreateHetznerServerResponse(rsp)
 }
 
+// CreateHostingerServerWithResponse Purchase a Hostinger VPS and create a linked server
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /servers/hostinger (the `CreateHostingerServer` operationId).
+func (c *ClientWithResponses) CreateHostingerServerWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*CreateHostingerServerResponse, error) {
+	rsp, err := c.CreateHostingerServer(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateHostingerServerResponse(rsp)
+}
+
+// ImportServerTransferBundleWithBodyWithResponse Import server transfer bundle
+//
+// Import a server transfer bundle into this Coolify instance (adopt mode by default). This instance then manages the server, and Sentinel reports to it. Needs a token with the write and deploy permissions.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /servers/import (the `ImportServerTransferBundle` operationId).
+func (c *ClientWithResponses) ImportServerTransferBundleWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ImportServerTransferBundleResponse, error) {
+	rsp, err := c.ImportServerTransferBundleWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseImportServerTransferBundleResponse(rsp)
+}
+
+// ImportServerTransferBundleWithResponse Import server transfer bundle
+//
+// Import a server transfer bundle into this Coolify instance (adopt mode by default). This instance then manages the server, and Sentinel reports to it. Needs a token with the write and deploy permissions.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /servers/import (the `ImportServerTransferBundle` operationId).
+func (c *ClientWithResponses) ImportServerTransferBundleWithResponse(ctx context.Context, body ImportServerTransferBundleJSONRequestBody, reqEditors ...RequestEditorFn) (*ImportServerTransferBundleResponse, error) {
+	rsp, err := c.ImportServerTransferBundle(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseImportServerTransferBundleResponse(rsp)
+}
+
+// CheckServerImportWithResponse Check server import
+//
+// Check that this instance can import a server, before the source instance starts the transfer. It checks the token, the bundle version, the server limit, servers with the same UUID or IP, and that this instance can reach the SSH port of the server.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /servers/import/check (the `CheckServerImport` operationId).
+func (c *ClientWithResponses) CheckServerImportWithResponse(ctx context.Context, params *CheckServerImportParams, reqEditors ...RequestEditorFn) (*CheckServerImportResponse, error) {
+	rsp, err := c.CheckServerImport(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCheckServerImportResponse(rsp)
+}
+
 // CreateVultrServerWithResponse Create Vultr Server
 //
 // Create a Vultr instance and link it as a Coolify server. A cloud-init script or extra SSH key IDs need a token with the deploy permission.
@@ -55718,6 +57422,36 @@ func (c *ClientWithResponses) UpdateServerLogDrainsWithResponse(ctx context.Cont
 	return ParseUpdateServerLogDrainsResponse(rsp)
 }
 
+// MigrateServerBetweenInstancesWithBodyWithResponse Migrate server to another Coolify instance
+//
+// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /servers/{uuid}/migrate (the `MigrateServerBetweenInstances` operationId).
+func (c *ClientWithResponses) MigrateServerBetweenInstancesWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*MigrateServerBetweenInstancesResponse, error) {
+	rsp, err := c.MigrateServerBetweenInstancesWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseMigrateServerBetweenInstancesResponse(rsp)
+}
+
+// MigrateServerBetweenInstancesWithResponse Migrate server to another Coolify instance
+//
+// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /servers/{uuid}/migrate (the `MigrateServerBetweenInstances` operationId).
+func (c *ClientWithResponses) MigrateServerBetweenInstancesWithResponse(ctx context.Context, uuid string, body MigrateServerBetweenInstancesJSONRequestBody, reqEditors ...RequestEditorFn) (*MigrateServerBetweenInstancesResponse, error) {
+	rsp, err := c.MigrateServerBetweenInstances(ctx, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseMigrateServerBetweenInstancesResponse(rsp)
+}
+
 // GetServerProxyWithResponse Get server proxy
 //
 // Get proxy settings for a server owned by the authenticated team. The raw proxy configuration is only returned when the token has `read:sensitive` (or `root`) and the user is a team admin/owner, and only when already stored in the database (no remote fetch).
@@ -55941,6 +57675,51 @@ func (c *ClientWithResponses) UpdateServerSentinelWithResponse(ctx context.Conte
 		return nil, err
 	}
 	return ParseUpdateServerSentinelResponse(rsp)
+}
+
+// GetServerTransferStatusWithResponse Get server transfer status
+//
+// Show the transfer state of a server on this instance: the import/claim state (transfer) and the state of a running or finished transfer to another instance (migration).
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /servers/{uuid}/transfer (the `GetServerTransferStatus` operationId).
+func (c *ClientWithResponses) GetServerTransferStatusWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*GetServerTransferStatusResponse, error) {
+	rsp, err := c.GetServerTransferStatus(ctx, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetServerTransferStatusResponse(rsp)
+}
+
+// CompleteServerTransferWithBodyWithResponse Mark server transferred
+//
+// Source-instance recovery step: disable automations here when the target already manages the server but the transfer could not finish on this instance.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /servers/{uuid}/transfer/complete (the `CompleteServerTransfer` operationId).
+func (c *ClientWithResponses) CompleteServerTransferWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CompleteServerTransferResponse, error) {
+	rsp, err := c.CompleteServerTransferWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCompleteServerTransferResponse(rsp)
+}
+
+// CompleteServerTransferWithResponse Mark server transferred
+//
+// Source-instance recovery step: disable automations here when the target already manages the server but the transfer could not finish on this instance.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /servers/{uuid}/transfer/complete (the `CompleteServerTransfer` operationId).
+func (c *ClientWithResponses) CompleteServerTransferWithResponse(ctx context.Context, uuid string, body CompleteServerTransferJSONRequestBody, reqEditors ...RequestEditorFn) (*CompleteServerTransferResponse, error) {
+	rsp, err := c.CompleteServerTransfer(ctx, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCompleteServerTransferResponse(rsp)
 }
 
 // ValidateServerByUuidWithBodyWithResponse Validate
@@ -58909,9 +60688,10 @@ func ParseListApplicationRollbackImagesResponse(rsp *http.Response) (*ListApplic
 		var dest struct {
 			Current *string `json:"current,omitempty"`
 			Images  *[]struct {
-				CreatedAt *string `json:"created_at,omitempty"`
-				IsCurrent *bool   `json:"is_current,omitempty"`
-				Tag       *string `json:"tag,omitempty"`
+				CreatedAt *string                                                       `json:"created_at,omitempty"`
+				IsCurrent *bool                                                         `json:"is_current,omitempty"`
+				Source    *ListApplicationRollbackImages200JSONResponseBodyImagesSource `json:"source,omitempty"`
+				Tag       *string                                                       `json:"tag,omitempty"`
 			} `json:"images,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -61194,10 +62974,12 @@ func ParseListBackupExecutionsResponse(rsp *http.Response) (*ListBackupExecution
 			Executions *[]struct {
 				CreatedAt *string `json:"created_at,omitempty"`
 				Filename  *string `json:"filename,omitempty"`
-				Message   *string `json:"message,omitempty"`
-				Size      *int    `json:"size,omitempty"`
-				Status    *string `json:"status,omitempty"`
-				Uuid      *string `json:"uuid,omitempty"`
+
+				// Message Redacted execution output. Null unless the token has the `read:sensitive` or `root` ability.
+				Message *string `json:"message,omitempty"`
+				Size    *int    `json:"size,omitempty"`
+				Status  *string `json:"status,omitempty"`
+				Uuid    *string `json:"uuid,omitempty"`
 			} `json:"executions,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -63065,57 +64847,6 @@ func ParseDisableApiResponse(rsp *http.Response) (*DisableApiResponse, error) {
 	return response, nil
 }
 
-// ParseEnableApiResponse parses an HTTP response from a EnableApiWithResponse call
-func ParseEnableApiResponse(rsp *http.Response) (*EnableApiResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &EnableApiResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest struct {
-			Message *string `json:"message,omitempty"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest N400
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON400 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
-		var dest N401
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON401 = &dest
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 403:
-		var dest struct {
-			Message *string `json:"message,omitempty"`
-		}
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON403 = &dest
-
-	}
-
-	return response, nil
-}
-
 // ParseListGithubAppsResponse parses an HTTP response from a ListGithubAppsWithResponse call
 func ParseListGithubAppsResponse(rsp *http.Response) (*ListGithubAppsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -63933,6 +65664,196 @@ func ParseGetHetznerSshKeysResponse(rsp *http.Response) (*GetHetznerSshKeysRespo
 			return nil, err
 		}
 		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetHostingerCatalogResponse parses an HTTP response from a GetHostingerCatalogWithResponse call
+func ParseGetHostingerCatalogResponse(rsp *http.Response) (*GetHostingerCatalogResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetHostingerCatalogResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	case rsp.StatusCode == 429:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseGetHostingerDataCentersResponse parses an HTTP response from a GetHostingerDataCentersWithResponse call
+func ParseGetHostingerDataCentersResponse(rsp *http.Response) (*GetHostingerDataCentersResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetHostingerDataCentersResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	case rsp.StatusCode == 429:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseGetHostingerPostInstallScriptsResponse parses an HTTP response from a GetHostingerPostInstallScriptsWithResponse call
+func ParseGetHostingerPostInstallScriptsResponse(rsp *http.Response) (*GetHostingerPostInstallScriptsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetHostingerPostInstallScriptsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	case rsp.StatusCode == 429:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseGetHostingerSshKeysResponse parses an HTTP response from a GetHostingerSshKeysWithResponse call
+func ParseGetHostingerSshKeysResponse(rsp *http.Response) (*GetHostingerSshKeysResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetHostingerSshKeysResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	case rsp.StatusCode == 429:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseGetHostingerTemplatesResponse parses an HTTP response from a GetHostingerTemplatesWithResponse call
+func ParseGetHostingerTemplatesResponse(rsp *http.Response) (*GetHostingerTemplatesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetHostingerTemplatesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	case rsp.StatusCode == 429:
+		break // No content-type
 
 	}
 
@@ -66202,6 +68123,114 @@ func ParseCreateHetznerServerResponse(rsp *http.Response) (*CreateHetznerServerR
 	return response, nil
 }
 
+// ParseCreateHostingerServerResponse parses an HTTP response from a CreateHostingerServerWithResponse call
+func ParseCreateHostingerServerResponse(rsp *http.Response) (*CreateHostingerServerResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateHostingerServerResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 201:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	case rsp.StatusCode == 429:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseImportServerTransferBundleResponse parses an HTTP response from a ImportServerTransferBundleWithResponse call
+func ParseImportServerTransferBundleResponse(rsp *http.Response) (*ImportServerTransferBundleResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ImportServerTransferBundleResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case rsp.StatusCode == 201:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseCheckServerImportResponse parses an HTTP response from a CheckServerImportWithResponse call
+func ParseCheckServerImportResponse(rsp *http.Response) (*CheckServerImportResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CheckServerImportResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
 // ParseCreateVultrServerResponse parses an HTTP response from a CreateVultrServerWithResponse call
 func ParseCreateVultrServerResponse(rsp *http.Response) (*CreateVultrServerResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -67141,13 +69170,19 @@ func ParseGetServerLogDrainsResponse(rsp *http.Response) (*GetServerLogDrainsRes
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest struct {
-			IsLogdrainAxiomEnabled    *bool `json:"is_logdrain_axiom_enabled,omitempty"`
-			IsLogdrainCustomEnabled   *bool `json:"is_logdrain_custom_enabled,omitempty"`
-			IsLogdrainNewrelicEnabled *bool `json:"is_logdrain_newrelic_enabled,omitempty"`
+			IsLogdrainAxiomEnabled      *bool `json:"is_logdrain_axiom_enabled,omitempty"`
+			IsLogdrainCloudwatchEnabled *bool `json:"is_logdrain_cloudwatch_enabled,omitempty"`
+			IsLogdrainCustomEnabled     *bool `json:"is_logdrain_custom_enabled,omitempty"`
+			IsLogdrainNewrelicEnabled   *bool `json:"is_logdrain_newrelic_enabled,omitempty"`
 
 			// LogdrainAxiomApiKey Only present with read:sensitive.
 			LogdrainAxiomApiKey      *string `json:"logdrain_axiom_api_key,omitempty"`
 			LogdrainAxiomDatasetName *string `json:"logdrain_axiom_dataset_name,omitempty"`
+			LogdrainCloudwatchGroup  *string `json:"logdrain_cloudwatch_group,omitempty"`
+			LogdrainCloudwatchRegion *string `json:"logdrain_cloudwatch_region,omitempty"`
+
+			// LogdrainCloudwatchStreamPrefix Prepended to the container name to form the log stream name.
+			LogdrainCloudwatchStreamPrefix *string `json:"logdrain_cloudwatch_stream_prefix,omitempty"`
 
 			// LogdrainCustomConfig Only present with read:sensitive.
 			LogdrainCustomConfig *string `json:"logdrain_custom_config,omitempty"`
@@ -67237,6 +69272,41 @@ func ParseUpdateServerLogDrainsResponse(rsp *http.Response) (*UpdateServerLogDra
 			return nil, err
 		}
 		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseMigrateServerBetweenInstancesResponse parses an HTTP response from a MigrateServerBetweenInstancesWithResponse call
+func ParseMigrateServerBetweenInstancesResponse(rsp *http.Response) (*MigrateServerBetweenInstancesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &MigrateServerBetweenInstancesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 202:
+		break // No content-type
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case rsp.StatusCode == 422:
+		break // No content-type
 
 	}
 
@@ -67880,6 +69950,71 @@ func ParseUpdateServerSentinelResponse(rsp *http.Response) (*UpdateServerSentine
 			return nil, err
 		}
 		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetServerTransferStatusResponse parses an HTTP response from a GetServerTransferStatusWithResponse call
+func ParseGetServerTransferStatusResponse(rsp *http.Response) (*GetServerTransferStatusResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetServerTransferStatusResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCompleteServerTransferResponse parses an HTTP response from a CompleteServerTransferWithResponse call
+func ParseCompleteServerTransferResponse(rsp *http.Response) (*CompleteServerTransferResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CompleteServerTransferResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
 
 	}
 

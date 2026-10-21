@@ -2,6 +2,19 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.3.0, 2026-10-21
+
+- `EnableApi` is removed from the spec, so `(*Client).EnableApi`, `(*ClientWithResponses).EnableApiWithResponse`, `EnableApiResponse`, `NewEnableApiRequest` and `ParseEnableApiResponse` are gone, along with the matching `ClientInterface` and `ClientWithResponsesInterface` methods.
+- `UpdatePrivateKeyJSONBody.PrivateKey` and `UpdatePrivateKeyJSONRequestBody.PrivateKey` change from `string` to `*string` and are now optional.
+- Server log drain responses (`GetServerLogDrainsResponse`) and `UpdateServerLogDrainsJSONBody` get CloudWatch fields: `IsLogdrainCloudwatchEnabled`, `LogdrainCloudwatchGroup`, `LogdrainCloudwatchRegion` and `LogdrainCloudwatchStreamPrefix`. `ServerSetting` gets the same four.
+- `ListApplicationRollbackImagesResponse` images get a `Source` field, typed `ListApplicationRollbackImages200JSONResponseBodyImagesSource` with `Local` and `Registry` values.
+- New Hostinger server methods: `CreateHostingerServer`, `GetHostingerCatalog`, `GetHostingerDataCenters`, `GetHostingerPostInstallScripts`, `GetHostingerSshKeys` and `GetHostingerTemplates`, each with a `WithResponse` variant. Cloud token types get `CreateCloudTokenJSONBodyProviderHostinger` and `ListCloudTokens200JSONResponseBodyProviderHostinger`.
+- New server transfer methods: `CheckServerImport`, `CompleteServerTransfer`, `GetServerTransferStatus`, `ImportServerTransferBundle` and `MigrateServerBetweenInstances`, with `WithBody` and `WithResponse` variants where the endpoint takes a body.
+- Application create and update bodies and `Application` get `HttpBasicAuthHashAlgorithm` (`bcrypt` or `argon2id`), `HttpBasicAuthBcryptCost`, `HttpBasicAuthArgon2idMemoryCost` and `HttpBasicAuthArgon2idTimeCost`.
+- Application, service and database update bodies get `RedactAllEnvValuesInLogs`. `ApplicationSetting` and `Service` carry it too.
+- `CreateDatabaseBackupJSONBody`, `UpdateDatabaseBackupJSONBody`, `VolumeBackupScheduleRequest` and `VolumeBackupScheduleResponse` get `S3StorageUuids`.
+- The development image and `go.mod` move to Go 1.26.10, which fixes the `crypto/x509` vulnerability GO-2026-6809 found by `make sec`. The setup reference in the skill names the new version.
+
 ## v0.2.0, 2026-10-19
 
 - `CreateServerDestinationResponse.JSON422` and its `GetJSON422` method are removed. The spec no longer documents a 422 response for creating a server destination.

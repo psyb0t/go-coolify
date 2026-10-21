@@ -16,7 +16,7 @@ This module is unofficial and not affiliated with Coolify.
 
 ## Requirements
 
-- Go 1.26.9 or newer, per the module's `go.mod`.
+- Go 1.26.10 or newer, per the module's `go.mod`.
 - A Coolify instance API URL, including `/api/v1`, exported as `COOLIFY_BASE_URL`.
 - A token for that instance, exported as `COOLIFY_API_TOKEN`.
 

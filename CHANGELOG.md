@@ -2,6 +2,18 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.4.0, 2026-10-24
+
+- `DeleteServiceByUuidParams.DeleteFromCoolifyOnly` is removed. Callers that set it must stop setting it.
+- The anonymous `JSON200` struct (and `GetJSON200`) of `GetServerProxyResponse`, `SaveServerProxyConfigurationResponse` and `UpdateServerProxyResponse` gets a new `ProxyErrorPage` field. Code that names these struct types by hand must be updated.
+- `DeleteServiceByUuidResponse` gets `JSON422` and `GetJSON422`.
+- `UpdateServerProxyJSONBody` and `UpdateServerProxyJSONRequestBody` get `ProxyErrorPage`, a custom HTML error page for unknown hosts and maintenance mode.
+- `UpdateServerByUuidJSONBody` and `UpdateServerByUuidJSONRequestBody` get `BackupCompressionCpuPercentage`, `ServerTimezone` and `WildcardDomain`. The new type `UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage` has the values `N25`, `N50`, `N75` and `N100`, plus a `Valid` method.
+- `PatchServiceApplicationByServiceAndAppUuidJSONBody` and its request body get `Redirect`. The new type `PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect` has the values `Both`, `NonWww` and `Www`, plus a `Valid` method.
+- The application create and update bodies (`CreatePublicApplicationJSONBody`, `CreatePrivateGithubAppApplicationJSONBody`, `UpdateApplicationByUuidJSONBody` and the matching `JSONRequestBody` types) get `DockerfileTargetBuild`, `IncludeCoolifyDefaultVariables`, `IsContainerLabelReadonlyEnabled` and `RollingUpdateDrainSeconds`.
+- `UpdateDatabaseByUuidJSONBody` gets `IncludeCoolifyDefaultVariables` and `IsLogDrainEnabled`. `UpdateServiceByUuidJSONBody` gets `IncludeCoolifyDefaultVariables`.
+- `UpdateDatabaseBackupJSONBody` and its request body get `DisableLocalBackup`, which deletes the local backup file after the S3 upload.
+
 ## v0.3.0, 2026-10-21
 
 - `EnableApi` is removed from the spec, so `(*Client).EnableApi`, `(*ClientWithResponses).EnableApiWithResponse`, `EnableApiResponse`, `NewEnableApiRequest` and `ParseEnableApiResponse` are gone, along with the matching `ClientInterface` and `ClientWithResponsesInterface` methods.

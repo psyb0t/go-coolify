@@ -1224,6 +1224,30 @@ func (e CreateServerDestinationJSONBodyType) Valid() bool {
 	}
 }
 
+// Defines values for UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage.
+const (
+	UpdateServerByUuidJSONBodyBackupCompressionCpuPercentageN100 UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage = 100
+	UpdateServerByUuidJSONBodyBackupCompressionCpuPercentageN25  UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage = 25
+	UpdateServerByUuidJSONBodyBackupCompressionCpuPercentageN50  UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage = 50
+	UpdateServerByUuidJSONBodyBackupCompressionCpuPercentageN75  UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage = 75
+)
+
+// Valid indicates whether the value is a known member of the UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage enum.
+func (e UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage) Valid() bool {
+	switch e {
+	case UpdateServerByUuidJSONBodyBackupCompressionCpuPercentageN100:
+		return true
+	case UpdateServerByUuidJSONBodyBackupCompressionCpuPercentageN25:
+		return true
+	case UpdateServerByUuidJSONBodyBackupCompressionCpuPercentageN50:
+		return true
+	case UpdateServerByUuidJSONBodyBackupCompressionCpuPercentageN75:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for UpdateServerByUuidJSONBodyProxyType.
 const (
 	UpdateServerByUuidJSONBodyProxyTypeCaddy   UpdateServerByUuidJSONBodyProxyType = "caddy"
@@ -1386,6 +1410,27 @@ func (e UpdateServiceByUuid409JSONResponseBodyConflictsResourceType) Valid() boo
 	case UpdateServiceByUuid409JSONResponseBodyConflictsResourceTypeInstance:
 		return true
 	case UpdateServiceByUuid409JSONResponseBodyConflictsResourceTypeService:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect.
+const (
+	PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirectBoth   PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect = "both"
+	PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirectNonWww PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect = "non-www"
+	PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirectWww    PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect = "www"
+)
+
+// Valid indicates whether the value is a known member of the PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect enum.
+func (e PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect) Valid() bool {
+	switch e {
+	case PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirectBoth:
+		return true
+	case PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirectNonWww:
+		return true
+	case PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirectWww:
 		return true
 	default:
 		return false
@@ -1815,7 +1860,10 @@ type ApplicationSetting struct {
 
 	// RedactAllEnvValuesInLogs Hide every environment variable value in logs. When false, only locked values are hidden.
 	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
-	StopGracePeriod          *int  `json:"stop_grace_period,omitempty"`
+
+	// RollingUpdateDrainSeconds Seconds to wait after the new container is healthy before old containers stop during a rolling update. 0 turns the wait off.
+	RollingUpdateDrainSeconds *int `json:"rolling_update_drain_seconds,omitempty"`
+	StopGracePeriod           *int `json:"stop_grace_period,omitempty"`
 
 	// TraefikCertificateResolver Traefik certificate resolver override. Null uses the server setting, "none" uses no resolver.
 	TraefikCertificateResolver *string `json:"traefik_certificate_resolver,omitempty"`
@@ -2546,6 +2594,9 @@ type CreateDockerfileApplicationJSONBody struct {
 	// HttpBasicAuthUsername Username for HTTP Basic Authentication
 	HttpBasicAuthUsername *string `json:"http_basic_auth_username,omitempty"`
 
+	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
+	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
 
@@ -2560,6 +2611,9 @@ type CreateDockerfileApplicationJSONBody struct {
 
 	// IsContainerLabelEscapeEnabled Escape special characters in labels. By default, $ (and other chars) is escaped. So if you write $ in the labels, it will be saved as $$. If you want to use env variables inside the labels, turn this off.
 	IsContainerLabelEscapeEnabled *bool `json:"is_container_label_escape_enabled,omitempty"`
+
+	// IsContainerLabelReadonlyEnabled Let Coolify manage the container labels. True regenerates custom_labels from domains, redirect, and proxy settings. False keeps custom_labels as you set them: domains, redirect, and basic auth changes then do not change the labels.
+	IsContainerLabelReadonlyEnabled *bool `json:"is_container_label_readonly_enabled,omitempty"`
 
 	// IsEnvSortingEnabled Sort environment variables.
 	IsEnvSortingEnabled *bool `json:"is_env_sorting_enabled,omitempty"`
@@ -2674,6 +2728,9 @@ type CreateDockerfileApplicationJSONBody struct {
 
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *CreateDockerfileApplicationJSONBodyRedirect `json:"redirect,omitempty"`
+
+	// RollingUpdateDrainSeconds Seconds to wait after the new container is healthy before old containers stop during a rolling update. 0 turns the wait off. Default: 5.
+	RollingUpdateDrainSeconds *int `json:"rolling_update_drain_seconds,omitempty"`
 
 	// ServerUuid The server UUID.
 	ServerUuid string `json:"server_uuid"`
@@ -2822,6 +2879,9 @@ type CreateDockerimageApplicationJSONBody struct {
 	// HttpBasicAuthUsername Username for HTTP Basic Authentication
 	HttpBasicAuthUsername *string `json:"http_basic_auth_username,omitempty"`
 
+	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
+	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
 
@@ -2836,6 +2896,9 @@ type CreateDockerimageApplicationJSONBody struct {
 
 	// IsContainerLabelEscapeEnabled Escape special characters in labels. By default, $ (and other chars) is escaped. So if you write $ in the labels, it will be saved as $$. If you want to use env variables inside the labels, turn this off.
 	IsContainerLabelEscapeEnabled *bool `json:"is_container_label_escape_enabled,omitempty"`
+
+	// IsContainerLabelReadonlyEnabled Let Coolify manage the container labels. True regenerates custom_labels from domains, redirect, and proxy settings. False keeps custom_labels as you set them: domains, redirect, and basic auth changes then do not change the labels.
+	IsContainerLabelReadonlyEnabled *bool `json:"is_container_label_readonly_enabled,omitempty"`
 
 	// IsEnvSortingEnabled Sort environment variables.
 	IsEnvSortingEnabled *bool `json:"is_env_sorting_enabled,omitempty"`
@@ -2951,6 +3014,9 @@ type CreateDockerimageApplicationJSONBody struct {
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *CreateDockerimageApplicationJSONBodyRedirect `json:"redirect,omitempty"`
 
+	// RollingUpdateDrainSeconds Seconds to wait after the new container is healthy before old containers stop during a rolling update. 0 turns the wait off. Default: 5.
+	RollingUpdateDrainSeconds *int `json:"rolling_update_drain_seconds,omitempty"`
+
 	// ServerUuid The server UUID.
 	ServerUuid string `json:"server_uuid"`
 
@@ -3053,6 +3119,9 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 	// DockerfileLocation The Dockerfile location in the repository.
 	DockerfileLocation *string `json:"dockerfile_location,omitempty"`
 
+	// DockerfileTargetBuild The Docker build target (stage) in the Dockerfile.
+	DockerfileTargetBuild *string `json:"dockerfile_target_build,omitempty"`
+
 	// Domains The application URLs in a comma-separated list.
 	Domains *string `json:"domains,omitempty"`
 
@@ -3140,6 +3209,9 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 	// HttpBasicAuthUsername Username for HTTP Basic Authentication
 	HttpBasicAuthUsername *string `json:"http_basic_auth_username,omitempty"`
 
+	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
+	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
 
@@ -3160,6 +3232,9 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 
 	// IsContainerLabelEscapeEnabled Escape special characters in labels. By default, $ (and other chars) is escaped. So if you write $ in the labels, it will be saved as $$. If you want to use env variables inside the labels, turn this off.
 	IsContainerLabelEscapeEnabled *bool `json:"is_container_label_escape_enabled,omitempty"`
+
+	// IsContainerLabelReadonlyEnabled Let Coolify manage the container labels. True regenerates custom_labels from domains, redirect, and proxy settings. False keeps custom_labels as you set them: domains, redirect, and basic auth changes then do not change the labels.
+	IsContainerLabelReadonlyEnabled *bool `json:"is_container_label_readonly_enabled,omitempty"`
 
 	// IsEnvSortingEnabled Sort environment variables.
 	IsEnvSortingEnabled *bool `json:"is_env_sorting_enabled,omitempty"`
@@ -3290,6 +3365,9 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *CreatePrivateDeployKeyApplicationJSONBodyRedirect `json:"redirect,omitempty"`
 
+	// RollingUpdateDrainSeconds Seconds to wait after the new container is healthy before old containers stop during a rolling update. 0 turns the wait off. Default: 5.
+	RollingUpdateDrainSeconds *int `json:"rolling_update_drain_seconds,omitempty"`
+
 	// ServerUuid The server UUID.
 	ServerUuid string `json:"server_uuid"`
 
@@ -3410,6 +3488,9 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 	// DockerfileLocation The Dockerfile location in the repository
 	DockerfileLocation *string `json:"dockerfile_location,omitempty"`
 
+	// DockerfileTargetBuild The Docker build target (stage) in the Dockerfile.
+	DockerfileTargetBuild *string `json:"dockerfile_target_build,omitempty"`
+
 	// Domains The application URLs in a comma-separated list.
 	Domains *string `json:"domains,omitempty"`
 
@@ -3500,6 +3581,9 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 	// HttpBasicAuthUsername Username for HTTP Basic Authentication
 	HttpBasicAuthUsername *string `json:"http_basic_auth_username,omitempty"`
 
+	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
+	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
 
@@ -3520,6 +3604,9 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 
 	// IsContainerLabelEscapeEnabled Escape special characters in labels. By default, $ (and other chars) is escaped. So if you write $ in the labels, it will be saved as $$. If you want to use env variables inside the labels, turn this off.
 	IsContainerLabelEscapeEnabled *bool `json:"is_container_label_escape_enabled,omitempty"`
+
+	// IsContainerLabelReadonlyEnabled Let Coolify manage the container labels. True regenerates custom_labels from domains, redirect, and proxy settings. False keeps custom_labels as you set them: domains, redirect, and basic auth changes then do not change the labels.
+	IsContainerLabelReadonlyEnabled *bool `json:"is_container_label_readonly_enabled,omitempty"`
 
 	// IsEnvSortingEnabled Sort environment variables.
 	IsEnvSortingEnabled *bool `json:"is_env_sorting_enabled,omitempty"`
@@ -3647,6 +3734,9 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *CreatePrivateGithubAppApplicationJSONBodyRedirect `json:"redirect,omitempty"`
 
+	// RollingUpdateDrainSeconds Seconds to wait after the new container is healthy before old containers stop during a rolling update. 0 turns the wait off. Default: 5.
+	RollingUpdateDrainSeconds *int `json:"rolling_update_drain_seconds,omitempty"`
+
 	// ServerUuid The server UUID.
 	ServerUuid string `json:"server_uuid"`
 
@@ -3767,6 +3857,9 @@ type CreatePublicApplicationJSONBody struct {
 	// DockerfileLocation The Dockerfile location in the repository.
 	DockerfileLocation *string `json:"dockerfile_location,omitempty"`
 
+	// DockerfileTargetBuild The Docker build target (stage) in the Dockerfile.
+	DockerfileTargetBuild *string `json:"dockerfile_target_build,omitempty"`
+
 	// Domains The application URLs in a comma-separated list.
 	Domains *string `json:"domains,omitempty"`
 
@@ -3854,6 +3947,9 @@ type CreatePublicApplicationJSONBody struct {
 	// HttpBasicAuthUsername Username for HTTP Basic Authentication
 	HttpBasicAuthUsername *string `json:"http_basic_auth_username,omitempty"`
 
+	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
+	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
 
@@ -3874,6 +3970,9 @@ type CreatePublicApplicationJSONBody struct {
 
 	// IsContainerLabelEscapeEnabled Escape special characters in labels. By default, $ (and other chars) is escaped. So if you write $ in the labels, it will be saved as $$. If you want to use env variables inside the labels, turn this off.
 	IsContainerLabelEscapeEnabled *bool `json:"is_container_label_escape_enabled,omitempty"`
+
+	// IsContainerLabelReadonlyEnabled Let Coolify manage the container labels. True regenerates custom_labels from domains, redirect, and proxy settings. False keeps custom_labels as you set them: domains, redirect, and basic auth changes then do not change the labels.
+	IsContainerLabelReadonlyEnabled *bool `json:"is_container_label_readonly_enabled,omitempty"`
 
 	// IsEnvSortingEnabled Sort environment variables.
 	IsEnvSortingEnabled *bool `json:"is_env_sorting_enabled,omitempty"`
@@ -4000,6 +4099,9 @@ type CreatePublicApplicationJSONBody struct {
 
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *CreatePublicApplicationJSONBodyRedirect `json:"redirect,omitempty"`
+
+	// RollingUpdateDrainSeconds Seconds to wait after the new container is healthy before old containers stop during a rolling update. 0 turns the wait off. Default: 5.
+	RollingUpdateDrainSeconds *int `json:"rolling_update_drain_seconds,omitempty"`
 
 	// ServerUuid The server UUID.
 	ServerUuid string `json:"server_uuid"`
@@ -4130,6 +4232,9 @@ type UpdateApplicationByUuidJSONBody struct {
 	// DockerfileLocation The Dockerfile location in the repository.
 	DockerfileLocation *string `json:"dockerfile_location,omitempty"`
 
+	// DockerfileTargetBuild The Docker build target (stage) in the Dockerfile.
+	DockerfileTargetBuild *string `json:"dockerfile_target_build,omitempty"`
+
 	// Domains The application URLs in a comma-separated list.
 	Domains *string `json:"domains,omitempty"`
 
@@ -4208,6 +4313,9 @@ type UpdateApplicationByUuidJSONBody struct {
 	// HttpBasicAuthHashAlgorithm Hash algorithm for the HTTP Basic Authentication password. Argon2id needs the Caddy proxy, version 2.11 or newer.
 	HttpBasicAuthHashAlgorithm *UpdateApplicationByUuidJSONBodyHttpBasicAuthHashAlgorithm `json:"http_basic_auth_hash_algorithm,omitempty"`
 
+	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
+	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
 
@@ -4228,6 +4336,9 @@ type UpdateApplicationByUuidJSONBody struct {
 
 	// IsContainerLabelEscapeEnabled Escape special characters in labels. By default, $ (and other chars) is escaped. So if you write $ in the labels, it will be saved as $$. If you want to use env variables inside the labels, turn this off.
 	IsContainerLabelEscapeEnabled *bool `json:"is_container_label_escape_enabled,omitempty"`
+
+	// IsContainerLabelReadonlyEnabled Let Coolify manage the container labels. True regenerates custom_labels from domains, redirect, and proxy settings. False keeps custom_labels as you set them: domains, redirect, and basic auth changes then do not change the labels.
+	IsContainerLabelReadonlyEnabled *bool `json:"is_container_label_readonly_enabled,omitempty"`
 
 	// IsEnvSortingEnabled Sort environment variables.
 	IsEnvSortingEnabled *bool `json:"is_env_sorting_enabled,omitempty"`
@@ -4348,6 +4459,9 @@ type UpdateApplicationByUuidJSONBody struct {
 
 	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
 	Redirect *UpdateApplicationByUuidJSONBodyRedirect `json:"redirect,omitempty"`
+
+	// RollingUpdateDrainSeconds Seconds to wait after the new container is healthy before old containers stop during a rolling update. 0 turns the wait off. Default: 5.
+	RollingUpdateDrainSeconds *int `json:"rolling_update_drain_seconds,omitempty"`
 
 	// StartCommand The start command.
 	StartCommand *string `json:"start_command,omitempty"`
@@ -5415,8 +5529,14 @@ type UpdateDatabaseByUuidJSONBody struct {
 	// Image Docker Image of the database
 	Image *string `json:"image,omitempty"`
 
+	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Restart the database to apply it.
+	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
 	// InstantDeploy Restart the database after the update. Requires the deploy ability.
 	InstantDeploy *bool `json:"instant_deploy,omitempty"`
+
+	// IsLogDrainEnabled Send the database logs to the log drain of the server. Log drain must be enabled on the server. Restart the database to apply it.
+	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
 
 	// IsPublic Is the database public? Changing it starts or stops the database proxy, so it needs a token with the deploy permission.
 	IsPublic *bool `json:"is_public,omitempty"`
@@ -5556,6 +5676,9 @@ type CreateDatabaseBackupJSONBody struct {
 	// DatabasesToBackup Comma separated list of databases to backup
 	DatabasesToBackup *string `json:"databases_to_backup,omitempty"`
 
+	// DisableLocalBackup Delete the local backup file after the upload to S3. Only allowed when save_s3 is true.
+	DisableLocalBackup *bool `json:"disable_local_backup,omitempty"`
+
 	// DumpAll Whether to dump all databases
 	DumpAll *bool `json:"dump_all,omitempty"`
 
@@ -5612,6 +5735,9 @@ type UpdateDatabaseBackupJSONBody struct {
 
 	// DatabasesToBackup Comma separated list of databases to backup
 	DatabasesToBackup *string `json:"databases_to_backup,omitempty"`
+
+	// DisableLocalBackup Delete the local backup file after the upload to S3. Only allowed when save_s3 is true. Turning save_s3 off also turns this off.
+	DisableLocalBackup *bool `json:"disable_local_backup,omitempty"`
 
 	// DumpAll Whether all databases are dumped or not
 	DumpAll *bool `json:"dump_all,omitempty"`
@@ -6326,6 +6452,9 @@ type DeleteServerByUuidParams struct {
 
 // UpdateServerByUuidJSONBody defines parameters for UpdateServerByUuid.
 type UpdateServerByUuidJSONBody struct {
+	// BackupCompressionCpuPercentage Maximum CPU percentage that backup compression can use. Default: 25.
+	BackupCompressionCpuPercentage *UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage `json:"backup_compression_cpu_percentage,omitempty"`
+
 	// ConcurrentBuilds Number of concurrent builds.
 	ConcurrentBuilds *int `json:"concurrent_builds,omitempty"`
 
@@ -6375,9 +6504,18 @@ type UpdateServerByUuidJSONBody struct {
 	// ServerRole Server role.
 	ServerRole *UpdateServerByUuidJSONBodyServerRole `json:"server_role,omitempty"`
 
+	// ServerTimezone Timezone of the server, for example Europe/Berlin. Scheduled tasks and backups use it.
+	ServerTimezone *string `json:"server_timezone,omitempty"`
+
 	// User The user of the server.
 	User *string `json:"user,omitempty"`
+
+	// WildcardDomain Wildcard domain (URL) used to generate domains for new resources on this server. Null removes it.
+	WildcardDomain *string `json:"wildcard_domain,omitempty"`
 }
+
+// UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage defines parameters for UpdateServerByUuid.
+type UpdateServerByUuidJSONBodyBackupCompressionCpuPercentage int
 
 // UpdateServerByUuidJSONBodyProxyType defines parameters for UpdateServerByUuid.
 type UpdateServerByUuidJSONBodyProxyType string
@@ -6437,6 +6575,9 @@ type MigrateServerBetweenInstancesJSONBody struct {
 // UpdateServerProxyJSONBody defines parameters for UpdateServerProxy.
 type UpdateServerProxyJSONBody struct {
 	GenerateExactLabels *bool `json:"generate_exact_labels,omitempty"`
+
+	// ProxyErrorPage Custom HTML error page that the proxy shows for unknown hosts (when redirect_url is empty) and for resources in maintenance mode. Null restores the default page.
+	ProxyErrorPage *string `json:"proxy_error_page,omitempty"`
 
 	// ProxyType Proxy type (case-insensitive). Changing it starts the new proxy on the server and needs the deploy permission.
 	ProxyType       *UpdateServerProxyJSONBodyProxyType `json:"proxy_type,omitempty"`
@@ -6583,9 +6724,6 @@ type DeleteServiceByUuidParams struct {
 
 	// DeleteConnectedNetworks Delete connected networks.
 	DeleteConnectedNetworks *bool `form:"delete_connected_networks,omitempty" json:"delete_connected_networks,omitempty"`
-
-	// DeleteFromCoolifyOnly Remove only Coolify metadata without deleting Docker resources.
-	DeleteFromCoolifyOnly *bool `form:"delete_from_coolify_only,omitempty" json:"delete_from_coolify_only,omitempty"`
 }
 
 // UpdateServiceByUuidJSONBody defines parameters for UpdateServiceByUuid.
@@ -6601,6 +6739,9 @@ type UpdateServiceByUuidJSONBody struct {
 
 	// ForceDomainOverride Force domain override even if conflicts are detected.
 	ForceDomainOverride *bool `json:"force_domain_override,omitempty"`
+
+	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
+	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
 
 	// InstantDeploy The flag to indicate if the service should be deployed instantly.
 	InstantDeploy *bool `json:"instant_deploy,omitempty"`
@@ -6647,6 +6788,9 @@ type PatchServiceApplicationByServiceAndAppUuidJSONBody struct {
 	// NoindexDomains The subset of the service application domains served with an X-Robots-Tag: noindex, nofollow response header, keeping them out of search engines. Entries that are not among the domains are ignored.
 	NoindexDomains *[]string `json:"noindex_domains,omitempty"`
 
+	// Redirect How to handle www and non-www domains. "www" redirects non-www to www, "non-www" redirects www to non-www. Both need a www and a non-www domain in url.
+	Redirect *PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect `json:"redirect,omitempty"`
+
 	// TraefikCertificateResolver Traefik certificate resolver for this service application. Null uses the server setting, "none" uses no resolver.
 	TraefikCertificateResolver *string `json:"traefik_certificate_resolver,omitempty"`
 
@@ -6659,6 +6803,9 @@ type PatchServiceApplicationByServiceAndAppUuidParams struct {
 	// ForceDomainOverride When true, allow duplicate URLs in the request and proceed despite domain conflicts (same as service PATCH).
 	ForceDomainOverride *bool `form:"force_domain_override,omitempty" json:"force_domain_override,omitempty"`
 }
+
+// PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect defines parameters for PatchServiceApplicationByServiceAndAppUuid.
+type PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect string
 
 // GetServiceApplicationLogsByServiceAndAppUuidParams defines parameters for GetServiceApplicationLogsByServiceAndAppUuid.
 type GetServiceApplicationLogsByServiceAndAppUuidParams struct {
@@ -27786,18 +27933,6 @@ func NewDeleteServiceByUuidRequest(server string, uuid string, params *DeleteSer
 
 		}
 
-		if params.DeleteFromCoolifyOnly != nil {
-
-			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "delete_from_coolify_only", *params.DeleteFromCoolifyOnly, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
-				return nil, err
-			} else {
-				for _, qp := range strings.Split(queryFrag, "&") {
-					rawQueryFragments = append(rawQueryFragments, qp)
-				}
-			}
-
-		}
-
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -47737,6 +47872,7 @@ type GetServerProxyResponse struct {
 		// Configuration Docker Compose proxy configuration when stored in the database. Only present with read:sensitive.
 		Configuration       *string `json:"configuration,omitempty"`
 		GenerateExactLabels *bool   `json:"generate_exact_labels,omitempty"`
+		ProxyErrorPage      *string `json:"proxy_error_page,omitempty"`
 		ProxyType           *string `json:"proxy_type,omitempty"`
 		RedirectEnabled     *bool   `json:"redirect_enabled,omitempty"`
 		RedirectUrl         *string `json:"redirect_url,omitempty"`
@@ -47758,6 +47894,7 @@ func (r GetServerProxyResponse) GetJSON200() *struct {
 	// Configuration Docker Compose proxy configuration when stored in the database. Only present with read:sensitive.
 	Configuration       *string `json:"configuration,omitempty"`
 	GenerateExactLabels *bool   `json:"generate_exact_labels,omitempty"`
+	ProxyErrorPage      *string `json:"proxy_error_page,omitempty"`
 	ProxyType           *string `json:"proxy_type,omitempty"`
 	RedirectEnabled     *bool   `json:"redirect_enabled,omitempty"`
 	RedirectUrl         *string `json:"redirect_url,omitempty"`
@@ -47820,6 +47957,7 @@ type UpdateServerProxyResponse struct {
 	JSON200 *struct {
 		Configuration              *string `json:"configuration,omitempty"`
 		GenerateExactLabels        *bool   `json:"generate_exact_labels,omitempty"`
+		ProxyErrorPage             *string `json:"proxy_error_page,omitempty"`
 		ProxyType                  *string `json:"proxy_type,omitempty"`
 		RedirectEnabled            *bool   `json:"redirect_enabled,omitempty"`
 		RedirectUrl                *string `json:"redirect_url,omitempty"`
@@ -47840,6 +47978,7 @@ type UpdateServerProxyResponse struct {
 func (r UpdateServerProxyResponse) GetJSON200() *struct {
 	Configuration              *string `json:"configuration,omitempty"`
 	GenerateExactLabels        *bool   `json:"generate_exact_labels,omitempty"`
+	ProxyErrorPage             *string `json:"proxy_error_page,omitempty"`
 	ProxyType                  *string `json:"proxy_type,omitempty"`
 	RedirectEnabled            *bool   `json:"redirect_enabled,omitempty"`
 	RedirectUrl                *string `json:"redirect_url,omitempty"`
@@ -47906,6 +48045,7 @@ type SaveServerProxyConfigurationResponse struct {
 		Configuration       *string `json:"configuration,omitempty"`
 		GenerateExactLabels *bool   `json:"generate_exact_labels,omitempty"`
 		Message             *string `json:"message,omitempty"`
+		ProxyErrorPage      *string `json:"proxy_error_page,omitempty"`
 		ProxyType           *string `json:"proxy_type,omitempty"`
 		RedirectEnabled     *bool   `json:"redirect_enabled,omitempty"`
 		RedirectUrl         *string `json:"redirect_url,omitempty"`
@@ -47926,6 +48066,7 @@ func (r SaveServerProxyConfigurationResponse) GetJSON200() *struct {
 	Configuration       *string `json:"configuration,omitempty"`
 	GenerateExactLabels *bool   `json:"generate_exact_labels,omitempty"`
 	Message             *string `json:"message,omitempty"`
+	ProxyErrorPage      *string `json:"proxy_error_page,omitempty"`
 	ProxyType           *string `json:"proxy_type,omitempty"`
 	RedirectEnabled     *bool   `json:"redirect_enabled,omitempty"`
 	RedirectUrl         *string `json:"redirect_url,omitempty"`
@@ -48942,6 +49083,8 @@ type DeleteServiceByUuidResponse struct {
 	JSON401 *N401
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *N404
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
@@ -48964,6 +49107,11 @@ func (r DeleteServiceByUuidResponse) GetJSON401() *N401 {
 // GetJSON404 returns the response for an HTTP 404 `application/json` response
 func (r DeleteServiceByUuidResponse) GetJSON404() *N404 {
 	return r.JSON404
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r DeleteServiceByUuidResponse) GetJSON422() *N422 {
+	return r.JSON422
 }
 
 // GetBody returns the raw response body bytes
@@ -69332,6 +69480,7 @@ func ParseGetServerProxyResponse(rsp *http.Response) (*GetServerProxyResponse, e
 			// Configuration Docker Compose proxy configuration when stored in the database. Only present with read:sensitive.
 			Configuration       *string `json:"configuration,omitempty"`
 			GenerateExactLabels *bool   `json:"generate_exact_labels,omitempty"`
+			ProxyErrorPage      *string `json:"proxy_error_page,omitempty"`
 			ProxyType           *string `json:"proxy_type,omitempty"`
 			RedirectEnabled     *bool   `json:"redirect_enabled,omitempty"`
 			RedirectUrl         *string `json:"redirect_url,omitempty"`
@@ -69389,6 +69538,7 @@ func ParseUpdateServerProxyResponse(rsp *http.Response) (*UpdateServerProxyRespo
 		var dest struct {
 			Configuration              *string `json:"configuration,omitempty"`
 			GenerateExactLabels        *bool   `json:"generate_exact_labels,omitempty"`
+			ProxyErrorPage             *string `json:"proxy_error_page,omitempty"`
 			ProxyType                  *string `json:"proxy_type,omitempty"`
 			RedirectEnabled            *bool   `json:"redirect_enabled,omitempty"`
 			RedirectUrl                *string `json:"redirect_url,omitempty"`
@@ -69455,6 +69605,7 @@ func ParseSaveServerProxyConfigurationResponse(rsp *http.Response) (*SaveServerP
 			Configuration       *string `json:"configuration,omitempty"`
 			GenerateExactLabels *bool   `json:"generate_exact_labels,omitempty"`
 			Message             *string `json:"message,omitempty"`
+			ProxyErrorPage      *string `json:"proxy_error_page,omitempty"`
 			ProxyType           *string `json:"proxy_type,omitempty"`
 			RedirectEnabled     *bool   `json:"redirect_enabled,omitempty"`
 			RedirectUrl         *string `json:"redirect_url,omitempty"`
@@ -70236,6 +70387,13 @@ func ParseDeleteServiceByUuidResponse(rsp *http.Response) (*DeleteServiceByUuidR
 			return nil, err
 		}
 		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
 
 	}
 

@@ -4729,7 +4729,7 @@ type StopApplicationByUuidParams struct {
 
 // UpdateStorageByApplicationUuidJSONBody defines parameters for UpdateStorageByApplicationUuid.
 type UpdateStorageByApplicationUuidJSONBody struct {
-	// Content The file content (file only, not allowed for read-only storages). Changing the content of a file outside the resource directory needs the deploy permission.
+	// Content The file content (file only, not allowed for read-only storages). Changing the content needs the deploy permission.
 	Content *string `json:"content,omitempty"`
 
 	// Id The ID of the storage (deprecated, use uuid instead).
@@ -5866,7 +5866,7 @@ type StopDatabaseByUuidParams struct {
 
 // UpdateStorageByDatabaseUuidJSONBody defines parameters for UpdateStorageByDatabaseUuid.
 type UpdateStorageByDatabaseUuidJSONBody struct {
-	// Content The file content (file only, not allowed for read-only storages). Changing the content of a file outside the resource directory needs the deploy permission.
+	// Content The file content (file only, not allowed for read-only storages). Changing the content needs the deploy permission.
 	Content *string `json:"content,omitempty"`
 
 	// Id The ID of the storage (deprecated, use uuid instead).
@@ -7007,7 +7007,7 @@ type StopServiceByUuidParams struct {
 
 // UpdateStorageByServiceUuidJSONBody defines parameters for UpdateStorageByServiceUuid.
 type UpdateStorageByServiceUuidJSONBody struct {
-	// Content The file content (file only, not allowed for read-only storages). Changing the content of a file outside the resource directory needs the deploy permission.
+	// Content The file content (file only, not allowed for read-only storages). Changing the content needs the deploy permission.
 	Content *string `json:"content,omitempty"`
 
 	// Id The ID of the storage (deprecated, use uuid instead).

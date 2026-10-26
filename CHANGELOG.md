@@ -2,6 +2,10 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.4.1, 2026-10-26
+
+- Doc comments on the `Content` field of `UpdateStorageByApplicationUuidJSONBody`, `UpdateStorageByDatabaseUuidJSONBody` and `UpdateStorageByServiceUuidJSONBody` now say that changing the content needs the deploy permission. They no longer mention files outside the resource directory. No code changes.
+
 ## v0.4.0, 2026-10-24
 
 - `DeleteServiceByUuidParams.DeleteFromCoolifyOnly` is removed. Callers that set it must stop setting it.

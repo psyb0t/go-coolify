@@ -2,6 +2,18 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.5.0, 2026-10-27
+
+- Breaking: `EnvironmentName` and `EnvironmentUuid` change from `string` to `*string` in the `JSONBody` and `JSONRequestBody` types of every create call for databases (`CreateDatabasePostgresqlJSONBody`, `CreateDatabaseMysqlJSONBody`, `CreateDatabaseRedisJSONBody` and the other engines) and applications (`CreatePublicApplicationJSONBody`, `CreateDockerfileApplicationJSONBody`, `CreateDockerimageApplicationJSONBody` and the other application types). Migration: assign a pointer, for example `&name`, and set only the one the spec requires.
+- Breaking: `ListDatabasesResponse.JSON200` is now `*[]Database` and `GetDatabaseByUuidResponse.JSON200` is now `*Database`. Both were `*string`. The same change applies to the `GetJSON200` methods. Migration: read the typed value instead of parsing the string.
+- Breaking: `ListResourcesResponse.JSON200` is now `*[]ListResources200JSONResponseBody_Item` instead of `*string`, with the matching `GetJSON200` change.
+- Breaking: the 200 bodies of `GetS3StorageByUuidResponse`, `ListS3StoragesResponse` and `GetServerLogDrainsResponse` are different anonymous struct types, so code that names those types must change. The S3 structs gain `UsePathStyleEndpoint` and the log drain struct gains the Axiom domain field.
+- Add the `Database` type, `DatabaseDatabaseType` and the constants `DatabaseDatabaseTypeStandalonePostgresql`, `DatabaseDatabaseTypeStandaloneMysql`, `DatabaseDatabaseTypeStandaloneMariadb`, `DatabaseDatabaseTypeStandaloneMongodb`, `DatabaseDatabaseTypeStandaloneRedis`, `DatabaseDatabaseTypeStandaloneKeydb`, `DatabaseDatabaseTypeStandaloneDragonfly`, `DatabaseDatabaseTypeStandaloneClickhouse` and `DatabaseDatabaseTypeStandaloneSqlite`.
+- Add `UsePathStyleEndpoint` to `CreateS3StorageJSONBody`, `UpdateS3StorageByUuidJSONBody` and their `JSONRequestBody` aliases.
+- Add `LogdrainAxiomDomain` to `ServerSetting`, `UpdateServerLogDrainsJSONBody` and `UpdateServerLogDrainsJSONRequestBody`.
+- Add `GetHetznerServerTypesParams.Location`.
+- Add the `N502` constant and `JSON502` fields with `GetJSON502` methods on the Hetzner list responses, `CreateHetznerServerResponse`, `CreateDigitaloceanServerResponse` and `CreateVultrServerResponse`.
+
 ## v0.4.2, 2026-10-27
 
 - The development image is based on Debian (`golang:1.26.10-trixie`) instead of Alpine. Alpine keeps only the latest build of each package, so the exact pins broke the image build whenever a package was updated. System packages now come from the snapshot.debian.org date the base image was built from, which keeps them fixed for a given base image digest. jq 1.8.2, shellcheck 0.11.0 and shfmt 3.13.1 keep their versions, and Semgrep runs in its own virtual environment.

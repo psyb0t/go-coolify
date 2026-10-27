@@ -1,6 +1,6 @@
 {
   "name": "go-coolify",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Unofficial Go client for the Coolify API: applications, deployments, databases, services, projects, servers and teams, generated from the spec Coolify publishes.",
   "author": { "name": "psyb0t", "url": "https://github.com/psyb0t" },
   "homepage": "https://github.com/psyb0t/go-coolify",

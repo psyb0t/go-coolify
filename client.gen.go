@@ -102,6 +102,45 @@ func (e ApplicationRedirect) Valid() bool {
 	}
 }
 
+// Defines values for DatabaseDatabaseType.
+const (
+	DatabaseDatabaseTypeStandaloneClickhouse DatabaseDatabaseType = "standalone-clickhouse"
+	DatabaseDatabaseTypeStandaloneDragonfly  DatabaseDatabaseType = "standalone-dragonfly"
+	DatabaseDatabaseTypeStandaloneKeydb      DatabaseDatabaseType = "standalone-keydb"
+	DatabaseDatabaseTypeStandaloneMariadb    DatabaseDatabaseType = "standalone-mariadb"
+	DatabaseDatabaseTypeStandaloneMongodb    DatabaseDatabaseType = "standalone-mongodb"
+	DatabaseDatabaseTypeStandaloneMysql      DatabaseDatabaseType = "standalone-mysql"
+	DatabaseDatabaseTypeStandalonePostgresql DatabaseDatabaseType = "standalone-postgresql"
+	DatabaseDatabaseTypeStandaloneRedis      DatabaseDatabaseType = "standalone-redis"
+	DatabaseDatabaseTypeStandaloneSqlite     DatabaseDatabaseType = "standalone-sqlite"
+)
+
+// Valid indicates whether the value is a known member of the DatabaseDatabaseType enum.
+func (e DatabaseDatabaseType) Valid() bool {
+	switch e {
+	case DatabaseDatabaseTypeStandaloneClickhouse:
+		return true
+	case DatabaseDatabaseTypeStandaloneDragonfly:
+		return true
+	case DatabaseDatabaseTypeStandaloneKeydb:
+		return true
+	case DatabaseDatabaseTypeStandaloneMariadb:
+		return true
+	case DatabaseDatabaseTypeStandaloneMongodb:
+		return true
+	case DatabaseDatabaseTypeStandaloneMysql:
+		return true
+	case DatabaseDatabaseTypeStandalonePostgresql:
+		return true
+	case DatabaseDatabaseTypeStandaloneRedis:
+		return true
+	case DatabaseDatabaseTypeStandaloneSqlite:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for DatabaseImportRequest0Source.
 const (
 	DatabaseImportRequest0SourceUpload DatabaseImportRequest0Source = "upload"
@@ -1870,6 +1909,137 @@ type ApplicationSetting struct {
 	UseBuildSecrets            *bool   `json:"use_build_secrets,omitempty"`
 }
 
+// Database Standalone database. The fields that start with an engine name (for example postgres_ or redis_) are only returned for that engine. Passwords, connection URLs and init_scripts are only returned for tokens with the read:sensitive or root ability.
+type Database struct {
+	// BackupConfigs Only returned by GET /databases. The scheduled backups of the database, as returned by GET /databases/{uuid}/backups.
+	BackupConfigs           *[]map[string]interface{} `json:"backup_configs,omitempty"`
+	ClickhouseAdminPassword *string                   `json:"clickhouse_admin_password,omitempty"`
+	ClickhouseAdminUser     *string                   `json:"clickhouse_admin_user,omitempty"`
+	ClickhouseDb            *string                   `json:"clickhouse_db,omitempty"`
+
+	// ConfigHash Internal hash that Coolify uses to find configuration changes that need a restart. It changes only when the database starts, so do not use it to compare configurations.
+	ConfigHash             *string               `json:"config_hash,omitempty"`
+	CreatedAt              *time.Time            `json:"created_at,omitempty"`
+	CustomDockerRunOptions *string               `json:"custom_docker_run_options,omitempty"`
+	DatabaseType           *DatabaseDatabaseType `json:"database_type,omitempty"`
+	DeletedAt              *time.Time            `json:"deleted_at,omitempty"`
+	Description            *string               `json:"description,omitempty"`
+
+	// Destination Docker network destination of the database, with its server.
+	Destination *struct {
+		CreatedAt *time.Time `json:"created_at,omitempty"`
+		Name      *string    `json:"name,omitempty"`
+		Network   *string    `json:"network,omitempty"`
+
+		// Server Server model
+		Server    *Server    `json:"server,omitempty"`
+		ServerId  *int       `json:"server_id,omitempty"`
+		UpdatedAt *time.Time `json:"updated_at,omitempty"`
+		Uuid      *string    `json:"uuid,omitempty"`
+	} `json:"destination,omitempty"`
+	DestinationId     *int    `json:"destination_id,omitempty"`
+	DestinationType   *string `json:"destination_type,omitempty"`
+	DragonflyPassword *string `json:"dragonfly_password,omitempty"`
+
+	// EnableSsl Not returned for ClickHouse and SQLite.
+	EnableSsl *bool `json:"enable_ssl,omitempty"`
+
+	// Environment Only returned by GET /databases/{uuid}. Includes the project.
+	Environment   *Environment `json:"environment,omitempty"`
+	EnvironmentId *int         `json:"environment_id,omitempty"`
+
+	// ExternalDbUrl Public connection URL, when the database is public. Contains the password. Not returned for SQLite.
+	ExternalDbUrl                  *string `json:"external_db_url,omitempty"`
+	HealthCheckEnabled             *bool   `json:"health_check_enabled,omitempty"`
+	HealthCheckInterval            *int    `json:"health_check_interval,omitempty"`
+	HealthCheckRetries             *int    `json:"health_check_retries,omitempty"`
+	HealthCheckStartPeriod         *int    `json:"health_check_start_period,omitempty"`
+	HealthCheckTimeout             *int    `json:"health_check_timeout,omitempty"`
+	Image                          *string `json:"image,omitempty"`
+	IncludeCoolifyDefaultVariables *bool   `json:"include_coolify_default_variables,omitempty"`
+
+	// InitScripts PostgreSQL only.
+	InitScripts *[]struct {
+		Content  *string `json:"content,omitempty"`
+		Filename *string `json:"filename,omitempty"`
+		Index    *int    `json:"index,omitempty"`
+	} `json:"init_scripts,omitempty"`
+
+	// InternalDbUrl Connection URL inside the Docker network. Contains the password. Not returned for SQLite.
+	InternalDbUrl *string `json:"internal_db_url,omitempty"`
+
+	// IsIncludeTimestamps Not returned for MariaDB.
+	IsIncludeTimestamps *bool `json:"is_include_timestamps,omitempty"`
+	IsLogDrainEnabled   *bool `json:"is_log_drain_enabled,omitempty"`
+
+	// IsPublic Not returned for SQLite.
+	IsPublic                *bool      `json:"is_public,omitempty"`
+	KeydbConf               *string    `json:"keydb_conf,omitempty"`
+	KeydbPassword           *string    `json:"keydb_password,omitempty"`
+	LastOnlineAt            *string    `json:"last_online_at,omitempty"`
+	LastRestartAt           *time.Time `json:"last_restart_at,omitempty"`
+	LastRestartType         *string    `json:"last_restart_type,omitempty"`
+	LimitsCpuShares         *int       `json:"limits_cpu_shares,omitempty"`
+	LimitsCpus              *string    `json:"limits_cpus,omitempty"`
+	LimitsCpuset            *string    `json:"limits_cpuset,omitempty"`
+	LimitsMemory            *string    `json:"limits_memory,omitempty"`
+	LimitsMemoryReservation *string    `json:"limits_memory_reservation,omitempty"`
+	LimitsMemorySwap        *string    `json:"limits_memory_swap,omitempty"`
+	LimitsMemorySwappiness  *int       `json:"limits_memory_swappiness,omitempty"`
+	MariadbConf             *string    `json:"mariadb_conf,omitempty"`
+	MariadbDatabase         *string    `json:"mariadb_database,omitempty"`
+	MariadbPassword         *string    `json:"mariadb_password,omitempty"`
+	MariadbRootPassword     *string    `json:"mariadb_root_password,omitempty"`
+	MariadbUser             *string    `json:"mariadb_user,omitempty"`
+	MongoConf               *string    `json:"mongo_conf,omitempty"`
+	MongoInitdbDatabase     *string    `json:"mongo_initdb_database,omitempty"`
+	MongoInitdbRootPassword *string    `json:"mongo_initdb_root_password,omitempty"`
+	MongoInitdbRootUsername *string    `json:"mongo_initdb_root_username,omitempty"`
+	MysqlConf               *string    `json:"mysql_conf,omitempty"`
+	MysqlDatabase           *string    `json:"mysql_database,omitempty"`
+	MysqlPassword           *string    `json:"mysql_password,omitempty"`
+	MysqlRootPassword       *string    `json:"mysql_root_password,omitempty"`
+	MysqlUser               *string    `json:"mysql_user,omitempty"`
+	Name                    *string    `json:"name,omitempty"`
+
+	// PortsMappings Comma-separated host:container port mappings. Not returned for SQLite.
+	PortsMappings          *string `json:"ports_mappings,omitempty"`
+	PostgresConf           *string `json:"postgres_conf,omitempty"`
+	PostgresDb             *string `json:"postgres_db,omitempty"`
+	PostgresHostAuthMethod *string `json:"postgres_host_auth_method,omitempty"`
+	PostgresInitdbArgs     *string `json:"postgres_initdb_args,omitempty"`
+	PostgresPassword       *string `json:"postgres_password,omitempty"`
+	PostgresUser           *string `json:"postgres_user,omitempty"`
+
+	// PublicPort Not returned for SQLite.
+	PublicPort *int `json:"public_port,omitempty"`
+
+	// PublicPortTimeout Proxy timeout of the public port in seconds. Not returned for SQLite.
+	PublicPortTimeout        *int    `json:"public_port_timeout,omitempty"`
+	RedactAllEnvValuesInLogs *bool   `json:"redact_all_env_values_in_logs,omitempty"`
+	RedisConf                *string `json:"redis_conf,omitempty"`
+	RedisPassword            *string `json:"redis_password,omitempty"`
+	RestartCount             *int    `json:"restart_count,omitempty"`
+
+	// ServerStatus True when the server of the database is reachable and usable.
+	ServerStatus *bool `json:"server_status,omitempty"`
+
+	// SqliteDatabases Comma-separated SQLite database file names.
+	SqliteDatabases *string `json:"sqlite_databases,omitempty"`
+
+	// SslMode PostgreSQL, MongoDB and MySQL only.
+	SslMode   *string    `json:"ssl_mode,omitempty"`
+	StartedAt *time.Time `json:"started_at,omitempty"`
+
+	// Status Container status and health, for example running:healthy or exited:unhealthy.
+	Status    *string    `json:"status,omitempty"`
+	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+	Uuid      *string    `json:"uuid,omitempty"`
+}
+
+// DatabaseDatabaseType defines model for Database.DatabaseType.
+type DatabaseDatabaseType string
+
 // DatabaseImportRequest defines model for DatabaseImportRequest.
 type DatabaseImportRequest struct {
 	union json.RawMessage
@@ -2199,25 +2369,28 @@ type ServerSetting struct {
 
 	// IsBuildServer Deprecated: use server_role instead. true when server_role is build.
 	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
-	IsBuildServer                     *bool                    `json:"is_build_server,omitempty"`
-	IsCloudflareTunnel                *bool                    `json:"is_cloudflare_tunnel,omitempty"`
-	IsGeoipEnabled                    *bool                    `json:"is_geoip_enabled,omitempty"`
-	IsJumpServer                      *bool                    `json:"is_jump_server,omitempty"`
-	IsLogdrainAxiomEnabled            *bool                    `json:"is_logdrain_axiom_enabled,omitempty"`
-	IsLogdrainCloudwatchEnabled       *bool                    `json:"is_logdrain_cloudwatch_enabled,omitempty"`
-	IsLogdrainCustomEnabled           *bool                    `json:"is_logdrain_custom_enabled,omitempty"`
-	IsLogdrainHighlightEnabled        *bool                    `json:"is_logdrain_highlight_enabled,omitempty"`
-	IsLogdrainNewrelicEnabled         *bool                    `json:"is_logdrain_newrelic_enabled,omitempty"`
-	IsMetricsEnabled                  *bool                    `json:"is_metrics_enabled,omitempty"`
-	IsReachable                       *bool                    `json:"is_reachable,omitempty"`
-	IsSentinelEnabled                 *bool                    `json:"is_sentinel_enabled,omitempty"`
-	IsSwarmManager                    *bool                    `json:"is_swarm_manager,omitempty"`
-	IsSwarmWorker                     *bool                    `json:"is_swarm_worker,omitempty"`
-	IsTerminalEnabled                 *bool                    `json:"is_terminal_enabled,omitempty"`
-	IsTrafficAnalyticsEnabled         *bool                    `json:"is_traffic_analytics_enabled,omitempty"`
-	IsUsable                          *bool                    `json:"is_usable,omitempty"`
-	LogdrainAxiomApiKey               *string                  `json:"logdrain_axiom_api_key,omitempty"`
-	LogdrainAxiomDatasetName          *string                  `json:"logdrain_axiom_dataset_name,omitempty"`
+	IsBuildServer               *bool   `json:"is_build_server,omitempty"`
+	IsCloudflareTunnel          *bool   `json:"is_cloudflare_tunnel,omitempty"`
+	IsGeoipEnabled              *bool   `json:"is_geoip_enabled,omitempty"`
+	IsJumpServer                *bool   `json:"is_jump_server,omitempty"`
+	IsLogdrainAxiomEnabled      *bool   `json:"is_logdrain_axiom_enabled,omitempty"`
+	IsLogdrainCloudwatchEnabled *bool   `json:"is_logdrain_cloudwatch_enabled,omitempty"`
+	IsLogdrainCustomEnabled     *bool   `json:"is_logdrain_custom_enabled,omitempty"`
+	IsLogdrainHighlightEnabled  *bool   `json:"is_logdrain_highlight_enabled,omitempty"`
+	IsLogdrainNewrelicEnabled   *bool   `json:"is_logdrain_newrelic_enabled,omitempty"`
+	IsMetricsEnabled            *bool   `json:"is_metrics_enabled,omitempty"`
+	IsReachable                 *bool   `json:"is_reachable,omitempty"`
+	IsSentinelEnabled           *bool   `json:"is_sentinel_enabled,omitempty"`
+	IsSwarmManager              *bool   `json:"is_swarm_manager,omitempty"`
+	IsSwarmWorker               *bool   `json:"is_swarm_worker,omitempty"`
+	IsTerminalEnabled           *bool   `json:"is_terminal_enabled,omitempty"`
+	IsTrafficAnalyticsEnabled   *bool   `json:"is_traffic_analytics_enabled,omitempty"`
+	IsUsable                    *bool   `json:"is_usable,omitempty"`
+	LogdrainAxiomApiKey         *string `json:"logdrain_axiom_api_key,omitempty"`
+	LogdrainAxiomDatasetName    *string `json:"logdrain_axiom_dataset_name,omitempty"`
+
+	// LogdrainAxiomDomain Base domain of the Axiom edge deployment, for example us-east-1.aws.edge.axiom.co or eu-central-1.aws.edge.axiom.co.
+	LogdrainAxiomDomain               *string                  `json:"logdrain_axiom_domain,omitempty"`
 	LogdrainCloudwatchGroup           *string                  `json:"logdrain_cloudwatch_group,omitempty"`
 	LogdrainCloudwatchRegion          *string                  `json:"logdrain_cloudwatch_region,omitempty"`
 	LogdrainCloudwatchStreamPrefix    *string                  `json:"logdrain_cloudwatch_stream_prefix,omitempty"`
@@ -2463,6 +2636,17 @@ type N429 struct {
 	Message *string `json:"message,omitempty"`
 }
 
+// N502 defines model for 502.
+type N502 struct {
+	Message *string `json:"message,omitempty"`
+
+	// ProviderErrorCode The error code from the cloud provider API, if it has one.
+	ProviderErrorCode *string `json:"provider_error_code,omitempty"`
+
+	// ProviderStatus The HTTP status from the cloud provider API.
+	ProviderStatus *int `json:"provider_status,omitempty"`
+}
+
 // ListApplicationsParams defines parameters for ListApplications.
 type ListApplicationsParams struct {
 	// Tag Filter applications by tag name.
@@ -2520,10 +2704,10 @@ type CreateDockerfileApplicationJSONBody struct {
 	Domains *string `json:"domains,omitempty"`
 
 	// EnvironmentName The environment name. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid The environment UUID. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// ForceDomainOverride Force domain usage even if conflicts are detected. Default is false.
 	ForceDomainOverride *bool `json:"force_domain_override,omitempty"`
@@ -2805,10 +2989,10 @@ type CreateDockerimageApplicationJSONBody struct {
 	Domains *string `json:"domains,omitempty"`
 
 	// EnvironmentName The environment name. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid The environment UUID. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// ForceDomainOverride Force domain usage even if conflicts are detected. Default is false.
 	ForceDomainOverride *bool `json:"force_domain_override,omitempty"`
@@ -3126,10 +3310,10 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 	Domains *string `json:"domains,omitempty"`
 
 	// EnvironmentName The environment name. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid The environment UUID. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// ForceDomainOverride Force domain usage even if conflicts are detected. Default is false.
 	ForceDomainOverride *bool `json:"force_domain_override,omitempty"`
@@ -3495,10 +3679,10 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 	Domains *string `json:"domains,omitempty"`
 
 	// EnvironmentName The environment name. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid The environment UUID. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// ForceDomainOverride Force domain usage even if conflicts are detected. Default is false.
 	ForceDomainOverride *bool `json:"force_domain_override,omitempty"`
@@ -3864,10 +4048,10 @@ type CreatePublicApplicationJSONBody struct {
 	Domains *string `json:"domains,omitempty"`
 
 	// EnvironmentName The environment name. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid The environment UUID. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// ForceDomainOverride Force domain usage even if conflicts are detected. Default is false.
 	ForceDomainOverride *bool `json:"force_domain_override,omitempty"`
@@ -4587,7 +4771,7 @@ type GetApplicationLogsByUuidParams struct {
 	// ShowTimestamps Show timestamps in the logs.
 	ShowTimestamps *bool `form:"show_timestamps,omitempty" json:"show_timestamps,omitempty"`
 
-	// ServiceName Return logs only from the container of the Docker Compose service with this name. Returns 404 when no running container matches.
+	// ServiceName Return logs only from the container of the Docker Compose service with this name. Returns 404 when no container matches. Stopped containers are included.
 	ServiceName *string `form:"service_name,omitempty" json:"service_name,omitempty"`
 }
 
@@ -4651,7 +4835,7 @@ type GetPreviewApplicationLogsByPullRequestIdParams struct {
 	// ShowTimestamps Show timestamps in the logs.
 	ShowTimestamps *bool `form:"show_timestamps,omitempty" json:"show_timestamps,omitempty"`
 
-	// ServiceName Return logs only from the container of the Docker Compose service with this name. Returns 404 when no running container matches.
+	// ServiceName Return logs only from the container of the Docker Compose service with this name. Returns 404 when no container matches. Stopped containers are included.
 	ServiceName *string `form:"service_name,omitempty" json:"service_name,omitempty"`
 }
 
@@ -4861,10 +5045,10 @@ type CreateDatabaseClickhouseJSONBody struct {
 	DestinationUuid *string `json:"destination_uuid,omitempty"`
 
 	// EnvironmentName Name of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid UUID of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// Image Docker Image of the database
 	Image *string `json:"image,omitempty"`
@@ -4927,10 +5111,10 @@ type CreateDatabaseDragonflyJSONBody struct {
 	DragonflyPassword *string `json:"dragonfly_password,omitempty"`
 
 	// EnvironmentName Name of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid UUID of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// Image Docker Image of the database
 	Image *string `json:"image,omitempty"`
@@ -4990,10 +5174,10 @@ type CreateDatabaseKeydbJSONBody struct {
 	DestinationUuid *string `json:"destination_uuid,omitempty"`
 
 	// EnvironmentName Name of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid UUID of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// Image Docker Image of the database
 	Image *string `json:"image,omitempty"`
@@ -5059,10 +5243,10 @@ type CreateDatabaseMariadbJSONBody struct {
 	DestinationUuid *string `json:"destination_uuid,omitempty"`
 
 	// EnvironmentName Name of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid UUID of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// Image Docker Image of the database
 	Image *string `json:"image,omitempty"`
@@ -5137,10 +5321,10 @@ type CreateDatabaseMongodbJSONBody struct {
 	DestinationUuid *string `json:"destination_uuid,omitempty"`
 
 	// EnvironmentName Name of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid UUID of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// Image Docker Image of the database
 	Image *string `json:"image,omitempty"`
@@ -5206,10 +5390,10 @@ type CreateDatabaseMysqlJSONBody struct {
 	DestinationUuid *string `json:"destination_uuid,omitempty"`
 
 	// EnvironmentName Name of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid UUID of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// Image Docker Image of the database
 	Image *string `json:"image,omitempty"`
@@ -5284,10 +5468,10 @@ type CreateDatabasePostgresqlJSONBody struct {
 	DestinationUuid *string `json:"destination_uuid,omitempty"`
 
 	// EnvironmentName Name of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid UUID of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// Image Docker Image of the database
 	Image *string `json:"image,omitempty"`
@@ -5365,10 +5549,10 @@ type CreateDatabaseRedisJSONBody struct {
 	DestinationUuid *string `json:"destination_uuid,omitempty"`
 
 	// EnvironmentName Name of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid UUID of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// Image Docker Image of the database
 	Image *string `json:"image,omitempty"`
@@ -5434,10 +5618,10 @@ type CreateDatabaseSqliteJSONBody struct {
 	DestinationUuid *string `json:"destination_uuid,omitempty"`
 
 	// EnvironmentName Name of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid UUID of the environment. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// Image Docker Image of the database
 	Image *string `json:"image,omitempty"`
@@ -6185,6 +6369,9 @@ type GetHetznerNetworksParams struct {
 
 // GetHetznerServerTypesParams defines parameters for GetHetznerServerTypes.
 type GetHetznerServerTypesParams struct {
+	// Location Return only the server types that can be ordered in this location, for example nbg1.
+	Location *string `form:"location,omitempty" json:"location,omitempty"`
+
 	// CloudProviderTokenUuid Cloud provider token UUID. Required if cloud_provider_token_id is not provided.
 	CloudProviderTokenUuid *string `form:"cloud_provider_token_uuid,omitempty" json:"cloud_provider_token_uuid,omitempty"`
 
@@ -6236,6 +6423,23 @@ type UpdateEnvironmentJSONBody struct {
 	Name *string `json:"name,omitempty"`
 }
 
+// ListResources200JSONResponseBody_Item defines parameters for ListResources.
+type ListResources200JSONResponseBody_Item struct {
+	CreatedAt     *time.Time `json:"created_at,omitempty"`
+	Description   *string    `json:"description,omitempty"`
+	EnvironmentId *int       `json:"environment_id,omitempty"`
+	Name          *string    `json:"name,omitempty"`
+
+	// Status For example running:healthy or exited:unhealthy.
+	Status *string `json:"status,omitempty"`
+
+	// Type application, service, or standalone-<engine> for databases (for example standalone-postgresql).
+	Type                 *string                `json:"type,omitempty"`
+	UpdatedAt            *time.Time             `json:"updated_at,omitempty"`
+	Uuid                 *string                `json:"uuid,omitempty"`
+	AdditionalProperties map[string]interface{} `json:"-"`
+}
+
 // CreateS3StorageJSONBody defines parameters for CreateS3Storage.
 type CreateS3StorageJSONBody struct {
 	// Bucket S3 bucket name.
@@ -6261,6 +6465,9 @@ type CreateS3StorageJSONBody struct {
 
 	// Secret Secret key.
 	Secret string `json:"secret"`
+
+	// UsePathStyleEndpoint Use path-style URLs (endpoint/bucket). Set to false for providers that only accept virtual-hosted-style URLs (bucket.endpoint). Default: false for Alibaba Cloud OSS, Tencent Cloud COS, and Volcengine TOS endpoints, true for all other endpoints.
+	UsePathStyleEndpoint *bool `json:"use_path_style_endpoint,omitempty"`
 }
 
 // UpdateS3StorageByUuidJSONBody defines parameters for UpdateS3StorageByUuid.
@@ -6288,6 +6495,9 @@ type UpdateS3StorageByUuidJSONBody struct {
 
 	// Secret Secret key.
 	Secret *string `json:"secret,omitempty"`
+
+	// UsePathStyleEndpoint Use path-style URLs (endpoint/bucket). Set to false for providers that only accept virtual-hosted-style URLs (bucket.endpoint), such as Alibaba Cloud OSS.
+	UsePathStyleEndpoint *bool `json:"use_path_style_endpoint,omitempty"`
 }
 
 // CreateSecretManagerIntegrationTokenJSONBody defines parameters for CreateSecretManagerIntegrationToken.
@@ -6388,7 +6598,7 @@ type CreateHetznerServerJSONBody struct {
 	// Image Hetzner image ID
 	Image int `json:"image"`
 
-	// InstantValidate Validate server immediately after creation
+	// InstantValidate Validate the server and install Docker when it is running. Defaults to true for tokens with the deploy permission, and needs that permission.
 	InstantValidate *bool `json:"instant_validate,omitempty"`
 
 	// Location Hetzner location name
@@ -6554,8 +6764,11 @@ type UpdateServerLogDrainsJSONBody struct {
 	IsLogdrainNewrelicEnabled   *bool   `json:"is_logdrain_newrelic_enabled,omitempty"`
 	LogdrainAxiomApiKey         *string `json:"logdrain_axiom_api_key,omitempty"`
 	LogdrainAxiomDatasetName    *string `json:"logdrain_axiom_dataset_name,omitempty"`
-	LogdrainCloudwatchGroup     *string `json:"logdrain_cloudwatch_group,omitempty"`
-	LogdrainCloudwatchRegion    *string `json:"logdrain_cloudwatch_region,omitempty"`
+
+	// LogdrainAxiomDomain Base domain of the Axiom edge deployment. Default: us-east-1.aws.edge.axiom.co. Use eu-central-1.aws.edge.axiom.co for EU datasets.
+	LogdrainAxiomDomain      *string `json:"logdrain_axiom_domain,omitempty"`
+	LogdrainCloudwatchGroup  *string `json:"logdrain_cloudwatch_group,omitempty"`
+	LogdrainCloudwatchRegion *string `json:"logdrain_cloudwatch_region,omitempty"`
 
 	// LogdrainCloudwatchStreamPrefix Prepended to the container name to form the log stream name.
 	LogdrainCloudwatchStreamPrefix *string `json:"logdrain_cloudwatch_stream_prefix,omitempty"`
@@ -6666,10 +6879,10 @@ type CreateServiceJSONBody struct {
 	DockerComposeRaw *string `json:"docker_compose_raw,omitempty"`
 
 	// EnvironmentName Environment name. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentName string `json:"environment_name"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 
 	// EnvironmentUuid Environment UUID. You need to provide at least one of environment_name or environment_uuid.
-	EnvironmentUuid string `json:"environment_uuid"`
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
 	// ForceDomainOverride Force domain override even if conflicts are detected.
 	ForceDomainOverride *bool `json:"force_domain_override,omitempty"`
@@ -7399,6 +7612,179 @@ type UpdateTokenTeamJSONRequestBody UpdateTokenTeamJSONBody
 // CreateTeamSharedEnvJSONRequestBody defines body for CreateTeamSharedEnv for application/json ContentType.
 type CreateTeamSharedEnvJSONRequestBody CreateTeamSharedEnvJSONBody
 
+// Getter for additional properties for ListResources200JSONResponseBody_Item. Returns the specified
+// element and whether it was found
+func (a ListResources200JSONResponseBody_Item) Get(fieldName string) (value interface{}, found bool) {
+	if a.AdditionalProperties != nil {
+		value, found = a.AdditionalProperties[fieldName]
+	}
+	return
+}
+
+// Setter for additional properties for ListResources200JSONResponseBody_Item
+func (a *ListResources200JSONResponseBody_Item) Set(fieldName string, value interface{}) {
+	if a.AdditionalProperties == nil {
+		a.AdditionalProperties = make(map[string]interface{})
+	}
+	a.AdditionalProperties[fieldName] = value
+}
+
+// Override default JSON handling for ListResources200JSONResponseBody_Item to handle AdditionalProperties
+func (a *ListResources200JSONResponseBody_Item) UnmarshalJSON(b []byte) error {
+	object := make(map[string]json.RawMessage)
+	err := json.Unmarshal(b, &object)
+	if err != nil {
+		return err
+	}
+
+	if raw, found := object["created_at"]; found {
+		err = json.Unmarshal(raw, &a.CreatedAt)
+		if err != nil {
+			return fmt.Errorf("error reading 'created_at': %w", err)
+		}
+		delete(object, "created_at")
+	}
+
+	if raw, found := object["description"]; found {
+		err = json.Unmarshal(raw, &a.Description)
+		if err != nil {
+			return fmt.Errorf("error reading 'description': %w", err)
+		}
+		delete(object, "description")
+	}
+
+	if raw, found := object["environment_id"]; found {
+		err = json.Unmarshal(raw, &a.EnvironmentId)
+		if err != nil {
+			return fmt.Errorf("error reading 'environment_id': %w", err)
+		}
+		delete(object, "environment_id")
+	}
+
+	if raw, found := object["name"]; found {
+		err = json.Unmarshal(raw, &a.Name)
+		if err != nil {
+			return fmt.Errorf("error reading 'name': %w", err)
+		}
+		delete(object, "name")
+	}
+
+	if raw, found := object["status"]; found {
+		err = json.Unmarshal(raw, &a.Status)
+		if err != nil {
+			return fmt.Errorf("error reading 'status': %w", err)
+		}
+		delete(object, "status")
+	}
+
+	if raw, found := object["type"]; found {
+		err = json.Unmarshal(raw, &a.Type)
+		if err != nil {
+			return fmt.Errorf("error reading 'type': %w", err)
+		}
+		delete(object, "type")
+	}
+
+	if raw, found := object["updated_at"]; found {
+		err = json.Unmarshal(raw, &a.UpdatedAt)
+		if err != nil {
+			return fmt.Errorf("error reading 'updated_at': %w", err)
+		}
+		delete(object, "updated_at")
+	}
+
+	if raw, found := object["uuid"]; found {
+		err = json.Unmarshal(raw, &a.Uuid)
+		if err != nil {
+			return fmt.Errorf("error reading 'uuid': %w", err)
+		}
+		delete(object, "uuid")
+	}
+
+	if len(object) != 0 {
+		a.AdditionalProperties = make(map[string]interface{})
+		for fieldName, fieldBuf := range object {
+			var fieldVal interface{}
+			err := json.Unmarshal(fieldBuf, &fieldVal)
+			if err != nil {
+				return fmt.Errorf("error unmarshaling field %s: %w", fieldName, err)
+			}
+			a.AdditionalProperties[fieldName] = fieldVal
+		}
+	}
+	return nil
+}
+
+// Override default JSON handling for ListResources200JSONResponseBody_Item to handle AdditionalProperties
+func (a ListResources200JSONResponseBody_Item) MarshalJSON() ([]byte, error) {
+	var err error
+	object := make(map[string]json.RawMessage)
+
+	if a.CreatedAt != nil {
+		object["created_at"], err = json.Marshal(a.CreatedAt)
+		if err != nil {
+			return nil, fmt.Errorf("error marshaling 'created_at': %w", err)
+		}
+	}
+
+	if a.Description != nil {
+		object["description"], err = json.Marshal(a.Description)
+		if err != nil {
+			return nil, fmt.Errorf("error marshaling 'description': %w", err)
+		}
+	}
+
+	if a.EnvironmentId != nil {
+		object["environment_id"], err = json.Marshal(a.EnvironmentId)
+		if err != nil {
+			return nil, fmt.Errorf("error marshaling 'environment_id': %w", err)
+		}
+	}
+
+	if a.Name != nil {
+		object["name"], err = json.Marshal(a.Name)
+		if err != nil {
+			return nil, fmt.Errorf("error marshaling 'name': %w", err)
+		}
+	}
+
+	if a.Status != nil {
+		object["status"], err = json.Marshal(a.Status)
+		if err != nil {
+			return nil, fmt.Errorf("error marshaling 'status': %w", err)
+		}
+	}
+
+	if a.Type != nil {
+		object["type"], err = json.Marshal(a.Type)
+		if err != nil {
+			return nil, fmt.Errorf("error marshaling 'type': %w", err)
+		}
+	}
+
+	if a.UpdatedAt != nil {
+		object["updated_at"], err = json.Marshal(a.UpdatedAt)
+		if err != nil {
+			return nil, fmt.Errorf("error marshaling 'updated_at': %w", err)
+		}
+	}
+
+	if a.Uuid != nil {
+		object["uuid"], err = json.Marshal(a.Uuid)
+		if err != nil {
+			return nil, fmt.Errorf("error marshaling 'uuid': %w", err)
+		}
+	}
+
+	for fieldName, field := range a.AdditionalProperties {
+		object[fieldName], err = json.Marshal(field)
+		if err != nil {
+			return nil, fmt.Errorf("error marshaling '%s': %w", fieldName, err)
+		}
+	}
+	return json.Marshal(object)
+}
+
 // AsDatabaseImportRequest0 returns the union data inside the DatabaseImportRequest as a DatabaseImportRequest0
 func (t DatabaseImportRequest) AsDatabaseImportRequest0() (DatabaseImportRequest0, error) {
 	var body DatabaseImportRequest0
@@ -8114,7 +8500,7 @@ type ClientInterface interface {
 
 	// UpdateStorageByApplicationUuidWithBody Update Storage
 	//
-	// Update a persistent storage or file storage by application UUID.
+	// Update a persistent storage or file storage by application UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -8123,7 +8509,7 @@ type ClientInterface interface {
 
 	// UpdateStorageByApplicationUuid Update Storage
 	//
-	// Update a persistent storage or file storage by application UUID.
+	// Update a persistent storage or file storage by application UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -8799,7 +9185,7 @@ type ClientInterface interface {
 
 	// UpdateStorageByDatabaseUuidWithBody Update Storage
 	//
-	// Update a persistent storage or file storage by database UUID.
+	// Update a persistent storage or file storage by database UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -8808,7 +9194,7 @@ type ClientInterface interface {
 
 	// UpdateStorageByDatabaseUuid Update Storage
 	//
-	// Update a persistent storage or file storage by database UUID.
+	// Update a persistent storage or file storage by database UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9156,7 +9542,7 @@ type ClientInterface interface {
 
 	// GetHetznerServerTypes Get Hetzner Server Types
 	//
-	// Get all available Hetzner server types (instance sizes).
+	// Get the Hetzner server types (instance sizes) that can be ordered now. Each type lists only the locations where it is in stock and not deprecated.
 	//
 	// Corresponds with GET /hetzner/server-types (the `GetHetznerServerTypes` operationId).
 	GetHetznerServerTypes(ctx context.Context, params *GetHetznerServerTypesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -9902,7 +10288,7 @@ type ClientInterface interface {
 
 	// MigrateServerBetweenInstancesWithBody Migrate server to another Coolify instance
 	//
-	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. All secrets of the server, also locked environment variables, are sent to the target. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write, and the owner role of the server team.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -9911,7 +10297,7 @@ type ClientInterface interface {
 
 	// MigrateServerBetweenInstances Migrate server to another Coolify instance
 	//
-	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. All secrets of the server, also locked environment variables, are sent to the target. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write, and the owner role of the server team.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -10517,7 +10903,7 @@ type ClientInterface interface {
 
 	// UpdateStorageByServiceUuidWithBody Update Storage
 	//
-	// Update a persistent storage or file storage by service UUID.
+	// Update a persistent storage or file storage by service UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -10526,7 +10912,7 @@ type ClientInterface interface {
 
 	// UpdateStorageByServiceUuid Update Storage
 	//
-	// Update a persistent storage or file storage by service UUID.
+	// Update a persistent storage or file storage by service UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -11895,7 +12281,7 @@ func (c *Client) ListStoragesByApplicationUuid(ctx context.Context, uuid string,
 
 // UpdateStorageByApplicationUuidWithBody Update Storage
 //
-// Update a persistent storage or file storage by application UUID.
+// Update a persistent storage or file storage by application UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes any type of body and a specified content type.
 //
@@ -11914,7 +12300,7 @@ func (c *Client) UpdateStorageByApplicationUuidWithBody(ctx context.Context, uui
 
 // UpdateStorageByApplicationUuid Update Storage
 //
-// Update a persistent storage or file storage by application UUID.
+// Update a persistent storage or file storage by application UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -13410,7 +13796,7 @@ func (c *Client) ListStoragesByDatabaseUuid(ctx context.Context, uuid string, re
 
 // UpdateStorageByDatabaseUuidWithBody Update Storage
 //
-// Update a persistent storage or file storage by database UUID.
+// Update a persistent storage or file storage by database UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes any type of body and a specified content type.
 //
@@ -13429,7 +13815,7 @@ func (c *Client) UpdateStorageByDatabaseUuidWithBody(ctx context.Context, uuid s
 
 // UpdateStorageByDatabaseUuid Update Storage
 //
-// Update a persistent storage or file storage by database UUID.
+// Update a persistent storage or file storage by database UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -14237,7 +14623,7 @@ func (c *Client) GetHetznerNetworks(ctx context.Context, params *GetHetznerNetwo
 
 // GetHetznerServerTypes Get Hetzner Server Types
 //
-// Get all available Hetzner server types (instance sizes).
+// Get the Hetzner server types (instance sizes) that can be ordered now. Each type lists only the locations where it is in stock and not deprecated.
 //
 // Corresponds with GET /hetzner/server-types (the `GetHetznerServerTypes` operationId).
 func (c *Client) GetHetznerServerTypes(ctx context.Context, params *GetHetznerServerTypesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -15963,7 +16349,7 @@ func (c *Client) UpdateServerLogDrains(ctx context.Context, uuid string, body Up
 
 // MigrateServerBetweenInstancesWithBody Migrate server to another Coolify instance
 //
-// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. All secrets of the server, also locked environment variables, are sent to the target. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write, and the owner role of the server team.
 //
 // Takes any type of body and a specified content type.
 //
@@ -15982,7 +16368,7 @@ func (c *Client) MigrateServerBetweenInstancesWithBody(ctx context.Context, uuid
 
 // MigrateServerBetweenInstances Migrate server to another Coolify instance
 //
-// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. All secrets of the server, also locked environment variables, are sent to the target. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write, and the owner role of the server team.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -17348,7 +17734,7 @@ func (c *Client) ListStoragesByServiceUuid(ctx context.Context, uuid string, req
 
 // UpdateStorageByServiceUuidWithBody Update Storage
 //
-// Update a persistent storage or file storage by service UUID.
+// Update a persistent storage or file storage by service UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes any type of body and a specified content type.
 //
@@ -17367,7 +17753,7 @@ func (c *Client) UpdateStorageByServiceUuidWithBody(ctx context.Context, uuid st
 
 // UpdateStorageByServiceUuid Update Storage
 //
-// Update a persistent storage or file storage by service UUID.
+// Update a persistent storage or file storage by service UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -24213,6 +24599,18 @@ func NewGetHetznerServerTypesRequest(server string, params *GetHetznerServerType
 		// styled parameters, preserving literal commas as delimiters
 		// per the OpenAPI spec (e.g. "color=blue,black,brown").
 		var rawQueryFragments []string
+
+		if params.Location != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "location", *params.Location, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
 
 		if params.CloudProviderTokenUuid != nil {
 
@@ -31501,7 +31899,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateStorageByApplicationUuidWithBodyWithResponse Update Storage
 	//
-	// Update a persistent storage or file storage by application UUID.
+	// Update a persistent storage or file storage by application UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -31510,7 +31908,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateStorageByApplicationUuidWithResponse Update Storage
 	//
-	// Update a persistent storage or file storage by application UUID.
+	// Update a persistent storage or file storage by application UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32244,7 +32642,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateStorageByDatabaseUuidWithBodyWithResponse Update Storage
 	//
-	// Update a persistent storage or file storage by database UUID.
+	// Update a persistent storage or file storage by database UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32253,7 +32651,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateStorageByDatabaseUuidWithResponse Update Storage
 	//
-	// Update a persistent storage or file storage by database UUID.
+	// Update a persistent storage or file storage by database UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32659,7 +33057,7 @@ type ClientWithResponsesInterface interface {
 
 	// GetHetznerServerTypesWithResponse Get Hetzner Server Types
 	//
-	// Get all available Hetzner server types (instance sizes).
+	// Get the Hetzner server types (instance sizes) that can be ordered now. Each type lists only the locations where it is in stock and not deprecated.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -33529,7 +33927,7 @@ type ClientWithResponsesInterface interface {
 
 	// MigrateServerBetweenInstancesWithBodyWithResponse Migrate server to another Coolify instance
 	//
-	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. All secrets of the server, also locked environment variables, are sent to the target. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write, and the owner role of the server team.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -33538,7 +33936,7 @@ type ClientWithResponsesInterface interface {
 
 	// MigrateServerBetweenInstancesWithResponse Migrate server to another Coolify instance
 	//
-	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+	// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. All secrets of the server, also locked environment variables, are sent to the target. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write, and the owner role of the server team.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -34218,7 +34616,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateStorageByServiceUuidWithBodyWithResponse Update Storage
 	//
-	// Update a persistent storage or file storage by service UUID.
+	// Update a persistent storage or file storage by service UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -34227,7 +34625,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateStorageByServiceUuidWithResponse Update Storage
 	//
-	// Update a persistent storage or file storage by service UUID.
+	// Update a persistent storage or file storage by service UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -38557,7 +38955,7 @@ type ListDatabasesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *string
+	JSON200 *[]Database
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *N400
 	// JSON401 the response for an HTTP 401 `application/json` response
@@ -38565,7 +38963,7 @@ type ListDatabasesResponse struct {
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r ListDatabasesResponse) GetJSON200() *string {
+func (r ListDatabasesResponse) GetJSON200() *[]Database {
 	return r.JSON200
 }
 
@@ -39173,7 +39571,7 @@ type GetDatabaseByUuidResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *string
+	JSON200 *Database
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *N400
 	// JSON401 the response for an HTTP 401 `application/json` response
@@ -39183,7 +39581,7 @@ type GetDatabaseByUuidResponse struct {
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r GetDatabaseByUuidResponse) GetJSON200() *string {
+func (r GetDatabaseByUuidResponse) GetJSON200() *Database {
 	return r.JSON200
 }
 
@@ -42790,6 +43188,8 @@ type GetHetznerFirewallsResponse struct {
 	JSON401 *N401
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *N404
+	// JSON502 the response for an HTTP 502 `application/json` response
+	JSON502 *N502
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
@@ -42808,6 +43208,11 @@ func (r GetHetznerFirewallsResponse) GetJSON401() *N401 {
 // GetJSON404 returns the response for an HTTP 404 `application/json` response
 func (r GetHetznerFirewallsResponse) GetJSON404() *N404 {
 	return r.JSON404
+}
+
+// GetJSON502 returns the response for an HTTP 502 `application/json` response
+func (r GetHetznerFirewallsResponse) GetJSON502() *N502 {
+	return r.JSON502
 }
 
 // GetBody returns the raw response body bytes
@@ -42856,6 +43261,8 @@ type GetHetznerImagesResponse struct {
 	JSON401 *N401
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *N404
+	// JSON502 the response for an HTTP 502 `application/json` response
+	JSON502 *N502
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
@@ -42879,6 +43286,11 @@ func (r GetHetznerImagesResponse) GetJSON401() *N401 {
 // GetJSON404 returns the response for an HTTP 404 `application/json` response
 func (r GetHetznerImagesResponse) GetJSON404() *N404 {
 	return r.JSON404
+}
+
+// GetJSON502 returns the response for an HTTP 502 `application/json` response
+func (r GetHetznerImagesResponse) GetJSON502() *N502 {
+	return r.JSON502
 }
 
 // GetBody returns the raw response body bytes
@@ -42927,6 +43339,8 @@ type GetHetznerLocationsResponse struct {
 	JSON401 *N401
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *N404
+	// JSON502 the response for an HTTP 502 `application/json` response
+	JSON502 *N502
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
@@ -42950,6 +43364,11 @@ func (r GetHetznerLocationsResponse) GetJSON401() *N401 {
 // GetJSON404 returns the response for an HTTP 404 `application/json` response
 func (r GetHetznerLocationsResponse) GetJSON404() *N404 {
 	return r.JSON404
+}
+
+// GetJSON502 returns the response for an HTTP 502 `application/json` response
+func (r GetHetznerLocationsResponse) GetJSON502() *N502 {
+	return r.JSON502
 }
 
 // GetBody returns the raw response body bytes
@@ -42994,6 +43413,8 @@ type GetHetznerNetworksResponse struct {
 	JSON401 *N401
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *N404
+	// JSON502 the response for an HTTP 502 `application/json` response
+	JSON502 *N502
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
@@ -43013,6 +43434,11 @@ func (r GetHetznerNetworksResponse) GetJSON401() *N401 {
 // GetJSON404 returns the response for an HTTP 404 `application/json` response
 func (r GetHetznerNetworksResponse) GetJSON404() *N404 {
 	return r.JSON404
+}
+
+// GetJSON502 returns the response for an HTTP 502 `application/json` response
+func (r GetHetznerNetworksResponse) GetJSON502() *N502 {
+	return r.JSON502
 }
 
 // GetBody returns the raw response body bytes
@@ -43072,6 +43498,8 @@ type GetHetznerServerTypesResponse struct {
 	JSON401 *N401
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *N404
+	// JSON502 the response for an HTTP 502 `application/json` response
+	JSON502 *N502
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
@@ -43106,6 +43534,11 @@ func (r GetHetznerServerTypesResponse) GetJSON401() *N401 {
 // GetJSON404 returns the response for an HTTP 404 `application/json` response
 func (r GetHetznerServerTypesResponse) GetJSON404() *N404 {
 	return r.JSON404
+}
+
+// GetJSON502 returns the response for an HTTP 502 `application/json` response
+func (r GetHetznerServerTypesResponse) GetJSON502() *N502 {
+	return r.JSON502
 }
 
 // GetBody returns the raw response body bytes
@@ -43151,6 +43584,8 @@ type GetHetznerSshKeysResponse struct {
 	JSON401 *N401
 	// JSON404 the response for an HTTP 404 `application/json` response
 	JSON404 *N404
+	// JSON502 the response for an HTTP 502 `application/json` response
+	JSON502 *N502
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
@@ -43171,6 +43606,11 @@ func (r GetHetznerSshKeysResponse) GetJSON401() *N401 {
 // GetJSON404 returns the response for an HTTP 404 `application/json` response
 func (r GetHetznerSshKeysResponse) GetJSON404() *N404 {
 	return r.JSON404
+}
+
+// GetJSON502 returns the response for an HTTP 502 `application/json` response
+func (r GetHetznerSshKeysResponse) GetJSON502() *N502 {
+	return r.JSON502
 }
 
 // GetBody returns the raw response body bytes
@@ -45244,7 +45684,7 @@ type ListResourcesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *string
+	JSON200 *[]ListResources200JSONResponseBody_Item
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *N400
 	// JSON401 the response for an HTTP 401 `application/json` response
@@ -45252,7 +45692,7 @@ type ListResourcesResponse struct {
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r ListResourcesResponse) GetJSON200() *string {
+func (r ListResourcesResponse) GetJSON200() *[]ListResources200JSONResponseBody_Item {
 	return r.JSON200
 }
 
@@ -45300,16 +45740,17 @@ type ListS3StoragesResponse struct {
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
 	JSON200 *[]struct {
-		Bucket      *string `json:"bucket,omitempty"`
-		CreatedAt   *string `json:"created_at,omitempty"`
-		Description *string `json:"description,omitempty"`
-		Endpoint    *string `json:"endpoint,omitempty"`
-		IsUsable    *bool   `json:"is_usable,omitempty"`
-		Name        *string `json:"name,omitempty"`
-		Region      *string `json:"region,omitempty"`
-		TeamId      *int    `json:"team_id,omitempty"`
-		UpdatedAt   *string `json:"updated_at,omitempty"`
-		Uuid        *string `json:"uuid,omitempty"`
+		Bucket               *string `json:"bucket,omitempty"`
+		CreatedAt            *string `json:"created_at,omitempty"`
+		Description          *string `json:"description,omitempty"`
+		Endpoint             *string `json:"endpoint,omitempty"`
+		IsUsable             *bool   `json:"is_usable,omitempty"`
+		Name                 *string `json:"name,omitempty"`
+		Region               *string `json:"region,omitempty"`
+		TeamId               *int    `json:"team_id,omitempty"`
+		UpdatedAt            *string `json:"updated_at,omitempty"`
+		UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
+		Uuid                 *string `json:"uuid,omitempty"`
 	}
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *N400
@@ -45319,16 +45760,17 @@ type ListS3StoragesResponse struct {
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
 func (r ListS3StoragesResponse) GetJSON200() *[]struct {
-	Bucket      *string `json:"bucket,omitempty"`
-	CreatedAt   *string `json:"created_at,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Endpoint    *string `json:"endpoint,omitempty"`
-	IsUsable    *bool   `json:"is_usable,omitempty"`
-	Name        *string `json:"name,omitempty"`
-	Region      *string `json:"region,omitempty"`
-	TeamId      *int    `json:"team_id,omitempty"`
-	UpdatedAt   *string `json:"updated_at,omitempty"`
-	Uuid        *string `json:"uuid,omitempty"`
+	Bucket               *string `json:"bucket,omitempty"`
+	CreatedAt            *string `json:"created_at,omitempty"`
+	Description          *string `json:"description,omitempty"`
+	Endpoint             *string `json:"endpoint,omitempty"`
+	IsUsable             *bool   `json:"is_usable,omitempty"`
+	Name                 *string `json:"name,omitempty"`
+	Region               *string `json:"region,omitempty"`
+	TeamId               *int    `json:"team_id,omitempty"`
+	UpdatedAt            *string `json:"updated_at,omitempty"`
+	UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
+	Uuid                 *string `json:"uuid,omitempty"`
 } {
 	return r.JSON200
 }
@@ -45504,16 +45946,17 @@ type GetS3StorageByUuidResponse struct {
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
 	JSON200 *struct {
-		Bucket      *string `json:"bucket,omitempty"`
-		CreatedAt   *string `json:"created_at,omitempty"`
-		Description *string `json:"description,omitempty"`
-		Endpoint    *string `json:"endpoint,omitempty"`
-		IsUsable    *bool   `json:"is_usable,omitempty"`
-		Name        *string `json:"name,omitempty"`
-		Region      *string `json:"region,omitempty"`
-		TeamId      *int    `json:"team_id,omitempty"`
-		UpdatedAt   *string `json:"updated_at,omitempty"`
-		Uuid        *string `json:"uuid,omitempty"`
+		Bucket               *string `json:"bucket,omitempty"`
+		CreatedAt            *string `json:"created_at,omitempty"`
+		Description          *string `json:"description,omitempty"`
+		Endpoint             *string `json:"endpoint,omitempty"`
+		IsUsable             *bool   `json:"is_usable,omitempty"`
+		Name                 *string `json:"name,omitempty"`
+		Region               *string `json:"region,omitempty"`
+		TeamId               *int    `json:"team_id,omitempty"`
+		UpdatedAt            *string `json:"updated_at,omitempty"`
+		UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
+		Uuid                 *string `json:"uuid,omitempty"`
 	}
 	// JSON401 the response for an HTTP 401 `application/json` response
 	JSON401 *N401
@@ -45523,16 +45966,17 @@ type GetS3StorageByUuidResponse struct {
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
 func (r GetS3StorageByUuidResponse) GetJSON200() *struct {
-	Bucket      *string `json:"bucket,omitempty"`
-	CreatedAt   *string `json:"created_at,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Endpoint    *string `json:"endpoint,omitempty"`
-	IsUsable    *bool   `json:"is_usable,omitempty"`
-	Name        *string `json:"name,omitempty"`
-	Region      *string `json:"region,omitempty"`
-	TeamId      *int    `json:"team_id,omitempty"`
-	UpdatedAt   *string `json:"updated_at,omitempty"`
-	Uuid        *string `json:"uuid,omitempty"`
+	Bucket               *string `json:"bucket,omitempty"`
+	CreatedAt            *string `json:"created_at,omitempty"`
+	Description          *string `json:"description,omitempty"`
+	Endpoint             *string `json:"endpoint,omitempty"`
+	IsUsable             *bool   `json:"is_usable,omitempty"`
+	Name                 *string `json:"name,omitempty"`
+	Region               *string `json:"region,omitempty"`
+	TeamId               *int    `json:"team_id,omitempty"`
+	UpdatedAt            *string `json:"updated_at,omitempty"`
+	UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
+	Uuid                 *string `json:"uuid,omitempty"`
 } {
 	return r.JSON200
 }
@@ -46205,11 +46649,18 @@ type CreateDigitaloceanServerResponse struct {
 	HTTPResponse *http.Response
 	// JSON401 the response for an HTTP 401 `application/json` response
 	JSON401 *N401
+	// JSON502 the response for an HTTP 502 `application/json` response
+	JSON502 *N502
 }
 
 // GetJSON401 returns the response for an HTTP 401 `application/json` response
 func (r CreateDigitaloceanServerResponse) GetJSON401() *N401 {
 	return r.JSON401
+}
+
+// GetJSON502 returns the response for an HTTP 502 `application/json` response
+func (r CreateDigitaloceanServerResponse) GetJSON502() *N502 {
+	return r.JSON502
 }
 
 // GetBody returns the raw response body bytes
@@ -46270,6 +46721,8 @@ type CreateHetznerServerResponse struct {
 	JSON422 *N422
 	// JSON429 the response for an HTTP 429 `application/json` response
 	JSON429 *N429
+	// JSON502 the response for an HTTP 502 `application/json` response
+	JSON502 *N502
 	// Headers429 the parsed response headers for an HTTP 429 response
 	Headers429 *CreateHetznerServerResponse429Headers
 }
@@ -46311,6 +46764,11 @@ func (r CreateHetznerServerResponse) GetJSON422() *N422 {
 // GetJSON429 returns the response for an HTTP 429 `application/json` response
 func (r CreateHetznerServerResponse) GetJSON429() *N429 {
 	return r.JSON429
+}
+
+// GetJSON502 returns the response for an HTTP 502 `application/json` response
+func (r CreateHetznerServerResponse) GetJSON502() *N502 {
+	return r.JSON502
 }
 
 // GetBody returns the raw response body bytes
@@ -46470,11 +46928,18 @@ type CreateVultrServerResponse struct {
 	HTTPResponse *http.Response
 	// JSON401 the response for an HTTP 401 `application/json` response
 	JSON401 *N401
+	// JSON502 the response for an HTTP 502 `application/json` response
+	JSON502 *N502
 }
 
 // GetJSON401 returns the response for an HTTP 401 `application/json` response
 func (r CreateVultrServerResponse) GetJSON401() *N401 {
 	return r.JSON401
+}
+
+// GetJSON502 returns the response for an HTTP 502 `application/json` response
+func (r CreateVultrServerResponse) GetJSON502() *N502 {
+	return r.JSON502
 }
 
 // GetBody returns the raw response body bytes
@@ -47664,6 +48129,7 @@ type GetServerLogDrainsResponse struct {
 		// LogdrainAxiomApiKey Only present with read:sensitive.
 		LogdrainAxiomApiKey      *string `json:"logdrain_axiom_api_key,omitempty"`
 		LogdrainAxiomDatasetName *string `json:"logdrain_axiom_dataset_name,omitempty"`
+		LogdrainAxiomDomain      *string `json:"logdrain_axiom_domain,omitempty"`
 		LogdrainCloudwatchGroup  *string `json:"logdrain_cloudwatch_group,omitempty"`
 		LogdrainCloudwatchRegion *string `json:"logdrain_cloudwatch_region,omitempty"`
 
@@ -47698,6 +48164,7 @@ func (r GetServerLogDrainsResponse) GetJSON200() *struct {
 	// LogdrainAxiomApiKey Only present with read:sensitive.
 	LogdrainAxiomApiKey      *string `json:"logdrain_axiom_api_key,omitempty"`
 	LogdrainAxiomDatasetName *string `json:"logdrain_axiom_dataset_name,omitempty"`
+	LogdrainAxiomDomain      *string `json:"logdrain_axiom_domain,omitempty"`
 	LogdrainCloudwatchGroup  *string `json:"logdrain_cloudwatch_group,omitempty"`
 	LogdrainCloudwatchRegion *string `json:"logdrain_cloudwatch_region,omitempty"`
 
@@ -54176,7 +54643,7 @@ func (c *ClientWithResponses) ListStoragesByApplicationUuidWithResponse(ctx cont
 
 // UpdateStorageByApplicationUuidWithBodyWithResponse Update Storage
 //
-// Update a persistent storage or file storage by application UUID.
+// Update a persistent storage or file storage by application UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -54191,7 +54658,7 @@ func (c *ClientWithResponses) UpdateStorageByApplicationUuidWithBodyWithResponse
 
 // UpdateStorageByApplicationUuidWithResponse Update Storage
 //
-// Update a persistent storage or file storage by application UUID.
+// Update a persistent storage or file storage by application UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55417,7 +55884,7 @@ func (c *ClientWithResponses) ListStoragesByDatabaseUuidWithResponse(ctx context
 
 // UpdateStorageByDatabaseUuidWithBodyWithResponse Update Storage
 //
-// Update a persistent storage or file storage by database UUID.
+// Update a persistent storage or file storage by database UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -55432,7 +55899,7 @@ func (c *ClientWithResponses) UpdateStorageByDatabaseUuidWithBodyWithResponse(ct
 
 // UpdateStorageByDatabaseUuidWithResponse Update Storage
 //
-// Update a persistent storage or file storage by database UUID.
+// Update a persistent storage or file storage by database UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -56114,7 +56581,7 @@ func (c *ClientWithResponses) GetHetznerNetworksWithResponse(ctx context.Context
 
 // GetHetznerServerTypesWithResponse Get Hetzner Server Types
 //
-// Get all available Hetzner server types (instance sizes).
+// Get the Hetzner server types (instance sizes) that can be ordered now. Each type lists only the locations where it is in stock and not deprecated.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -57572,7 +58039,7 @@ func (c *ClientWithResponses) UpdateServerLogDrainsWithResponse(ctx context.Cont
 
 // MigrateServerBetweenInstancesWithBodyWithResponse Migrate server to another Coolify instance
 //
-// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. All secrets of the server, also locked environment variables, are sent to the target. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write, and the owner role of the server team.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -57587,7 +58054,7 @@ func (c *ClientWithResponses) MigrateServerBetweenInstancesWithBodyWithResponse(
 
 // MigrateServerBetweenInstancesWithResponse Migrate server to another Coolify instance
 //
-// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write.
+// Start a transfer in the background: export this server, import and claim it on the target instance (with the given token), then disable automations here. All secrets of the server, also locked environment variables, are sent to the target. Follow the progress with GET /servers/{uuid}/transfer. The target URL must use https. Requires read:sensitive and write, and the owner role of the server team.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -58723,7 +59190,7 @@ func (c *ClientWithResponses) ListStoragesByServiceUuidWithResponse(ctx context.
 
 // UpdateStorageByServiceUuidWithBodyWithResponse Update Storage
 //
-// Update a persistent storage or file storage by service UUID.
+// Update a persistent storage or file storage by service UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -58738,7 +59205,7 @@ func (c *ClientWithResponses) UpdateStorageByServiceUuidWithBodyWithResponse(ctx
 
 // UpdateStorageByServiceUuidWithResponse Update Storage
 //
-// Update a persistent storage or file storage by service UUID.
+// Update a persistent storage or file storage by service UUID. Changed file content is saved right away and written to the server in the background, so a failed write does not change the response.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -62342,7 +62809,7 @@ func ParseListDatabasesResponse(rsp *http.Response) (*ListDatabasesResponse, err
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest string
+		var dest []Database
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -62821,7 +63288,7 @@ func ParseGetDatabaseByUuidResponse(rsp *http.Response) (*GetDatabaseByUuidRespo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest string
+		var dest Database
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -65569,6 +66036,13 @@ func ParseGetHetznerFirewallsResponse(rsp *http.Response) (*GetHetznerFirewallsR
 		}
 		response.JSON404 = &dest
 
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest N502
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
 	}
 
 	return response, nil
@@ -65616,6 +66090,13 @@ func ParseGetHetznerImagesResponse(rsp *http.Response) (*GetHetznerImagesRespons
 			return nil, err
 		}
 		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest N502
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
 
 	}
 
@@ -65665,6 +66146,13 @@ func ParseGetHetznerLocationsResponse(rsp *http.Response) (*GetHetznerLocationsR
 		}
 		response.JSON404 = &dest
 
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest N502
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
 	}
 
 	return response, nil
@@ -65708,6 +66196,13 @@ func ParseGetHetznerNetworksResponse(rsp *http.Response) (*GetHetznerNetworksRes
 			return nil, err
 		}
 		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest N502
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
 
 	}
 
@@ -65768,6 +66263,13 @@ func ParseGetHetznerServerTypesResponse(rsp *http.Response) (*GetHetznerServerTy
 		}
 		response.JSON404 = &dest
 
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest N502
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
 	}
 
 	return response, nil
@@ -65812,6 +66314,13 @@ func ParseGetHetznerSshKeysResponse(rsp *http.Response) (*GetHetznerSshKeysRespo
 			return nil, err
 		}
 		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest N502
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
 
 	}
 
@@ -67458,7 +67967,7 @@ func ParseListResourcesResponse(rsp *http.Response) (*ListResourcesResponse, err
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest string
+		var dest []ListResources200JSONResponseBody_Item
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -67499,16 +68008,17 @@ func ParseListS3StoragesResponse(rsp *http.Response) (*ListS3StoragesResponse, e
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest []struct {
-			Bucket      *string `json:"bucket,omitempty"`
-			CreatedAt   *string `json:"created_at,omitempty"`
-			Description *string `json:"description,omitempty"`
-			Endpoint    *string `json:"endpoint,omitempty"`
-			IsUsable    *bool   `json:"is_usable,omitempty"`
-			Name        *string `json:"name,omitempty"`
-			Region      *string `json:"region,omitempty"`
-			TeamId      *int    `json:"team_id,omitempty"`
-			UpdatedAt   *string `json:"updated_at,omitempty"`
-			Uuid        *string `json:"uuid,omitempty"`
+			Bucket               *string `json:"bucket,omitempty"`
+			CreatedAt            *string `json:"created_at,omitempty"`
+			Description          *string `json:"description,omitempty"`
+			Endpoint             *string `json:"endpoint,omitempty"`
+			IsUsable             *bool   `json:"is_usable,omitempty"`
+			Name                 *string `json:"name,omitempty"`
+			Region               *string `json:"region,omitempty"`
+			TeamId               *int    `json:"team_id,omitempty"`
+			UpdatedAt            *string `json:"updated_at,omitempty"`
+			UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
+			Uuid                 *string `json:"uuid,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -67642,16 +68152,17 @@ func ParseGetS3StorageByUuidResponse(rsp *http.Response) (*GetS3StorageByUuidRes
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest struct {
-			Bucket      *string `json:"bucket,omitempty"`
-			CreatedAt   *string `json:"created_at,omitempty"`
-			Description *string `json:"description,omitempty"`
-			Endpoint    *string `json:"endpoint,omitempty"`
-			IsUsable    *bool   `json:"is_usable,omitempty"`
-			Name        *string `json:"name,omitempty"`
-			Region      *string `json:"region,omitempty"`
-			TeamId      *int    `json:"team_id,omitempty"`
-			UpdatedAt   *string `json:"updated_at,omitempty"`
-			Uuid        *string `json:"uuid,omitempty"`
+			Bucket               *string `json:"bucket,omitempty"`
+			CreatedAt            *string `json:"created_at,omitempty"`
+			Description          *string `json:"description,omitempty"`
+			Endpoint             *string `json:"endpoint,omitempty"`
+			IsUsable             *bool   `json:"is_usable,omitempty"`
+			Name                 *string `json:"name,omitempty"`
+			Region               *string `json:"region,omitempty"`
+			TeamId               *int    `json:"team_id,omitempty"`
+			UpdatedAt            *string `json:"updated_at,omitempty"`
+			UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
+			Uuid                 *string `json:"uuid,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -68180,6 +68691,13 @@ func ParseCreateDigitaloceanServerResponse(rsp *http.Response) (*CreateDigitaloc
 	case rsp.StatusCode == 429:
 		break // No content-type
 
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest N502
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
+
 	}
 
 	return response, nil
@@ -68252,6 +68770,13 @@ func ParseCreateHetznerServerResponse(rsp *http.Response) (*CreateHetznerServerR
 			return nil, err
 		}
 		response.JSON429 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest N502
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
 
 	}
 
@@ -68411,6 +68936,13 @@ func ParseCreateVultrServerResponse(rsp *http.Response) (*CreateVultrServerRespo
 
 	case rsp.StatusCode == 429:
 		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 502:
+		var dest N502
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON502 = &dest
 
 	}
 
@@ -69326,6 +69858,7 @@ func ParseGetServerLogDrainsResponse(rsp *http.Response) (*GetServerLogDrainsRes
 			// LogdrainAxiomApiKey Only present with read:sensitive.
 			LogdrainAxiomApiKey      *string `json:"logdrain_axiom_api_key,omitempty"`
 			LogdrainAxiomDatasetName *string `json:"logdrain_axiom_dataset_name,omitempty"`
+			LogdrainAxiomDomain      *string `json:"logdrain_axiom_domain,omitempty"`
 			LogdrainCloudwatchGroup  *string `json:"logdrain_cloudwatch_group,omitempty"`
 			LogdrainCloudwatchRegion *string `json:"logdrain_cloudwatch_region,omitempty"`
 

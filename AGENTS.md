@@ -14,7 +14,7 @@ Seven identical log-line query unions become references to a named `LogTailLines
 
 ## Stack
 
-- Go 1.26.9.
+- Go 1.26.10.
 - oapi-codegen, pinned as a `tool` dependency in `go.mod`.
 - Runtime: `github.com/oapi-codegen/runtime`.
 

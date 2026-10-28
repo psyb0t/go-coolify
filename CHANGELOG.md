@@ -2,6 +2,13 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.5.1, 2026-10-28
+
+- Updated Semgrep in the development image to 1.182.1 and refreshed its locked dependencies. certifi 2026.10.23 drops the emSign root CAs whose intermediate keys were compromised (GHSA-6q48-6c7w-9gw2).
+- Dependabot no longer opens pull requests for `mcp` or the OpenTelemetry packages in `requirements-semgrep.txt`. Semgrep pins their versions itself, so bumping one of them on its own cannot install.
+- Updated kin-openapi, which the code generator uses, from 0.142.0 to 0.149.0. The newer version fixes several panics on malformed specs reported in GitHub security advisories.
+- The security scan merges its two gitleaks runs into one SARIF run. GitHub code scanning rejects a report with two runs from the same tool, so no scan results had been uploaded.
+
 ## v0.5.0, 2026-10-27
 
 - Breaking: `EnvironmentName` and `EnvironmentUuid` change from `string` to `*string` in the `JSONBody` and `JSONRequestBody` types of every create call for databases (`CreateDatabasePostgresqlJSONBody`, `CreateDatabaseMysqlJSONBody`, `CreateDatabaseRedisJSONBody` and the other engines) and applications (`CreatePublicApplicationJSONBody`, `CreateDockerfileApplicationJSONBody`, `CreateDockerimageApplicationJSONBody` and the other application types). Migration: assign a pointer, for example `&name`, and set only the one the spec requires.

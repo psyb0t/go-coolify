@@ -2376,7 +2376,6 @@ type ServerSetting struct {
 	IsLogdrainAxiomEnabled      *bool   `json:"is_logdrain_axiom_enabled,omitempty"`
 	IsLogdrainCloudwatchEnabled *bool   `json:"is_logdrain_cloudwatch_enabled,omitempty"`
 	IsLogdrainCustomEnabled     *bool   `json:"is_logdrain_custom_enabled,omitempty"`
-	IsLogdrainHighlightEnabled  *bool   `json:"is_logdrain_highlight_enabled,omitempty"`
 	IsLogdrainNewrelicEnabled   *bool   `json:"is_logdrain_newrelic_enabled,omitempty"`
 	IsMetricsEnabled            *bool   `json:"is_metrics_enabled,omitempty"`
 	IsReachable                 *bool   `json:"is_reachable,omitempty"`
@@ -2396,7 +2395,6 @@ type ServerSetting struct {
 	LogdrainCloudwatchStreamPrefix    *string                  `json:"logdrain_cloudwatch_stream_prefix,omitempty"`
 	LogdrainCustomConfig              *string                  `json:"logdrain_custom_config,omitempty"`
 	LogdrainCustomConfigParser        *string                  `json:"logdrain_custom_config_parser,omitempty"`
-	LogdrainHighlightProjectId        *string                  `json:"logdrain_highlight_project_id,omitempty"`
 	LogdrainNewrelicBaseUri           *string                  `json:"logdrain_newrelic_base_uri,omitempty"`
 	LogdrainNewrelicLicenseKey        *string                  `json:"logdrain_newrelic_license_key,omitempty"`
 	SentinelMetricsHistoryDays        *int                     `json:"sentinel_metrics_history_days,omitempty"`
@@ -7080,9 +7078,6 @@ type UpdateEnvByServiceUuidJSONBody struct {
 	// IsMultiline The flag to indicate if the environment variable is multiline.
 	IsMultiline *bool `json:"is_multiline,omitempty"`
 
-	// IsPreview The flag to indicate if the environment variable is used in preview deployments.
-	IsPreview *bool `json:"is_preview,omitempty"`
-
 	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
 	IsShownOnce *bool `json:"is_shown_once,omitempty"`
 
@@ -7100,9 +7095,6 @@ type CreateEnvByServiceUuidJSONBody struct {
 
 	// IsMultiline The flag to indicate if the environment variable is multiline.
 	IsMultiline *bool `json:"is_multiline,omitempty"`
-
-	// IsPreview The flag to indicate if the environment variable is used in preview deployments.
-	IsPreview *bool `json:"is_preview,omitempty"`
 
 	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
 	IsShownOnce *bool `json:"is_shown_once,omitempty"`
@@ -7122,9 +7114,6 @@ type UpdateEnvsByServiceUuidJSONBody struct {
 
 		// IsMultiline The flag to indicate if the environment variable is multiline.
 		IsMultiline *bool `json:"is_multiline,omitempty"`
-
-		// IsPreview The flag to indicate if the environment variable is used in preview deployments.
-		IsPreview *bool `json:"is_preview,omitempty"`
 
 		// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
 		IsShownOnce *bool `json:"is_shown_once,omitempty"`

@@ -2,6 +2,12 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.6.0, 2026-10-29
+
+- Breaking: `ServerSetting.IsLogdrainHighlightEnabled` and `ServerSetting.LogdrainHighlightProjectId` are removed. The spec no longer documents the Highlight log drain. Callers that read these fields must stop.
+- Breaking: `IsPreview` is removed from `CreateEnvByServiceUuidJSONBody`, `UpdateEnvByServiceUuidJSONBody` and their `JSONRequestBody` aliases. Callers that set it must stop.
+- Breaking: the `Data` element struct of `UpdateEnvsByServiceUuidJSONBody` and `UpdateEnvsByServiceUuidJSONRequestBody` loses its `IsPreview` field, so it is a different anonymous struct type. Code that names that type must change.
+
 ## v0.5.1, 2026-10-28
 
 - Updated Semgrep in the development image to 1.182.1 and refreshed its locked dependencies. certifi 2026.10.23 drops the emSign root CAs whose intermediate keys were compromised (GHSA-6q48-6c7w-9gw2).

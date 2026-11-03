@@ -2,6 +2,17 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.8.0, 2026-11-03
+
+- Breaking: the anonymous response structs for S3 storages gain a `SkipTlsVerification` field. This changes the types of `ListS3StoragesResponse.JSON200`, `ListS3StoragesResponse.GetJSON200`, `GetS3StorageByUuidResponse.JSON200` and `GetS3StorageByUuidResponse.GetJSON200`. Code that assigns these values to a hand-written identical struct type must add the field.
+- Add `SkipTlsVerification` to `CreateS3StorageJSONBody`, `UpdateS3StorageByUuidJSONBody` and their `JSONRequestBody` types.
+- Add `IsAutoCancelBuildingDeploymentsEnabled` and `IsAutoCancelQueuedDeploymentsEnabled` to the application create bodies (`CreateDockerfileApplicationJSONBody`, `CreateDockerimageApplicationJSONBody`, `CreatePrivateDeployKeyApplicationJSONBody`, `CreatePrivateGithubAppApplicationJSONBody`, `CreatePublicApplicationJSONBody`), to `UpdateApplicationByUuidJSONBody` and to the matching `JSONRequestBody` types.
+- Add the `CancelPrevious` parameter to `DeployByTagOrUuidParams`, with the `DeployByTagOrUuidParamsCancelPrevious` type and the values `DeployByTagOrUuidParamsCancelPreviousBuilding`, `DeployByTagOrUuidParamsCancelPreviousNone` and `DeployByTagOrUuidParamsCancelPreviousQueued`.
+- Add `UseShell` to the create and update scheduled task bodies for applications and services, and to `ScheduledTask`.
+- Add `ConsecutiveFailures`, `DisabledReason` and `FailingSince` to `ScheduledTask`.
+- Add `IsMcp` to `ApplicationDeploymentQueue`.
+- Update the `IsShownOnce` documentation: a lock is permanent, and a new value can still replace a locked one.
+
 ## v0.7.0, 2026-11-03
 
 - Breaking: the shared env write calls now take a JSON body. `CreateProjectSharedEnv`, `CreateServerSharedEnv`, `CreateEnvironmentSharedEnv`, `UpdateProjectSharedEnv`, `UpdateServerSharedEnv`, `UpdateEnvironmentSharedEnv` and `UpdateTeamSharedEnv` gain a `JSONRequestBody` parameter before the request editors. The same applies to the matching `WithResponse` methods on `Client` and `ClientWithResponses` and to the `New...Request` functions. Migration: pass the new body, for example `CreateProjectSharedEnvJSONRequestBody`.

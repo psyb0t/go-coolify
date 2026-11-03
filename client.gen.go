@@ -1296,6 +1296,27 @@ func (e CreateStorageByDatabaseUuidJSONBodyType) Valid() bool {
 	}
 }
 
+// Defines values for DeployByTagOrUuidParamsCancelPrevious.
+const (
+	DeployByTagOrUuidParamsCancelPreviousBuilding DeployByTagOrUuidParamsCancelPrevious = "building"
+	DeployByTagOrUuidParamsCancelPreviousNone     DeployByTagOrUuidParamsCancelPrevious = "none"
+	DeployByTagOrUuidParamsCancelPreviousQueued   DeployByTagOrUuidParamsCancelPrevious = "queued"
+)
+
+// Valid indicates whether the value is a known member of the DeployByTagOrUuidParamsCancelPrevious enum.
+func (e DeployByTagOrUuidParamsCancelPrevious) Valid() bool {
+	switch e {
+	case DeployByTagOrUuidParamsCancelPreviousBuilding:
+		return true
+	case DeployByTagOrUuidParamsCancelPreviousNone:
+		return true
+	case DeployByTagOrUuidParamsCancelPreviousQueued:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CreateSecretManagerIntegrationTokenJSONBodyCapabilities.
 const (
 	CreateSecretManagerIntegrationTokenJSONBodyCapabilitiesDns     CreateSecretManagerIntegrationTokenJSONBodyCapabilities = "dns"
@@ -2131,6 +2152,7 @@ type ApplicationDeploymentQueue struct {
 	GitType                *string                 `json:"git_type,omitempty"`
 	Id                     *int                    `json:"id,omitempty"`
 	IsApi                  *bool                   `json:"is_api,omitempty"`
+	IsMcp                  *bool                   `json:"is_mcp,omitempty"`
 	IsWebhook              *bool                   `json:"is_webhook,omitempty"`
 	Logs                   *string                 `json:"logs,omitempty"`
 	OnlyThisServer         *bool                   `json:"only_this_server,omitempty"`
@@ -2499,7 +2521,7 @@ type EnvironmentVariable struct {
 	IsRuntime   *bool   `json:"is_runtime,omitempty"`
 	IsShared    *bool   `json:"is_shared,omitempty"`
 
-	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 	IsShownOnce      *bool   `json:"is_shown_once,omitempty"`
 	Key              *string `json:"key,omitempty"`
 	RealValue        *string `json:"real_value,omitempty"`
@@ -2633,14 +2655,23 @@ type ScheduledTask struct {
 	// Command The command to execute.
 	Command *string `json:"command,omitempty"`
 
+	// ConsecutiveFailures The number of failed runs since the last successful run.
+	ConsecutiveFailures *int `json:"consecutive_failures,omitempty"`
+
 	// Container The container where the command should be executed.
 	Container *string `json:"container,omitempty"`
 
 	// CreatedAt The date and time when the scheduled task was created.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 
+	// DisabledReason Why Coolify disabled the task automatically. It is cleared when the task is enabled again.
+	DisabledReason *string `json:"disabled_reason,omitempty"`
+
 	// Enabled The flag to indicate if the scheduled task is enabled.
 	Enabled *bool `json:"enabled,omitempty"`
+
+	// FailingSince The date and time of the first failed run since the last successful run.
+	FailingSince *time.Time `json:"failing_since,omitempty"`
 
 	// Frequency The frequency of the scheduled task.
 	Frequency *string `json:"frequency,omitempty"`
@@ -2656,6 +2687,9 @@ type ScheduledTask struct {
 
 	// UpdatedAt The date and time when the scheduled task was last updated.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+
+	// UseShell Run the command with `sh -c` in the container. Set it to false for containers without a shell: the command is then split into arguments and run directly, without shell features such as variables, pipes, or redirects.
+	UseShell *bool `json:"use_shell,omitempty"`
 
 	// Uuid The unique identifier of the scheduled task.
 	Uuid *string `json:"uuid,omitempty"`
@@ -2920,7 +2954,7 @@ type SharedEnvironmentVariableCreateRequest struct {
 	IsLiteral   *bool   `json:"is_literal,omitempty"`
 	IsMultiline *bool   `json:"is_multiline,omitempty"`
 
-	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 	IsShownOnce *bool   `json:"is_shown_once,omitempty"`
 	Key         string  `json:"key"`
 	Value       *string `json:"value,omitempty"`
@@ -2932,7 +2966,7 @@ type SharedEnvironmentVariableUpdateRequest struct {
 	IsLiteral   *bool   `json:"is_literal,omitempty"`
 	IsMultiline *bool   `json:"is_multiline,omitempty"`
 
-	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 	IsShownOnce *bool   `json:"is_shown_once,omitempty"`
 	Key         *string `json:"key,omitempty"`
 	Value       *string `json:"value,omitempty"`
@@ -3246,6 +3280,12 @@ type CreateDockerfileApplicationJSONBody struct {
 	// InstantDeploy The flag to indicate if the application should be deployed instantly.
 	InstantDeploy *bool `json:"instant_deploy,omitempty"`
 
+	// IsAutoCancelBuildingDeploymentsEnabled Also stop an older webhook deployment that is still building when a newer push arrives. A deployment that already started to replace containers always finishes. This also cancels queued webhook deployments. Default: false.
+	IsAutoCancelBuildingDeploymentsEnabled *bool `json:"is_auto_cancel_building_deployments_enabled,omitempty"`
+
+	// IsAutoCancelQueuedDeploymentsEnabled Cancel older queued webhook deployments when a newer push arrives. Default: true.
+	IsAutoCancelQueuedDeploymentsEnabled *bool `json:"is_auto_cancel_queued_deployments_enabled,omitempty"`
+
 	// IsConsistentContainerNameEnabled Use a consistent container name across deployments.
 	IsConsistentContainerNameEnabled *bool `json:"is_consistent_container_name_enabled,omitempty"`
 
@@ -3530,6 +3570,12 @@ type CreateDockerimageApplicationJSONBody struct {
 
 	// InstantDeploy The flag to indicate if the application should be deployed instantly.
 	InstantDeploy *bool `json:"instant_deploy,omitempty"`
+
+	// IsAutoCancelBuildingDeploymentsEnabled Also stop an older webhook deployment that is still building when a newer push arrives. A deployment that already started to replace containers always finishes. This also cancels queued webhook deployments. Default: false.
+	IsAutoCancelBuildingDeploymentsEnabled *bool `json:"is_auto_cancel_building_deployments_enabled,omitempty"`
+
+	// IsAutoCancelQueuedDeploymentsEnabled Cancel older queued webhook deployments when a newer push arrives. Default: true.
+	IsAutoCancelQueuedDeploymentsEnabled *bool `json:"is_auto_cancel_queued_deployments_enabled,omitempty"`
 
 	// IsConsistentContainerNameEnabled Use a consistent container name across deployments.
 	IsConsistentContainerNameEnabled *bool `json:"is_consistent_container_name_enabled,omitempty"`
@@ -3863,6 +3909,12 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 
 	// InstantDeploy The flag to indicate if the application should be deployed instantly.
 	InstantDeploy *bool `json:"instant_deploy,omitempty"`
+
+	// IsAutoCancelBuildingDeploymentsEnabled Also stop an older webhook deployment that is still building when a newer push arrives. A deployment that already started to replace containers always finishes. This also cancels queued webhook deployments. Default: false.
+	IsAutoCancelBuildingDeploymentsEnabled *bool `json:"is_auto_cancel_building_deployments_enabled,omitempty"`
+
+	// IsAutoCancelQueuedDeploymentsEnabled Cancel older queued webhook deployments when a newer push arrives. Default: true.
+	IsAutoCancelQueuedDeploymentsEnabled *bool `json:"is_auto_cancel_queued_deployments_enabled,omitempty"`
 
 	// IsAutoDeployEnabled The flag to indicate if auto-deploy is enabled on git push. Defaults to true.
 	IsAutoDeployEnabled *bool `json:"is_auto_deploy_enabled,omitempty"`
@@ -4236,6 +4288,12 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 	// InstantDeploy The flag to indicate if the application should be deployed instantly.
 	InstantDeploy *bool `json:"instant_deploy,omitempty"`
 
+	// IsAutoCancelBuildingDeploymentsEnabled Also stop an older webhook deployment that is still building when a newer push arrives. A deployment that already started to replace containers always finishes. This also cancels queued webhook deployments. Default: false.
+	IsAutoCancelBuildingDeploymentsEnabled *bool `json:"is_auto_cancel_building_deployments_enabled,omitempty"`
+
+	// IsAutoCancelQueuedDeploymentsEnabled Cancel older queued webhook deployments when a newer push arrives. Default: true.
+	IsAutoCancelQueuedDeploymentsEnabled *bool `json:"is_auto_cancel_queued_deployments_enabled,omitempty"`
+
 	// IsAutoDeployEnabled The flag to indicate if auto-deploy is enabled on git push. Defaults to true.
 	IsAutoDeployEnabled *bool `json:"is_auto_deploy_enabled,omitempty"`
 
@@ -4607,6 +4665,12 @@ type CreatePublicApplicationJSONBody struct {
 
 	// InstantDeploy The flag to indicate if the application should be deployed instantly.
 	InstantDeploy *bool `json:"instant_deploy,omitempty"`
+
+	// IsAutoCancelBuildingDeploymentsEnabled Also stop an older webhook deployment that is still building when a newer push arrives. A deployment that already started to replace containers always finishes. This also cancels queued webhook deployments. Default: false.
+	IsAutoCancelBuildingDeploymentsEnabled *bool `json:"is_auto_cancel_building_deployments_enabled,omitempty"`
+
+	// IsAutoCancelQueuedDeploymentsEnabled Cancel older queued webhook deployments when a newer push arrives. Default: true.
+	IsAutoCancelQueuedDeploymentsEnabled *bool `json:"is_auto_cancel_queued_deployments_enabled,omitempty"`
 
 	// IsAutoDeployEnabled The flag to indicate if auto-deploy is enabled on git push. Defaults to true.
 	IsAutoDeployEnabled *bool `json:"is_auto_deploy_enabled,omitempty"`
@@ -4980,6 +5044,12 @@ type UpdateApplicationByUuidJSONBody struct {
 	// InstantDeploy The flag to indicate if the application should be deployed instantly.
 	InstantDeploy *bool `json:"instant_deploy,omitempty"`
 
+	// IsAutoCancelBuildingDeploymentsEnabled Also stop an older webhook deployment that is still building when a newer push arrives. A deployment that already started to replace containers always finishes. This also cancels queued webhook deployments. Default: false.
+	IsAutoCancelBuildingDeploymentsEnabled *bool `json:"is_auto_cancel_building_deployments_enabled,omitempty"`
+
+	// IsAutoCancelQueuedDeploymentsEnabled Cancel older queued webhook deployments when a newer push arrives. Default: true.
+	IsAutoCancelQueuedDeploymentsEnabled *bool `json:"is_auto_cancel_queued_deployments_enabled,omitempty"`
+
 	// IsAutoDeployEnabled The flag to indicate if auto-deploy is enabled on git push. Defaults to true.
 	IsAutoDeployEnabled *bool `json:"is_auto_deploy_enabled,omitempty"`
 
@@ -5186,7 +5256,7 @@ type UpdateEnvByApplicationUuidJSONBody struct {
 	// IsPreview The flag to indicate if the environment variable is used in preview deployments.
 	IsPreview *bool `json:"is_preview,omitempty"`
 
-	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 	IsShownOnce *bool `json:"is_shown_once,omitempty"`
 
 	// Key The key of the environment variable.
@@ -5207,7 +5277,7 @@ type CreateEnvByApplicationUuidJSONBody struct {
 	// IsPreview The flag to indicate if the environment variable is used in preview deployments.
 	IsPreview *bool `json:"is_preview,omitempty"`
 
-	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 	IsShownOnce *bool `json:"is_shown_once,omitempty"`
 
 	// Key The key of the environment variable.
@@ -5229,7 +5299,7 @@ type UpdateEnvsByApplicationUuidJSONBody struct {
 		// IsPreview The flag to indicate if the environment variable is used in preview deployments.
 		IsPreview *bool `json:"is_preview,omitempty"`
 
-		// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+		// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 		IsShownOnce *bool `json:"is_shown_once,omitempty"`
 
 		// Key The key of the environment variable.
@@ -5344,6 +5414,9 @@ type CreateScheduledTaskByApplicationUuidJSONBody struct {
 
 	// Timeout The timeout of the scheduled task in seconds.
 	Timeout *int `json:"timeout,omitempty"`
+
+	// UseShell Run the command with `sh -c` in the container. Set it to false for containers without a shell: the command is then split into arguments and run directly, without shell features such as variables, pipes, or redirects.
+	UseShell *bool `json:"use_shell,omitempty"`
 }
 
 // UpdateScheduledTaskByApplicationUuidJSONBody defines parameters for UpdateScheduledTaskByApplicationUuid.
@@ -5365,6 +5438,9 @@ type UpdateScheduledTaskByApplicationUuidJSONBody struct {
 
 	// Timeout The timeout of the scheduled task in seconds.
 	Timeout *int `json:"timeout,omitempty"`
+
+	// UseShell Run the command with `sh -c` in the container. Set it to false for containers without a shell: the command is then split into arguments and run directly, without shell features such as variables, pipes, or redirects.
+	UseShell *bool `json:"use_shell,omitempty"`
 }
 
 // ConfigureApplicationSecretManagerJSONBody defines parameters for ConfigureApplicationSecretManager.
@@ -6447,7 +6523,7 @@ type UpdateEnvByDatabaseUuidJSONBody struct {
 	// IsMultiline The flag to indicate if the environment variable is multiline.
 	IsMultiline *bool `json:"is_multiline,omitempty"`
 
-	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 	IsShownOnce *bool `json:"is_shown_once,omitempty"`
 
 	// Key The key of the environment variable.
@@ -6465,7 +6541,7 @@ type CreateEnvByDatabaseUuidJSONBody struct {
 	// IsMultiline The flag to indicate if the environment variable is multiline.
 	IsMultiline *bool `json:"is_multiline,omitempty"`
 
-	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 	IsShownOnce *bool `json:"is_shown_once,omitempty"`
 
 	// Key The key of the environment variable.
@@ -6484,7 +6560,7 @@ type UpdateEnvsByDatabaseUuidJSONBody struct {
 		// IsMultiline The flag to indicate if the environment variable is multiline.
 		IsMultiline *bool `json:"is_multiline,omitempty"`
 
-		// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+		// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 		IsShownOnce *bool `json:"is_shown_once,omitempty"`
 
 		// Key The key of the environment variable.
@@ -6604,7 +6680,13 @@ type DeployByTagOrUuidParams struct {
 
 	// DockerTag Docker image tag for Docker Image preview deployments. Requires pull_request_id.
 	DockerTag *string `form:"docker_tag,omitempty" json:"docker_tag,omitempty"`
+
+	// CancelPrevious Cancel the older webhook, API, and MCP deployments of the same application, pull request, and server. `queued` cancels the ones that wait in the queue. `building` also stops the ones that are still building; a deployment that already started to replace containers always finishes. Manual, restart, and rollback deployments are never cancelled. Default: `none`.
+	CancelPrevious *DeployByTagOrUuidParamsCancelPrevious `form:"cancel_previous,omitempty" json:"cancel_previous,omitempty"`
 }
+
+// DeployByTagOrUuidParamsCancelPrevious defines parameters for DeployByTagOrUuid.
+type DeployByTagOrUuidParamsCancelPrevious string
 
 // ListDeploymentsByAppUuidParams defines parameters for ListDeploymentsByAppUuid.
 type ListDeploymentsByAppUuidParams struct {
@@ -6943,6 +7025,9 @@ type CreateS3StorageJSONBody struct {
 	// Secret Secret key.
 	Secret string `json:"secret"`
 
+	// SkipTlsVerification Do not check the TLS certificate of the endpoint. Use only for endpoints with a self-signed or private CA certificate. Default: false.
+	SkipTlsVerification *bool `json:"skip_tls_verification,omitempty"`
+
 	// UsePathStyleEndpoint Use path-style URLs (endpoint/bucket). Set to false for providers that only accept virtual-hosted-style URLs (bucket.endpoint). Default: false for Alibaba Cloud OSS, Tencent Cloud COS, and Volcengine TOS endpoints, true for all other endpoints.
 	UsePathStyleEndpoint *bool `json:"use_path_style_endpoint,omitempty"`
 }
@@ -6972,6 +7057,9 @@ type UpdateS3StorageByUuidJSONBody struct {
 
 	// Secret Secret key.
 	Secret *string `json:"secret,omitempty"`
+
+	// SkipTlsVerification Do not check the TLS certificate of the endpoint. Use only for endpoints with a self-signed or private CA certificate. Default: false.
+	SkipTlsVerification *bool `json:"skip_tls_verification,omitempty"`
 
 	// UsePathStyleEndpoint Use path-style URLs (endpoint/bucket). Set to false for providers that only accept virtual-hosted-style URLs (bucket.endpoint), such as Alibaba Cloud OSS.
 	UsePathStyleEndpoint *bool `json:"use_path_style_endpoint,omitempty"`
@@ -7163,7 +7251,7 @@ type CreateServerDestinationJSONBodyType string
 
 // DeleteServerByUuidParams defines parameters for DeleteServerByUuid.
 type DeleteServerByUuidParams struct {
-	// Force Also delete all resources on the server. Needs the deploy permission.
+	// Force Also delete all resources whose main destination is on the server. Applications that use the server only as an additional destination are not deleted. They are removed from the server and keep running on their other servers. Needs the deploy permission.
 	Force *bool `form:"force,omitempty" json:"force,omitempty"`
 
 	// DeleteFromProvider Also delete the server from its cloud provider (Hetzner, Vultr or DigitalOcean). This cannot be undone. Needs the deploy permission.
@@ -7599,7 +7687,7 @@ type UpdateEnvByServiceUuidJSONBody struct {
 	// IsMultiline The flag to indicate if the environment variable is multiline.
 	IsMultiline *bool `json:"is_multiline,omitempty"`
 
-	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 	IsShownOnce *bool `json:"is_shown_once,omitempty"`
 
 	// Key The key of the environment variable.
@@ -7617,7 +7705,7 @@ type CreateEnvByServiceUuidJSONBody struct {
 	// IsMultiline The flag to indicate if the environment variable is multiline.
 	IsMultiline *bool `json:"is_multiline,omitempty"`
 
-	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 	IsShownOnce *bool `json:"is_shown_once,omitempty"`
 
 	// Key The key of the environment variable.
@@ -7636,7 +7724,7 @@ type UpdateEnvsByServiceUuidJSONBody struct {
 		// IsMultiline The flag to indicate if the environment variable is multiline.
 		IsMultiline *bool `json:"is_multiline,omitempty"`
 
-		// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+		// IsShownOnce If true, the saved value is hidden in the UI and API responses. A lock is permanent: false does not unlock a locked variable, but a new value can still replace the locked one. MCP never returns environment variable values.
 		IsShownOnce *bool `json:"is_shown_once,omitempty"`
 
 		// Key The key of the environment variable.
@@ -7699,6 +7787,9 @@ type CreateScheduledTaskByServiceUuidJSONBody struct {
 
 	// Timeout The timeout of the scheduled task in seconds.
 	Timeout *int `json:"timeout,omitempty"`
+
+	// UseShell Run the command with `sh -c` in the container. Set it to false for containers without a shell: the command is then split into arguments and run directly, without shell features such as variables, pipes, or redirects.
+	UseShell *bool `json:"use_shell,omitempty"`
 }
 
 // UpdateScheduledTaskByServiceUuidJSONBody defines parameters for UpdateScheduledTaskByServiceUuid.
@@ -7720,6 +7811,9 @@ type UpdateScheduledTaskByServiceUuidJSONBody struct {
 
 	// Timeout The timeout of the scheduled task in seconds.
 	Timeout *int `json:"timeout,omitempty"`
+
+	// UseShell Run the command with `sh -c` in the container. Set it to false for containers without a shell: the command is then split into arguments and run directly, without shell features such as variables, pipes, or redirects.
+	UseShell *bool `json:"use_shell,omitempty"`
 }
 
 // StopServiceByUuidParams defines parameters for StopServiceByUuid.
@@ -24974,6 +25068,18 @@ func NewDeployByTagOrUuidRequest(server string, params *DeployByTagOrUuidParams)
 		if params.DockerTag != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "docker_tag", *params.DockerTag, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.CancelPrevious != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "cancel_previous", *params.CancelPrevious, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -48822,6 +48928,7 @@ type ListS3StoragesResponse struct {
 		IsUsable             *bool   `json:"is_usable,omitempty"`
 		Name                 *string `json:"name,omitempty"`
 		Region               *string `json:"region,omitempty"`
+		SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
 		TeamId               *int    `json:"team_id,omitempty"`
 		UpdatedAt            *string `json:"updated_at,omitempty"`
 		UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
@@ -48842,6 +48949,7 @@ func (r ListS3StoragesResponse) GetJSON200() *[]struct {
 	IsUsable             *bool   `json:"is_usable,omitempty"`
 	Name                 *string `json:"name,omitempty"`
 	Region               *string `json:"region,omitempty"`
+	SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
 	TeamId               *int    `json:"team_id,omitempty"`
 	UpdatedAt            *string `json:"updated_at,omitempty"`
 	UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
@@ -49028,6 +49136,7 @@ type GetS3StorageByUuidResponse struct {
 		IsUsable             *bool   `json:"is_usable,omitempty"`
 		Name                 *string `json:"name,omitempty"`
 		Region               *string `json:"region,omitempty"`
+		SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
 		TeamId               *int    `json:"team_id,omitempty"`
 		UpdatedAt            *string `json:"updated_at,omitempty"`
 		UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
@@ -49048,6 +49157,7 @@ func (r GetS3StorageByUuidResponse) GetJSON200() *struct {
 	IsUsable             *bool   `json:"is_usable,omitempty"`
 	Name                 *string `json:"name,omitempty"`
 	Region               *string `json:"region,omitempty"`
+	SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
 	TeamId               *int    `json:"team_id,omitempty"`
 	UpdatedAt            *string `json:"updated_at,omitempty"`
 	UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
@@ -72729,6 +72839,7 @@ func ParseListS3StoragesResponse(rsp *http.Response) (*ListS3StoragesResponse, e
 			IsUsable             *bool   `json:"is_usable,omitempty"`
 			Name                 *string `json:"name,omitempty"`
 			Region               *string `json:"region,omitempty"`
+			SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
 			TeamId               *int    `json:"team_id,omitempty"`
 			UpdatedAt            *string `json:"updated_at,omitempty"`
 			UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
@@ -72873,6 +72984,7 @@ func ParseGetS3StorageByUuidResponse(rsp *http.Response) (*GetS3StorageByUuidRes
 			IsUsable             *bool   `json:"is_usable,omitempty"`
 			Name                 *string `json:"name,omitempty"`
 			Region               *string `json:"region,omitempty"`
+			SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
 			TeamId               *int    `json:"team_id,omitempty"`
 			UpdatedAt            *string `json:"updated_at,omitempty"`
 			UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`

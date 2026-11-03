@@ -2,6 +2,18 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.7.0, 2026-11-03
+
+- Breaking: the shared env write calls now take a JSON body. `CreateProjectSharedEnv`, `CreateServerSharedEnv`, `CreateEnvironmentSharedEnv`, `UpdateProjectSharedEnv`, `UpdateServerSharedEnv`, `UpdateEnvironmentSharedEnv` and `UpdateTeamSharedEnv` gain a `JSONRequestBody` parameter before the request editors. The same applies to the matching `WithResponse` methods on `Client` and `ClientWithResponses` and to the `New...Request` functions. Migration: pass the new body, for example `CreateProjectSharedEnvJSONRequestBody`.
+- Breaking: `CreateTeamSharedEnvJSONBody` is removed.
+- Breaking: `CreateSecretManagerIntegrationTokenResponse.JSON400` and `GetJSON400` are removed. The response now has `JSON201` and `GetJSON201`.
+- Add DNS record calls for applications and services: `GetApplicationDns`, `CreateApplicationDnsRecord`, `ReplaceApplicationDnsRecord`, `ReleaseApplicationDnsRecord`, `GetServiceDns`, `CreateServiceDnsRecord`, `ReplaceServiceDnsRecord` and `ReleaseServiceDnsRecord`, plus `ListDnsZones`. New types include `ManagedDnsRecord`, `ManagedDnsRecordType`, `CreateDnsRecordRequest` and `DnsRecordConflict`.
+- Add integration token calls: `ListIntegrationTokens`, `GetIntegrationTokenByUuid`, `UpdateIntegrationTokenByUuid`, `DeleteIntegrationTokenByUuid` and `SyncIntegrationTokenZones`, with the `IntegrationToken` type, `IntegrationTokenProvider` and `IntegrationTokenCapabilities`.
+- Add secret manager calls: `ListSecretManagerKeys`, `GetSecretManagerSource`, `SetSecretManagerSource`, `RemoveSecretManagerSource`, `AddSecretManagerReference` and `ImportSecretManagerReferences`.
+- Add `AutomaticDns`, `Capabilities` and `ProxiedDns` to `CreateSecretManagerIntegrationTokenJSONBody` and its `JSONRequestBody` alias.
+- Add `GitHttpsUsername` to `Application`, and `GitHttpsUsername` and `GitHttpsPassword` to `CreatePublicApplicationJSONBody` and its `JSONRequestBody` alias.
+- Every new call is also added to `ClientInterface` and `ClientWithResponsesInterface`, so custom implementations of those interfaces must add the methods.
+
 ## v0.6.0, 2026-10-29
 
 - Breaking: `ServerSetting.IsLogdrainHighlightEnabled` and `ServerSetting.LogdrainHighlightProjectId` are removed. The spec no longer documents the Highlight log drain. Callers that read these fields must stop.

@@ -237,6 +237,51 @@ func (e DestinationType) Valid() bool {
 	}
 }
 
+// Defines values for IntegrationTokenCapabilities.
+const (
+	IntegrationTokenCapabilitiesDns     IntegrationTokenCapabilities = "dns"
+	IntegrationTokenCapabilitiesSecrets IntegrationTokenCapabilities = "secrets"
+	IntegrationTokenCapabilitiesTunnel  IntegrationTokenCapabilities = "tunnel"
+)
+
+// Valid indicates whether the value is a known member of the IntegrationTokenCapabilities enum.
+func (e IntegrationTokenCapabilities) Valid() bool {
+	switch e {
+	case IntegrationTokenCapabilitiesDns:
+		return true
+	case IntegrationTokenCapabilitiesSecrets:
+		return true
+	case IntegrationTokenCapabilitiesTunnel:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for IntegrationTokenProvider.
+const (
+	IntegrationTokenProviderCloudflare IntegrationTokenProvider = "cloudflare"
+	IntegrationTokenProviderDoppler    IntegrationTokenProvider = "doppler"
+	IntegrationTokenProviderInfisical  IntegrationTokenProvider = "infisical"
+	IntegrationTokenProviderVault      IntegrationTokenProvider = "vault"
+)
+
+// Valid indicates whether the value is a known member of the IntegrationTokenProvider enum.
+func (e IntegrationTokenProvider) Valid() bool {
+	switch e {
+	case IntegrationTokenProviderCloudflare:
+		return true
+	case IntegrationTokenProviderDoppler:
+		return true
+	case IntegrationTokenProviderInfisical:
+		return true
+	case IntegrationTokenProviderVault:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for LogTailLines1.
 const (
 	LogTailLines1All LogTailLines1 = "all"
@@ -246,6 +291,24 @@ const (
 func (e LogTailLines1) Valid() bool {
 	switch e {
 	case LogTailLines1All:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ManagedDnsRecordType.
+const (
+	ManagedDnsRecordTypeA    ManagedDnsRecordType = "A"
+	ManagedDnsRecordTypeAAAA ManagedDnsRecordType = "AAAA"
+)
+
+// Valid indicates whether the value is a known member of the ManagedDnsRecordType enum.
+func (e ManagedDnsRecordType) Valid() bool {
+	switch e {
+	case ManagedDnsRecordTypeA:
+		return true
+	case ManagedDnsRecordTypeAAAA:
 		return true
 	default:
 		return false
@@ -267,6 +330,30 @@ func (e ScheduledTaskExecutionStatus) Valid() bool {
 	case ScheduledTaskExecutionStatusRunning:
 		return true
 	case ScheduledTaskExecutionStatusSuccess:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SecretManagerSourceProvider.
+const (
+	SecretManagerSourceProviderDoppler     SecretManagerSourceProvider = "doppler"
+	SecretManagerSourceProviderInfisical   SecretManagerSourceProvider = "infisical"
+	SecretManagerSourceProviderLessThannil SecretManagerSourceProvider = "<nil>"
+	SecretManagerSourceProviderVault       SecretManagerSourceProvider = "vault"
+)
+
+// Valid indicates whether the value is a known member of the SecretManagerSourceProvider enum.
+func (e SecretManagerSourceProvider) Valid() bool {
+	switch e {
+	case SecretManagerSourceProviderDoppler:
+		return true
+	case SecretManagerSourceProviderInfisical:
+		return true
+	case SecretManagerSourceProviderLessThannil:
+		return true
+	case SecretManagerSourceProviderVault:
 		return true
 	default:
 		return false
@@ -966,6 +1053,33 @@ func (e UpdateApplicationByUuid409JSONResponseBodyConflictsResourceType) Valid()
 	}
 }
 
+// Defines values for ReleaseApplicationDnsRecord200JSONResponseBodyResult.
+const (
+	ReleaseApplicationDnsRecord200JSONResponseBodyResultAlreadyGone       ReleaseApplicationDnsRecord200JSONResponseBodyResult = "already_gone"
+	ReleaseApplicationDnsRecord200JSONResponseBodyResultChangedExternally ReleaseApplicationDnsRecord200JSONResponseBodyResult = "changed_externally"
+	ReleaseApplicationDnsRecord200JSONResponseBodyResultDeleted           ReleaseApplicationDnsRecord200JSONResponseBodyResult = "deleted"
+	ReleaseApplicationDnsRecord200JSONResponseBodyResultKept              ReleaseApplicationDnsRecord200JSONResponseBodyResult = "kept"
+	ReleaseApplicationDnsRecord200JSONResponseBodyResultNotOwned          ReleaseApplicationDnsRecord200JSONResponseBodyResult = "not_owned"
+)
+
+// Valid indicates whether the value is a known member of the ReleaseApplicationDnsRecord200JSONResponseBodyResult enum.
+func (e ReleaseApplicationDnsRecord200JSONResponseBodyResult) Valid() bool {
+	switch e {
+	case ReleaseApplicationDnsRecord200JSONResponseBodyResultAlreadyGone:
+		return true
+	case ReleaseApplicationDnsRecord200JSONResponseBodyResultChangedExternally:
+		return true
+	case ReleaseApplicationDnsRecord200JSONResponseBodyResultDeleted:
+		return true
+	case ReleaseApplicationDnsRecord200JSONResponseBodyResultKept:
+		return true
+	case ReleaseApplicationDnsRecord200JSONResponseBodyResultNotOwned:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CreatePreviewDeploymentByApplicationUuidJSONBodyGitType.
 const (
 	CreatePreviewDeploymentByApplicationUuidJSONBodyGitTypeBitbucket CreatePreviewDeploymentByApplicationUuidJSONBodyGitType = "bitbucket"
@@ -1182,21 +1296,66 @@ func (e CreateStorageByDatabaseUuidJSONBodyType) Valid() bool {
 	}
 }
 
+// Defines values for CreateSecretManagerIntegrationTokenJSONBodyCapabilities.
+const (
+	CreateSecretManagerIntegrationTokenJSONBodyCapabilitiesDns     CreateSecretManagerIntegrationTokenJSONBodyCapabilities = "dns"
+	CreateSecretManagerIntegrationTokenJSONBodyCapabilitiesSecrets CreateSecretManagerIntegrationTokenJSONBodyCapabilities = "secrets"
+	CreateSecretManagerIntegrationTokenJSONBodyCapabilitiesTunnel  CreateSecretManagerIntegrationTokenJSONBodyCapabilities = "tunnel"
+)
+
+// Valid indicates whether the value is a known member of the CreateSecretManagerIntegrationTokenJSONBodyCapabilities enum.
+func (e CreateSecretManagerIntegrationTokenJSONBodyCapabilities) Valid() bool {
+	switch e {
+	case CreateSecretManagerIntegrationTokenJSONBodyCapabilitiesDns:
+		return true
+	case CreateSecretManagerIntegrationTokenJSONBodyCapabilitiesSecrets:
+		return true
+	case CreateSecretManagerIntegrationTokenJSONBodyCapabilitiesTunnel:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CreateSecretManagerIntegrationTokenJSONBodyProvider.
 const (
-	CreateSecretManagerIntegrationTokenJSONBodyProviderDoppler   CreateSecretManagerIntegrationTokenJSONBodyProvider = "doppler"
-	CreateSecretManagerIntegrationTokenJSONBodyProviderInfisical CreateSecretManagerIntegrationTokenJSONBodyProvider = "infisical"
-	CreateSecretManagerIntegrationTokenJSONBodyProviderVault     CreateSecretManagerIntegrationTokenJSONBodyProvider = "vault"
+	CreateSecretManagerIntegrationTokenJSONBodyProviderCloudflare CreateSecretManagerIntegrationTokenJSONBodyProvider = "cloudflare"
+	CreateSecretManagerIntegrationTokenJSONBodyProviderDoppler    CreateSecretManagerIntegrationTokenJSONBodyProvider = "doppler"
+	CreateSecretManagerIntegrationTokenJSONBodyProviderInfisical  CreateSecretManagerIntegrationTokenJSONBodyProvider = "infisical"
+	CreateSecretManagerIntegrationTokenJSONBodyProviderVault      CreateSecretManagerIntegrationTokenJSONBodyProvider = "vault"
 )
 
 // Valid indicates whether the value is a known member of the CreateSecretManagerIntegrationTokenJSONBodyProvider enum.
 func (e CreateSecretManagerIntegrationTokenJSONBodyProvider) Valid() bool {
 	switch e {
+	case CreateSecretManagerIntegrationTokenJSONBodyProviderCloudflare:
+		return true
 	case CreateSecretManagerIntegrationTokenJSONBodyProviderDoppler:
 		return true
 	case CreateSecretManagerIntegrationTokenJSONBodyProviderInfisical:
 		return true
 	case CreateSecretManagerIntegrationTokenJSONBodyProviderVault:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for UpdateIntegrationTokenByUuidJSONBodyCapabilities.
+const (
+	UpdateIntegrationTokenByUuidJSONBodyCapabilitiesDns     UpdateIntegrationTokenByUuidJSONBodyCapabilities = "dns"
+	UpdateIntegrationTokenByUuidJSONBodyCapabilitiesSecrets UpdateIntegrationTokenByUuidJSONBodyCapabilities = "secrets"
+	UpdateIntegrationTokenByUuidJSONBodyCapabilitiesTunnel  UpdateIntegrationTokenByUuidJSONBodyCapabilities = "tunnel"
+)
+
+// Valid indicates whether the value is a known member of the UpdateIntegrationTokenByUuidJSONBodyCapabilities enum.
+func (e UpdateIntegrationTokenByUuidJSONBodyCapabilities) Valid() bool {
+	switch e {
+	case UpdateIntegrationTokenByUuidJSONBodyCapabilitiesDns:
+		return true
+	case UpdateIntegrationTokenByUuidJSONBodyCapabilitiesSecrets:
+		return true
+	case UpdateIntegrationTokenByUuidJSONBodyCapabilitiesTunnel:
 		return true
 	default:
 		return false
@@ -1476,6 +1635,33 @@ func (e PatchServiceApplicationByServiceAndAppUuidJSONBodyRedirect) Valid() bool
 	}
 }
 
+// Defines values for ReleaseServiceDnsRecord200JSONResponseBodyResult.
+const (
+	ReleaseServiceDnsRecord200JSONResponseBodyResultAlreadyGone       ReleaseServiceDnsRecord200JSONResponseBodyResult = "already_gone"
+	ReleaseServiceDnsRecord200JSONResponseBodyResultChangedExternally ReleaseServiceDnsRecord200JSONResponseBodyResult = "changed_externally"
+	ReleaseServiceDnsRecord200JSONResponseBodyResultDeleted           ReleaseServiceDnsRecord200JSONResponseBodyResult = "deleted"
+	ReleaseServiceDnsRecord200JSONResponseBodyResultKept              ReleaseServiceDnsRecord200JSONResponseBodyResult = "kept"
+	ReleaseServiceDnsRecord200JSONResponseBodyResultNotOwned          ReleaseServiceDnsRecord200JSONResponseBodyResult = "not_owned"
+)
+
+// Valid indicates whether the value is a known member of the ReleaseServiceDnsRecord200JSONResponseBodyResult enum.
+func (e ReleaseServiceDnsRecord200JSONResponseBodyResult) Valid() bool {
+	switch e {
+	case ReleaseServiceDnsRecord200JSONResponseBodyResultAlreadyGone:
+		return true
+	case ReleaseServiceDnsRecord200JSONResponseBodyResultChangedExternally:
+		return true
+	case ReleaseServiceDnsRecord200JSONResponseBodyResultDeleted:
+		return true
+	case ReleaseServiceDnsRecord200JSONResponseBodyResultKept:
+		return true
+	case ReleaseServiceDnsRecord200JSONResponseBodyResultNotOwned:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for UpdateStorageByServiceUuidJSONBodyType.
 const (
 	UpdateStorageByServiceUuidJSONBodyTypeFile       UpdateStorageByServiceUuidJSONBodyType = "file"
@@ -1506,6 +1692,132 @@ func (e CreateStorageByServiceUuidJSONBodyType) Valid() bool {
 	case CreateStorageByServiceUuidJSONBodyTypeFile:
 		return true
 	case CreateStorageByServiceUuidJSONBodyTypePersistent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for RemoveSecretManagerSourceParamsResourceType.
+const (
+	RemoveSecretManagerSourceParamsResourceTypeApplications RemoveSecretManagerSourceParamsResourceType = "applications"
+	RemoveSecretManagerSourceParamsResourceTypeDatabases    RemoveSecretManagerSourceParamsResourceType = "databases"
+	RemoveSecretManagerSourceParamsResourceTypeServices     RemoveSecretManagerSourceParamsResourceType = "services"
+)
+
+// Valid indicates whether the value is a known member of the RemoveSecretManagerSourceParamsResourceType enum.
+func (e RemoveSecretManagerSourceParamsResourceType) Valid() bool {
+	switch e {
+	case RemoveSecretManagerSourceParamsResourceTypeApplications:
+		return true
+	case RemoveSecretManagerSourceParamsResourceTypeDatabases:
+		return true
+	case RemoveSecretManagerSourceParamsResourceTypeServices:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetSecretManagerSourceParamsResourceType.
+const (
+	GetSecretManagerSourceParamsResourceTypeApplications GetSecretManagerSourceParamsResourceType = "applications"
+	GetSecretManagerSourceParamsResourceTypeDatabases    GetSecretManagerSourceParamsResourceType = "databases"
+	GetSecretManagerSourceParamsResourceTypeServices     GetSecretManagerSourceParamsResourceType = "services"
+)
+
+// Valid indicates whether the value is a known member of the GetSecretManagerSourceParamsResourceType enum.
+func (e GetSecretManagerSourceParamsResourceType) Valid() bool {
+	switch e {
+	case GetSecretManagerSourceParamsResourceTypeApplications:
+		return true
+	case GetSecretManagerSourceParamsResourceTypeDatabases:
+		return true
+	case GetSecretManagerSourceParamsResourceTypeServices:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for SetSecretManagerSourceParamsResourceType.
+const (
+	SetSecretManagerSourceParamsResourceTypeApplications SetSecretManagerSourceParamsResourceType = "applications"
+	SetSecretManagerSourceParamsResourceTypeDatabases    SetSecretManagerSourceParamsResourceType = "databases"
+	SetSecretManagerSourceParamsResourceTypeServices     SetSecretManagerSourceParamsResourceType = "services"
+)
+
+// Valid indicates whether the value is a known member of the SetSecretManagerSourceParamsResourceType enum.
+func (e SetSecretManagerSourceParamsResourceType) Valid() bool {
+	switch e {
+	case SetSecretManagerSourceParamsResourceTypeApplications:
+		return true
+	case SetSecretManagerSourceParamsResourceTypeDatabases:
+		return true
+	case SetSecretManagerSourceParamsResourceTypeServices:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ImportSecretManagerReferencesParamsResourceType.
+const (
+	ImportSecretManagerReferencesParamsResourceTypeApplications ImportSecretManagerReferencesParamsResourceType = "applications"
+	ImportSecretManagerReferencesParamsResourceTypeDatabases    ImportSecretManagerReferencesParamsResourceType = "databases"
+	ImportSecretManagerReferencesParamsResourceTypeServices     ImportSecretManagerReferencesParamsResourceType = "services"
+)
+
+// Valid indicates whether the value is a known member of the ImportSecretManagerReferencesParamsResourceType enum.
+func (e ImportSecretManagerReferencesParamsResourceType) Valid() bool {
+	switch e {
+	case ImportSecretManagerReferencesParamsResourceTypeApplications:
+		return true
+	case ImportSecretManagerReferencesParamsResourceTypeDatabases:
+		return true
+	case ImportSecretManagerReferencesParamsResourceTypeServices:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ListSecretManagerKeysParamsResourceType.
+const (
+	ListSecretManagerKeysParamsResourceTypeApplications ListSecretManagerKeysParamsResourceType = "applications"
+	ListSecretManagerKeysParamsResourceTypeDatabases    ListSecretManagerKeysParamsResourceType = "databases"
+	ListSecretManagerKeysParamsResourceTypeServices     ListSecretManagerKeysParamsResourceType = "services"
+)
+
+// Valid indicates whether the value is a known member of the ListSecretManagerKeysParamsResourceType enum.
+func (e ListSecretManagerKeysParamsResourceType) Valid() bool {
+	switch e {
+	case ListSecretManagerKeysParamsResourceTypeApplications:
+		return true
+	case ListSecretManagerKeysParamsResourceTypeDatabases:
+		return true
+	case ListSecretManagerKeysParamsResourceTypeServices:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for AddSecretManagerReferenceParamsResourceType.
+const (
+	AddSecretManagerReferenceParamsResourceTypeApplications AddSecretManagerReferenceParamsResourceType = "applications"
+	AddSecretManagerReferenceParamsResourceTypeDatabases    AddSecretManagerReferenceParamsResourceType = "databases"
+	AddSecretManagerReferenceParamsResourceTypeServices     AddSecretManagerReferenceParamsResourceType = "services"
+)
+
+// Valid indicates whether the value is a known member of the AddSecretManagerReferenceParamsResourceType enum.
+func (e AddSecretManagerReferenceParamsResourceType) Valid() bool {
+	switch e {
+	case AddSecretManagerReferenceParamsResourceTypeApplications:
+		return true
+	case AddSecretManagerReferenceParamsResourceTypeDatabases:
+		return true
+	case AddSecretManagerReferenceParamsResourceTypeServices:
 		return true
 	default:
 		return false
@@ -1606,6 +1918,9 @@ type Application struct {
 
 	// GitFullUrl Git full URL.
 	GitFullUrl *string `json:"git_full_url,omitempty"`
+
+	// GitHttpsUsername Username for HTTPS access to a private repository on a custom Git host. The password or token is never returned.
+	GitHttpsUsername *string `json:"git_https_username,omitempty"`
 
 	// GitRepository Git repository URL.
 	GitRepository *string `json:"git_repository,omitempty"`
@@ -1909,6 +2224,18 @@ type ApplicationSetting struct {
 	UseBuildSecrets            *bool   `json:"use_build_secrets,omitempty"`
 }
 
+// CreateDnsRecordRequest defines model for CreateDnsRecordRequest.
+type CreateDnsRecordRequest struct {
+	// Address A public address of the server. Default: default_address of the DNS status.
+	Address *string `json:"address,omitempty"`
+
+	// Hostname A saved domain of the resource.
+	Hostname string `json:"hostname"`
+
+	// IntegrationTokenUuid Cloudflare token to use. Required when several tokens manage the zone of the hostname.
+	IntegrationTokenUuid *string `json:"integration_token_uuid,omitempty"`
+}
+
 // Database Standalone database. The fields that start with an engine name (for example postgres_ or redis_) are only returned for that engine. Passwords, connection URLs and init_scripts are only returned for tokens with the read:sensitive or root ability.
 type Database struct {
 	// BackupConfigs Only returned by GET /databases. The scheduled backups of the database, as returned by GET /databases/{uuid}/backups.
@@ -2140,6 +2467,16 @@ type Destination struct {
 // DestinationType defines model for Destination.Type.
 type DestinationType string
 
+// DnsRecordConflict defines model for DnsRecordConflict.
+type DnsRecordConflict struct {
+	Conflict *struct {
+		Current  *string `json:"current,omitempty"`
+		Proposed *string `json:"proposed,omitempty"`
+		RecordId *string `json:"record_id,omitempty"`
+	} `json:"conflict,omitempty"`
+	Message *string `json:"message,omitempty"`
+}
+
 // Environment Environment model
 type Environment struct {
 	CreatedAt   *string `json:"created_at,omitempty"`
@@ -2174,6 +2511,33 @@ type EnvironmentVariable struct {
 	Version          *string `json:"version,omitempty"`
 }
 
+// IntegrationToken Integration token. The secret is never returned.
+type IntegrationToken struct {
+	// AutomaticDns Cloudflare only. Create DNS records when a domain is added.
+	AutomaticDns *bool                           `json:"automatic_dns,omitempty"`
+	Capabilities *[]IntegrationTokenCapabilities `json:"capabilities,omitempty"`
+	CreatedAt    *string                         `json:"created_at,omitempty"`
+
+	// DnsZonesCount Cloudflare only.
+	DnsZonesCount *int                      `json:"dns_zones_count,omitempty"`
+	Name          *string                   `json:"name,omitempty"`
+	Provider      *IntegrationTokenProvider `json:"provider,omitempty"`
+
+	// ProxiedDns Cloudflare only. Create new records proxied (orange cloud).
+	ProxiedDns *bool   `json:"proxied_dns,omitempty"`
+	UpdatedAt  *string `json:"updated_at,omitempty"`
+	Uuid       *string `json:"uuid,omitempty"`
+
+	// ZonesSyncedAt Cloudflare only.
+	ZonesSyncedAt *string `json:"zones_synced_at,omitempty"`
+}
+
+// IntegrationTokenCapabilities defines model for IntegrationToken.Capabilities.
+type IntegrationTokenCapabilities string
+
+// IntegrationTokenProvider defines model for IntegrationToken.Provider.
+type IntegrationTokenProvider string
+
 // LogTailLines defines model for LogTailLines.
 type LogTailLines struct {
 	union json.RawMessage
@@ -2184,6 +2548,22 @@ type LogTailLines0 = int32
 
 // LogTailLines1 defines model for LogTailLines.1.
 type LogTailLines1 string
+
+// ManagedDnsRecord DNS record that Coolify manages at a DNS provider.
+type ManagedDnsRecord struct {
+	// Address Server IP address that the record points to.
+	Address              *string `json:"address,omitempty"`
+	Hostname             *string `json:"hostname,omitempty"`
+	IntegrationTokenUuid *string `json:"integration_token_uuid,omitempty"`
+
+	// Owned Coolify created the record, so it can delete it.
+	Owned *bool                 `json:"owned,omitempty"`
+	Type  *ManagedDnsRecordType `json:"type,omitempty"`
+	Uuid  *string               `json:"uuid,omitempty"`
+}
+
+// ManagedDnsRecordType defines model for ManagedDnsRecord.Type.
+type ManagedDnsRecordType string
 
 // PrivateKey Private Key model
 type PrivateKey struct {
@@ -2210,6 +2590,42 @@ type Project struct {
 	Id          *int    `json:"id,omitempty"`
 	Name        *string `json:"name,omitempty"`
 	Uuid        *string `json:"uuid,omitempty"`
+}
+
+// ReplaceDnsRecordRequest defines model for ReplaceDnsRecordRequest.
+type ReplaceDnsRecordRequest struct {
+	// Address A public address of the server. Default: default_address of the DNS status.
+	Address *string `json:"address,omitempty"`
+
+	// Current conflict.current from the 409 response. The record is replaced only when it still has this value.
+	Current string `json:"current"`
+
+	// Hostname A saved domain of the resource.
+	Hostname string `json:"hostname"`
+
+	// IntegrationTokenUuid Cloudflare token to use. Required when several tokens manage the zone of the hostname.
+	IntegrationTokenUuid *string `json:"integration_token_uuid,omitempty"`
+
+	// RecordId conflict.record_id from the 409 response of the create request.
+	RecordId string `json:"record_id"`
+}
+
+// ResourceDnsStatus DNS providers and managed records for the domains of a resource.
+type ResourceDnsStatus struct {
+	// DefaultAddress Address of a new record when none is given: the first public server address. Null when the server has no public address.
+	DefaultAddress *string `json:"default_address,omitempty"`
+	Hostnames      *[]struct {
+		Hostname  *string `json:"hostname,omitempty"`
+		Providers *[]struct {
+			AutomaticDns         *bool   `json:"automatic_dns,omitempty"`
+			IntegrationTokenName *string `json:"integration_token_name,omitempty"`
+			IntegrationTokenUuid *string `json:"integration_token_uuid,omitempty"`
+			ProxiedDns           *bool   `json:"proxied_dns,omitempty"`
+			Zone                 *string `json:"zone,omitempty"`
+		} `json:"providers,omitempty"`
+		Records *[]ManagedDnsRecord `json:"records,omitempty"`
+	} `json:"hostnames,omitempty"`
+	PublicAddresses *[]string `json:"public_addresses,omitempty"`
 }
 
 // ScheduledTask Scheduled Task model
@@ -2277,6 +2693,24 @@ type ScheduledTaskExecution struct {
 
 // ScheduledTaskExecutionStatus The status of the execution.
 type ScheduledTaskExecutionStatus string
+
+// SecretManagerSource The secret manager source of an application, service, or database. Routes start with the resource type (`applications`, `services`, `databases`), so tokens limited to some resources can use them.
+type SecretManagerSource struct {
+	AvailableTokens *[]struct {
+		Name     *string `json:"name,omitempty"`
+		Provider *string `json:"provider,omitempty"`
+		Uuid     *string `json:"uuid,omitempty"`
+	} `json:"available_tokens,omitempty"`
+	IntegrationTokenUuid *string                      `json:"integration_token_uuid,omitempty"`
+	Linked               *bool                        `json:"linked,omitempty"`
+	Provider             *SecretManagerSourceProvider `json:"provider,omitempty"`
+
+	// Settings Doppler: project, config. Infisical: project_id, environment, secret_path. Vault: mount, path.
+	Settings *map[string]interface{} `json:"settings,omitempty"`
+}
+
+// SecretManagerSourceProvider defines model for SecretManagerSource.Provider.
+type SecretManagerSourceProvider string
 
 // Server Server model
 type Server struct {
@@ -2478,6 +2912,30 @@ type Service struct {
 
 	// Uuid The unique identifier of the service.
 	Uuid *string `json:"uuid,omitempty"`
+}
+
+// SharedEnvironmentVariableCreateRequest defines model for SharedEnvironmentVariableCreateRequest.
+type SharedEnvironmentVariableCreateRequest struct {
+	Comment     *string `json:"comment,omitempty"`
+	IsLiteral   *bool   `json:"is_literal,omitempty"`
+	IsMultiline *bool   `json:"is_multiline,omitempty"`
+
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	IsShownOnce *bool   `json:"is_shown_once,omitempty"`
+	Key         string  `json:"key"`
+	Value       *string `json:"value,omitempty"`
+}
+
+// SharedEnvironmentVariableUpdateRequest Send at least one field.
+type SharedEnvironmentVariableUpdateRequest struct {
+	Comment     *string `json:"comment,omitempty"`
+	IsLiteral   *bool   `json:"is_literal,omitempty"`
+	IsMultiline *bool   `json:"is_multiline,omitempty"`
+
+	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
+	IsShownOnce *bool   `json:"is_shown_once,omitempty"`
+	Key         *string `json:"key,omitempty"`
+	Value       *string `json:"value,omitempty"`
 }
 
 // Tag Tag model
@@ -4060,6 +4518,12 @@ type CreatePublicApplicationJSONBody struct {
 	// GitCommitSha The git commit SHA.
 	GitCommitSha *string `json:"git_commit_sha,omitempty"`
 
+	// GitHttpsPassword Password or access token for HTTPS access to a private repository on a custom Git host (not github.com). It is stored encrypted and never returned.
+	GitHttpsPassword *string `json:"git_https_password,omitempty"`
+
+	// GitHttpsUsername Username for HTTPS access to a private repository on a custom Git host (not github.com).
+	GitHttpsUsername *string `json:"git_https_username,omitempty"`
+
 	// GitRepository The git repository URL.
 	GitRepository string `json:"git_repository"`
 
@@ -4429,6 +4893,12 @@ type UpdateApplicationByUuidJSONBody struct {
 	// GitCommitSha The git commit SHA.
 	GitCommitSha *string `json:"git_commit_sha,omitempty"`
 
+	// GitHttpsPassword Password or access token for HTTPS access to a private repository on a custom Git host. It is stored encrypted and never returned. Send null or an empty string to remove the credentials.
+	GitHttpsPassword *string `json:"git_https_password,omitempty"`
+
+	// GitHttpsUsername Username for HTTPS access to a private repository on a custom Git host. Send null to remove it.
+	GitHttpsUsername *string `json:"git_https_username,omitempty"`
+
 	// GitRepository The git repository URL.
 	GitRepository *string `json:"git_repository,omitempty"`
 
@@ -4695,6 +5165,15 @@ type CloneApplicationByUuidJSONBody struct {
 type AddApplicationDestinationJSONBody struct {
 	DestinationUuid string `json:"destination_uuid"`
 }
+
+// ReleaseApplicationDnsRecordParams defines parameters for ReleaseApplicationDnsRecord.
+type ReleaseApplicationDnsRecordParams struct {
+	// DeleteRecord Delete the record at Cloudflare. Default: true.
+	DeleteRecord *bool `form:"delete_record,omitempty" json:"delete_record,omitempty"`
+}
+
+// ReleaseApplicationDnsRecord200JSONResponseBodyResult defines parameters for ReleaseApplicationDnsRecord.
+type ReleaseApplicationDnsRecord200JSONResponseBodyResult string
 
 // UpdateEnvByApplicationUuidJSONBody defines parameters for UpdateEnvByApplicationUuid.
 type UpdateEnvByApplicationUuidJSONBody struct {
@@ -6500,14 +6979,47 @@ type UpdateS3StorageByUuidJSONBody struct {
 
 // CreateSecretManagerIntegrationTokenJSONBody defines parameters for CreateSecretManagerIntegrationToken.
 type CreateSecretManagerIntegrationTokenJSONBody struct {
+	// AutomaticDns Cloudflare only. Create DNS records when a domain is added. Default: true.
+	AutomaticDns *bool `json:"automatic_dns,omitempty"`
+
+	// Capabilities Cloudflare: dns, tunnel (tunnel needs dns). Default: dns. Secret managers: secrets.
+	Capabilities *[]CreateSecretManagerIntegrationTokenJSONBodyCapabilities `json:"capabilities,omitempty"`
+
+	// Metadata Secret managers only: base_url, client_id (Infisical), namespace (Vault), timeout.
 	Metadata *map[string]interface{}                             `json:"metadata,omitempty"`
 	Name     string                                              `json:"name"`
 	Provider CreateSecretManagerIntegrationTokenJSONBodyProvider `json:"provider"`
-	Token    string                                              `json:"token"`
+
+	// ProxiedDns Cloudflare only. Create new records proxied (orange cloud). Default: false.
+	ProxiedDns *bool  `json:"proxied_dns,omitempty"`
+	Token      string `json:"token"`
 }
+
+// CreateSecretManagerIntegrationTokenJSONBodyCapabilities defines parameters for CreateSecretManagerIntegrationToken.
+type CreateSecretManagerIntegrationTokenJSONBodyCapabilities string
 
 // CreateSecretManagerIntegrationTokenJSONBodyProvider defines parameters for CreateSecretManagerIntegrationToken.
 type CreateSecretManagerIntegrationTokenJSONBodyProvider string
+
+// UpdateIntegrationTokenByUuidJSONBody defines parameters for UpdateIntegrationTokenByUuid.
+type UpdateIntegrationTokenByUuidJSONBody struct {
+	// AutomaticDns Cloudflare only.
+	AutomaticDns *bool                                               `json:"automatic_dns,omitempty"`
+	Capabilities *[]UpdateIntegrationTokenByUuidJSONBodyCapabilities `json:"capabilities,omitempty"`
+
+	// Metadata Secret managers only. Fields to change: base_url, client_id, namespace, timeout. An empty value removes a field.
+	Metadata *map[string]interface{} `json:"metadata,omitempty"`
+	Name     *string                 `json:"name,omitempty"`
+
+	// ProxiedDns Cloudflare only.
+	ProxiedDns *bool `json:"proxied_dns,omitempty"`
+
+	// Token New secret. Required when base_url, client_id (Infisical), or namespace (Vault) changes.
+	Token *string `json:"token,omitempty"`
+}
+
+// UpdateIntegrationTokenByUuidJSONBodyCapabilities defines parameters for UpdateIntegrationTokenByUuid.
+type UpdateIntegrationTokenByUuidJSONBodyCapabilities string
 
 // CreatePrivateKeyJSONBody defines parameters for CreatePrivateKey.
 type CreatePrivateKeyJSONBody struct {
@@ -7070,6 +7582,15 @@ type StartServiceDatabaseByServiceAndDatabaseUuidParams struct {
 	Latest *bool `form:"latest,omitempty" json:"latest,omitempty"`
 }
 
+// ReleaseServiceDnsRecordParams defines parameters for ReleaseServiceDnsRecord.
+type ReleaseServiceDnsRecordParams struct {
+	// DeleteRecord Delete the record at Cloudflare. Default: true.
+	DeleteRecord *bool `form:"delete_record,omitempty" json:"delete_record,omitempty"`
+}
+
+// ReleaseServiceDnsRecord200JSONResponseBodyResult defines parameters for ReleaseServiceDnsRecord.
+type ReleaseServiceDnsRecord200JSONResponseBodyResult string
+
 // UpdateEnvByServiceUuidJSONBody defines parameters for UpdateEnvByServiceUuid.
 type UpdateEnvByServiceUuidJSONBody struct {
 	// IsLiteral The flag to indicate if the environment variable is a literal, nothing espaced.
@@ -7286,17 +7807,36 @@ type UpdateTokenTeamJSONBody struct {
 	IsBuildServerFallbackEnabled bool `json:"is_build_server_fallback_enabled"`
 }
 
-// CreateTeamSharedEnvJSONBody defines parameters for CreateTeamSharedEnv.
-type CreateTeamSharedEnvJSONBody struct {
-	Comment     *string `json:"comment,omitempty"`
-	IsLiteral   *bool   `json:"is_literal,omitempty"`
-	IsMultiline *bool   `json:"is_multiline,omitempty"`
+// RemoveSecretManagerSourceParamsResourceType defines parameters for RemoveSecretManagerSource.
+type RemoveSecretManagerSourceParamsResourceType string
 
-	// IsShownOnce If true, the saved value is hidden in the UI and API responses. MCP never returns environment variable values.
-	IsShownOnce *bool   `json:"is_shown_once,omitempty"`
-	Key         string  `json:"key"`
-	Value       *string `json:"value,omitempty"`
+// GetSecretManagerSourceParamsResourceType defines parameters for GetSecretManagerSource.
+type GetSecretManagerSourceParamsResourceType string
+
+// SetSecretManagerSourceJSONBody defines parameters for SetSecretManagerSource.
+type SetSecretManagerSourceJSONBody struct {
+	IntegrationTokenUuid string `json:"integration_token_uuid"`
+
+	// Settings Doppler service account: project, config. Infisical: project_id, environment, secret_path. Vault: mount, path.
+	Settings *map[string]interface{} `json:"settings,omitempty"`
 }
+
+// SetSecretManagerSourceParamsResourceType defines parameters for SetSecretManagerSource.
+type SetSecretManagerSourceParamsResourceType string
+
+// ImportSecretManagerReferencesParamsResourceType defines parameters for ImportSecretManagerReferences.
+type ImportSecretManagerReferencesParamsResourceType string
+
+// ListSecretManagerKeysParamsResourceType defines parameters for ListSecretManagerKeys.
+type ListSecretManagerKeysParamsResourceType string
+
+// AddSecretManagerReferenceJSONBody defines parameters for AddSecretManagerReference.
+type AddSecretManagerReferenceJSONBody struct {
+	Key string `json:"key"`
+}
+
+// AddSecretManagerReferenceParamsResourceType defines parameters for AddSecretManagerReference.
+type AddSecretManagerReferenceParamsResourceType string
 
 // CreateDockerfileApplicationJSONRequestBody defines body for CreateDockerfileApplication for application/json ContentType.
 type CreateDockerfileApplicationJSONRequestBody CreateDockerfileApplicationJSONBody
@@ -7321,6 +7861,12 @@ type CloneApplicationByUuidJSONRequestBody CloneApplicationByUuidJSONBody
 
 // AddApplicationDestinationJSONRequestBody defines body for AddApplicationDestination for application/json ContentType.
 type AddApplicationDestinationJSONRequestBody AddApplicationDestinationJSONBody
+
+// CreateApplicationDnsRecordJSONRequestBody defines body for CreateApplicationDnsRecord for application/json ContentType.
+type CreateApplicationDnsRecordJSONRequestBody = CreateDnsRecordRequest
+
+// ReplaceApplicationDnsRecordJSONRequestBody defines body for ReplaceApplicationDnsRecord for application/json ContentType.
+type ReplaceApplicationDnsRecordJSONRequestBody = ReplaceDnsRecordRequest
 
 // UpdateEnvByApplicationUuidJSONRequestBody defines body for UpdateEnvByApplicationUuid for application/json ContentType.
 type UpdateEnvByApplicationUuidJSONRequestBody UpdateEnvByApplicationUuidJSONBody
@@ -7475,6 +8021,18 @@ type CreateEnvironmentJSONRequestBody CreateEnvironmentJSONBody
 // UpdateEnvironmentJSONRequestBody defines body for UpdateEnvironment for application/json ContentType.
 type UpdateEnvironmentJSONRequestBody UpdateEnvironmentJSONBody
 
+// CreateEnvironmentSharedEnvJSONRequestBody defines body for CreateEnvironmentSharedEnv for application/json ContentType.
+type CreateEnvironmentSharedEnvJSONRequestBody = SharedEnvironmentVariableCreateRequest
+
+// UpdateEnvironmentSharedEnvJSONRequestBody defines body for UpdateEnvironmentSharedEnv for application/json ContentType.
+type UpdateEnvironmentSharedEnvJSONRequestBody = SharedEnvironmentVariableUpdateRequest
+
+// CreateProjectSharedEnvJSONRequestBody defines body for CreateProjectSharedEnv for application/json ContentType.
+type CreateProjectSharedEnvJSONRequestBody = SharedEnvironmentVariableCreateRequest
+
+// UpdateProjectSharedEnvJSONRequestBody defines body for UpdateProjectSharedEnv for application/json ContentType.
+type UpdateProjectSharedEnvJSONRequestBody = SharedEnvironmentVariableUpdateRequest
+
 // CreateS3StorageJSONRequestBody defines body for CreateS3Storage for application/json ContentType.
 type CreateS3StorageJSONRequestBody CreateS3StorageJSONBody
 
@@ -7483,6 +8041,9 @@ type UpdateS3StorageByUuidJSONRequestBody UpdateS3StorageByUuidJSONBody
 
 // CreateSecretManagerIntegrationTokenJSONRequestBody defines body for CreateSecretManagerIntegrationToken for application/json ContentType.
 type CreateSecretManagerIntegrationTokenJSONRequestBody CreateSecretManagerIntegrationTokenJSONBody
+
+// UpdateIntegrationTokenByUuidJSONRequestBody defines body for UpdateIntegrationTokenByUuid for application/json ContentType.
+type UpdateIntegrationTokenByUuidJSONRequestBody UpdateIntegrationTokenByUuidJSONBody
 
 // CreatePrivateKeyJSONRequestBody defines body for CreatePrivateKey for application/json ContentType.
 type CreatePrivateKeyJSONRequestBody CreatePrivateKeyJSONBody
@@ -7513,6 +8074,12 @@ type UpdateServerDockerCleanupJSONRequestBody UpdateServerDockerCleanupJSONBody
 
 // RunServerDockerCleanupJSONRequestBody defines body for RunServerDockerCleanup for application/json ContentType.
 type RunServerDockerCleanupJSONRequestBody RunServerDockerCleanupJSONBody
+
+// CreateServerSharedEnvJSONRequestBody defines body for CreateServerSharedEnv for application/json ContentType.
+type CreateServerSharedEnvJSONRequestBody = SharedEnvironmentVariableCreateRequest
+
+// UpdateServerSharedEnvJSONRequestBody defines body for UpdateServerSharedEnv for application/json ContentType.
+type UpdateServerSharedEnvJSONRequestBody = SharedEnvironmentVariableUpdateRequest
 
 // UpdateServerLogDrainsJSONRequestBody defines body for UpdateServerLogDrains for application/json ContentType.
 type UpdateServerLogDrainsJSONRequestBody UpdateServerLogDrainsJSONBody
@@ -7555,6 +8122,12 @@ type PatchServiceDatabaseByServiceAndDatabaseUuidJSONRequestBody PatchServiceDat
 
 // CreateServiceDatabaseImportJSONRequestBody defines body for CreateServiceDatabaseImport for application/json ContentType.
 type CreateServiceDatabaseImportJSONRequestBody = DatabaseImportRequest
+
+// CreateServiceDnsRecordJSONRequestBody defines body for CreateServiceDnsRecord for application/json ContentType.
+type CreateServiceDnsRecordJSONRequestBody = CreateDnsRecordRequest
+
+// ReplaceServiceDnsRecordJSONRequestBody defines body for ReplaceServiceDnsRecord for application/json ContentType.
+type ReplaceServiceDnsRecordJSONRequestBody = ReplaceDnsRecordRequest
 
 // UpdateEnvByServiceUuidJSONRequestBody defines body for UpdateEnvByServiceUuid for application/json ContentType.
 type UpdateEnvByServiceUuidJSONRequestBody UpdateEnvByServiceUuidJSONBody
@@ -7599,7 +8172,16 @@ type UpdateTagByUuidJSONRequestBody UpdateTagByUuidJSONBody
 type UpdateTokenTeamJSONRequestBody UpdateTokenTeamJSONBody
 
 // CreateTeamSharedEnvJSONRequestBody defines body for CreateTeamSharedEnv for application/json ContentType.
-type CreateTeamSharedEnvJSONRequestBody CreateTeamSharedEnvJSONBody
+type CreateTeamSharedEnvJSONRequestBody = SharedEnvironmentVariableCreateRequest
+
+// UpdateTeamSharedEnvJSONRequestBody defines body for UpdateTeamSharedEnv for application/json ContentType.
+type UpdateTeamSharedEnvJSONRequestBody = SharedEnvironmentVariableUpdateRequest
+
+// SetSecretManagerSourceJSONRequestBody defines body for SetSecretManagerSource for application/json ContentType.
+type SetSecretManagerSourceJSONRequestBody SetSecretManagerSourceJSONBody
+
+// AddSecretManagerReferenceJSONRequestBody defines body for AddSecretManagerReference for application/json ContentType.
+type AddSecretManagerReferenceJSONRequestBody AddSecretManagerReferenceJSONBody
 
 // Getter for additional properties for ListResources200JSONResponseBody_Item. Returns the specified
 // element and whether it was found
@@ -8177,6 +8759,56 @@ type ClientInterface interface {
 	// Corresponds with DELETE /applications/{uuid}/destinations/{destination_uuid} (the `RemoveApplicationDestination` operationId).
 	RemoveApplicationDestination(ctx context.Context, uuid string, destinationUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetApplicationDns Get Application DNS
+	//
+	// DNS providers and managed DNS records for the domains of an application.
+	//
+	// Corresponds with GET /applications/{uuid}/dns (the `GetApplicationDns` operationId).
+	GetApplicationDns(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateApplicationDnsRecordWithBody Create Application DNS Record
+	//
+	// Create a DNS record at Cloudflare that points a domain of the application to its server. An existing record with the same address is adopted.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /applications/{uuid}/dns (the `CreateApplicationDnsRecord` operationId).
+	CreateApplicationDnsRecordWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateApplicationDnsRecord Create Application DNS Record
+	//
+	// Create a DNS record at Cloudflare that points a domain of the application to its server. An existing record with the same address is adopted.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /applications/{uuid}/dns (the `CreateApplicationDnsRecord` operationId).
+	CreateApplicationDnsRecord(ctx context.Context, uuid string, body CreateApplicationDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ReplaceApplicationDnsRecordWithBody Replace Application DNS Record
+	//
+	// Point the conflicting record from a 409 create response to the server of the application.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /applications/{uuid}/dns/replace (the `ReplaceApplicationDnsRecord` operationId).
+	ReplaceApplicationDnsRecordWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ReplaceApplicationDnsRecord Replace Application DNS Record
+	//
+	// Point the conflicting record from a 409 create response to the server of the application.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /applications/{uuid}/dns/replace (the `ReplaceApplicationDnsRecord` operationId).
+	ReplaceApplicationDnsRecord(ctx context.Context, uuid string, body ReplaceApplicationDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ReleaseApplicationDnsRecord Release Application DNS Record
+	//
+	// Release the managed DNS record of a hostname that the application no longer uses. Coolify deletes the record at Cloudflare only when it created the record, the record did not change, and no other resource uses the hostname. Removing a domain through the API already queues this release; use this endpoint to retry it or to keep the record.
+	//
+	// Corresponds with DELETE /applications/{uuid}/dns/{hostname} (the `ReleaseApplicationDnsRecord` operationId).
+	ReleaseApplicationDnsRecord(ctx context.Context, uuid string, hostname string, params *ReleaseApplicationDnsRecordParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ListEnvsByApplicationUuid List Envs
 	//
 	// List all envs by application UUID.
@@ -8450,7 +9082,7 @@ type ClientInterface interface {
 
 	// ConfigureApplicationSecretManagerWithBody Configure Application Secret Manager
 	//
-	// Configure the secret manager source used by an application.
+	// Configure the secret manager source used by an application. Same as Set Secret Manager Source with resource_type applications.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -8459,7 +9091,7 @@ type ClientInterface interface {
 
 	// ConfigureApplicationSecretManager Configure Application Secret Manager
 	//
-	// Configure the secret manager source used by an application.
+	// Configure the secret manager source used by an application. Same as Set Secret Manager Source with resource_type applications.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -9380,6 +10012,13 @@ type ClientInterface interface {
 	// Corresponds with POST /disable (the `DisableApi` operationId).
 	DisableApi(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// ListDnsZones List DNS Zones
+	//
+	// List the DNS zones that the Cloudflare tokens of the team can access. Requires admin or owner.
+	//
+	// Corresponds with GET /dns/zones (the `ListDnsZones` operationId).
+	ListDnsZones(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ListGithubApps List
 	//
 	// List all GitHub apps.
@@ -9780,12 +10419,23 @@ type ClientInterface interface {
 	// Corresponds with GET /projects/{uuid}/environments/{environment_name_or_uuid}/envs (the `ListEnvironmentSharedEnvs` operationId).
 	ListEnvironmentSharedEnvs(ctx context.Context, uuid string, environmentNameOrUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// CreateEnvironmentSharedEnvWithBody Create Environment Shared Env
+	//
+	// Create a shared environment variable for a project environment (type=environment).
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /projects/{uuid}/environments/{environment_name_or_uuid}/envs (the `CreateEnvironmentSharedEnv` operationId).
+	CreateEnvironmentSharedEnvWithBody(ctx context.Context, uuid string, environmentNameOrUuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// CreateEnvironmentSharedEnv Create Environment Shared Env
 	//
 	// Create a shared environment variable for a project environment (type=environment).
 	//
+	// Takes a body of the `application/json` content type.
+	//
 	// Corresponds with POST /projects/{uuid}/environments/{environment_name_or_uuid}/envs (the `CreateEnvironmentSharedEnv` operationId).
-	CreateEnvironmentSharedEnv(ctx context.Context, uuid string, environmentNameOrUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CreateEnvironmentSharedEnv(ctx context.Context, uuid string, environmentNameOrUuid string, body CreateEnvironmentSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// DeleteEnvironmentSharedEnv Delete Environment Shared Env
 	//
@@ -9794,12 +10444,23 @@ type ClientInterface interface {
 	// Corresponds with DELETE /projects/{uuid}/environments/{environment_name_or_uuid}/envs/{env_id} (the `DeleteEnvironmentSharedEnv` operationId).
 	DeleteEnvironmentSharedEnv(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// UpdateEnvironmentSharedEnvWithBody Update Environment Shared Env
+	//
+	// Update an environment shared environment variable by id.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /projects/{uuid}/environments/{environment_name_or_uuid}/envs/{env_id} (the `UpdateEnvironmentSharedEnv` operationId).
+	UpdateEnvironmentSharedEnvWithBody(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// UpdateEnvironmentSharedEnv Update Environment Shared Env
 	//
 	// Update an environment shared environment variable by id.
 	//
+	// Takes a body of the `application/json` content type.
+	//
 	// Corresponds with PATCH /projects/{uuid}/environments/{environment_name_or_uuid}/envs/{env_id} (the `UpdateEnvironmentSharedEnv` operationId).
-	UpdateEnvironmentSharedEnv(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, reqEditors ...RequestEditorFn) (*http.Response, error)
+	UpdateEnvironmentSharedEnv(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, body UpdateEnvironmentSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ListProjectSharedEnvs List Project Shared Envs
 	//
@@ -9808,12 +10469,23 @@ type ClientInterface interface {
 	// Corresponds with GET /projects/{uuid}/envs (the `ListProjectSharedEnvs` operationId).
 	ListProjectSharedEnvs(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// CreateProjectSharedEnvWithBody Create Project Shared Env
+	//
+	// Create a shared environment variable for a project (type=project).
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /projects/{uuid}/envs (the `CreateProjectSharedEnv` operationId).
+	CreateProjectSharedEnvWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// CreateProjectSharedEnv Create Project Shared Env
 	//
 	// Create a shared environment variable for a project (type=project).
 	//
+	// Takes a body of the `application/json` content type.
+	//
 	// Corresponds with POST /projects/{uuid}/envs (the `CreateProjectSharedEnv` operationId).
-	CreateProjectSharedEnv(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CreateProjectSharedEnv(ctx context.Context, uuid string, body CreateProjectSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// DeleteProjectSharedEnv Delete Project Shared Env
 	//
@@ -9822,12 +10494,23 @@ type ClientInterface interface {
 	// Corresponds with DELETE /projects/{uuid}/envs/{env_id} (the `DeleteProjectSharedEnv` operationId).
 	DeleteProjectSharedEnv(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// UpdateProjectSharedEnvWithBody Update Project Shared Env
+	//
+	// Update a project shared environment variable by id.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /projects/{uuid}/envs/{env_id} (the `UpdateProjectSharedEnv` operationId).
+	UpdateProjectSharedEnvWithBody(ctx context.Context, uuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// UpdateProjectSharedEnv Update Project Shared Env
 	//
 	// Update a project shared environment variable by id.
 	//
+	// Takes a body of the `application/json` content type.
+	//
 	// Corresponds with PATCH /projects/{uuid}/envs/{env_id} (the `UpdateProjectSharedEnv` operationId).
-	UpdateProjectSharedEnv(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*http.Response, error)
+	UpdateProjectSharedEnv(ctx context.Context, uuid string, envId int, body UpdateProjectSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetEnvironmentByNameOrUuid Environment
 	//
@@ -9907,23 +10590,69 @@ type ClientInterface interface {
 	// Corresponds with POST /s3-storages/{uuid}/validate (the `ValidateS3StorageByUuid` operationId).
 	ValidateS3StorageByUuid(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// CreateSecretManagerIntegrationTokenWithBody Create Secret Manager Token
+	// ListIntegrationTokens List Integration Tokens
 	//
-	// Create and validate a Doppler, Infisical, or Vault integration token.
+	// List the integration tokens (Cloudflare, Doppler, Infisical, Vault) of the team. Requires admin or owner.
+	//
+	// Corresponds with GET /security/integration-tokens (the `ListIntegrationTokens` operationId).
+	ListIntegrationTokens(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateSecretManagerIntegrationTokenWithBody Create Integration Token
+	//
+	// Create and validate a Cloudflare, Doppler, Infisical, or Vault integration token. A Cloudflare token also gets its DNS zones; it is not stored when the zones cannot be read. Requires admin or owner.
 	//
 	// Takes any type of body and a specified content type.
 	//
 	// Corresponds with POST /security/integration-tokens (the `CreateSecretManagerIntegrationToken` operationId).
 	CreateSecretManagerIntegrationTokenWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// CreateSecretManagerIntegrationToken Create Secret Manager Token
+	// CreateSecretManagerIntegrationToken Create Integration Token
 	//
-	// Create and validate a Doppler, Infisical, or Vault integration token.
+	// Create and validate a Cloudflare, Doppler, Infisical, or Vault integration token. A Cloudflare token also gets its DNS zones; it is not stored when the zones cannot be read. Requires admin or owner.
 	//
 	// Takes a body of the `application/json` content type.
 	//
 	// Corresponds with POST /security/integration-tokens (the `CreateSecretManagerIntegrationToken` operationId).
 	CreateSecretManagerIntegrationToken(ctx context.Context, body CreateSecretManagerIntegrationTokenJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// DeleteIntegrationTokenByUuid Delete Integration Token
+	//
+	// Delete an integration token. A token that a resource uses as secret manager source, or that manages DNS records, cannot be deleted. Requires admin or owner.
+	//
+	// Corresponds with DELETE /security/integration-tokens/{uuid} (the `DeleteIntegrationTokenByUuid` operationId).
+	DeleteIntegrationTokenByUuid(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetIntegrationTokenByUuid Get Integration Token
+	//
+	// Get an integration token of the team by UUID. Requires admin or owner.
+	//
+	// Corresponds with GET /security/integration-tokens/{uuid} (the `GetIntegrationTokenByUuid` operationId).
+	GetIntegrationTokenByUuid(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateIntegrationTokenByUuidWithBody Update Integration Token
+	//
+	// Rename an integration token, rotate its secret, or change its capabilities and settings. Omitted fields keep their value. The provider checks the token again when the secret, the capabilities, or the settings change. Requires admin or owner.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /security/integration-tokens/{uuid} (the `UpdateIntegrationTokenByUuid` operationId).
+	UpdateIntegrationTokenByUuidWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateIntegrationTokenByUuid Update Integration Token
+	//
+	// Rename an integration token, rotate its secret, or change its capabilities and settings. Omitted fields keep their value. The provider checks the token again when the secret, the capabilities, or the settings change. Requires admin or owner.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /security/integration-tokens/{uuid} (the `UpdateIntegrationTokenByUuid` operationId).
+	UpdateIntegrationTokenByUuid(ctx context.Context, uuid string, body UpdateIntegrationTokenByUuidJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SyncIntegrationTokenZones Sync Cloudflare Zones
+	//
+	// Read the DNS zones that a Cloudflare token can access again. Requires admin or owner.
+	//
+	// Corresponds with POST /security/integration-tokens/{uuid}/sync-zones (the `SyncIntegrationTokenZones` operationId).
+	SyncIntegrationTokenZones(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ListPrivateKeys List
 	//
@@ -10229,12 +10958,23 @@ type ClientInterface interface {
 	// Corresponds with GET /servers/{uuid}/envs (the `ListServerSharedEnvs` operationId).
 	ListServerSharedEnvs(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// CreateServerSharedEnvWithBody Create Server Shared Env
+	//
+	// Create a shared environment variable for a server (type=server).
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /servers/{uuid}/envs (the `CreateServerSharedEnv` operationId).
+	CreateServerSharedEnvWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// CreateServerSharedEnv Create Server Shared Env
 	//
 	// Create a shared environment variable for a server (type=server).
 	//
+	// Takes a body of the `application/json` content type.
+	//
 	// Corresponds with POST /servers/{uuid}/envs (the `CreateServerSharedEnv` operationId).
-	CreateServerSharedEnv(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CreateServerSharedEnv(ctx context.Context, uuid string, body CreateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// DeleteServerSharedEnv Delete Server Shared Env
 	//
@@ -10243,12 +10983,23 @@ type ClientInterface interface {
 	// Corresponds with DELETE /servers/{uuid}/envs/{env_id} (the `DeleteServerSharedEnv` operationId).
 	DeleteServerSharedEnv(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// UpdateServerSharedEnvWithBody Update Server Shared Env
+	//
+	// Update a server shared environment variable by id.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
+	UpdateServerSharedEnvWithBody(ctx context.Context, uuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// UpdateServerSharedEnv Update Server Shared Env
 	//
 	// Update a server shared environment variable by id.
 	//
+	// Takes a body of the `application/json` content type.
+	//
 	// Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
-	UpdateServerSharedEnv(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*http.Response, error)
+	UpdateServerSharedEnv(ctx context.Context, uuid string, envId int, body UpdateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetServerLogDrains Get log drain settings
 	//
@@ -10377,7 +11128,7 @@ type ClientInterface interface {
 
 	// CheckServerRegistryLogin Check a registry login on a server
 	//
-	// Check that the saved login of the server for a registry still works. Runs docker login with the saved credentials on the server.
+	// Check that the saved login of the server for a registry still works. Runs docker login with the saved credentials on the server. Needs a token with the write and deploy permissions.
 	//
 	// Corresponds with POST /servers/{uuid}/registries/{registry}/check (the `CheckServerRegistryLogin` operationId).
 	CheckServerRegistryLogin(ctx context.Context, uuid string, registry string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -10686,6 +11437,56 @@ type ClientInterface interface {
 	//
 	// Corresponds with POST /services/{uuid}/databases/{database_uuid}/stop (the `StopServiceDatabaseByServiceAndDatabaseUuid` operationId).
 	StopServiceDatabaseByServiceAndDatabaseUuid(ctx context.Context, uuid string, databaseUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetServiceDns Get Service DNS
+	//
+	// DNS providers and managed DNS records for the domains of a service.
+	//
+	// Corresponds with GET /services/{uuid}/dns (the `GetServiceDns` operationId).
+	GetServiceDns(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateServiceDnsRecordWithBody Create Service DNS Record
+	//
+	// Create a DNS record at Cloudflare that points a domain of the service to its server. An existing record with the same address is adopted.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /services/{uuid}/dns (the `CreateServiceDnsRecord` operationId).
+	CreateServiceDnsRecordWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreateServiceDnsRecord Create Service DNS Record
+	//
+	// Create a DNS record at Cloudflare that points a domain of the service to its server. An existing record with the same address is adopted.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /services/{uuid}/dns (the `CreateServiceDnsRecord` operationId).
+	CreateServiceDnsRecord(ctx context.Context, uuid string, body CreateServiceDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ReplaceServiceDnsRecordWithBody Replace Service DNS Record
+	//
+	// Point the conflicting record from a 409 create response to the server of the service.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /services/{uuid}/dns/replace (the `ReplaceServiceDnsRecord` operationId).
+	ReplaceServiceDnsRecordWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ReplaceServiceDnsRecord Replace Service DNS Record
+	//
+	// Point the conflicting record from a 409 create response to the server of the service.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /services/{uuid}/dns/replace (the `ReplaceServiceDnsRecord` operationId).
+	ReplaceServiceDnsRecord(ctx context.Context, uuid string, body ReplaceServiceDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ReleaseServiceDnsRecord Release Service DNS Record
+	//
+	// Release the managed DNS record of a hostname that the service no longer uses. Coolify deletes the record at Cloudflare only when it created the record, the record did not change, and no other resource uses the hostname. Removing a domain through the API already queues this release; use this endpoint to retry it or to keep the record.
+	//
+	// Corresponds with DELETE /services/{uuid}/dns/{hostname} (the `ReleaseServiceDnsRecord` operationId).
+	ReleaseServiceDnsRecord(ctx context.Context, uuid string, hostname string, params *ReleaseServiceDnsRecordParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ListEnvsByServiceUuid List Envs
 	//
@@ -11118,12 +11919,23 @@ type ClientInterface interface {
 	// Corresponds with DELETE /team/envs/{env_id} (the `DeleteTeamSharedEnv` operationId).
 	DeleteTeamSharedEnv(ctx context.Context, envId int, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// UpdateTeamSharedEnvWithBody Update Team Shared Env
+	//
+	// Update a team shared environment variable by id.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /team/envs/{env_id} (the `UpdateTeamSharedEnv` operationId).
+	UpdateTeamSharedEnvWithBody(ctx context.Context, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// UpdateTeamSharedEnv Update Team Shared Env
 	//
 	// Update a team shared environment variable by id.
 	//
+	// Takes a body of the `application/json` content type.
+	//
 	// Corresponds with PATCH /team/envs/{env_id} (the `UpdateTeamSharedEnv` operationId).
-	UpdateTeamSharedEnv(ctx context.Context, envId int, reqEditors ...RequestEditorFn) (*http.Response, error)
+	UpdateTeamSharedEnv(ctx context.Context, envId int, body UpdateTeamSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetTokenTeamMembers Authenticated Team Members
 	//
@@ -11187,6 +11999,70 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /vultr/ssh-keys (the `GetVultrSshKeys` operationId).
 	GetVultrSshKeys(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// RemoveSecretManagerSource Remove Secret Manager Source
+	//
+	// Remove the secret manager source. Existing {{vault.*}} variables stay and fail the next deployment until they are removed.
+	//
+	// Corresponds with DELETE /{resource_type}/{uuid}/secret-manager (the `RemoveSecretManagerSource` operationId).
+	RemoveSecretManagerSource(ctx context.Context, resourceType RemoveSecretManagerSourceParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetSecretManagerSource Get Secret Manager Source
+	//
+	// The secret manager source of an application, service, or database, and the secret manager tokens of its team that can be linked.
+	//
+	// Corresponds with GET /{resource_type}/{uuid}/secret-manager (the `GetSecretManagerSource` operationId).
+	GetSecretManagerSource(ctx context.Context, resourceType GetSecretManagerSourceParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SetSecretManagerSourceWithBody Set Secret Manager Source
+	//
+	// Link a secret manager token of the team to an application, service, or database, or change the token or settings of the link. References resolve at the next deployment.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /{resource_type}/{uuid}/secret-manager (the `SetSecretManagerSource` operationId).
+	SetSecretManagerSourceWithBody(ctx context.Context, resourceType SetSecretManagerSourceParamsResourceType, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// SetSecretManagerSource Set Secret Manager Source
+	//
+	// Link a secret manager token of the team to an application, service, or database, or change the token or settings of the link. References resolve at the next deployment.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /{resource_type}/{uuid}/secret-manager (the `SetSecretManagerSource` operationId).
+	SetSecretManagerSource(ctx context.Context, resourceType SetSecretManagerSourceParamsResourceType, uuid string, body SetSecretManagerSourceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ImportSecretManagerReferences Import Secret Manager References
+	//
+	// Add a {{vault.KEY}} environment variable for every key of the linked source that has no variable yet. Keys that are not valid variable names are skipped.
+	//
+	// Corresponds with POST /{resource_type}/{uuid}/secret-manager/import (the `ImportSecretManagerReferences` operationId).
+	ImportSecretManagerReferences(ctx context.Context, resourceType ImportSecretManagerReferencesParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListSecretManagerKeys List Secret Manager Keys
+	//
+	// Key names of the secrets in the linked source. Values are never returned. Requires write access, like the resource page, because the stored secret is sent to the secret manager.
+	//
+	// Corresponds with GET /{resource_type}/{uuid}/secret-manager/keys (the `ListSecretManagerKeys` operationId).
+	ListSecretManagerKeys(ctx context.Context, resourceType ListSecretManagerKeysParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AddSecretManagerReferenceWithBody Add Secret Manager Reference
+	//
+	// Add a {{vault.KEY}} environment variable for one key of the linked source.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /{resource_type}/{uuid}/secret-manager/references (the `AddSecretManagerReference` operationId).
+	AddSecretManagerReferenceWithBody(ctx context.Context, resourceType AddSecretManagerReferenceParamsResourceType, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// AddSecretManagerReference Add Secret Manager Reference
+	//
+	// Add a {{vault.KEY}} environment variable for one key of the linked source.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /{resource_type}/{uuid}/secret-manager/references (the `AddSecretManagerReference` operationId).
+	AddSecretManagerReference(ctx context.Context, resourceType AddSecretManagerReferenceParamsResourceType, uuid string, body AddSecretManagerReferenceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 }
 
 // ListApplications List
@@ -11568,6 +12444,116 @@ func (c *Client) AddApplicationDestination(ctx context.Context, uuid string, bod
 // Corresponds with DELETE /applications/{uuid}/destinations/{destination_uuid} (the `RemoveApplicationDestination` operationId).
 func (c *Client) RemoveApplicationDestination(ctx context.Context, uuid string, destinationUuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewRemoveApplicationDestinationRequest(c.Server, uuid, destinationUuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetApplicationDns Get Application DNS
+//
+// DNS providers and managed DNS records for the domains of an application.
+//
+// Corresponds with GET /applications/{uuid}/dns (the `GetApplicationDns` operationId).
+func (c *Client) GetApplicationDns(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetApplicationDnsRequest(c.Server, uuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateApplicationDnsRecordWithBody Create Application DNS Record
+//
+// Create a DNS record at Cloudflare that points a domain of the application to its server. An existing record with the same address is adopted.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /applications/{uuid}/dns (the `CreateApplicationDnsRecord` operationId).
+func (c *Client) CreateApplicationDnsRecordWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateApplicationDnsRecordRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateApplicationDnsRecord Create Application DNS Record
+//
+// Create a DNS record at Cloudflare that points a domain of the application to its server. An existing record with the same address is adopted.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /applications/{uuid}/dns (the `CreateApplicationDnsRecord` operationId).
+func (c *Client) CreateApplicationDnsRecord(ctx context.Context, uuid string, body CreateApplicationDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateApplicationDnsRecordRequest(c.Server, uuid, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ReplaceApplicationDnsRecordWithBody Replace Application DNS Record
+//
+// Point the conflicting record from a 409 create response to the server of the application.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /applications/{uuid}/dns/replace (the `ReplaceApplicationDnsRecord` operationId).
+func (c *Client) ReplaceApplicationDnsRecordWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewReplaceApplicationDnsRecordRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ReplaceApplicationDnsRecord Replace Application DNS Record
+//
+// Point the conflicting record from a 409 create response to the server of the application.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /applications/{uuid}/dns/replace (the `ReplaceApplicationDnsRecord` operationId).
+func (c *Client) ReplaceApplicationDnsRecord(ctx context.Context, uuid string, body ReplaceApplicationDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewReplaceApplicationDnsRecordRequest(c.Server, uuid, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ReleaseApplicationDnsRecord Release Application DNS Record
+//
+// Release the managed DNS record of a hostname that the application no longer uses. Coolify deletes the record at Cloudflare only when it created the record, the record did not change, and no other resource uses the hostname. Removing a domain through the API already queues this release; use this endpoint to retry it or to keep the record.
+//
+// Corresponds with DELETE /applications/{uuid}/dns/{hostname} (the `ReleaseApplicationDnsRecord` operationId).
+func (c *Client) ReleaseApplicationDnsRecord(ctx context.Context, uuid string, hostname string, params *ReleaseApplicationDnsRecordParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewReleaseApplicationDnsRecordRequest(c.Server, uuid, hostname, params)
 	if err != nil {
 		return nil, err
 	}
@@ -12181,7 +13167,7 @@ func (c *Client) ListScheduledTaskExecutionsByApplicationUuid(ctx context.Contex
 
 // ConfigureApplicationSecretManagerWithBody Configure Application Secret Manager
 //
-// Configure the secret manager source used by an application.
+// Configure the secret manager source used by an application. Same as Set Secret Manager Source with resource_type applications.
 //
 // Takes any type of body and a specified content type.
 //
@@ -12200,7 +13186,7 @@ func (c *Client) ConfigureApplicationSecretManagerWithBody(ctx context.Context, 
 
 // ConfigureApplicationSecretManager Configure Application Secret Manager
 //
-// Configure the secret manager source used by an application.
+// Configure the secret manager source used by an application. Same as Set Secret Manager Source with resource_type applications.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -14271,6 +15257,23 @@ func (c *Client) DisableApi(ctx context.Context, reqEditors ...RequestEditorFn) 
 	return c.Client.Do(req)
 }
 
+// ListDnsZones List DNS Zones
+//
+// List the DNS zones that the Cloudflare tokens of the team can access. Requires admin or owner.
+//
+// Corresponds with GET /dns/zones (the `ListDnsZones` operationId).
+func (c *Client) ListDnsZones(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListDnsZonesRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // ListGithubApps List
 //
 // List all GitHub apps.
@@ -15211,13 +16214,34 @@ func (c *Client) ListEnvironmentSharedEnvs(ctx context.Context, uuid string, env
 	return c.Client.Do(req)
 }
 
+// CreateEnvironmentSharedEnvWithBody Create Environment Shared Env
+//
+// Create a shared environment variable for a project environment (type=environment).
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /projects/{uuid}/environments/{environment_name_or_uuid}/envs (the `CreateEnvironmentSharedEnv` operationId).
+func (c *Client) CreateEnvironmentSharedEnvWithBody(ctx context.Context, uuid string, environmentNameOrUuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateEnvironmentSharedEnvRequestWithBody(c.Server, uuid, environmentNameOrUuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // CreateEnvironmentSharedEnv Create Environment Shared Env
 //
 // Create a shared environment variable for a project environment (type=environment).
 //
+// Takes a body of the `application/json` content type.
+//
 // Corresponds with POST /projects/{uuid}/environments/{environment_name_or_uuid}/envs (the `CreateEnvironmentSharedEnv` operationId).
-func (c *Client) CreateEnvironmentSharedEnv(ctx context.Context, uuid string, environmentNameOrUuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewCreateEnvironmentSharedEnvRequest(c.Server, uuid, environmentNameOrUuid)
+func (c *Client) CreateEnvironmentSharedEnv(ctx context.Context, uuid string, environmentNameOrUuid string, body CreateEnvironmentSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateEnvironmentSharedEnvRequest(c.Server, uuid, environmentNameOrUuid, body)
 	if err != nil {
 		return nil, err
 	}
@@ -15245,13 +16269,34 @@ func (c *Client) DeleteEnvironmentSharedEnv(ctx context.Context, uuid string, en
 	return c.Client.Do(req)
 }
 
+// UpdateEnvironmentSharedEnvWithBody Update Environment Shared Env
+//
+// Update an environment shared environment variable by id.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /projects/{uuid}/environments/{environment_name_or_uuid}/envs/{env_id} (the `UpdateEnvironmentSharedEnv` operationId).
+func (c *Client) UpdateEnvironmentSharedEnvWithBody(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateEnvironmentSharedEnvRequestWithBody(c.Server, uuid, environmentNameOrUuid, envId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // UpdateEnvironmentSharedEnv Update Environment Shared Env
 //
 // Update an environment shared environment variable by id.
 //
+// Takes a body of the `application/json` content type.
+//
 // Corresponds with PATCH /projects/{uuid}/environments/{environment_name_or_uuid}/envs/{env_id} (the `UpdateEnvironmentSharedEnv` operationId).
-func (c *Client) UpdateEnvironmentSharedEnv(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewUpdateEnvironmentSharedEnvRequest(c.Server, uuid, environmentNameOrUuid, envId)
+func (c *Client) UpdateEnvironmentSharedEnv(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, body UpdateEnvironmentSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateEnvironmentSharedEnvRequest(c.Server, uuid, environmentNameOrUuid, envId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -15279,13 +16324,34 @@ func (c *Client) ListProjectSharedEnvs(ctx context.Context, uuid string, reqEdit
 	return c.Client.Do(req)
 }
 
+// CreateProjectSharedEnvWithBody Create Project Shared Env
+//
+// Create a shared environment variable for a project (type=project).
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /projects/{uuid}/envs (the `CreateProjectSharedEnv` operationId).
+func (c *Client) CreateProjectSharedEnvWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateProjectSharedEnvRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // CreateProjectSharedEnv Create Project Shared Env
 //
 // Create a shared environment variable for a project (type=project).
 //
+// Takes a body of the `application/json` content type.
+//
 // Corresponds with POST /projects/{uuid}/envs (the `CreateProjectSharedEnv` operationId).
-func (c *Client) CreateProjectSharedEnv(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewCreateProjectSharedEnvRequest(c.Server, uuid)
+func (c *Client) CreateProjectSharedEnv(ctx context.Context, uuid string, body CreateProjectSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateProjectSharedEnvRequest(c.Server, uuid, body)
 	if err != nil {
 		return nil, err
 	}
@@ -15313,13 +16379,34 @@ func (c *Client) DeleteProjectSharedEnv(ctx context.Context, uuid string, envId 
 	return c.Client.Do(req)
 }
 
+// UpdateProjectSharedEnvWithBody Update Project Shared Env
+//
+// Update a project shared environment variable by id.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /projects/{uuid}/envs/{env_id} (the `UpdateProjectSharedEnv` operationId).
+func (c *Client) UpdateProjectSharedEnvWithBody(ctx context.Context, uuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateProjectSharedEnvRequestWithBody(c.Server, uuid, envId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // UpdateProjectSharedEnv Update Project Shared Env
 //
 // Update a project shared environment variable by id.
 //
+// Takes a body of the `application/json` content type.
+//
 // Corresponds with PATCH /projects/{uuid}/envs/{env_id} (the `UpdateProjectSharedEnv` operationId).
-func (c *Client) UpdateProjectSharedEnv(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewUpdateProjectSharedEnvRequest(c.Server, uuid, envId)
+func (c *Client) UpdateProjectSharedEnv(ctx context.Context, uuid string, envId int, body UpdateProjectSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateProjectSharedEnvRequest(c.Server, uuid, envId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -15508,9 +16595,26 @@ func (c *Client) ValidateS3StorageByUuid(ctx context.Context, uuid string, reqEd
 	return c.Client.Do(req)
 }
 
-// CreateSecretManagerIntegrationTokenWithBody Create Secret Manager Token
+// ListIntegrationTokens List Integration Tokens
 //
-// Create and validate a Doppler, Infisical, or Vault integration token.
+// List the integration tokens (Cloudflare, Doppler, Infisical, Vault) of the team. Requires admin or owner.
+//
+// Corresponds with GET /security/integration-tokens (the `ListIntegrationTokens` operationId).
+func (c *Client) ListIntegrationTokens(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListIntegrationTokensRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateSecretManagerIntegrationTokenWithBody Create Integration Token
+//
+// Create and validate a Cloudflare, Doppler, Infisical, or Vault integration token. A Cloudflare token also gets its DNS zones; it is not stored when the zones cannot be read. Requires admin or owner.
 //
 // Takes any type of body and a specified content type.
 //
@@ -15527,15 +16631,104 @@ func (c *Client) CreateSecretManagerIntegrationTokenWithBody(ctx context.Context
 	return c.Client.Do(req)
 }
 
-// CreateSecretManagerIntegrationToken Create Secret Manager Token
+// CreateSecretManagerIntegrationToken Create Integration Token
 //
-// Create and validate a Doppler, Infisical, or Vault integration token.
+// Create and validate a Cloudflare, Doppler, Infisical, or Vault integration token. A Cloudflare token also gets its DNS zones; it is not stored when the zones cannot be read. Requires admin or owner.
 //
 // Takes a body of the `application/json` content type.
 //
 // Corresponds with POST /security/integration-tokens (the `CreateSecretManagerIntegrationToken` operationId).
 func (c *Client) CreateSecretManagerIntegrationToken(ctx context.Context, body CreateSecretManagerIntegrationTokenJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCreateSecretManagerIntegrationTokenRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// DeleteIntegrationTokenByUuid Delete Integration Token
+//
+// Delete an integration token. A token that a resource uses as secret manager source, or that manages DNS records, cannot be deleted. Requires admin or owner.
+//
+// Corresponds with DELETE /security/integration-tokens/{uuid} (the `DeleteIntegrationTokenByUuid` operationId).
+func (c *Client) DeleteIntegrationTokenByUuid(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteIntegrationTokenByUuidRequest(c.Server, uuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetIntegrationTokenByUuid Get Integration Token
+//
+// Get an integration token of the team by UUID. Requires admin or owner.
+//
+// Corresponds with GET /security/integration-tokens/{uuid} (the `GetIntegrationTokenByUuid` operationId).
+func (c *Client) GetIntegrationTokenByUuid(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetIntegrationTokenByUuidRequest(c.Server, uuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateIntegrationTokenByUuidWithBody Update Integration Token
+//
+// Rename an integration token, rotate its secret, or change its capabilities and settings. Omitted fields keep their value. The provider checks the token again when the secret, the capabilities, or the settings change. Requires admin or owner.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /security/integration-tokens/{uuid} (the `UpdateIntegrationTokenByUuid` operationId).
+func (c *Client) UpdateIntegrationTokenByUuidWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateIntegrationTokenByUuidRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateIntegrationTokenByUuid Update Integration Token
+//
+// Rename an integration token, rotate its secret, or change its capabilities and settings. Omitted fields keep their value. The provider checks the token again when the secret, the capabilities, or the settings change. Requires admin or owner.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /security/integration-tokens/{uuid} (the `UpdateIntegrationTokenByUuid` operationId).
+func (c *Client) UpdateIntegrationTokenByUuid(ctx context.Context, uuid string, body UpdateIntegrationTokenByUuidJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateIntegrationTokenByUuidRequest(c.Server, uuid, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SyncIntegrationTokenZones Sync Cloudflare Zones
+//
+// Read the DNS zones that a Cloudflare token can access again. Requires admin or owner.
+//
+// Corresponds with POST /security/integration-tokens/{uuid}/sync-zones (the `SyncIntegrationTokenZones` operationId).
+func (c *Client) SyncIntegrationTokenZones(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSyncIntegrationTokenZonesRequest(c.Server, uuid)
 	if err != nil {
 		return nil, err
 	}
@@ -16230,13 +17423,34 @@ func (c *Client) ListServerSharedEnvs(ctx context.Context, uuid string, reqEdito
 	return c.Client.Do(req)
 }
 
+// CreateServerSharedEnvWithBody Create Server Shared Env
+//
+// Create a shared environment variable for a server (type=server).
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /servers/{uuid}/envs (the `CreateServerSharedEnv` operationId).
+func (c *Client) CreateServerSharedEnvWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateServerSharedEnvRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // CreateServerSharedEnv Create Server Shared Env
 //
 // Create a shared environment variable for a server (type=server).
 //
+// Takes a body of the `application/json` content type.
+//
 // Corresponds with POST /servers/{uuid}/envs (the `CreateServerSharedEnv` operationId).
-func (c *Client) CreateServerSharedEnv(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewCreateServerSharedEnvRequest(c.Server, uuid)
+func (c *Client) CreateServerSharedEnv(ctx context.Context, uuid string, body CreateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateServerSharedEnvRequest(c.Server, uuid, body)
 	if err != nil {
 		return nil, err
 	}
@@ -16264,13 +17478,34 @@ func (c *Client) DeleteServerSharedEnv(ctx context.Context, uuid string, envId i
 	return c.Client.Do(req)
 }
 
+// UpdateServerSharedEnvWithBody Update Server Shared Env
+//
+// Update a server shared environment variable by id.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
+func (c *Client) UpdateServerSharedEnvWithBody(ctx context.Context, uuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateServerSharedEnvRequestWithBody(c.Server, uuid, envId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // UpdateServerSharedEnv Update Server Shared Env
 //
 // Update a server shared environment variable by id.
 //
+// Takes a body of the `application/json` content type.
+//
 // Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
-func (c *Client) UpdateServerSharedEnv(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewUpdateServerSharedEnvRequest(c.Server, uuid, envId)
+func (c *Client) UpdateServerSharedEnv(ctx context.Context, uuid string, envId int, body UpdateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateServerSharedEnvRequest(c.Server, uuid, envId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -16558,7 +17793,7 @@ func (c *Client) LogoutServerRegistry(ctx context.Context, uuid string, registry
 
 // CheckServerRegistryLogin Check a registry login on a server
 //
-// Check that the saved login of the server for a registry still works. Runs docker login with the saved credentials on the server.
+// Check that the saved login of the server for a registry still works. Runs docker login with the saved credentials on the server. Needs a token with the write and deploy permissions.
 //
 // Corresponds with POST /servers/{uuid}/registries/{registry}/check (the `CheckServerRegistryLogin` operationId).
 func (c *Client) CheckServerRegistryLogin(ctx context.Context, uuid string, registry string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -17258,6 +18493,116 @@ func (c *Client) StartServiceDatabaseByServiceAndDatabaseUuid(ctx context.Contex
 // Corresponds with POST /services/{uuid}/databases/{database_uuid}/stop (the `StopServiceDatabaseByServiceAndDatabaseUuid` operationId).
 func (c *Client) StopServiceDatabaseByServiceAndDatabaseUuid(ctx context.Context, uuid string, databaseUuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewStopServiceDatabaseByServiceAndDatabaseUuidRequest(c.Server, uuid, databaseUuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetServiceDns Get Service DNS
+//
+// DNS providers and managed DNS records for the domains of a service.
+//
+// Corresponds with GET /services/{uuid}/dns (the `GetServiceDns` operationId).
+func (c *Client) GetServiceDns(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetServiceDnsRequest(c.Server, uuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateServiceDnsRecordWithBody Create Service DNS Record
+//
+// Create a DNS record at Cloudflare that points a domain of the service to its server. An existing record with the same address is adopted.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /services/{uuid}/dns (the `CreateServiceDnsRecord` operationId).
+func (c *Client) CreateServiceDnsRecordWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateServiceDnsRecordRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreateServiceDnsRecord Create Service DNS Record
+//
+// Create a DNS record at Cloudflare that points a domain of the service to its server. An existing record with the same address is adopted.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /services/{uuid}/dns (the `CreateServiceDnsRecord` operationId).
+func (c *Client) CreateServiceDnsRecord(ctx context.Context, uuid string, body CreateServiceDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateServiceDnsRecordRequest(c.Server, uuid, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ReplaceServiceDnsRecordWithBody Replace Service DNS Record
+//
+// Point the conflicting record from a 409 create response to the server of the service.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /services/{uuid}/dns/replace (the `ReplaceServiceDnsRecord` operationId).
+func (c *Client) ReplaceServiceDnsRecordWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewReplaceServiceDnsRecordRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ReplaceServiceDnsRecord Replace Service DNS Record
+//
+// Point the conflicting record from a 409 create response to the server of the service.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /services/{uuid}/dns/replace (the `ReplaceServiceDnsRecord` operationId).
+func (c *Client) ReplaceServiceDnsRecord(ctx context.Context, uuid string, body ReplaceServiceDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewReplaceServiceDnsRecordRequest(c.Server, uuid, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ReleaseServiceDnsRecord Release Service DNS Record
+//
+// Release the managed DNS record of a hostname that the service no longer uses. Coolify deletes the record at Cloudflare only when it created the record, the record did not change, and no other resource uses the hostname. Removing a domain through the API already queues this release; use this endpoint to retry it or to keep the record.
+//
+// Corresponds with DELETE /services/{uuid}/dns/{hostname} (the `ReleaseServiceDnsRecord` operationId).
+func (c *Client) ReleaseServiceDnsRecord(ctx context.Context, uuid string, hostname string, params *ReleaseServiceDnsRecordParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewReleaseServiceDnsRecordRequest(c.Server, uuid, hostname, params)
 	if err != nil {
 		return nil, err
 	}
@@ -18229,13 +19574,34 @@ func (c *Client) DeleteTeamSharedEnv(ctx context.Context, envId int, reqEditors 
 	return c.Client.Do(req)
 }
 
+// UpdateTeamSharedEnvWithBody Update Team Shared Env
+//
+// Update a team shared environment variable by id.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /team/envs/{env_id} (the `UpdateTeamSharedEnv` operationId).
+func (c *Client) UpdateTeamSharedEnvWithBody(ctx context.Context, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTeamSharedEnvRequestWithBody(c.Server, envId, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // UpdateTeamSharedEnv Update Team Shared Env
 //
 // Update a team shared environment variable by id.
 //
+// Takes a body of the `application/json` content type.
+//
 // Corresponds with PATCH /team/envs/{env_id} (the `UpdateTeamSharedEnv` operationId).
-func (c *Client) UpdateTeamSharedEnv(ctx context.Context, envId int, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewUpdateTeamSharedEnvRequest(c.Server, envId)
+func (c *Client) UpdateTeamSharedEnv(ctx context.Context, envId int, body UpdateTeamSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateTeamSharedEnvRequest(c.Server, envId, body)
 	if err != nil {
 		return nil, err
 	}
@@ -18389,6 +19755,150 @@ func (c *Client) GetVultrRegions(ctx context.Context, reqEditors ...RequestEdito
 // Corresponds with GET /vultr/ssh-keys (the `GetVultrSshKeys` operationId).
 func (c *Client) GetVultrSshKeys(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetVultrSshKeysRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// RemoveSecretManagerSource Remove Secret Manager Source
+//
+// Remove the secret manager source. Existing {{vault.*}} variables stay and fail the next deployment until they are removed.
+//
+// Corresponds with DELETE /{resource_type}/{uuid}/secret-manager (the `RemoveSecretManagerSource` operationId).
+func (c *Client) RemoveSecretManagerSource(ctx context.Context, resourceType RemoveSecretManagerSourceParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewRemoveSecretManagerSourceRequest(c.Server, resourceType, uuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetSecretManagerSource Get Secret Manager Source
+//
+// The secret manager source of an application, service, or database, and the secret manager tokens of its team that can be linked.
+//
+// Corresponds with GET /{resource_type}/{uuid}/secret-manager (the `GetSecretManagerSource` operationId).
+func (c *Client) GetSecretManagerSource(ctx context.Context, resourceType GetSecretManagerSourceParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetSecretManagerSourceRequest(c.Server, resourceType, uuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SetSecretManagerSourceWithBody Set Secret Manager Source
+//
+// Link a secret manager token of the team to an application, service, or database, or change the token or settings of the link. References resolve at the next deployment.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /{resource_type}/{uuid}/secret-manager (the `SetSecretManagerSource` operationId).
+func (c *Client) SetSecretManagerSourceWithBody(ctx context.Context, resourceType SetSecretManagerSourceParamsResourceType, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSetSecretManagerSourceRequestWithBody(c.Server, resourceType, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// SetSecretManagerSource Set Secret Manager Source
+//
+// Link a secret manager token of the team to an application, service, or database, or change the token or settings of the link. References resolve at the next deployment.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /{resource_type}/{uuid}/secret-manager (the `SetSecretManagerSource` operationId).
+func (c *Client) SetSecretManagerSource(ctx context.Context, resourceType SetSecretManagerSourceParamsResourceType, uuid string, body SetSecretManagerSourceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewSetSecretManagerSourceRequest(c.Server, resourceType, uuid, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ImportSecretManagerReferences Import Secret Manager References
+//
+// Add a {{vault.KEY}} environment variable for every key of the linked source that has no variable yet. Keys that are not valid variable names are skipped.
+//
+// Corresponds with POST /{resource_type}/{uuid}/secret-manager/import (the `ImportSecretManagerReferences` operationId).
+func (c *Client) ImportSecretManagerReferences(ctx context.Context, resourceType ImportSecretManagerReferencesParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewImportSecretManagerReferencesRequest(c.Server, resourceType, uuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListSecretManagerKeys List Secret Manager Keys
+//
+// Key names of the secrets in the linked source. Values are never returned. Requires write access, like the resource page, because the stored secret is sent to the secret manager.
+//
+// Corresponds with GET /{resource_type}/{uuid}/secret-manager/keys (the `ListSecretManagerKeys` operationId).
+func (c *Client) ListSecretManagerKeys(ctx context.Context, resourceType ListSecretManagerKeysParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListSecretManagerKeysRequest(c.Server, resourceType, uuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// AddSecretManagerReferenceWithBody Add Secret Manager Reference
+//
+// Add a {{vault.KEY}} environment variable for one key of the linked source.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /{resource_type}/{uuid}/secret-manager/references (the `AddSecretManagerReference` operationId).
+func (c *Client) AddSecretManagerReferenceWithBody(ctx context.Context, resourceType AddSecretManagerReferenceParamsResourceType, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewAddSecretManagerReferenceRequestWithBody(c.Server, resourceType, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// AddSecretManagerReference Add Secret Manager Reference
+//
+// Add a {{vault.KEY}} environment variable for one key of the linked source.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /{resource_type}/{uuid}/secret-manager/references (the `AddSecretManagerReference` operationId).
+func (c *Client) AddSecretManagerReference(ctx context.Context, resourceType AddSecretManagerReferenceParamsResourceType, uuid string, body AddSecretManagerReferenceJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewAddSecretManagerReferenceRequest(c.Server, resourceType, uuid, body)
 	if err != nil {
 		return nil, err
 	}
@@ -18990,6 +20500,202 @@ func NewRemoveApplicationDestinationRequest(server string, uuid string, destinat
 	queryURL, err := serverURL.Parse(operationPath)
 	if err != nil {
 		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetApplicationDnsRequest constructs an http.Request for the GetApplicationDns method
+func NewGetApplicationDnsRequest(server string, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/applications/%s/dns", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCreateApplicationDnsRecordRequest calls the generic CreateApplicationDnsRecord builder with application/json body
+func NewCreateApplicationDnsRecordRequest(server string, uuid string, body CreateApplicationDnsRecordJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateApplicationDnsRecordRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewCreateApplicationDnsRecordRequestWithBody constructs an http.Request for the CreateApplicationDnsRecord method, with any body, and a specified content type
+func NewCreateApplicationDnsRecordRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/applications/%s/dns", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewReplaceApplicationDnsRecordRequest calls the generic ReplaceApplicationDnsRecord builder with application/json body
+func NewReplaceApplicationDnsRecordRequest(server string, uuid string, body ReplaceApplicationDnsRecordJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewReplaceApplicationDnsRecordRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewReplaceApplicationDnsRecordRequestWithBody constructs an http.Request for the ReplaceApplicationDnsRecord method, with any body, and a specified content type
+func NewReplaceApplicationDnsRecordRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/applications/%s/dns/replace", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewReleaseApplicationDnsRecordRequest constructs an http.Request for the ReleaseApplicationDnsRecord method
+func NewReleaseApplicationDnsRecordRequest(server string, uuid string, hostname string, params *ReleaseApplicationDnsRecordParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "hostname", hostname, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/applications/%s/dns/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.DeleteRecord != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "delete_record", *params.DeleteRecord, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
 	}
 
 	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
@@ -23892,6 +25598,33 @@ func NewDisableApiRequest(server string) (*http.Request, error) {
 	return req, nil
 }
 
+// NewListDnsZonesRequest constructs an http.Request for the ListDnsZones method
+func NewListDnsZonesRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/dns/zones")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewListGithubAppsRequest constructs an http.Request for the ListGithubApps method
 func NewListGithubAppsRequest(server string) (*http.Request, error) {
 	var err error
@@ -25617,8 +27350,19 @@ func NewListEnvironmentSharedEnvsRequest(server string, uuid string, environment
 	return req, nil
 }
 
-// NewCreateEnvironmentSharedEnvRequest constructs an http.Request for the CreateEnvironmentSharedEnv method
-func NewCreateEnvironmentSharedEnvRequest(server string, uuid string, environmentNameOrUuid string) (*http.Request, error) {
+// NewCreateEnvironmentSharedEnvRequest calls the generic CreateEnvironmentSharedEnv builder with application/json body
+func NewCreateEnvironmentSharedEnvRequest(server string, uuid string, environmentNameOrUuid string, body CreateEnvironmentSharedEnvJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateEnvironmentSharedEnvRequestWithBody(server, uuid, environmentNameOrUuid, "application/json", bodyReader)
+}
+
+// NewCreateEnvironmentSharedEnvRequestWithBody constructs an http.Request for the CreateEnvironmentSharedEnv method, with any body, and a specified content type
+func NewCreateEnvironmentSharedEnvRequestWithBody(server string, uuid string, environmentNameOrUuid string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -25650,10 +27394,12 @@ func NewCreateEnvironmentSharedEnvRequest(server string, uuid string, environmen
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -25706,8 +27452,19 @@ func NewDeleteEnvironmentSharedEnvRequest(server string, uuid string, environmen
 	return req, nil
 }
 
-// NewUpdateEnvironmentSharedEnvRequest constructs an http.Request for the UpdateEnvironmentSharedEnv method
-func NewUpdateEnvironmentSharedEnvRequest(server string, uuid string, environmentNameOrUuid string, envId int) (*http.Request, error) {
+// NewUpdateEnvironmentSharedEnvRequest calls the generic UpdateEnvironmentSharedEnv builder with application/json body
+func NewUpdateEnvironmentSharedEnvRequest(server string, uuid string, environmentNameOrUuid string, envId int, body UpdateEnvironmentSharedEnvJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateEnvironmentSharedEnvRequestWithBody(server, uuid, environmentNameOrUuid, envId, "application/json", bodyReader)
+}
+
+// NewUpdateEnvironmentSharedEnvRequestWithBody constructs an http.Request for the UpdateEnvironmentSharedEnv method, with any body, and a specified content type
+func NewUpdateEnvironmentSharedEnvRequestWithBody(server string, uuid string, environmentNameOrUuid string, envId int, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -25746,10 +27503,12 @@ func NewUpdateEnvironmentSharedEnvRequest(server string, uuid string, environmen
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -25788,8 +27547,19 @@ func NewListProjectSharedEnvsRequest(server string, uuid string) (*http.Request,
 	return req, nil
 }
 
-// NewCreateProjectSharedEnvRequest constructs an http.Request for the CreateProjectSharedEnv method
-func NewCreateProjectSharedEnvRequest(server string, uuid string) (*http.Request, error) {
+// NewCreateProjectSharedEnvRequest calls the generic CreateProjectSharedEnv builder with application/json body
+func NewCreateProjectSharedEnvRequest(server string, uuid string, body CreateProjectSharedEnvJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateProjectSharedEnvRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewCreateProjectSharedEnvRequestWithBody constructs an http.Request for the CreateProjectSharedEnv method, with any body, and a specified content type
+func NewCreateProjectSharedEnvRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -25814,10 +27584,12 @@ func NewCreateProjectSharedEnvRequest(server string, uuid string) (*http.Request
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -25863,8 +27635,19 @@ func NewDeleteProjectSharedEnvRequest(server string, uuid string, envId int) (*h
 	return req, nil
 }
 
-// NewUpdateProjectSharedEnvRequest constructs an http.Request for the UpdateProjectSharedEnv method
-func NewUpdateProjectSharedEnvRequest(server string, uuid string, envId int) (*http.Request, error) {
+// NewUpdateProjectSharedEnvRequest calls the generic UpdateProjectSharedEnv builder with application/json body
+func NewUpdateProjectSharedEnvRequest(server string, uuid string, envId int, body UpdateProjectSharedEnvJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateProjectSharedEnvRequestWithBody(server, uuid, envId, "application/json", bodyReader)
+}
+
+// NewUpdateProjectSharedEnvRequestWithBody constructs an http.Request for the UpdateProjectSharedEnv method, with any body, and a specified content type
+func NewUpdateProjectSharedEnvRequestWithBody(server string, uuid string, envId int, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -25896,10 +27679,12 @@ func NewUpdateProjectSharedEnvRequest(server string, uuid string, envId int) (*h
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -26188,6 +27973,33 @@ func NewValidateS3StorageByUuidRequest(server string, uuid string) (*http.Reques
 	return req, nil
 }
 
+// NewListIntegrationTokensRequest constructs an http.Request for the ListIntegrationTokens method
+func NewListIntegrationTokensRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/security/integration-tokens")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewCreateSecretManagerIntegrationTokenRequest calls the generic CreateSecretManagerIntegrationToken builder with application/json body
 func NewCreateSecretManagerIntegrationTokenRequest(server string, body CreateSecretManagerIntegrationTokenJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -26224,6 +28036,155 @@ func NewCreateSecretManagerIntegrationTokenRequestWithBody(server string, conten
 	}
 
 	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewDeleteIntegrationTokenByUuidRequest constructs an http.Request for the DeleteIntegrationTokenByUuid method
+func NewDeleteIntegrationTokenByUuidRequest(server string, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/security/integration-tokens/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetIntegrationTokenByUuidRequest constructs an http.Request for the GetIntegrationTokenByUuid method
+func NewGetIntegrationTokenByUuidRequest(server string, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/security/integration-tokens/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewUpdateIntegrationTokenByUuidRequest calls the generic UpdateIntegrationTokenByUuid builder with application/json body
+func NewUpdateIntegrationTokenByUuidRequest(server string, uuid string, body UpdateIntegrationTokenByUuidJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateIntegrationTokenByUuidRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewUpdateIntegrationTokenByUuidRequestWithBody constructs an http.Request for the UpdateIntegrationTokenByUuid method, with any body, and a specified content type
+func NewUpdateIntegrationTokenByUuidRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/security/integration-tokens/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewSyncIntegrationTokenZonesRequest constructs an http.Request for the SyncIntegrationTokenZones method
+func NewSyncIntegrationTokenZonesRequest(server string, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/security/integration-tokens/%s/sync-zones", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
 
 	return req, nil
 }
@@ -27358,8 +29319,19 @@ func NewListServerSharedEnvsRequest(server string, uuid string) (*http.Request, 
 	return req, nil
 }
 
-// NewCreateServerSharedEnvRequest constructs an http.Request for the CreateServerSharedEnv method
-func NewCreateServerSharedEnvRequest(server string, uuid string) (*http.Request, error) {
+// NewCreateServerSharedEnvRequest calls the generic CreateServerSharedEnv builder with application/json body
+func NewCreateServerSharedEnvRequest(server string, uuid string, body CreateServerSharedEnvJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateServerSharedEnvRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewCreateServerSharedEnvRequestWithBody constructs an http.Request for the CreateServerSharedEnv method, with any body, and a specified content type
+func NewCreateServerSharedEnvRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -27384,10 +29356,12 @@ func NewCreateServerSharedEnvRequest(server string, uuid string) (*http.Request,
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -27433,8 +29407,19 @@ func NewDeleteServerSharedEnvRequest(server string, uuid string, envId int) (*ht
 	return req, nil
 }
 
-// NewUpdateServerSharedEnvRequest constructs an http.Request for the UpdateServerSharedEnv method
-func NewUpdateServerSharedEnvRequest(server string, uuid string, envId int) (*http.Request, error) {
+// NewUpdateServerSharedEnvRequest calls the generic UpdateServerSharedEnv builder with application/json body
+func NewUpdateServerSharedEnvRequest(server string, uuid string, envId int, body UpdateServerSharedEnvJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateServerSharedEnvRequestWithBody(server, uuid, envId, "application/json", bodyReader)
+}
+
+// NewUpdateServerSharedEnvRequestWithBody constructs an http.Request for the UpdateServerSharedEnv method, with any body, and a specified content type
+func NewUpdateServerSharedEnvRequestWithBody(server string, uuid string, envId int, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -27466,10 +29451,12 @@ func NewUpdateServerSharedEnvRequest(server string, uuid string, envId int) (*ht
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -29418,6 +31405,202 @@ func NewStopServiceDatabaseByServiceAndDatabaseUuidRequest(server string, uuid s
 	return req, nil
 }
 
+// NewGetServiceDnsRequest constructs an http.Request for the GetServiceDns method
+func NewGetServiceDnsRequest(server string, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/services/%s/dns", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewCreateServiceDnsRecordRequest calls the generic CreateServiceDnsRecord builder with application/json body
+func NewCreateServiceDnsRecordRequest(server string, uuid string, body CreateServiceDnsRecordJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreateServiceDnsRecordRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewCreateServiceDnsRecordRequestWithBody constructs an http.Request for the CreateServiceDnsRecord method, with any body, and a specified content type
+func NewCreateServiceDnsRecordRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/services/%s/dns", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewReplaceServiceDnsRecordRequest calls the generic ReplaceServiceDnsRecord builder with application/json body
+func NewReplaceServiceDnsRecordRequest(server string, uuid string, body ReplaceServiceDnsRecordJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewReplaceServiceDnsRecordRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewReplaceServiceDnsRecordRequestWithBody constructs an http.Request for the ReplaceServiceDnsRecord method, with any body, and a specified content type
+func NewReplaceServiceDnsRecordRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/services/%s/dns/replace", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewReleaseServiceDnsRecordRequest constructs an http.Request for the ReleaseServiceDnsRecord method
+func NewReleaseServiceDnsRecordRequest(server string, uuid string, hostname string, params *ReleaseServiceDnsRecordParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "hostname", hostname, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/services/%s/dns/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.DeleteRecord != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "delete_record", *params.DeleteRecord, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewListEnvsByServiceUuidRequest constructs an http.Request for the ListEnvsByServiceUuid method
 func NewListEnvsByServiceUuidRequest(server string, uuid string) (*http.Request, error) {
 	var err error
@@ -31020,8 +33203,19 @@ func NewDeleteTeamSharedEnvRequest(server string, envId int) (*http.Request, err
 	return req, nil
 }
 
-// NewUpdateTeamSharedEnvRequest constructs an http.Request for the UpdateTeamSharedEnv method
-func NewUpdateTeamSharedEnvRequest(server string, envId int) (*http.Request, error) {
+// NewUpdateTeamSharedEnvRequest calls the generic UpdateTeamSharedEnv builder with application/json body
+func NewUpdateTeamSharedEnvRequest(server string, envId int, body UpdateTeamSharedEnvJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateTeamSharedEnvRequestWithBody(server, envId, "application/json", bodyReader)
+}
+
+// NewUpdateTeamSharedEnvRequestWithBody constructs an http.Request for the UpdateTeamSharedEnv method, with any body, and a specified content type
+func NewUpdateTeamSharedEnvRequestWithBody(server string, envId int, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -31046,10 +33240,12 @@ func NewUpdateTeamSharedEnvRequest(server string, envId int) (*http.Request, err
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), nil)
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
 	if err != nil {
 		return nil, err
 	}
+
+	req.Header.Add("Content-Type", contentType)
 
 	return req, nil
 }
@@ -31311,6 +33507,278 @@ func NewGetVultrSshKeysRequest(server string) (*http.Request, error) {
 	return req, nil
 }
 
+// NewRemoveSecretManagerSourceRequest constructs an http.Request for the RemoveSecretManagerSource method
+func NewRemoveSecretManagerSourceRequest(server string, resourceType RemoveSecretManagerSourceParamsResourceType, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "resource_type", resourceType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/%s/%s/secret-manager", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetSecretManagerSourceRequest constructs an http.Request for the GetSecretManagerSource method
+func NewGetSecretManagerSourceRequest(server string, resourceType GetSecretManagerSourceParamsResourceType, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "resource_type", resourceType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/%s/%s/secret-manager", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewSetSecretManagerSourceRequest calls the generic SetSecretManagerSource builder with application/json body
+func NewSetSecretManagerSourceRequest(server string, resourceType SetSecretManagerSourceParamsResourceType, uuid string, body SetSecretManagerSourceJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewSetSecretManagerSourceRequestWithBody(server, resourceType, uuid, "application/json", bodyReader)
+}
+
+// NewSetSecretManagerSourceRequestWithBody constructs an http.Request for the SetSecretManagerSource method, with any body, and a specified content type
+func NewSetSecretManagerSourceRequestWithBody(server string, resourceType SetSecretManagerSourceParamsResourceType, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "resource_type", resourceType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/%s/%s/secret-manager", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewImportSecretManagerReferencesRequest constructs an http.Request for the ImportSecretManagerReferences method
+func NewImportSecretManagerReferencesRequest(server string, resourceType ImportSecretManagerReferencesParamsResourceType, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "resource_type", resourceType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/%s/%s/secret-manager/import", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewListSecretManagerKeysRequest constructs an http.Request for the ListSecretManagerKeys method
+func NewListSecretManagerKeysRequest(server string, resourceType ListSecretManagerKeysParamsResourceType, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "resource_type", resourceType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/%s/%s/secret-manager/keys", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewAddSecretManagerReferenceRequest calls the generic AddSecretManagerReference builder with application/json body
+func NewAddSecretManagerReferenceRequest(server string, resourceType AddSecretManagerReferenceParamsResourceType, uuid string, body AddSecretManagerReferenceJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewAddSecretManagerReferenceRequestWithBody(server, resourceType, uuid, "application/json", bodyReader)
+}
+
+// NewAddSecretManagerReferenceRequestWithBody constructs an http.Request for the AddSecretManagerReference method, with any body, and a specified content type
+func NewAddSecretManagerReferenceRequestWithBody(server string, resourceType AddSecretManagerReferenceParamsResourceType, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "resource_type", resourceType, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	var pathParam1 string
+
+	pathParam1, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/%s/%s/secret-manager/references", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 func (c *Client) applyEditors(ctx context.Context, req *http.Request, additionalEditors []RequestEditorFn) error {
 	for _, r := range c.RequestEditors {
 		if err := r(ctx, req); err != nil {
@@ -31543,6 +34011,60 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with DELETE /applications/{uuid}/destinations/{destination_uuid} (the `RemoveApplicationDestination` operationId).
 	RemoveApplicationDestinationWithResponse(ctx context.Context, uuid string, destinationUuid string, reqEditors ...RequestEditorFn) (*RemoveApplicationDestinationResponse, error)
+
+	// GetApplicationDnsWithResponse Get Application DNS
+	//
+	// DNS providers and managed DNS records for the domains of an application.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /applications/{uuid}/dns (the `GetApplicationDns` operationId).
+	GetApplicationDnsWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*GetApplicationDnsResponse, error)
+
+	// CreateApplicationDnsRecordWithBodyWithResponse Create Application DNS Record
+	//
+	// Create a DNS record at Cloudflare that points a domain of the application to its server. An existing record with the same address is adopted.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /applications/{uuid}/dns (the `CreateApplicationDnsRecord` operationId).
+	CreateApplicationDnsRecordWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateApplicationDnsRecordResponse, error)
+
+	// CreateApplicationDnsRecordWithResponse Create Application DNS Record
+	//
+	// Create a DNS record at Cloudflare that points a domain of the application to its server. An existing record with the same address is adopted.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /applications/{uuid}/dns (the `CreateApplicationDnsRecord` operationId).
+	CreateApplicationDnsRecordWithResponse(ctx context.Context, uuid string, body CreateApplicationDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateApplicationDnsRecordResponse, error)
+
+	// ReplaceApplicationDnsRecordWithBodyWithResponse Replace Application DNS Record
+	//
+	// Point the conflicting record from a 409 create response to the server of the application.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /applications/{uuid}/dns/replace (the `ReplaceApplicationDnsRecord` operationId).
+	ReplaceApplicationDnsRecordWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ReplaceApplicationDnsRecordResponse, error)
+
+	// ReplaceApplicationDnsRecordWithResponse Replace Application DNS Record
+	//
+	// Point the conflicting record from a 409 create response to the server of the application.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /applications/{uuid}/dns/replace (the `ReplaceApplicationDnsRecord` operationId).
+	ReplaceApplicationDnsRecordWithResponse(ctx context.Context, uuid string, body ReplaceApplicationDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*ReplaceApplicationDnsRecordResponse, error)
+
+	// ReleaseApplicationDnsRecordWithResponse Release Application DNS Record
+	//
+	// Release the managed DNS record of a hostname that the application no longer uses. Coolify deletes the record at Cloudflare only when it created the record, the record did not change, and no other resource uses the hostname. Removing a domain through the API already queues this release; use this endpoint to retry it or to keep the record.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /applications/{uuid}/dns/{hostname} (the `ReleaseApplicationDnsRecord` operationId).
+	ReleaseApplicationDnsRecordWithResponse(ctx context.Context, uuid string, hostname string, params *ReleaseApplicationDnsRecordParams, reqEditors ...RequestEditorFn) (*ReleaseApplicationDnsRecordResponse, error)
 
 	// ListEnvsByApplicationUuidWithResponse List Envs
 	//
@@ -31843,7 +34365,7 @@ type ClientWithResponsesInterface interface {
 
 	// ConfigureApplicationSecretManagerWithBodyWithResponse Configure Application Secret Manager
 	//
-	// Configure the secret manager source used by an application.
+	// Configure the secret manager source used by an application. Same as Set Secret Manager Source with resource_type applications.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -31852,7 +34374,7 @@ type ClientWithResponsesInterface interface {
 
 	// ConfigureApplicationSecretManagerWithResponse Configure Application Secret Manager
 	//
-	// Configure the secret manager source used by an application.
+	// Configure the secret manager source used by an application. Same as Set Secret Manager Source with resource_type applications.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -32873,6 +35395,15 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /disable (the `DisableApi` operationId).
 	DisableApiWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*DisableApiResponse, error)
 
+	// ListDnsZonesWithResponse List DNS Zones
+	//
+	// List the DNS zones that the Cloudflare tokens of the team can access. Requires admin or owner.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /dns/zones (the `ListDnsZones` operationId).
+	ListDnsZonesWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*ListDnsZonesResponse, error)
+
 	// ListGithubAppsWithResponse List
 	//
 	// List all GitHub apps.
@@ -33349,14 +35880,23 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /projects/{uuid}/environments/{environment_name_or_uuid}/envs (the `ListEnvironmentSharedEnvs` operationId).
 	ListEnvironmentSharedEnvsWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, reqEditors ...RequestEditorFn) (*ListEnvironmentSharedEnvsResponse, error)
 
+	// CreateEnvironmentSharedEnvWithBodyWithResponse Create Environment Shared Env
+	//
+	// Create a shared environment variable for a project environment (type=environment).
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /projects/{uuid}/environments/{environment_name_or_uuid}/envs (the `CreateEnvironmentSharedEnv` operationId).
+	CreateEnvironmentSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateEnvironmentSharedEnvResponse, error)
+
 	// CreateEnvironmentSharedEnvWithResponse Create Environment Shared Env
 	//
 	// Create a shared environment variable for a project environment (type=environment).
 	//
-	// Returns a wrapper object for the known response body format(s).
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /projects/{uuid}/environments/{environment_name_or_uuid}/envs (the `CreateEnvironmentSharedEnv` operationId).
-	CreateEnvironmentSharedEnvWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, reqEditors ...RequestEditorFn) (*CreateEnvironmentSharedEnvResponse, error)
+	CreateEnvironmentSharedEnvWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, body CreateEnvironmentSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateEnvironmentSharedEnvResponse, error)
 
 	// DeleteEnvironmentSharedEnvWithResponse Delete Environment Shared Env
 	//
@@ -33367,14 +35907,23 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with DELETE /projects/{uuid}/environments/{environment_name_or_uuid}/envs/{env_id} (the `DeleteEnvironmentSharedEnv` operationId).
 	DeleteEnvironmentSharedEnvWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, reqEditors ...RequestEditorFn) (*DeleteEnvironmentSharedEnvResponse, error)
 
+	// UpdateEnvironmentSharedEnvWithBodyWithResponse Update Environment Shared Env
+	//
+	// Update an environment shared environment variable by id.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /projects/{uuid}/environments/{environment_name_or_uuid}/envs/{env_id} (the `UpdateEnvironmentSharedEnv` operationId).
+	UpdateEnvironmentSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateEnvironmentSharedEnvResponse, error)
+
 	// UpdateEnvironmentSharedEnvWithResponse Update Environment Shared Env
 	//
 	// Update an environment shared environment variable by id.
 	//
-	// Returns a wrapper object for the known response body format(s).
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with PATCH /projects/{uuid}/environments/{environment_name_or_uuid}/envs/{env_id} (the `UpdateEnvironmentSharedEnv` operationId).
-	UpdateEnvironmentSharedEnvWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, reqEditors ...RequestEditorFn) (*UpdateEnvironmentSharedEnvResponse, error)
+	UpdateEnvironmentSharedEnvWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, body UpdateEnvironmentSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateEnvironmentSharedEnvResponse, error)
 
 	// ListProjectSharedEnvsWithResponse List Project Shared Envs
 	//
@@ -33385,14 +35934,23 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /projects/{uuid}/envs (the `ListProjectSharedEnvs` operationId).
 	ListProjectSharedEnvsWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*ListProjectSharedEnvsResponse, error)
 
+	// CreateProjectSharedEnvWithBodyWithResponse Create Project Shared Env
+	//
+	// Create a shared environment variable for a project (type=project).
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /projects/{uuid}/envs (the `CreateProjectSharedEnv` operationId).
+	CreateProjectSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateProjectSharedEnvResponse, error)
+
 	// CreateProjectSharedEnvWithResponse Create Project Shared Env
 	//
 	// Create a shared environment variable for a project (type=project).
 	//
-	// Returns a wrapper object for the known response body format(s).
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /projects/{uuid}/envs (the `CreateProjectSharedEnv` operationId).
-	CreateProjectSharedEnvWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*CreateProjectSharedEnvResponse, error)
+	CreateProjectSharedEnvWithResponse(ctx context.Context, uuid string, body CreateProjectSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateProjectSharedEnvResponse, error)
 
 	// DeleteProjectSharedEnvWithResponse Delete Project Shared Env
 	//
@@ -33403,14 +35961,23 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with DELETE /projects/{uuid}/envs/{env_id} (the `DeleteProjectSharedEnv` operationId).
 	DeleteProjectSharedEnvWithResponse(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*DeleteProjectSharedEnvResponse, error)
 
+	// UpdateProjectSharedEnvWithBodyWithResponse Update Project Shared Env
+	//
+	// Update a project shared environment variable by id.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /projects/{uuid}/envs/{env_id} (the `UpdateProjectSharedEnv` operationId).
+	UpdateProjectSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateProjectSharedEnvResponse, error)
+
 	// UpdateProjectSharedEnvWithResponse Update Project Shared Env
 	//
 	// Update a project shared environment variable by id.
 	//
-	// Returns a wrapper object for the known response body format(s).
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with PATCH /projects/{uuid}/envs/{env_id} (the `UpdateProjectSharedEnv` operationId).
-	UpdateProjectSharedEnvWithResponse(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*UpdateProjectSharedEnvResponse, error)
+	UpdateProjectSharedEnvWithResponse(ctx context.Context, uuid string, envId int, body UpdateProjectSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateProjectSharedEnvResponse, error)
 
 	// GetEnvironmentByNameOrUuidWithResponse Environment
 	//
@@ -33502,23 +36069,77 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /s3-storages/{uuid}/validate (the `ValidateS3StorageByUuid` operationId).
 	ValidateS3StorageByUuidWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*ValidateS3StorageByUuidResponse, error)
 
-	// CreateSecretManagerIntegrationTokenWithBodyWithResponse Create Secret Manager Token
+	// ListIntegrationTokensWithResponse List Integration Tokens
 	//
-	// Create and validate a Doppler, Infisical, or Vault integration token.
+	// List the integration tokens (Cloudflare, Doppler, Infisical, Vault) of the team. Requires admin or owner.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /security/integration-tokens (the `ListIntegrationTokens` operationId).
+	ListIntegrationTokensWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*ListIntegrationTokensResponse, error)
+
+	// CreateSecretManagerIntegrationTokenWithBodyWithResponse Create Integration Token
+	//
+	// Create and validate a Cloudflare, Doppler, Infisical, or Vault integration token. A Cloudflare token also gets its DNS zones; it is not stored when the zones cannot be read. Requires admin or owner.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /security/integration-tokens (the `CreateSecretManagerIntegrationToken` operationId).
 	CreateSecretManagerIntegrationTokenWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateSecretManagerIntegrationTokenResponse, error)
 
-	// CreateSecretManagerIntegrationTokenWithResponse Create Secret Manager Token
+	// CreateSecretManagerIntegrationTokenWithResponse Create Integration Token
 	//
-	// Create and validate a Doppler, Infisical, or Vault integration token.
+	// Create and validate a Cloudflare, Doppler, Infisical, or Vault integration token. A Cloudflare token also gets its DNS zones; it is not stored when the zones cannot be read. Requires admin or owner.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /security/integration-tokens (the `CreateSecretManagerIntegrationToken` operationId).
 	CreateSecretManagerIntegrationTokenWithResponse(ctx context.Context, body CreateSecretManagerIntegrationTokenJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateSecretManagerIntegrationTokenResponse, error)
+
+	// DeleteIntegrationTokenByUuidWithResponse Delete Integration Token
+	//
+	// Delete an integration token. A token that a resource uses as secret manager source, or that manages DNS records, cannot be deleted. Requires admin or owner.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /security/integration-tokens/{uuid} (the `DeleteIntegrationTokenByUuid` operationId).
+	DeleteIntegrationTokenByUuidWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*DeleteIntegrationTokenByUuidResponse, error)
+
+	// GetIntegrationTokenByUuidWithResponse Get Integration Token
+	//
+	// Get an integration token of the team by UUID. Requires admin or owner.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /security/integration-tokens/{uuid} (the `GetIntegrationTokenByUuid` operationId).
+	GetIntegrationTokenByUuidWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*GetIntegrationTokenByUuidResponse, error)
+
+	// UpdateIntegrationTokenByUuidWithBodyWithResponse Update Integration Token
+	//
+	// Rename an integration token, rotate its secret, or change its capabilities and settings. Omitted fields keep their value. The provider checks the token again when the secret, the capabilities, or the settings change. Requires admin or owner.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /security/integration-tokens/{uuid} (the `UpdateIntegrationTokenByUuid` operationId).
+	UpdateIntegrationTokenByUuidWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateIntegrationTokenByUuidResponse, error)
+
+	// UpdateIntegrationTokenByUuidWithResponse Update Integration Token
+	//
+	// Rename an integration token, rotate its secret, or change its capabilities and settings. Omitted fields keep their value. The provider checks the token again when the secret, the capabilities, or the settings change. Requires admin or owner.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /security/integration-tokens/{uuid} (the `UpdateIntegrationTokenByUuid` operationId).
+	UpdateIntegrationTokenByUuidWithResponse(ctx context.Context, uuid string, body UpdateIntegrationTokenByUuidJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateIntegrationTokenByUuidResponse, error)
+
+	// SyncIntegrationTokenZonesWithResponse Sync Cloudflare Zones
+	//
+	// Read the DNS zones that a Cloudflare token can access again. Requires admin or owner.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /security/integration-tokens/{uuid}/sync-zones (the `SyncIntegrationTokenZones` operationId).
+	SyncIntegrationTokenZonesWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*SyncIntegrationTokenZonesResponse, error)
 
 	// ListPrivateKeysWithResponse List
 	//
@@ -33860,14 +36481,23 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with GET /servers/{uuid}/envs (the `ListServerSharedEnvs` operationId).
 	ListServerSharedEnvsWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*ListServerSharedEnvsResponse, error)
 
+	// CreateServerSharedEnvWithBodyWithResponse Create Server Shared Env
+	//
+	// Create a shared environment variable for a server (type=server).
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /servers/{uuid}/envs (the `CreateServerSharedEnv` operationId).
+	CreateServerSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateServerSharedEnvResponse, error)
+
 	// CreateServerSharedEnvWithResponse Create Server Shared Env
 	//
 	// Create a shared environment variable for a server (type=server).
 	//
-	// Returns a wrapper object for the known response body format(s).
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /servers/{uuid}/envs (the `CreateServerSharedEnv` operationId).
-	CreateServerSharedEnvWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*CreateServerSharedEnvResponse, error)
+	CreateServerSharedEnvWithResponse(ctx context.Context, uuid string, body CreateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateServerSharedEnvResponse, error)
 
 	// DeleteServerSharedEnvWithResponse Delete Server Shared Env
 	//
@@ -33878,14 +36508,23 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with DELETE /servers/{uuid}/envs/{env_id} (the `DeleteServerSharedEnv` operationId).
 	DeleteServerSharedEnvWithResponse(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*DeleteServerSharedEnvResponse, error)
 
+	// UpdateServerSharedEnvWithBodyWithResponse Update Server Shared Env
+	//
+	// Update a server shared environment variable by id.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
+	UpdateServerSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateServerSharedEnvResponse, error)
+
 	// UpdateServerSharedEnvWithResponse Update Server Shared Env
 	//
 	// Update a server shared environment variable by id.
 	//
-	// Returns a wrapper object for the known response body format(s).
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
-	UpdateServerSharedEnvWithResponse(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*UpdateServerSharedEnvResponse, error)
+	UpdateServerSharedEnvWithResponse(ctx context.Context, uuid string, envId int, body UpdateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateServerSharedEnvResponse, error)
 
 	// GetServerLogDrainsWithResponse Get log drain settings
 	//
@@ -34024,7 +36663,7 @@ type ClientWithResponsesInterface interface {
 
 	// CheckServerRegistryLoginWithResponse Check a registry login on a server
 	//
-	// Check that the saved login of the server for a registry still works. Runs docker login with the saved credentials on the server.
+	// Check that the saved login of the server for a registry still works. Runs docker login with the saved credentials on the server. Needs a token with the write and deploy permissions.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -34377,6 +37016,60 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with POST /services/{uuid}/databases/{database_uuid}/stop (the `StopServiceDatabaseByServiceAndDatabaseUuid` operationId).
 	StopServiceDatabaseByServiceAndDatabaseUuidWithResponse(ctx context.Context, uuid string, databaseUuid string, reqEditors ...RequestEditorFn) (*StopServiceDatabaseByServiceAndDatabaseUuidResponse, error)
+
+	// GetServiceDnsWithResponse Get Service DNS
+	//
+	// DNS providers and managed DNS records for the domains of a service.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /services/{uuid}/dns (the `GetServiceDns` operationId).
+	GetServiceDnsWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*GetServiceDnsResponse, error)
+
+	// CreateServiceDnsRecordWithBodyWithResponse Create Service DNS Record
+	//
+	// Create a DNS record at Cloudflare that points a domain of the service to its server. An existing record with the same address is adopted.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /services/{uuid}/dns (the `CreateServiceDnsRecord` operationId).
+	CreateServiceDnsRecordWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateServiceDnsRecordResponse, error)
+
+	// CreateServiceDnsRecordWithResponse Create Service DNS Record
+	//
+	// Create a DNS record at Cloudflare that points a domain of the service to its server. An existing record with the same address is adopted.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /services/{uuid}/dns (the `CreateServiceDnsRecord` operationId).
+	CreateServiceDnsRecordWithResponse(ctx context.Context, uuid string, body CreateServiceDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateServiceDnsRecordResponse, error)
+
+	// ReplaceServiceDnsRecordWithBodyWithResponse Replace Service DNS Record
+	//
+	// Point the conflicting record from a 409 create response to the server of the service.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /services/{uuid}/dns/replace (the `ReplaceServiceDnsRecord` operationId).
+	ReplaceServiceDnsRecordWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ReplaceServiceDnsRecordResponse, error)
+
+	// ReplaceServiceDnsRecordWithResponse Replace Service DNS Record
+	//
+	// Point the conflicting record from a 409 create response to the server of the service.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /services/{uuid}/dns/replace (the `ReplaceServiceDnsRecord` operationId).
+	ReplaceServiceDnsRecordWithResponse(ctx context.Context, uuid string, body ReplaceServiceDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*ReplaceServiceDnsRecordResponse, error)
+
+	// ReleaseServiceDnsRecordWithResponse Release Service DNS Record
+	//
+	// Release the managed DNS record of a hostname that the service no longer uses. Coolify deletes the record at Cloudflare only when it created the record, the record did not change, and no other resource uses the hostname. Removing a domain through the API already queues this release; use this endpoint to retry it or to keep the record.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /services/{uuid}/dns/{hostname} (the `ReleaseServiceDnsRecord` operationId).
+	ReleaseServiceDnsRecordWithResponse(ctx context.Context, uuid string, hostname string, params *ReleaseServiceDnsRecordParams, reqEditors ...RequestEditorFn) (*ReleaseServiceDnsRecordResponse, error)
 
 	// ListEnvsByServiceUuidWithResponse List Envs
 	//
@@ -34855,14 +37548,23 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with DELETE /team/envs/{env_id} (the `DeleteTeamSharedEnv` operationId).
 	DeleteTeamSharedEnvWithResponse(ctx context.Context, envId int, reqEditors ...RequestEditorFn) (*DeleteTeamSharedEnvResponse, error)
 
+	// UpdateTeamSharedEnvWithBodyWithResponse Update Team Shared Env
+	//
+	// Update a team shared environment variable by id.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /team/envs/{env_id} (the `UpdateTeamSharedEnv` operationId).
+	UpdateTeamSharedEnvWithBodyWithResponse(ctx context.Context, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTeamSharedEnvResponse, error)
+
 	// UpdateTeamSharedEnvWithResponse Update Team Shared Env
 	//
 	// Update a team shared environment variable by id.
 	//
-	// Returns a wrapper object for the known response body format(s).
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with PATCH /team/envs/{env_id} (the `UpdateTeamSharedEnv` operationId).
-	UpdateTeamSharedEnvWithResponse(ctx context.Context, envId int, reqEditors ...RequestEditorFn) (*UpdateTeamSharedEnvResponse, error)
+	UpdateTeamSharedEnvWithResponse(ctx context.Context, envId int, body UpdateTeamSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTeamSharedEnvResponse, error)
 
 	// GetTokenTeamMembersWithResponse Authenticated Team Members
 	//
@@ -34944,6 +37646,78 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /vultr/ssh-keys (the `GetVultrSshKeys` operationId).
 	GetVultrSshKeysWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetVultrSshKeysResponse, error)
+
+	// RemoveSecretManagerSourceWithResponse Remove Secret Manager Source
+	//
+	// Remove the secret manager source. Existing {{vault.*}} variables stay and fail the next deployment until they are removed.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with DELETE /{resource_type}/{uuid}/secret-manager (the `RemoveSecretManagerSource` operationId).
+	RemoveSecretManagerSourceWithResponse(ctx context.Context, resourceType RemoveSecretManagerSourceParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*RemoveSecretManagerSourceResponse, error)
+
+	// GetSecretManagerSourceWithResponse Get Secret Manager Source
+	//
+	// The secret manager source of an application, service, or database, and the secret manager tokens of its team that can be linked.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /{resource_type}/{uuid}/secret-manager (the `GetSecretManagerSource` operationId).
+	GetSecretManagerSourceWithResponse(ctx context.Context, resourceType GetSecretManagerSourceParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*GetSecretManagerSourceResponse, error)
+
+	// SetSecretManagerSourceWithBodyWithResponse Set Secret Manager Source
+	//
+	// Link a secret manager token of the team to an application, service, or database, or change the token or settings of the link. References resolve at the next deployment.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /{resource_type}/{uuid}/secret-manager (the `SetSecretManagerSource` operationId).
+	SetSecretManagerSourceWithBodyWithResponse(ctx context.Context, resourceType SetSecretManagerSourceParamsResourceType, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SetSecretManagerSourceResponse, error)
+
+	// SetSecretManagerSourceWithResponse Set Secret Manager Source
+	//
+	// Link a secret manager token of the team to an application, service, or database, or change the token or settings of the link. References resolve at the next deployment.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /{resource_type}/{uuid}/secret-manager (the `SetSecretManagerSource` operationId).
+	SetSecretManagerSourceWithResponse(ctx context.Context, resourceType SetSecretManagerSourceParamsResourceType, uuid string, body SetSecretManagerSourceJSONRequestBody, reqEditors ...RequestEditorFn) (*SetSecretManagerSourceResponse, error)
+
+	// ImportSecretManagerReferencesWithResponse Import Secret Manager References
+	//
+	// Add a {{vault.KEY}} environment variable for every key of the linked source that has no variable yet. Keys that are not valid variable names are skipped.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /{resource_type}/{uuid}/secret-manager/import (the `ImportSecretManagerReferences` operationId).
+	ImportSecretManagerReferencesWithResponse(ctx context.Context, resourceType ImportSecretManagerReferencesParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*ImportSecretManagerReferencesResponse, error)
+
+	// ListSecretManagerKeysWithResponse List Secret Manager Keys
+	//
+	// Key names of the secrets in the linked source. Values are never returned. Requires write access, like the resource page, because the stored secret is sent to the secret manager.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /{resource_type}/{uuid}/secret-manager/keys (the `ListSecretManagerKeys` operationId).
+	ListSecretManagerKeysWithResponse(ctx context.Context, resourceType ListSecretManagerKeysParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*ListSecretManagerKeysResponse, error)
+
+	// AddSecretManagerReferenceWithBodyWithResponse Add Secret Manager Reference
+	//
+	// Add a {{vault.KEY}} environment variable for one key of the linked source.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /{resource_type}/{uuid}/secret-manager/references (the `AddSecretManagerReference` operationId).
+	AddSecretManagerReferenceWithBodyWithResponse(ctx context.Context, resourceType AddSecretManagerReferenceParamsResourceType, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AddSecretManagerReferenceResponse, error)
+
+	// AddSecretManagerReferenceWithResponse Add Secret Manager Reference
+	//
+	// Add a {{vault.KEY}} environment variable for one key of the linked source.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /{resource_type}/{uuid}/secret-manager/references (the `AddSecretManagerReference` operationId).
+	AddSecretManagerReferenceWithResponse(ctx context.Context, resourceType AddSecretManagerReferenceParamsResourceType, uuid string, body AddSecretManagerReferenceJSONRequestBody, reqEditors ...RequestEditorFn) (*AddSecretManagerReferenceResponse, error)
 }
 
 type ListApplicationsResponse struct {
@@ -35886,6 +38660,258 @@ func (r RemoveApplicationDestinationResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r RemoveApplicationDestinationResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetApplicationDnsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ResourceDnsStatus
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetApplicationDnsResponse) GetJSON200() *ResourceDnsStatus {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetApplicationDnsResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r GetApplicationDnsResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r GetApplicationDnsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetApplicationDnsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetApplicationDnsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetApplicationDnsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CreateApplicationDnsRecordResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON201 the response for an HTTP 201 `application/json` response
+	JSON201 *struct {
+		// Record DNS record that Coolify manages at a DNS provider.
+		Record *ManagedDnsRecord `json:"record,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON409 the response for an HTTP 409 `application/json` response
+	JSON409 *DnsRecordConflict
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON201 returns the response for an HTTP 201 `application/json` response
+func (r CreateApplicationDnsRecordResponse) GetJSON201() *struct {
+	// Record DNS record that Coolify manages at a DNS provider.
+	Record *ManagedDnsRecord `json:"record,omitempty"`
+} {
+	return r.JSON201
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r CreateApplicationDnsRecordResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r CreateApplicationDnsRecordResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON409 returns the response for an HTTP 409 `application/json` response
+func (r CreateApplicationDnsRecordResponse) GetJSON409() *DnsRecordConflict {
+	return r.JSON409
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r CreateApplicationDnsRecordResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateApplicationDnsRecordResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateApplicationDnsRecordResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateApplicationDnsRecordResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateApplicationDnsRecordResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ReplaceApplicationDnsRecordResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Record DNS record that Coolify manages at a DNS provider.
+		Record *ManagedDnsRecord `json:"record,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ReplaceApplicationDnsRecordResponse) GetJSON200() *struct {
+	// Record DNS record that Coolify manages at a DNS provider.
+	Record *ManagedDnsRecord `json:"record,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ReplaceApplicationDnsRecordResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r ReplaceApplicationDnsRecordResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ReplaceApplicationDnsRecordResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ReplaceApplicationDnsRecordResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ReplaceApplicationDnsRecordResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ReplaceApplicationDnsRecordResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ReplaceApplicationDnsRecordResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ReleaseApplicationDnsRecordResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		Message *string                                               `json:"message,omitempty"`
+		Result  *ReleaseApplicationDnsRecord200JSONResponseBodyResult `json:"result,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ReleaseApplicationDnsRecordResponse) GetJSON200() *struct {
+	Message *string                                               `json:"message,omitempty"`
+	Result  *ReleaseApplicationDnsRecord200JSONResponseBodyResult `json:"result,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ReleaseApplicationDnsRecordResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r ReleaseApplicationDnsRecordResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ReleaseApplicationDnsRecordResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ReleaseApplicationDnsRecordResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ReleaseApplicationDnsRecordResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -42409,6 +45435,66 @@ func (r DisableApiResponse) ContentType() string {
 	return ""
 }
 
+type ListDnsZonesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]struct {
+		AccountName          *string `json:"account_name,omitempty"`
+		IntegrationTokenName *string `json:"integration_token_name,omitempty"`
+		IntegrationTokenUuid *string `json:"integration_token_uuid,omitempty"`
+		ManagedRecordsCount  *int    `json:"managed_records_count,omitempty"`
+		Zone                 *string `json:"zone,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListDnsZonesResponse) GetJSON200() *[]struct {
+	AccountName          *string `json:"account_name,omitempty"`
+	IntegrationTokenName *string `json:"integration_token_name,omitempty"`
+	IntegrationTokenUuid *string `json:"integration_token_uuid,omitempty"`
+	ManagedRecordsCount  *int    `json:"managed_records_count,omitempty"`
+	Zone                 *string `json:"zone,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ListDnsZonesResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r ListDnsZonesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListDnsZonesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListDnsZonesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListDnsZonesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type ListGithubAppsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -46136,20 +49222,72 @@ func (r ValidateS3StorageByUuidResponse) ContentType() string {
 	return ""
 }
 
+type ListIntegrationTokensResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]IntegrationToken
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListIntegrationTokensResponse) GetJSON200() *[]IntegrationToken {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ListIntegrationTokensResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r ListIntegrationTokensResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListIntegrationTokensResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListIntegrationTokensResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListIntegrationTokensResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type CreateSecretManagerIntegrationTokenResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	// JSON400 the response for an HTTP 400 `application/json` response
-	JSON400 *N400
+	// JSON201 the response for an HTTP 201 `application/json` response
+	JSON201 *struct {
+		Uuid *string `json:"uuid,omitempty"`
+	}
 	// JSON401 the response for an HTTP 401 `application/json` response
 	JSON401 *N401
 	// JSON422 the response for an HTTP 422 `application/json` response
 	JSON422 *N422
 }
 
-// GetJSON400 returns the response for an HTTP 400 `application/json` response
-func (r CreateSecretManagerIntegrationTokenResponse) GetJSON400() *N400 {
-	return r.JSON400
+// GetJSON201 returns the response for an HTTP 201 `application/json` response
+func (r CreateSecretManagerIntegrationTokenResponse) GetJSON201() *struct {
+	Uuid *string `json:"uuid,omitempty"`
+} {
+	return r.JSON201
 }
 
 // GetJSON401 returns the response for an HTTP 401 `application/json` response
@@ -46185,6 +49323,241 @@ func (r CreateSecretManagerIntegrationTokenResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r CreateSecretManagerIntegrationTokenResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type DeleteIntegrationTokenByUuidResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		Message *string `json:"message,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r DeleteIntegrationTokenByUuidResponse) GetJSON200() *struct {
+	Message *string `json:"message,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r DeleteIntegrationTokenByUuidResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r DeleteIntegrationTokenByUuidResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r DeleteIntegrationTokenByUuidResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r DeleteIntegrationTokenByUuidResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DeleteIntegrationTokenByUuidResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r DeleteIntegrationTokenByUuidResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetIntegrationTokenByUuidResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *IntegrationToken
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetIntegrationTokenByUuidResponse) GetJSON200() *IntegrationToken {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetIntegrationTokenByUuidResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r GetIntegrationTokenByUuidResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r GetIntegrationTokenByUuidResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetIntegrationTokenByUuidResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetIntegrationTokenByUuidResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetIntegrationTokenByUuidResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type UpdateIntegrationTokenByUuidResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *IntegrationToken
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r UpdateIntegrationTokenByUuidResponse) GetJSON200() *IntegrationToken {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r UpdateIntegrationTokenByUuidResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r UpdateIntegrationTokenByUuidResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r UpdateIntegrationTokenByUuidResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r UpdateIntegrationTokenByUuidResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateIntegrationTokenByUuidResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateIntegrationTokenByUuidResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r UpdateIntegrationTokenByUuidResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SyncIntegrationTokenZonesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		ZonesCount *int `json:"zones_count,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r SyncIntegrationTokenZonesResponse) GetJSON200() *struct {
+	ZonesCount *int `json:"zones_count,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r SyncIntegrationTokenZonesResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r SyncIntegrationTokenZonesResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r SyncIntegrationTokenZonesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SyncIntegrationTokenZonesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SyncIntegrationTokenZonesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SyncIntegrationTokenZonesResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -50906,6 +54279,258 @@ func (r StopServiceDatabaseByServiceAndDatabaseUuidResponse) ContentType() strin
 	return ""
 }
 
+type GetServiceDnsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ResourceDnsStatus
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetServiceDnsResponse) GetJSON200() *ResourceDnsStatus {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetServiceDnsResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r GetServiceDnsResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r GetServiceDnsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetServiceDnsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetServiceDnsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetServiceDnsResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CreateServiceDnsRecordResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON201 the response for an HTTP 201 `application/json` response
+	JSON201 *struct {
+		// Record DNS record that Coolify manages at a DNS provider.
+		Record *ManagedDnsRecord `json:"record,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON409 the response for an HTTP 409 `application/json` response
+	JSON409 *DnsRecordConflict
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON201 returns the response for an HTTP 201 `application/json` response
+func (r CreateServiceDnsRecordResponse) GetJSON201() *struct {
+	// Record DNS record that Coolify manages at a DNS provider.
+	Record *ManagedDnsRecord `json:"record,omitempty"`
+} {
+	return r.JSON201
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r CreateServiceDnsRecordResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r CreateServiceDnsRecordResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON409 returns the response for an HTTP 409 `application/json` response
+func (r CreateServiceDnsRecordResponse) GetJSON409() *DnsRecordConflict {
+	return r.JSON409
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r CreateServiceDnsRecordResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r CreateServiceDnsRecordResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreateServiceDnsRecordResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreateServiceDnsRecordResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreateServiceDnsRecordResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ReplaceServiceDnsRecordResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// Record DNS record that Coolify manages at a DNS provider.
+		Record *ManagedDnsRecord `json:"record,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ReplaceServiceDnsRecordResponse) GetJSON200() *struct {
+	// Record DNS record that Coolify manages at a DNS provider.
+	Record *ManagedDnsRecord `json:"record,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ReplaceServiceDnsRecordResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r ReplaceServiceDnsRecordResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ReplaceServiceDnsRecordResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ReplaceServiceDnsRecordResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ReplaceServiceDnsRecordResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ReplaceServiceDnsRecordResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ReplaceServiceDnsRecordResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ReleaseServiceDnsRecordResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		Message *string                                           `json:"message,omitempty"`
+		Result  *ReleaseServiceDnsRecord200JSONResponseBodyResult `json:"result,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ReleaseServiceDnsRecordResponse) GetJSON200() *struct {
+	Message *string                                           `json:"message,omitempty"`
+	Result  *ReleaseServiceDnsRecord200JSONResponseBodyResult `json:"result,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ReleaseServiceDnsRecordResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r ReleaseServiceDnsRecordResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ReleaseServiceDnsRecordResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ReleaseServiceDnsRecordResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ReleaseServiceDnsRecordResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type ListEnvsByServiceUuidResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -53745,6 +57370,332 @@ func (r GetVultrSshKeysResponse) ContentType() string {
 	return ""
 }
 
+type RemoveSecretManagerSourceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r RemoveSecretManagerSourceResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r RemoveSecretManagerSourceResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r RemoveSecretManagerSourceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r RemoveSecretManagerSourceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r RemoveSecretManagerSourceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r RemoveSecretManagerSourceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetSecretManagerSourceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *SecretManagerSource
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetSecretManagerSourceResponse) GetJSON200() *SecretManagerSource {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetSecretManagerSourceResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r GetSecretManagerSourceResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r GetSecretManagerSourceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetSecretManagerSourceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetSecretManagerSourceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetSecretManagerSourceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type SetSecretManagerSourceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r SetSecretManagerSourceResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r SetSecretManagerSourceResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r SetSecretManagerSourceResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r SetSecretManagerSourceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r SetSecretManagerSourceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r SetSecretManagerSourceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r SetSecretManagerSourceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ImportSecretManagerReferencesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		Imported *[]string `json:"imported,omitempty"`
+		Skipped  *[]string `json:"skipped,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ImportSecretManagerReferencesResponse) GetJSON200() *struct {
+	Imported *[]string `json:"imported,omitempty"`
+	Skipped  *[]string `json:"skipped,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ImportSecretManagerReferencesResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r ImportSecretManagerReferencesResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r ImportSecretManagerReferencesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ImportSecretManagerReferencesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ImportSecretManagerReferencesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ImportSecretManagerReferencesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListSecretManagerKeysResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		Keys *[]string `json:"keys,omitempty"`
+	}
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListSecretManagerKeysResponse) GetJSON200() *struct {
+	Keys *[]string `json:"keys,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ListSecretManagerKeysResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r ListSecretManagerKeysResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r ListSecretManagerKeysResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListSecretManagerKeysResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListSecretManagerKeysResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListSecretManagerKeysResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type AddSecretManagerReferenceResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r AddSecretManagerReferenceResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r AddSecretManagerReferenceResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r AddSecretManagerReferenceResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r AddSecretManagerReferenceResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r AddSecretManagerReferenceResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r AddSecretManagerReferenceResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 // ListApplicationsWithResponse List
 //
 // List all applications.
@@ -54058,6 +58009,96 @@ func (c *ClientWithResponses) RemoveApplicationDestinationWithResponse(ctx conte
 		return nil, err
 	}
 	return ParseRemoveApplicationDestinationResponse(rsp)
+}
+
+// GetApplicationDnsWithResponse Get Application DNS
+//
+// DNS providers and managed DNS records for the domains of an application.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /applications/{uuid}/dns (the `GetApplicationDns` operationId).
+func (c *ClientWithResponses) GetApplicationDnsWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*GetApplicationDnsResponse, error) {
+	rsp, err := c.GetApplicationDns(ctx, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetApplicationDnsResponse(rsp)
+}
+
+// CreateApplicationDnsRecordWithBodyWithResponse Create Application DNS Record
+//
+// Create a DNS record at Cloudflare that points a domain of the application to its server. An existing record with the same address is adopted.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /applications/{uuid}/dns (the `CreateApplicationDnsRecord` operationId).
+func (c *ClientWithResponses) CreateApplicationDnsRecordWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateApplicationDnsRecordResponse, error) {
+	rsp, err := c.CreateApplicationDnsRecordWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateApplicationDnsRecordResponse(rsp)
+}
+
+// CreateApplicationDnsRecordWithResponse Create Application DNS Record
+//
+// Create a DNS record at Cloudflare that points a domain of the application to its server. An existing record with the same address is adopted.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /applications/{uuid}/dns (the `CreateApplicationDnsRecord` operationId).
+func (c *ClientWithResponses) CreateApplicationDnsRecordWithResponse(ctx context.Context, uuid string, body CreateApplicationDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateApplicationDnsRecordResponse, error) {
+	rsp, err := c.CreateApplicationDnsRecord(ctx, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateApplicationDnsRecordResponse(rsp)
+}
+
+// ReplaceApplicationDnsRecordWithBodyWithResponse Replace Application DNS Record
+//
+// Point the conflicting record from a 409 create response to the server of the application.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /applications/{uuid}/dns/replace (the `ReplaceApplicationDnsRecord` operationId).
+func (c *ClientWithResponses) ReplaceApplicationDnsRecordWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ReplaceApplicationDnsRecordResponse, error) {
+	rsp, err := c.ReplaceApplicationDnsRecordWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseReplaceApplicationDnsRecordResponse(rsp)
+}
+
+// ReplaceApplicationDnsRecordWithResponse Replace Application DNS Record
+//
+// Point the conflicting record from a 409 create response to the server of the application.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /applications/{uuid}/dns/replace (the `ReplaceApplicationDnsRecord` operationId).
+func (c *ClientWithResponses) ReplaceApplicationDnsRecordWithResponse(ctx context.Context, uuid string, body ReplaceApplicationDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*ReplaceApplicationDnsRecordResponse, error) {
+	rsp, err := c.ReplaceApplicationDnsRecord(ctx, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseReplaceApplicationDnsRecordResponse(rsp)
+}
+
+// ReleaseApplicationDnsRecordWithResponse Release Application DNS Record
+//
+// Release the managed DNS record of a hostname that the application no longer uses. Coolify deletes the record at Cloudflare only when it created the record, the record did not change, and no other resource uses the hostname. Removing a domain through the API already queues this release; use this endpoint to retry it or to keep the record.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /applications/{uuid}/dns/{hostname} (the `ReleaseApplicationDnsRecord` operationId).
+func (c *ClientWithResponses) ReleaseApplicationDnsRecordWithResponse(ctx context.Context, uuid string, hostname string, params *ReleaseApplicationDnsRecordParams, reqEditors ...RequestEditorFn) (*ReleaseApplicationDnsRecordResponse, error) {
+	rsp, err := c.ReleaseApplicationDnsRecord(ctx, uuid, hostname, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseReleaseApplicationDnsRecordResponse(rsp)
 }
 
 // ListEnvsByApplicationUuidWithResponse List Envs
@@ -54557,7 +58598,7 @@ func (c *ClientWithResponses) ListScheduledTaskExecutionsByApplicationUuidWithRe
 
 // ConfigureApplicationSecretManagerWithBodyWithResponse Configure Application Secret Manager
 //
-// Configure the secret manager source used by an application.
+// Configure the secret manager source used by an application. Same as Set Secret Manager Source with resource_type applications.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -54572,7 +58613,7 @@ func (c *ClientWithResponses) ConfigureApplicationSecretManagerWithBodyWithRespo
 
 // ConfigureApplicationSecretManagerWithResponse Configure Application Secret Manager
 //
-// Configure the secret manager source used by an application.
+// Configure the secret manager source used by an application. Same as Set Secret Manager Source with resource_type applications.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -56283,6 +60324,21 @@ func (c *ClientWithResponses) DisableApiWithResponse(ctx context.Context, reqEdi
 	return ParseDisableApiResponse(rsp)
 }
 
+// ListDnsZonesWithResponse List DNS Zones
+//
+// List the DNS zones that the Cloudflare tokens of the team can access. Requires admin or owner.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /dns/zones (the `ListDnsZones` operationId).
+func (c *ClientWithResponses) ListDnsZonesWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*ListDnsZonesResponse, error) {
+	rsp, err := c.ListDnsZones(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListDnsZonesResponse(rsp)
+}
+
 // ListGithubAppsWithResponse List
 //
 // List all GitHub apps.
@@ -57083,15 +61139,30 @@ func (c *ClientWithResponses) ListEnvironmentSharedEnvsWithResponse(ctx context.
 	return ParseListEnvironmentSharedEnvsResponse(rsp)
 }
 
+// CreateEnvironmentSharedEnvWithBodyWithResponse Create Environment Shared Env
+//
+// Create a shared environment variable for a project environment (type=environment).
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /projects/{uuid}/environments/{environment_name_or_uuid}/envs (the `CreateEnvironmentSharedEnv` operationId).
+func (c *ClientWithResponses) CreateEnvironmentSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateEnvironmentSharedEnvResponse, error) {
+	rsp, err := c.CreateEnvironmentSharedEnvWithBody(ctx, uuid, environmentNameOrUuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateEnvironmentSharedEnvResponse(rsp)
+}
+
 // CreateEnvironmentSharedEnvWithResponse Create Environment Shared Env
 //
 // Create a shared environment variable for a project environment (type=environment).
 //
-// Returns a wrapper object for the known response body format(s).
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with POST /projects/{uuid}/environments/{environment_name_or_uuid}/envs (the `CreateEnvironmentSharedEnv` operationId).
-func (c *ClientWithResponses) CreateEnvironmentSharedEnvWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, reqEditors ...RequestEditorFn) (*CreateEnvironmentSharedEnvResponse, error) {
-	rsp, err := c.CreateEnvironmentSharedEnv(ctx, uuid, environmentNameOrUuid, reqEditors...)
+func (c *ClientWithResponses) CreateEnvironmentSharedEnvWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, body CreateEnvironmentSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateEnvironmentSharedEnvResponse, error) {
+	rsp, err := c.CreateEnvironmentSharedEnv(ctx, uuid, environmentNameOrUuid, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -57113,15 +61184,30 @@ func (c *ClientWithResponses) DeleteEnvironmentSharedEnvWithResponse(ctx context
 	return ParseDeleteEnvironmentSharedEnvResponse(rsp)
 }
 
+// UpdateEnvironmentSharedEnvWithBodyWithResponse Update Environment Shared Env
+//
+// Update an environment shared environment variable by id.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /projects/{uuid}/environments/{environment_name_or_uuid}/envs/{env_id} (the `UpdateEnvironmentSharedEnv` operationId).
+func (c *ClientWithResponses) UpdateEnvironmentSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateEnvironmentSharedEnvResponse, error) {
+	rsp, err := c.UpdateEnvironmentSharedEnvWithBody(ctx, uuid, environmentNameOrUuid, envId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateEnvironmentSharedEnvResponse(rsp)
+}
+
 // UpdateEnvironmentSharedEnvWithResponse Update Environment Shared Env
 //
 // Update an environment shared environment variable by id.
 //
-// Returns a wrapper object for the known response body format(s).
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with PATCH /projects/{uuid}/environments/{environment_name_or_uuid}/envs/{env_id} (the `UpdateEnvironmentSharedEnv` operationId).
-func (c *ClientWithResponses) UpdateEnvironmentSharedEnvWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, reqEditors ...RequestEditorFn) (*UpdateEnvironmentSharedEnvResponse, error) {
-	rsp, err := c.UpdateEnvironmentSharedEnv(ctx, uuid, environmentNameOrUuid, envId, reqEditors...)
+func (c *ClientWithResponses) UpdateEnvironmentSharedEnvWithResponse(ctx context.Context, uuid string, environmentNameOrUuid string, envId int, body UpdateEnvironmentSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateEnvironmentSharedEnvResponse, error) {
+	rsp, err := c.UpdateEnvironmentSharedEnv(ctx, uuid, environmentNameOrUuid, envId, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -57143,15 +61229,30 @@ func (c *ClientWithResponses) ListProjectSharedEnvsWithResponse(ctx context.Cont
 	return ParseListProjectSharedEnvsResponse(rsp)
 }
 
+// CreateProjectSharedEnvWithBodyWithResponse Create Project Shared Env
+//
+// Create a shared environment variable for a project (type=project).
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /projects/{uuid}/envs (the `CreateProjectSharedEnv` operationId).
+func (c *ClientWithResponses) CreateProjectSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateProjectSharedEnvResponse, error) {
+	rsp, err := c.CreateProjectSharedEnvWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateProjectSharedEnvResponse(rsp)
+}
+
 // CreateProjectSharedEnvWithResponse Create Project Shared Env
 //
 // Create a shared environment variable for a project (type=project).
 //
-// Returns a wrapper object for the known response body format(s).
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with POST /projects/{uuid}/envs (the `CreateProjectSharedEnv` operationId).
-func (c *ClientWithResponses) CreateProjectSharedEnvWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*CreateProjectSharedEnvResponse, error) {
-	rsp, err := c.CreateProjectSharedEnv(ctx, uuid, reqEditors...)
+func (c *ClientWithResponses) CreateProjectSharedEnvWithResponse(ctx context.Context, uuid string, body CreateProjectSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateProjectSharedEnvResponse, error) {
+	rsp, err := c.CreateProjectSharedEnv(ctx, uuid, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -57173,15 +61274,30 @@ func (c *ClientWithResponses) DeleteProjectSharedEnvWithResponse(ctx context.Con
 	return ParseDeleteProjectSharedEnvResponse(rsp)
 }
 
+// UpdateProjectSharedEnvWithBodyWithResponse Update Project Shared Env
+//
+// Update a project shared environment variable by id.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /projects/{uuid}/envs/{env_id} (the `UpdateProjectSharedEnv` operationId).
+func (c *ClientWithResponses) UpdateProjectSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateProjectSharedEnvResponse, error) {
+	rsp, err := c.UpdateProjectSharedEnvWithBody(ctx, uuid, envId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateProjectSharedEnvResponse(rsp)
+}
+
 // UpdateProjectSharedEnvWithResponse Update Project Shared Env
 //
 // Update a project shared environment variable by id.
 //
-// Returns a wrapper object for the known response body format(s).
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with PATCH /projects/{uuid}/envs/{env_id} (the `UpdateProjectSharedEnv` operationId).
-func (c *ClientWithResponses) UpdateProjectSharedEnvWithResponse(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*UpdateProjectSharedEnvResponse, error) {
-	rsp, err := c.UpdateProjectSharedEnv(ctx, uuid, envId, reqEditors...)
+func (c *ClientWithResponses) UpdateProjectSharedEnvWithResponse(ctx context.Context, uuid string, envId int, body UpdateProjectSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateProjectSharedEnvResponse, error) {
+	rsp, err := c.UpdateProjectSharedEnv(ctx, uuid, envId, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -57338,9 +61454,24 @@ func (c *ClientWithResponses) ValidateS3StorageByUuidWithResponse(ctx context.Co
 	return ParseValidateS3StorageByUuidResponse(rsp)
 }
 
-// CreateSecretManagerIntegrationTokenWithBodyWithResponse Create Secret Manager Token
+// ListIntegrationTokensWithResponse List Integration Tokens
 //
-// Create and validate a Doppler, Infisical, or Vault integration token.
+// List the integration tokens (Cloudflare, Doppler, Infisical, Vault) of the team. Requires admin or owner.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /security/integration-tokens (the `ListIntegrationTokens` operationId).
+func (c *ClientWithResponses) ListIntegrationTokensWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*ListIntegrationTokensResponse, error) {
+	rsp, err := c.ListIntegrationTokens(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListIntegrationTokensResponse(rsp)
+}
+
+// CreateSecretManagerIntegrationTokenWithBodyWithResponse Create Integration Token
+//
+// Create and validate a Cloudflare, Doppler, Infisical, or Vault integration token. A Cloudflare token also gets its DNS zones; it is not stored when the zones cannot be read. Requires admin or owner.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -57353,9 +61484,9 @@ func (c *ClientWithResponses) CreateSecretManagerIntegrationTokenWithBodyWithRes
 	return ParseCreateSecretManagerIntegrationTokenResponse(rsp)
 }
 
-// CreateSecretManagerIntegrationTokenWithResponse Create Secret Manager Token
+// CreateSecretManagerIntegrationTokenWithResponse Create Integration Token
 //
-// Create and validate a Doppler, Infisical, or Vault integration token.
+// Create and validate a Cloudflare, Doppler, Infisical, or Vault integration token. A Cloudflare token also gets its DNS zones; it is not stored when the zones cannot be read. Requires admin or owner.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -57366,6 +61497,81 @@ func (c *ClientWithResponses) CreateSecretManagerIntegrationTokenWithResponse(ct
 		return nil, err
 	}
 	return ParseCreateSecretManagerIntegrationTokenResponse(rsp)
+}
+
+// DeleteIntegrationTokenByUuidWithResponse Delete Integration Token
+//
+// Delete an integration token. A token that a resource uses as secret manager source, or that manages DNS records, cannot be deleted. Requires admin or owner.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /security/integration-tokens/{uuid} (the `DeleteIntegrationTokenByUuid` operationId).
+func (c *ClientWithResponses) DeleteIntegrationTokenByUuidWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*DeleteIntegrationTokenByUuidResponse, error) {
+	rsp, err := c.DeleteIntegrationTokenByUuid(ctx, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteIntegrationTokenByUuidResponse(rsp)
+}
+
+// GetIntegrationTokenByUuidWithResponse Get Integration Token
+//
+// Get an integration token of the team by UUID. Requires admin or owner.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /security/integration-tokens/{uuid} (the `GetIntegrationTokenByUuid` operationId).
+func (c *ClientWithResponses) GetIntegrationTokenByUuidWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*GetIntegrationTokenByUuidResponse, error) {
+	rsp, err := c.GetIntegrationTokenByUuid(ctx, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetIntegrationTokenByUuidResponse(rsp)
+}
+
+// UpdateIntegrationTokenByUuidWithBodyWithResponse Update Integration Token
+//
+// Rename an integration token, rotate its secret, or change its capabilities and settings. Omitted fields keep their value. The provider checks the token again when the secret, the capabilities, or the settings change. Requires admin or owner.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /security/integration-tokens/{uuid} (the `UpdateIntegrationTokenByUuid` operationId).
+func (c *ClientWithResponses) UpdateIntegrationTokenByUuidWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateIntegrationTokenByUuidResponse, error) {
+	rsp, err := c.UpdateIntegrationTokenByUuidWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateIntegrationTokenByUuidResponse(rsp)
+}
+
+// UpdateIntegrationTokenByUuidWithResponse Update Integration Token
+//
+// Rename an integration token, rotate its secret, or change its capabilities and settings. Omitted fields keep their value. The provider checks the token again when the secret, the capabilities, or the settings change. Requires admin or owner.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /security/integration-tokens/{uuid} (the `UpdateIntegrationTokenByUuid` operationId).
+func (c *ClientWithResponses) UpdateIntegrationTokenByUuidWithResponse(ctx context.Context, uuid string, body UpdateIntegrationTokenByUuidJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateIntegrationTokenByUuidResponse, error) {
+	rsp, err := c.UpdateIntegrationTokenByUuid(ctx, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateIntegrationTokenByUuidResponse(rsp)
+}
+
+// SyncIntegrationTokenZonesWithResponse Sync Cloudflare Zones
+//
+// Read the DNS zones that a Cloudflare token can access again. Requires admin or owner.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /security/integration-tokens/{uuid}/sync-zones (the `SyncIntegrationTokenZones` operationId).
+func (c *ClientWithResponses) SyncIntegrationTokenZonesWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*SyncIntegrationTokenZonesResponse, error) {
+	rsp, err := c.SyncIntegrationTokenZones(ctx, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSyncIntegrationTokenZonesResponse(rsp)
 }
 
 // ListPrivateKeysWithResponse List
@@ -57936,15 +62142,30 @@ func (c *ClientWithResponses) ListServerSharedEnvsWithResponse(ctx context.Conte
 	return ParseListServerSharedEnvsResponse(rsp)
 }
 
+// CreateServerSharedEnvWithBodyWithResponse Create Server Shared Env
+//
+// Create a shared environment variable for a server (type=server).
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /servers/{uuid}/envs (the `CreateServerSharedEnv` operationId).
+func (c *ClientWithResponses) CreateServerSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateServerSharedEnvResponse, error) {
+	rsp, err := c.CreateServerSharedEnvWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateServerSharedEnvResponse(rsp)
+}
+
 // CreateServerSharedEnvWithResponse Create Server Shared Env
 //
 // Create a shared environment variable for a server (type=server).
 //
-// Returns a wrapper object for the known response body format(s).
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with POST /servers/{uuid}/envs (the `CreateServerSharedEnv` operationId).
-func (c *ClientWithResponses) CreateServerSharedEnvWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*CreateServerSharedEnvResponse, error) {
-	rsp, err := c.CreateServerSharedEnv(ctx, uuid, reqEditors...)
+func (c *ClientWithResponses) CreateServerSharedEnvWithResponse(ctx context.Context, uuid string, body CreateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateServerSharedEnvResponse, error) {
+	rsp, err := c.CreateServerSharedEnv(ctx, uuid, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -57966,15 +62187,30 @@ func (c *ClientWithResponses) DeleteServerSharedEnvWithResponse(ctx context.Cont
 	return ParseDeleteServerSharedEnvResponse(rsp)
 }
 
+// UpdateServerSharedEnvWithBodyWithResponse Update Server Shared Env
+//
+// Update a server shared environment variable by id.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
+func (c *ClientWithResponses) UpdateServerSharedEnvWithBodyWithResponse(ctx context.Context, uuid string, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateServerSharedEnvResponse, error) {
+	rsp, err := c.UpdateServerSharedEnvWithBody(ctx, uuid, envId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateServerSharedEnvResponse(rsp)
+}
+
 // UpdateServerSharedEnvWithResponse Update Server Shared Env
 //
 // Update a server shared environment variable by id.
 //
-// Returns a wrapper object for the known response body format(s).
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
-func (c *ClientWithResponses) UpdateServerSharedEnvWithResponse(ctx context.Context, uuid string, envId int, reqEditors ...RequestEditorFn) (*UpdateServerSharedEnvResponse, error) {
-	rsp, err := c.UpdateServerSharedEnv(ctx, uuid, envId, reqEditors...)
+func (c *ClientWithResponses) UpdateServerSharedEnvWithResponse(ctx context.Context, uuid string, envId int, body UpdateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateServerSharedEnvResponse, error) {
+	rsp, err := c.UpdateServerSharedEnv(ctx, uuid, envId, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -58208,7 +62444,7 @@ func (c *ClientWithResponses) LogoutServerRegistryWithResponse(ctx context.Conte
 
 // CheckServerRegistryLoginWithResponse Check a registry login on a server
 //
-// Check that the saved login of the server for a registry still works. Runs docker login with the saved credentials on the server.
+// Check that the saved login of the server for a registry still works. Runs docker login with the saved credentials on the server. Needs a token with the write and deploy permissions.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -58800,6 +63036,96 @@ func (c *ClientWithResponses) StopServiceDatabaseByServiceAndDatabaseUuidWithRes
 		return nil, err
 	}
 	return ParseStopServiceDatabaseByServiceAndDatabaseUuidResponse(rsp)
+}
+
+// GetServiceDnsWithResponse Get Service DNS
+//
+// DNS providers and managed DNS records for the domains of a service.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /services/{uuid}/dns (the `GetServiceDns` operationId).
+func (c *ClientWithResponses) GetServiceDnsWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*GetServiceDnsResponse, error) {
+	rsp, err := c.GetServiceDns(ctx, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetServiceDnsResponse(rsp)
+}
+
+// CreateServiceDnsRecordWithBodyWithResponse Create Service DNS Record
+//
+// Create a DNS record at Cloudflare that points a domain of the service to its server. An existing record with the same address is adopted.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /services/{uuid}/dns (the `CreateServiceDnsRecord` operationId).
+func (c *ClientWithResponses) CreateServiceDnsRecordWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateServiceDnsRecordResponse, error) {
+	rsp, err := c.CreateServiceDnsRecordWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateServiceDnsRecordResponse(rsp)
+}
+
+// CreateServiceDnsRecordWithResponse Create Service DNS Record
+//
+// Create a DNS record at Cloudflare that points a domain of the service to its server. An existing record with the same address is adopted.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /services/{uuid}/dns (the `CreateServiceDnsRecord` operationId).
+func (c *ClientWithResponses) CreateServiceDnsRecordWithResponse(ctx context.Context, uuid string, body CreateServiceDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateServiceDnsRecordResponse, error) {
+	rsp, err := c.CreateServiceDnsRecord(ctx, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreateServiceDnsRecordResponse(rsp)
+}
+
+// ReplaceServiceDnsRecordWithBodyWithResponse Replace Service DNS Record
+//
+// Point the conflicting record from a 409 create response to the server of the service.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /services/{uuid}/dns/replace (the `ReplaceServiceDnsRecord` operationId).
+func (c *ClientWithResponses) ReplaceServiceDnsRecordWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ReplaceServiceDnsRecordResponse, error) {
+	rsp, err := c.ReplaceServiceDnsRecordWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseReplaceServiceDnsRecordResponse(rsp)
+}
+
+// ReplaceServiceDnsRecordWithResponse Replace Service DNS Record
+//
+// Point the conflicting record from a 409 create response to the server of the service.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /services/{uuid}/dns/replace (the `ReplaceServiceDnsRecord` operationId).
+func (c *ClientWithResponses) ReplaceServiceDnsRecordWithResponse(ctx context.Context, uuid string, body ReplaceServiceDnsRecordJSONRequestBody, reqEditors ...RequestEditorFn) (*ReplaceServiceDnsRecordResponse, error) {
+	rsp, err := c.ReplaceServiceDnsRecord(ctx, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseReplaceServiceDnsRecordResponse(rsp)
+}
+
+// ReleaseServiceDnsRecordWithResponse Release Service DNS Record
+//
+// Release the managed DNS record of a hostname that the service no longer uses. Coolify deletes the record at Cloudflare only when it created the record, the record did not change, and no other resource uses the hostname. Removing a domain through the API already queues this release; use this endpoint to retry it or to keep the record.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /services/{uuid}/dns/{hostname} (the `ReleaseServiceDnsRecord` operationId).
+func (c *ClientWithResponses) ReleaseServiceDnsRecordWithResponse(ctx context.Context, uuid string, hostname string, params *ReleaseServiceDnsRecordParams, reqEditors ...RequestEditorFn) (*ReleaseServiceDnsRecordResponse, error) {
+	rsp, err := c.ReleaseServiceDnsRecord(ctx, uuid, hostname, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseReleaseServiceDnsRecordResponse(rsp)
 }
 
 // ListEnvsByServiceUuidWithResponse List Envs
@@ -59597,15 +63923,30 @@ func (c *ClientWithResponses) DeleteTeamSharedEnvWithResponse(ctx context.Contex
 	return ParseDeleteTeamSharedEnvResponse(rsp)
 }
 
+// UpdateTeamSharedEnvWithBodyWithResponse Update Team Shared Env
+//
+// Update a team shared environment variable by id.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /team/envs/{env_id} (the `UpdateTeamSharedEnv` operationId).
+func (c *ClientWithResponses) UpdateTeamSharedEnvWithBodyWithResponse(ctx context.Context, envId int, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateTeamSharedEnvResponse, error) {
+	rsp, err := c.UpdateTeamSharedEnvWithBody(ctx, envId, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateTeamSharedEnvResponse(rsp)
+}
+
 // UpdateTeamSharedEnvWithResponse Update Team Shared Env
 //
 // Update a team shared environment variable by id.
 //
-// Returns a wrapper object for the known response body format(s).
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
 // Corresponds with PATCH /team/envs/{env_id} (the `UpdateTeamSharedEnv` operationId).
-func (c *ClientWithResponses) UpdateTeamSharedEnvWithResponse(ctx context.Context, envId int, reqEditors ...RequestEditorFn) (*UpdateTeamSharedEnvResponse, error) {
-	rsp, err := c.UpdateTeamSharedEnv(ctx, envId, reqEditors...)
+func (c *ClientWithResponses) UpdateTeamSharedEnvWithResponse(ctx context.Context, envId int, body UpdateTeamSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateTeamSharedEnvResponse, error) {
+	rsp, err := c.UpdateTeamSharedEnv(ctx, envId, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -59745,6 +64086,126 @@ func (c *ClientWithResponses) GetVultrSshKeysWithResponse(ctx context.Context, r
 		return nil, err
 	}
 	return ParseGetVultrSshKeysResponse(rsp)
+}
+
+// RemoveSecretManagerSourceWithResponse Remove Secret Manager Source
+//
+// Remove the secret manager source. Existing {{vault.*}} variables stay and fail the next deployment until they are removed.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with DELETE /{resource_type}/{uuid}/secret-manager (the `RemoveSecretManagerSource` operationId).
+func (c *ClientWithResponses) RemoveSecretManagerSourceWithResponse(ctx context.Context, resourceType RemoveSecretManagerSourceParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*RemoveSecretManagerSourceResponse, error) {
+	rsp, err := c.RemoveSecretManagerSource(ctx, resourceType, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseRemoveSecretManagerSourceResponse(rsp)
+}
+
+// GetSecretManagerSourceWithResponse Get Secret Manager Source
+//
+// The secret manager source of an application, service, or database, and the secret manager tokens of its team that can be linked.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /{resource_type}/{uuid}/secret-manager (the `GetSecretManagerSource` operationId).
+func (c *ClientWithResponses) GetSecretManagerSourceWithResponse(ctx context.Context, resourceType GetSecretManagerSourceParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*GetSecretManagerSourceResponse, error) {
+	rsp, err := c.GetSecretManagerSource(ctx, resourceType, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetSecretManagerSourceResponse(rsp)
+}
+
+// SetSecretManagerSourceWithBodyWithResponse Set Secret Manager Source
+//
+// Link a secret manager token of the team to an application, service, or database, or change the token or settings of the link. References resolve at the next deployment.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /{resource_type}/{uuid}/secret-manager (the `SetSecretManagerSource` operationId).
+func (c *ClientWithResponses) SetSecretManagerSourceWithBodyWithResponse(ctx context.Context, resourceType SetSecretManagerSourceParamsResourceType, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*SetSecretManagerSourceResponse, error) {
+	rsp, err := c.SetSecretManagerSourceWithBody(ctx, resourceType, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSetSecretManagerSourceResponse(rsp)
+}
+
+// SetSecretManagerSourceWithResponse Set Secret Manager Source
+//
+// Link a secret manager token of the team to an application, service, or database, or change the token or settings of the link. References resolve at the next deployment.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /{resource_type}/{uuid}/secret-manager (the `SetSecretManagerSource` operationId).
+func (c *ClientWithResponses) SetSecretManagerSourceWithResponse(ctx context.Context, resourceType SetSecretManagerSourceParamsResourceType, uuid string, body SetSecretManagerSourceJSONRequestBody, reqEditors ...RequestEditorFn) (*SetSecretManagerSourceResponse, error) {
+	rsp, err := c.SetSecretManagerSource(ctx, resourceType, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseSetSecretManagerSourceResponse(rsp)
+}
+
+// ImportSecretManagerReferencesWithResponse Import Secret Manager References
+//
+// Add a {{vault.KEY}} environment variable for every key of the linked source that has no variable yet. Keys that are not valid variable names are skipped.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /{resource_type}/{uuid}/secret-manager/import (the `ImportSecretManagerReferences` operationId).
+func (c *ClientWithResponses) ImportSecretManagerReferencesWithResponse(ctx context.Context, resourceType ImportSecretManagerReferencesParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*ImportSecretManagerReferencesResponse, error) {
+	rsp, err := c.ImportSecretManagerReferences(ctx, resourceType, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseImportSecretManagerReferencesResponse(rsp)
+}
+
+// ListSecretManagerKeysWithResponse List Secret Manager Keys
+//
+// Key names of the secrets in the linked source. Values are never returned. Requires write access, like the resource page, because the stored secret is sent to the secret manager.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /{resource_type}/{uuid}/secret-manager/keys (the `ListSecretManagerKeys` operationId).
+func (c *ClientWithResponses) ListSecretManagerKeysWithResponse(ctx context.Context, resourceType ListSecretManagerKeysParamsResourceType, uuid string, reqEditors ...RequestEditorFn) (*ListSecretManagerKeysResponse, error) {
+	rsp, err := c.ListSecretManagerKeys(ctx, resourceType, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListSecretManagerKeysResponse(rsp)
+}
+
+// AddSecretManagerReferenceWithBodyWithResponse Add Secret Manager Reference
+//
+// Add a {{vault.KEY}} environment variable for one key of the linked source.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /{resource_type}/{uuid}/secret-manager/references (the `AddSecretManagerReference` operationId).
+func (c *ClientWithResponses) AddSecretManagerReferenceWithBodyWithResponse(ctx context.Context, resourceType AddSecretManagerReferenceParamsResourceType, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AddSecretManagerReferenceResponse, error) {
+	rsp, err := c.AddSecretManagerReferenceWithBody(ctx, resourceType, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseAddSecretManagerReferenceResponse(rsp)
+}
+
+// AddSecretManagerReferenceWithResponse Add Secret Manager Reference
+//
+// Add a {{vault.KEY}} environment variable for one key of the linked source.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /{resource_type}/{uuid}/secret-manager/references (the `AddSecretManagerReference` operationId).
+func (c *ClientWithResponses) AddSecretManagerReferenceWithResponse(ctx context.Context, resourceType AddSecretManagerReferenceParamsResourceType, uuid string, body AddSecretManagerReferenceJSONRequestBody, reqEditors ...RequestEditorFn) (*AddSecretManagerReferenceResponse, error) {
+	rsp, err := c.AddSecretManagerReference(ctx, resourceType, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseAddSecretManagerReferenceResponse(rsp)
 }
 
 // ParseListApplicationsResponse parses an HTTP response from a ListApplicationsWithResponse call
@@ -60448,6 +64909,225 @@ func ParseRemoveApplicationDestinationResponse(rsp *http.Response) (*RemoveAppli
 			return nil, err
 		}
 		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetApplicationDnsResponse parses an HTTP response from a GetApplicationDnsWithResponse call
+func ParseGetApplicationDnsResponse(rsp *http.Response) (*GetApplicationDnsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetApplicationDnsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ResourceDnsStatus
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreateApplicationDnsRecordResponse parses an HTTP response from a CreateApplicationDnsRecordWithResponse call
+func ParseCreateApplicationDnsRecordResponse(rsp *http.Response) (*CreateApplicationDnsRecordResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateApplicationDnsRecordResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest struct {
+			// Record DNS record that Coolify manages at a DNS provider.
+			Record *ManagedDnsRecord `json:"record,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest DnsRecordConflict
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case rsp.StatusCode == 423:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseReplaceApplicationDnsRecordResponse parses an HTTP response from a ReplaceApplicationDnsRecordWithResponse call
+func ParseReplaceApplicationDnsRecordResponse(rsp *http.Response) (*ReplaceApplicationDnsRecordResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ReplaceApplicationDnsRecordResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Record DNS record that Coolify manages at a DNS provider.
+			Record *ManagedDnsRecord `json:"record,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case rsp.StatusCode == 423:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseReleaseApplicationDnsRecordResponse parses an HTTP response from a ReleaseApplicationDnsRecordWithResponse call
+func ParseReleaseApplicationDnsRecordResponse(rsp *http.Response) (*ReleaseApplicationDnsRecordResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ReleaseApplicationDnsRecordResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			Message *string                                               `json:"message,omitempty"`
+			Result  *ReleaseApplicationDnsRecord200JSONResponseBodyResult `json:"result,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case rsp.StatusCode == 404:
+		break // No content-type
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	case rsp.StatusCode == 423:
+		break // No content-type
+
+	case rsp.StatusCode == 502:
+		break // No content-type
 
 	}
 
@@ -61606,6 +66286,9 @@ func ParseConfigureApplicationSecretManagerResponse(rsp *http.Response) (*Config
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -65451,6 +70134,48 @@ func ParseDisableApiResponse(rsp *http.Response) (*DisableApiResponse, error) {
 	return response, nil
 }
 
+// ParseListDnsZonesResponse parses an HTTP response from a ListDnsZonesWithResponse call
+func ParseListDnsZonesResponse(rsp *http.Response) (*ListDnsZonesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListDnsZonesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []struct {
+			AccountName          *string `json:"account_name,omitempty"`
+			IntegrationTokenName *string `json:"integration_token_name,omitempty"`
+			IntegrationTokenUuid *string `json:"integration_token_uuid,omitempty"`
+			ManagedRecordsCount  *int    `json:"managed_records_count,omitempty"`
+			Zone                 *string `json:"zone,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
 // ParseListGithubAppsResponse parses an HTTP response from a ListGithubAppsWithResponse call
 func ParseListGithubAppsResponse(rsp *http.Response) (*ListGithubAppsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -68269,6 +72994,42 @@ func ParseValidateS3StorageByUuidResponse(rsp *http.Response) (*ValidateS3Storag
 	return response, nil
 }
 
+// ParseListIntegrationTokensResponse parses an HTTP response from a ListIntegrationTokensWithResponse call
+func ParseListIntegrationTokensResponse(rsp *http.Response) (*ListIntegrationTokensResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListIntegrationTokensResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []IntegrationToken
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
 // ParseCreateSecretManagerIntegrationTokenResponse parses an HTTP response from a CreateSecretManagerIntegrationTokenWithResponse call
 func ParseCreateSecretManagerIntegrationTokenResponse(rsp *http.Response) (*CreateSecretManagerIntegrationTokenResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -68283,15 +73044,17 @@ func ParseCreateSecretManagerIntegrationTokenResponse(rsp *http.Response) (*Crea
 	}
 
 	switch {
-	case rsp.StatusCode == 201:
-		break // No content-type
-
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
-		var dest N400
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest struct {
+			Uuid *string `json:"uuid,omitempty"`
+		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
-		response.JSON400 = &dest
+		response.JSON201 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
 		var dest N401
@@ -68300,12 +73063,219 @@ func ParseCreateSecretManagerIntegrationTokenResponse(rsp *http.Response) (*Crea
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
 		var dest N422
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
 		response.JSON422 = &dest
+
+	case rsp.StatusCode == 502:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseDeleteIntegrationTokenByUuidResponse parses an HTTP response from a DeleteIntegrationTokenByUuidWithResponse call
+func ParseDeleteIntegrationTokenByUuidResponse(rsp *http.Response) (*DeleteIntegrationTokenByUuidResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DeleteIntegrationTokenByUuidResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			Message *string `json:"message,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case rsp.StatusCode == 409:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseGetIntegrationTokenByUuidResponse parses an HTTP response from a GetIntegrationTokenByUuidWithResponse call
+func ParseGetIntegrationTokenByUuidResponse(rsp *http.Response) (*GetIntegrationTokenByUuidResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetIntegrationTokenByUuidResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IntegrationToken
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUpdateIntegrationTokenByUuidResponse parses an HTTP response from a UpdateIntegrationTokenByUuidWithResponse call
+func ParseUpdateIntegrationTokenByUuidResponse(rsp *http.Response) (*UpdateIntegrationTokenByUuidResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateIntegrationTokenByUuidResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest IntegrationToken
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case rsp.StatusCode == 502:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseSyncIntegrationTokenZonesResponse parses an HTTP response from a SyncIntegrationTokenZonesWithResponse call
+func ParseSyncIntegrationTokenZonesResponse(rsp *http.Response) (*SyncIntegrationTokenZonesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SyncIntegrationTokenZonesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			ZonesCount *int `json:"zones_count,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	case rsp.StatusCode == 502:
+		break // No content-type
 
 	}
 
@@ -71931,6 +76901,225 @@ func ParseStopServiceDatabaseByServiceAndDatabaseUuidResponse(rsp *http.Response
 	return response, nil
 }
 
+// ParseGetServiceDnsResponse parses an HTTP response from a GetServiceDnsWithResponse call
+func ParseGetServiceDnsResponse(rsp *http.Response) (*GetServiceDnsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetServiceDnsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ResourceDnsStatus
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreateServiceDnsRecordResponse parses an HTTP response from a CreateServiceDnsRecordWithResponse call
+func ParseCreateServiceDnsRecordResponse(rsp *http.Response) (*CreateServiceDnsRecordResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreateServiceDnsRecordResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest struct {
+			// Record DNS record that Coolify manages at a DNS provider.
+			Record *ManagedDnsRecord `json:"record,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest DnsRecordConflict
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case rsp.StatusCode == 423:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseReplaceServiceDnsRecordResponse parses an HTTP response from a ReplaceServiceDnsRecordWithResponse call
+func ParseReplaceServiceDnsRecordResponse(rsp *http.Response) (*ReplaceServiceDnsRecordResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ReplaceServiceDnsRecordResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// Record DNS record that Coolify manages at a DNS provider.
+			Record *ManagedDnsRecord `json:"record,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	case rsp.StatusCode == 423:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseReleaseServiceDnsRecordResponse parses an HTTP response from a ReleaseServiceDnsRecordWithResponse call
+func ParseReleaseServiceDnsRecordResponse(rsp *http.Response) (*ReleaseServiceDnsRecordResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ReleaseServiceDnsRecordResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			Message *string                                           `json:"message,omitempty"`
+			Result  *ReleaseServiceDnsRecord200JSONResponseBodyResult `json:"result,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case rsp.StatusCode == 404:
+		break // No content-type
+
+	case rsp.StatusCode == 422:
+		break // No content-type
+
+	case rsp.StatusCode == 423:
+		break // No content-type
+
+	case rsp.StatusCode == 502:
+		break // No content-type
+
+	}
+
+	return response, nil
+}
+
 // ParseListEnvsByServiceUuidResponse parses an HTTP response from a ListEnvsByServiceUuidWithResponse call
 func ParseListEnvsByServiceUuidResponse(rsp *http.Response) (*ListEnvsByServiceUuidResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -74108,6 +79297,276 @@ func ParseGetVultrSshKeysResponse(rsp *http.Response) (*GetVultrSshKeysResponse,
 			return nil, err
 		}
 		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseRemoveSecretManagerSourceResponse parses an HTTP response from a RemoveSecretManagerSourceWithResponse call
+func ParseRemoveSecretManagerSourceResponse(rsp *http.Response) (*RemoveSecretManagerSourceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &RemoveSecretManagerSourceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetSecretManagerSourceResponse parses an HTTP response from a GetSecretManagerSourceWithResponse call
+func ParseGetSecretManagerSourceResponse(rsp *http.Response) (*GetSecretManagerSourceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetSecretManagerSourceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest SecretManagerSource
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseSetSecretManagerSourceResponse parses an HTTP response from a SetSecretManagerSourceWithResponse call
+func ParseSetSecretManagerSourceResponse(rsp *http.Response) (*SetSecretManagerSourceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &SetSecretManagerSourceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseImportSecretManagerReferencesResponse parses an HTTP response from a ImportSecretManagerReferencesWithResponse call
+func ParseImportSecretManagerReferencesResponse(rsp *http.Response) (*ImportSecretManagerReferencesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ImportSecretManagerReferencesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			Imported *[]string `json:"imported,omitempty"`
+			Skipped  *[]string `json:"skipped,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListSecretManagerKeysResponse parses an HTTP response from a ListSecretManagerKeysWithResponse call
+func ParseListSecretManagerKeysResponse(rsp *http.Response) (*ListSecretManagerKeysResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListSecretManagerKeysResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			Keys *[]string `json:"keys,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseAddSecretManagerReferenceResponse parses an HTTP response from a AddSecretManagerReferenceWithResponse call
+func ParseAddSecretManagerReferenceResponse(rsp *http.Response) (*AddSecretManagerReferenceResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &AddSecretManagerReferenceResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 201:
+		break // No content-type
+
+	case rsp.StatusCode == 400:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case rsp.StatusCode == 422:
+		break // No content-type
 
 	}
 

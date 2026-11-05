@@ -699,6 +699,129 @@ func (e CreatePrivateDeployKeyApplication409JSONResponseBodyConflictsResourceTyp
 	}
 }
 
+// Defines values for CreatePrivateGiteaAppApplicationJSONBodyBuildPack.
+const (
+	CreatePrivateGiteaAppApplicationJSONBodyBuildPackDockercompose CreatePrivateGiteaAppApplicationJSONBodyBuildPack = "dockercompose"
+	CreatePrivateGiteaAppApplicationJSONBodyBuildPackDockerfile    CreatePrivateGiteaAppApplicationJSONBodyBuildPack = "dockerfile"
+	CreatePrivateGiteaAppApplicationJSONBodyBuildPackNixpacks      CreatePrivateGiteaAppApplicationJSONBodyBuildPack = "nixpacks"
+	CreatePrivateGiteaAppApplicationJSONBodyBuildPackRailpack      CreatePrivateGiteaAppApplicationJSONBodyBuildPack = "railpack"
+	CreatePrivateGiteaAppApplicationJSONBodyBuildPackStatic        CreatePrivateGiteaAppApplicationJSONBodyBuildPack = "static"
+)
+
+// Valid indicates whether the value is a known member of the CreatePrivateGiteaAppApplicationJSONBodyBuildPack enum.
+func (e CreatePrivateGiteaAppApplicationJSONBodyBuildPack) Valid() bool {
+	switch e {
+	case CreatePrivateGiteaAppApplicationJSONBodyBuildPackDockercompose:
+		return true
+	case CreatePrivateGiteaAppApplicationJSONBodyBuildPackDockerfile:
+		return true
+	case CreatePrivateGiteaAppApplicationJSONBodyBuildPackNixpacks:
+		return true
+	case CreatePrivateGiteaAppApplicationJSONBodyBuildPackRailpack:
+		return true
+	case CreatePrivateGiteaAppApplicationJSONBodyBuildPackStatic:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirect.
+const (
+	CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirectBoth   CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirect = "both"
+	CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirectNonWww CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirect = "non-www"
+	CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirectWww    CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirect = "www"
+)
+
+// Valid indicates whether the value is a known member of the CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirect enum.
+func (e CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirect) Valid() bool {
+	switch e {
+	case CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirectBoth:
+		return true
+	case CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirectNonWww:
+		return true
+	case CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirectWww:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithm.
+const (
+	CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithm = "argon2id"
+	CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt   CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithm = "bcrypt"
+)
+
+// Valid indicates whether the value is a known member of the CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithm enum.
+func (e CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithm) Valid() bool {
+	switch e {
+	case CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithmArgon2id:
+		return true
+	case CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithmBcrypt:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreatePrivateGiteaAppApplicationJSONBodyRedirect.
+const (
+	CreatePrivateGiteaAppApplicationJSONBodyRedirectBoth   CreatePrivateGiteaAppApplicationJSONBodyRedirect = "both"
+	CreatePrivateGiteaAppApplicationJSONBodyRedirectNonWww CreatePrivateGiteaAppApplicationJSONBodyRedirect = "non-www"
+	CreatePrivateGiteaAppApplicationJSONBodyRedirectWww    CreatePrivateGiteaAppApplicationJSONBodyRedirect = "www"
+)
+
+// Valid indicates whether the value is a known member of the CreatePrivateGiteaAppApplicationJSONBodyRedirect enum.
+func (e CreatePrivateGiteaAppApplicationJSONBodyRedirect) Valid() bool {
+	switch e {
+	case CreatePrivateGiteaAppApplicationJSONBodyRedirectBoth:
+		return true
+	case CreatePrivateGiteaAppApplicationJSONBodyRedirectNonWww:
+		return true
+	case CreatePrivateGiteaAppApplicationJSONBodyRedirectWww:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreatePrivateGiteaAppApplicationJSONBodyStaticImage.
+const (
+	CreatePrivateGiteaAppApplicationJSONBodyStaticImageNginxAlpine CreatePrivateGiteaAppApplicationJSONBodyStaticImage = "nginx:alpine"
+)
+
+// Valid indicates whether the value is a known member of the CreatePrivateGiteaAppApplicationJSONBodyStaticImage enum.
+func (e CreatePrivateGiteaAppApplicationJSONBodyStaticImage) Valid() bool {
+	switch e {
+	case CreatePrivateGiteaAppApplicationJSONBodyStaticImageNginxAlpine:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType.
+const (
+	CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceTypeApplication CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType = "application"
+	CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceTypeInstance    CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType = "instance"
+	CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceTypeService     CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType = "service"
+)
+
+// Valid indicates whether the value is a known member of the CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType enum.
+func (e CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType) Valid() bool {
+	switch e {
+	case CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceTypeApplication:
+		return true
+	case CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceTypeInstance:
+		return true
+	case CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceTypeService:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CreatePrivateGithubAppApplicationJSONBodyBuildPack.
 const (
 	CreatePrivateGithubAppApplicationJSONBodyBuildPackDockercompose CreatePrivateGithubAppApplicationJSONBodyBuildPack = "dockercompose"
@@ -2195,33 +2318,36 @@ type ApplicationPreviewDeployment struct {
 
 // ApplicationSetting Application settings.
 type ApplicationSetting struct {
-	ConnectToDockerNetwork           *bool   `json:"connect_to_docker_network,omitempty"`
-	CustomContainerNamePrefix        *string `json:"custom_container_name_prefix,omitempty"`
-	CustomInternalName               *string `json:"custom_internal_name,omitempty"`
-	DisableBuildCache                *bool   `json:"disable_build_cache,omitempty"`
-	DockerImagesToKeep               *int    `json:"docker_images_to_keep,omitempty"`
-	GpuCount                         *string `json:"gpu_count,omitempty"`
-	GpuDeviceIds                     *string `json:"gpu_device_ids,omitempty"`
-	GpuDriver                        *string `json:"gpu_driver,omitempty"`
-	GpuOptions                       *string `json:"gpu_options,omitempty"`
-	IncludeCoolifyDefaultVariables   *bool   `json:"include_coolify_default_variables,omitempty"`
-	IncludeSourceCommitInBuild       *bool   `json:"include_source_commit_in_build,omitempty"`
-	InjectBuildArgsToDockerfile      *bool   `json:"inject_build_args_to_dockerfile,omitempty"`
-	IsAutoDeployEnabled              *bool   `json:"is_auto_deploy_enabled,omitempty"`
-	IsBuildServerEnabled             *bool   `json:"is_build_server_enabled,omitempty"`
-	IsConsistentContainerNameEnabled *bool   `json:"is_consistent_container_name_enabled,omitempty"`
-	IsContainerLabelEscapeEnabled    *bool   `json:"is_container_label_escape_enabled,omitempty"`
-	IsContainerLabelReadonlyEnabled  *bool   `json:"is_container_label_readonly_enabled,omitempty"`
-	IsDebugEnabled                   *bool   `json:"is_debug_enabled,omitempty"`
-	IsEnvSortingEnabled              *bool   `json:"is_env_sorting_enabled,omitempty"`
-	IsForceHttpsEnabled              *bool   `json:"is_force_https_enabled,omitempty"`
-	IsGitLfsEnabled                  *bool   `json:"is_git_lfs_enabled,omitempty"`
-	IsGitShallowCloneEnabled         *bool   `json:"is_git_shallow_clone_enabled,omitempty"`
-	IsGitSubmodulesEnabled           *bool   `json:"is_git_submodules_enabled,omitempty"`
-	IsGpuEnabled                     *bool   `json:"is_gpu_enabled,omitempty"`
-	IsGzipEnabled                    *bool   `json:"is_gzip_enabled,omitempty"`
-	IsIncludeTimestamps              *bool   `json:"is_include_timestamps,omitempty"`
-	IsLogDrainEnabled                *bool   `json:"is_log_drain_enabled,omitempty"`
+	ConnectToDockerNetwork         *bool   `json:"connect_to_docker_network,omitempty"`
+	CustomContainerNamePrefix      *string `json:"custom_container_name_prefix,omitempty"`
+	CustomInternalName             *string `json:"custom_internal_name,omitempty"`
+	DisableBuildCache              *bool   `json:"disable_build_cache,omitempty"`
+	DockerImagesToKeep             *int    `json:"docker_images_to_keep,omitempty"`
+	GpuCount                       *string `json:"gpu_count,omitempty"`
+	GpuDeviceIds                   *string `json:"gpu_device_ids,omitempty"`
+	GpuDriver                      *string `json:"gpu_driver,omitempty"`
+	GpuOptions                     *string `json:"gpu_options,omitempty"`
+	IncludeCoolifyDefaultVariables *bool   `json:"include_coolify_default_variables,omitempty"`
+
+	// IncludeNetworkHostsInBuild Add the containers of the destination network as build hosts (--add-host). Turn off to keep the build cache when resources on the network change.
+	IncludeNetworkHostsInBuild       *bool `json:"include_network_hosts_in_build,omitempty"`
+	IncludeSourceCommitInBuild       *bool `json:"include_source_commit_in_build,omitempty"`
+	InjectBuildArgsToDockerfile      *bool `json:"inject_build_args_to_dockerfile,omitempty"`
+	IsAutoDeployEnabled              *bool `json:"is_auto_deploy_enabled,omitempty"`
+	IsBuildServerEnabled             *bool `json:"is_build_server_enabled,omitempty"`
+	IsConsistentContainerNameEnabled *bool `json:"is_consistent_container_name_enabled,omitempty"`
+	IsContainerLabelEscapeEnabled    *bool `json:"is_container_label_escape_enabled,omitempty"`
+	IsContainerLabelReadonlyEnabled  *bool `json:"is_container_label_readonly_enabled,omitempty"`
+	IsDebugEnabled                   *bool `json:"is_debug_enabled,omitempty"`
+	IsEnvSortingEnabled              *bool `json:"is_env_sorting_enabled,omitempty"`
+	IsForceHttpsEnabled              *bool `json:"is_force_https_enabled,omitempty"`
+	IsGitLfsEnabled                  *bool `json:"is_git_lfs_enabled,omitempty"`
+	IsGitShallowCloneEnabled         *bool `json:"is_git_shallow_clone_enabled,omitempty"`
+	IsGitSubmodulesEnabled           *bool `json:"is_git_submodules_enabled,omitempty"`
+	IsGpuEnabled                     *bool `json:"is_gpu_enabled,omitempty"`
+	IsGzipEnabled                    *bool `json:"is_gzip_enabled,omitempty"`
+	IsIncludeTimestamps              *bool `json:"is_include_timestamps,omitempty"`
+	IsLogDrainEnabled                *bool `json:"is_log_drain_enabled,omitempty"`
 
 	// IsPermanentRedirectEnabled Use permanent (301/308) instead of temporary (302/307) proxy redirects.
 	IsPermanentRedirectEnabled    *bool `json:"is_permanent_redirect_enabled,omitempty"`
@@ -3271,6 +3397,9 @@ type CreateDockerfileApplicationJSONBody struct {
 	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
 	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
 
+	// IncludeNetworkHostsInBuild Add the containers of the destination network as build hosts.
+	IncludeNetworkHostsInBuild *bool `json:"include_network_hosts_in_build,omitempty"`
+
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
 
@@ -3561,6 +3690,9 @@ type CreateDockerimageApplicationJSONBody struct {
 
 	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
 	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
+	// IncludeNetworkHostsInBuild Add the containers of the destination network as build hosts.
+	IncludeNetworkHostsInBuild *bool `json:"include_network_hosts_in_build,omitempty"`
 
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
@@ -3898,6 +4030,9 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
 	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
 
+	// IncludeNetworkHostsInBuild Add the containers of the destination network as build hosts.
+	IncludeNetworkHostsInBuild *bool `json:"include_network_hosts_in_build,omitempty"`
+
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
 
@@ -4106,6 +4241,384 @@ type CreatePrivateDeployKeyApplicationJSONBodyStaticImage string
 // CreatePrivateDeployKeyApplication409JSONResponseBodyConflictsResourceType defines parameters for CreatePrivateDeployKeyApplication.
 type CreatePrivateDeployKeyApplication409JSONResponseBodyConflictsResourceType string
 
+// CreatePrivateGiteaAppApplicationJSONBody defines parameters for CreatePrivateGiteaAppApplication.
+type CreatePrivateGiteaAppApplicationJSONBody struct {
+	// AutogenerateDomain If true and domains is empty, auto-generate a domain using the server's wildcard domain or sslip.io fallback. Ignored for the dockercompose build pack, which uses docker_compose_domains. Default: true.
+	AutogenerateDomain *bool `json:"autogenerate_domain,omitempty"`
+
+	// BaseDirectory The base directory for all commands.
+	BaseDirectory *string `json:"base_directory,omitempty"`
+
+	// BuildCommand The build command.
+	BuildCommand *string `json:"build_command,omitempty"`
+
+	// BuildPack The build pack type.
+	BuildPack CreatePrivateGiteaAppApplicationJSONBodyBuildPack `json:"build_pack"`
+
+	// ConnectToDockerNetwork The flag to connect the service to the predefined Docker network.
+	ConnectToDockerNetwork *bool `json:"connect_to_docker_network,omitempty"`
+
+	// CustomContainerNamePrefix Prefix for generated container names (prefix-20260908T141530). Slugified and unique across the instance.
+	CustomContainerNamePrefix *string `json:"custom_container_name_prefix,omitempty"`
+
+	// CustomDockerRunOptions Custom docker run options.
+	CustomDockerRunOptions *string `json:"custom_docker_run_options,omitempty"`
+
+	// CustomInternalName Custom internal container name. Turns is_consistent_container_name_enabled on when that field is not sent; sending it as false together with a name returns 422.
+	CustomInternalName *string `json:"custom_internal_name,omitempty"`
+
+	// CustomLabels Custom labels.
+	CustomLabels *string `json:"custom_labels,omitempty"`
+
+	// Description The application description.
+	Description *string `json:"description,omitempty"`
+
+	// DestinationUuid The destination UUID.
+	DestinationUuid *string `json:"destination_uuid,omitempty"`
+
+	// DisableBuildCache Disable the build cache.
+	DisableBuildCache *bool `json:"disable_build_cache,omitempty"`
+
+	// DockerComposeCustomBuildCommand The Docker Compose custom build command.
+	DockerComposeCustomBuildCommand *string `json:"docker_compose_custom_build_command,omitempty"`
+
+	// DockerComposeCustomStartCommand The Docker Compose custom start command.
+	DockerComposeCustomStartCommand *string `json:"docker_compose_custom_start_command,omitempty"`
+
+	// DockerComposeDomains Array of URLs to be applied to containers of a dockercompose application.
+	DockerComposeDomains *[]struct {
+		// Domain Comma-separated list of URLs (e.g. "https://app.coolify.io,https://app2.coolify.io")
+		Domain *string `json:"domain,omitempty"`
+
+		// Name The service name as defined in docker-compose.
+		Name *string `json:"name,omitempty"`
+
+		// Redirect Per-service www/non-www redirect for this compose service.
+		Redirect *CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirect `json:"redirect,omitempty"`
+	} `json:"docker_compose_domains,omitempty"`
+
+	// DockerComposeLocation The Docker Compose location.
+	DockerComposeLocation *string `json:"docker_compose_location,omitempty"`
+
+	// DockerImagesToKeep Number of Docker images to retain.
+	DockerImagesToKeep *int `json:"docker_images_to_keep,omitempty"`
+
+	// DockerRegistryImageName The docker registry image name.
+	DockerRegistryImageName *string `json:"docker_registry_image_name,omitempty"`
+
+	// DockerRegistryImageTag The docker registry image tag.
+	DockerRegistryImageTag *string `json:"docker_registry_image_tag,omitempty"`
+
+	// Dockerfile The Dockerfile content.
+	Dockerfile *string `json:"dockerfile,omitempty"`
+
+	// DockerfileLocation The Dockerfile location in the repository
+	DockerfileLocation *string `json:"dockerfile_location,omitempty"`
+
+	// DockerfileTargetBuild The Docker build target (stage) in the Dockerfile.
+	DockerfileTargetBuild *string `json:"dockerfile_target_build,omitempty"`
+
+	// Domains The application URLs in a comma-separated list.
+	Domains *string `json:"domains,omitempty"`
+
+	// EnvironmentName The environment name. You need to provide at least one of environment_name or environment_uuid.
+	EnvironmentName *string `json:"environment_name,omitempty"`
+
+	// EnvironmentUuid The environment UUID. You need to provide at least one of environment_name or environment_uuid.
+	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
+
+	// ForceDomainOverride Force domain usage even if conflicts are detected. Default is false.
+	ForceDomainOverride *bool `json:"force_domain_override,omitempty"`
+
+	// GitBranch The git branch.
+	GitBranch string `json:"git_branch"`
+
+	// GitCommitSha The git commit SHA.
+	GitCommitSha *string `json:"git_commit_sha,omitempty"`
+
+	// GitRepository The repository as owner/name, or its URL on the Gitea instance.
+	GitRepository string `json:"git_repository"`
+
+	// GiteaAppUuid The Gitea App UUID. The source must be connected.
+	GiteaAppUuid string `json:"gitea_app_uuid"`
+
+	// GpuCount Number of GPUs to allocate.
+	GpuCount *string `json:"gpu_count,omitempty"`
+
+	// GpuDeviceIds Comma-separated GPU device IDs.
+	GpuDeviceIds *string `json:"gpu_device_ids,omitempty"`
+
+	// GpuDriver GPU driver name.
+	GpuDriver *string `json:"gpu_driver,omitempty"`
+
+	// GpuOptions Additional GPU options.
+	GpuOptions *string `json:"gpu_options,omitempty"`
+
+	// HealthCheckEnabled Health check enabled.
+	HealthCheckEnabled *bool `json:"health_check_enabled,omitempty"`
+
+	// HealthCheckHost Health check host.
+	HealthCheckHost *string `json:"health_check_host,omitempty"`
+
+	// HealthCheckInterval Health check interval in seconds.
+	HealthCheckInterval *int `json:"health_check_interval,omitempty"`
+
+	// HealthCheckMethod Health check method.
+	HealthCheckMethod *string `json:"health_check_method,omitempty"`
+
+	// HealthCheckPath Health check path.
+	HealthCheckPath *string `json:"health_check_path,omitempty"`
+
+	// HealthCheckPort Health check port.
+	HealthCheckPort *string `json:"health_check_port,omitempty"`
+
+	// HealthCheckResponseText Health check response text.
+	HealthCheckResponseText *string `json:"health_check_response_text,omitempty"`
+
+	// HealthCheckRetries Health check retries count.
+	HealthCheckRetries *int `json:"health_check_retries,omitempty"`
+
+	// HealthCheckReturnCode Health check return code.
+	HealthCheckReturnCode *int `json:"health_check_return_code,omitempty"`
+
+	// HealthCheckScheme Health check scheme.
+	HealthCheckScheme *string `json:"health_check_scheme,omitempty"`
+
+	// HealthCheckStartPeriod Health check start period in seconds.
+	HealthCheckStartPeriod *int `json:"health_check_start_period,omitempty"`
+
+	// HealthCheckTimeout Health check timeout in seconds.
+	HealthCheckTimeout *int `json:"health_check_timeout,omitempty"`
+
+	// HttpBasicAuthArgon2idMemoryCost Argon2id memory cost in KiB for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idMemoryCost *int `json:"http_basic_auth_argon2id_memory_cost,omitempty"`
+
+	// HttpBasicAuthArgon2idTimeCost Argon2id time cost (iterations) for the HTTP Basic Authentication password.
+	HttpBasicAuthArgon2idTimeCost *int `json:"http_basic_auth_argon2id_time_cost,omitempty"`
+
+	// HttpBasicAuthBcryptCost Bcrypt cost for the HTTP Basic Authentication password.
+	HttpBasicAuthBcryptCost *int `json:"http_basic_auth_bcrypt_cost,omitempty"`
+
+	// HttpBasicAuthHashAlgorithm Hash algorithm for the HTTP Basic Authentication password. Argon2id needs the Caddy proxy, version 2.11 or newer.
+	HttpBasicAuthHashAlgorithm *CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithm `json:"http_basic_auth_hash_algorithm,omitempty"`
+
+	// HttpBasicAuthPassword Password for HTTP Basic Authentication
+	HttpBasicAuthPassword *string `json:"http_basic_auth_password,omitempty"`
+
+	// HttpBasicAuthUsername Username for HTTP Basic Authentication
+	HttpBasicAuthUsername *string `json:"http_basic_auth_username,omitempty"`
+
+	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
+	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
+	// IncludeNetworkHostsInBuild Add the containers of the destination network as build hosts.
+	IncludeNetworkHostsInBuild *bool `json:"include_network_hosts_in_build,omitempty"`
+
+	// IncludeSourceCommitInBuild Include the source commit in the build.
+	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
+
+	// InjectBuildArgsToDockerfile Inject build arguments into the Dockerfile build.
+	InjectBuildArgsToDockerfile *bool `json:"inject_build_args_to_dockerfile,omitempty"`
+
+	// InstallCommand The install command.
+	InstallCommand *string `json:"install_command,omitempty"`
+
+	// InstantDeploy The flag to indicate if the application should be deployed instantly.
+	InstantDeploy *bool `json:"instant_deploy,omitempty"`
+
+	// IsAutoCancelBuildingDeploymentsEnabled Also stop an older webhook deployment that is still building when a newer push arrives. A deployment that already started to replace containers always finishes. This also cancels queued webhook deployments. Default: false.
+	IsAutoCancelBuildingDeploymentsEnabled *bool `json:"is_auto_cancel_building_deployments_enabled,omitempty"`
+
+	// IsAutoCancelQueuedDeploymentsEnabled Cancel older queued webhook deployments when a newer push arrives. Default: true.
+	IsAutoCancelQueuedDeploymentsEnabled *bool `json:"is_auto_cancel_queued_deployments_enabled,omitempty"`
+
+	// IsAutoDeployEnabled The flag to indicate if auto-deploy is enabled on git push. Defaults to true.
+	IsAutoDeployEnabled *bool `json:"is_auto_deploy_enabled,omitempty"`
+
+	// IsConsistentContainerNameEnabled Use a consistent container name across deployments.
+	IsConsistentContainerNameEnabled *bool `json:"is_consistent_container_name_enabled,omitempty"`
+
+	// IsContainerLabelEscapeEnabled Escape special characters in labels. By default, $ (and other chars) is escaped. So if you write $ in the labels, it will be saved as $$. If you want to use env variables inside the labels, turn this off.
+	IsContainerLabelEscapeEnabled *bool `json:"is_container_label_escape_enabled,omitempty"`
+
+	// IsContainerLabelReadonlyEnabled Let Coolify manage the container labels. True regenerates custom_labels from domains, redirect, and proxy settings. False keeps custom_labels as you set them: domains, redirect, and basic auth changes then do not change the labels.
+	IsContainerLabelReadonlyEnabled *bool `json:"is_container_label_readonly_enabled,omitempty"`
+
+	// IsEnvSortingEnabled Sort environment variables.
+	IsEnvSortingEnabled *bool `json:"is_env_sorting_enabled,omitempty"`
+
+	// IsForceHttpsEnabled The flag to indicate if HTTPS is forced. Defaults to true.
+	IsForceHttpsEnabled *bool `json:"is_force_https_enabled,omitempty"`
+
+	// IsGitLfsEnabled Enable Git LFS.
+	IsGitLfsEnabled *bool `json:"is_git_lfs_enabled,omitempty"`
+
+	// IsGitShallowCloneEnabled Use a shallow Git clone.
+	IsGitShallowCloneEnabled *bool `json:"is_git_shallow_clone_enabled,omitempty"`
+
+	// IsGitSubmodulesEnabled Clone Git submodules.
+	IsGitSubmodulesEnabled *bool `json:"is_git_submodules_enabled,omitempty"`
+
+	// IsGpuEnabled Enable GPU support.
+	IsGpuEnabled *bool `json:"is_gpu_enabled,omitempty"`
+
+	// IsGzipEnabled Enable gzip compression.
+	IsGzipEnabled *bool `json:"is_gzip_enabled,omitempty"`
+
+	// IsHttpBasicAuthEnabled HTTP Basic Authentication enabled.
+	IsHttpBasicAuthEnabled *bool `json:"is_http_basic_auth_enabled,omitempty"`
+
+	// IsLogDrainEnabled Enable log drain for the application.
+	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
+
+	// IsPermanentRedirectEnabled Use permanent redirects (301/308) instead of temporary (302/307) for the HTTP to HTTPS and www redirects. Defaults to false.
+	IsPermanentRedirectEnabled *bool `json:"is_permanent_redirect_enabled,omitempty"`
+
+	// IsPrDeploymentsPublicEnabled Make pull request deployments public.
+	IsPrDeploymentsPublicEnabled *bool `json:"is_pr_deployments_public_enabled,omitempty"`
+
+	// IsPreserveRepositoryEnabled Preserve repository during deployment.
+	IsPreserveRepositoryEnabled *bool `json:"is_preserve_repository_enabled,omitempty"`
+
+	// IsPreviewDeploymentsEnabled Enable preview deployments for pull requests.
+	IsPreviewDeploymentsEnabled *bool `json:"is_preview_deployments_enabled,omitempty"`
+
+	// IsRawComposeDeploymentEnabled Deploy the raw Docker Compose definition.
+	IsRawComposeDeploymentEnabled *bool `json:"is_raw_compose_deployment_enabled,omitempty"`
+
+	// IsSpa The flag to indicate if the application is a single-page application (SPA). Only relevant when is_static is true.
+	IsSpa *bool `json:"is_spa,omitempty"`
+
+	// IsStatic The flag to indicate if the application is static.
+	IsStatic *bool `json:"is_static,omitempty"`
+
+	// IsStripprefixEnabled Enable path prefix stripping.
+	IsStripprefixEnabled *bool `json:"is_stripprefix_enabled,omitempty"`
+
+	// LimitsCpuShares CPU shares.
+	LimitsCpuShares *int `json:"limits_cpu_shares,omitempty"`
+
+	// LimitsCpus CPU limit.
+	LimitsCpus *string `json:"limits_cpus,omitempty"`
+
+	// LimitsCpuset CPU set.
+	LimitsCpuset *string `json:"limits_cpuset,omitempty"`
+
+	// LimitsMemory Memory limit.
+	LimitsMemory *string `json:"limits_memory,omitempty"`
+
+	// LimitsMemoryReservation Memory reservation.
+	LimitsMemoryReservation *string `json:"limits_memory_reservation,omitempty"`
+
+	// LimitsMemorySwap Memory swap limit.
+	LimitsMemorySwap *string `json:"limits_memory_swap,omitempty"`
+
+	// LimitsMemorySwappiness Memory swappiness.
+	LimitsMemorySwappiness *int `json:"limits_memory_swappiness,omitempty"`
+
+	// ManualWebhookSecretBitbucket Manual webhook secret for Bitbucket. Needs the deploy ability.
+	ManualWebhookSecretBitbucket *string `json:"manual_webhook_secret_bitbucket,omitempty"`
+
+	// ManualWebhookSecretGitea Manual webhook secret for Gitea. Needs the deploy ability.
+	ManualWebhookSecretGitea *string `json:"manual_webhook_secret_gitea,omitempty"`
+
+	// ManualWebhookSecretGithub Manual webhook secret for Github. Needs the deploy ability.
+	ManualWebhookSecretGithub *string `json:"manual_webhook_secret_github,omitempty"`
+
+	// ManualWebhookSecretGitlab Manual webhook secret for Gitlab. Needs the deploy ability.
+	ManualWebhookSecretGitlab *string `json:"manual_webhook_secret_gitlab,omitempty"`
+
+	// MaxRestartCount Maximum container restart count before stopping.
+	MaxRestartCount *int `json:"max_restart_count,omitempty"`
+
+	// Name The application name.
+	Name *string `json:"name,omitempty"`
+
+	// NoindexDomains The subset of the application domains served with an X-Robots-Tag: noindex, nofollow response header, keeping them out of search engines. Entries that are not among the application domains are ignored.
+	NoindexDomains *[]string `json:"noindex_domains,omitempty"`
+
+	// PortsExposes The ports to expose.
+	PortsExposes *string `json:"ports_exposes,omitempty"`
+
+	// PortsMappings The ports mappings.
+	PortsMappings *string `json:"ports_mappings,omitempty"`
+
+	// PostDeploymentCommand Post deployment command.
+	PostDeploymentCommand *string `json:"post_deployment_command,omitempty"`
+
+	// PostDeploymentCommandContainer Post deployment command container.
+	PostDeploymentCommandContainer *string `json:"post_deployment_command_container,omitempty"`
+
+	// PreDeploymentCommand Pre deployment command.
+	PreDeploymentCommand *string `json:"pre_deployment_command,omitempty"`
+
+	// PreDeploymentCommandContainer Pre deployment command container.
+	PreDeploymentCommandContainer *string `json:"pre_deployment_command_container,omitempty"`
+
+	// PreviewUrlTemplate Preview URL template.
+	PreviewUrlTemplate *string `json:"preview_url_template,omitempty"`
+
+	// ProjectUuid The project UUID.
+	ProjectUuid string `json:"project_uuid"`
+
+	// PublishDirectory The publish directory.
+	PublishDirectory *string `json:"publish_directory,omitempty"`
+
+	// RedactAllEnvValuesInLogs Redact all environment variable values in logs. When false, only locked (shown once) values are redacted. Requires team admin permissions.
+	RedactAllEnvValuesInLogs *bool `json:"redact_all_env_values_in_logs,omitempty"`
+
+	// Redirect How to set redirect with Traefik / Caddy. www<->non-www.
+	Redirect *CreatePrivateGiteaAppApplicationJSONBodyRedirect `json:"redirect,omitempty"`
+
+	// RollingUpdateDrainSeconds Seconds to wait after the new container is healthy before old containers stop during a rolling update. 0 turns the wait off. Default: 5.
+	RollingUpdateDrainSeconds *int `json:"rolling_update_drain_seconds,omitempty"`
+
+	// ServerUuid The server UUID.
+	ServerUuid string `json:"server_uuid"`
+
+	// StartCommand The start command.
+	StartCommand *string `json:"start_command,omitempty"`
+
+	// StaticImage The static image.
+	StaticImage *CreatePrivateGiteaAppApplicationJSONBodyStaticImage `json:"static_image,omitempty"`
+
+	// StopGracePeriod Container stop grace period in seconds.
+	StopGracePeriod *int `json:"stop_grace_period,omitempty"`
+
+	// Tags Tags to assign to the application.
+	Tags *[]string `json:"tags,omitempty"`
+
+	// TraefikCertificateResolver Traefik certificate resolver for this application. Null uses the server setting, "none" uses no resolver.
+	TraefikCertificateResolver *string `json:"traefik_certificate_resolver,omitempty"`
+
+	// UseBuildSecrets Use Docker Build Secrets for build-time environment variables.
+	UseBuildSecrets *bool `json:"use_build_secrets,omitempty"`
+
+	// UseBuildServer Use build server.
+	UseBuildServer *bool `json:"use_build_server,omitempty"`
+
+	// WatchPaths Watch path patterns, one per line (newline-separated). Commas do not separate patterns.
+	WatchPaths *string `json:"watch_paths,omitempty"`
+}
+
+// CreatePrivateGiteaAppApplicationJSONBodyBuildPack defines parameters for CreatePrivateGiteaAppApplication.
+type CreatePrivateGiteaAppApplicationJSONBodyBuildPack string
+
+// CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirect defines parameters for CreatePrivateGiteaAppApplication.
+type CreatePrivateGiteaAppApplicationJSONBodyDockerComposeDomainsRedirect string
+
+// CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithm defines parameters for CreatePrivateGiteaAppApplication.
+type CreatePrivateGiteaAppApplicationJSONBodyHttpBasicAuthHashAlgorithm string
+
+// CreatePrivateGiteaAppApplicationJSONBodyRedirect defines parameters for CreatePrivateGiteaAppApplication.
+type CreatePrivateGiteaAppApplicationJSONBodyRedirect string
+
+// CreatePrivateGiteaAppApplicationJSONBodyStaticImage defines parameters for CreatePrivateGiteaAppApplication.
+type CreatePrivateGiteaAppApplicationJSONBodyStaticImage string
+
+// CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType defines parameters for CreatePrivateGiteaAppApplication.
+type CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType string
+
 // CreatePrivateGithubAppApplicationJSONBody defines parameters for CreatePrivateGithubAppApplication.
 type CreatePrivateGithubAppApplicationJSONBody struct {
 	// AutogenerateDomain If true and domains is empty, auto-generate a domain using the server's wildcard domain or sslip.io fallback. Ignored for the dockercompose build pack, which uses docker_compose_domains. Default: true.
@@ -4275,6 +4788,9 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 
 	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
 	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
+	// IncludeNetworkHostsInBuild Add the containers of the destination network as build hosts.
+	IncludeNetworkHostsInBuild *bool `json:"include_network_hosts_in_build,omitempty"`
 
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
@@ -4654,6 +5170,9 @@ type CreatePublicApplicationJSONBody struct {
 	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
 	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
 
+	// IncludeNetworkHostsInBuild Add the containers of the destination network as build hosts.
+	IncludeNetworkHostsInBuild *bool `json:"include_network_hosts_in_build,omitempty"`
+
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
 
@@ -4966,6 +5485,9 @@ type UpdateApplicationByUuidJSONBody struct {
 	// GitRepository The git repository URL.
 	GitRepository *string `json:"git_repository,omitempty"`
 
+	// GiteaAppUuid The Gitea App UUID. The source must be connected. Do not send it together with github_app_uuid.
+	GiteaAppUuid *string `json:"gitea_app_uuid,omitempty"`
+
 	// GithubAppUuid The Github App UUID.
 	GithubAppUuid *string `json:"github_app_uuid,omitempty"`
 
@@ -5031,6 +5553,9 @@ type UpdateApplicationByUuidJSONBody struct {
 
 	// IncludeCoolifyDefaultVariables Add the predefined COOLIFY_* variables (COOLIFY_URL, COOLIFY_FQDN, ...) to the environment. Requires team admin permissions. Redeploy to apply it.
 	IncludeCoolifyDefaultVariables *bool `json:"include_coolify_default_variables,omitempty"`
+
+	// IncludeNetworkHostsInBuild Add the containers of the destination network as build hosts.
+	IncludeNetworkHostsInBuild *bool `json:"include_network_hosts_in_build,omitempty"`
 
 	// IncludeSourceCommitInBuild Include the source commit in the build.
 	IncludeSourceCommitInBuild *bool `json:"include_source_commit_in_build,omitempty"`
@@ -7941,6 +8466,9 @@ type CreateDockerimageApplicationJSONRequestBody CreateDockerimageApplicationJSO
 // CreatePrivateDeployKeyApplicationJSONRequestBody defines body for CreatePrivateDeployKeyApplication for application/json ContentType.
 type CreatePrivateDeployKeyApplicationJSONRequestBody CreatePrivateDeployKeyApplicationJSONBody
 
+// CreatePrivateGiteaAppApplicationJSONRequestBody defines body for CreatePrivateGiteaAppApplication for application/json ContentType.
+type CreatePrivateGiteaAppApplicationJSONRequestBody CreatePrivateGiteaAppApplicationJSONBody
+
 // CreatePrivateGithubAppApplicationJSONRequestBody defines body for CreatePrivateGithubAppApplication for application/json ContentType.
 type CreatePrivateGithubAppApplicationJSONRequestBody CreatePrivateGithubAppApplicationJSONBody
 
@@ -8734,6 +9262,24 @@ type ClientInterface interface {
 	//
 	// Corresponds with POST /applications/private-deploy-key (the `CreatePrivateDeployKeyApplication` operationId).
 	CreatePrivateDeployKeyApplication(ctx context.Context, body CreatePrivateDeployKeyApplicationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreatePrivateGiteaAppApplicationWithBody Create (Private - Gitea App)
+	//
+	// Create new application based on a private repository through a Gitea App.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /applications/private-gitea-app (the `CreatePrivateGiteaAppApplication` operationId).
+	CreatePrivateGiteaAppApplicationWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// CreatePrivateGiteaAppApplication Create (Private - Gitea App)
+	//
+	// Create new application based on a private repository through a Gitea App.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /applications/private-gitea-app (the `CreatePrivateGiteaAppApplication` operationId).
+	CreatePrivateGiteaAppApplication(ctx context.Context, body CreatePrivateGiteaAppApplicationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// CreatePrivateGithubAppApplicationWithBody Create (Private - GH App)
 	//
@@ -10112,6 +10658,13 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /dns/zones (the `ListDnsZones` operationId).
 	ListDnsZones(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListGiteaApps List
+	//
+	// List all Gitea apps for the current team (and system-wide sources).
+	//
+	// Corresponds with GET /gitea-apps (the `ListGiteaApps` operationId).
+	ListGiteaApps(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ListGithubApps List
 	//
@@ -12280,6 +12833,44 @@ func (c *Client) CreatePrivateDeployKeyApplicationWithBody(ctx context.Context, 
 // Corresponds with POST /applications/private-deploy-key (the `CreatePrivateDeployKeyApplication` operationId).
 func (c *Client) CreatePrivateDeployKeyApplication(ctx context.Context, body CreatePrivateDeployKeyApplicationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCreatePrivateDeployKeyApplicationRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreatePrivateGiteaAppApplicationWithBody Create (Private - Gitea App)
+//
+// Create new application based on a private repository through a Gitea App.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /applications/private-gitea-app (the `CreatePrivateGiteaAppApplication` operationId).
+func (c *Client) CreatePrivateGiteaAppApplicationWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreatePrivateGiteaAppApplicationRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// CreatePrivateGiteaAppApplication Create (Private - Gitea App)
+//
+// Create new application based on a private repository through a Gitea App.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /applications/private-gitea-app (the `CreatePrivateGiteaAppApplication` operationId).
+func (c *Client) CreatePrivateGiteaAppApplication(ctx context.Context, body CreatePrivateGiteaAppApplicationJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreatePrivateGiteaAppApplicationRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -15358,6 +15949,23 @@ func (c *Client) DisableApi(ctx context.Context, reqEditors ...RequestEditorFn) 
 // Corresponds with GET /dns/zones (the `ListDnsZones` operationId).
 func (c *Client) ListDnsZones(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewListDnsZonesRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListGiteaApps List
+//
+// List all Gitea apps for the current team (and system-wide sources).
+//
+// Corresponds with GET /gitea-apps (the `ListGiteaApps` operationId).
+func (c *Client) ListGiteaApps(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListGiteaAppsRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -20158,6 +20766,46 @@ func NewCreatePrivateDeployKeyApplicationRequestWithBody(server string, contentT
 	}
 
 	operationPath := fmt.Sprintf("/applications/private-deploy-key")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewCreatePrivateGiteaAppApplicationRequest calls the generic CreatePrivateGiteaAppApplication builder with application/json body
+func NewCreatePrivateGiteaAppApplicationRequest(server string, body CreatePrivateGiteaAppApplicationJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewCreatePrivateGiteaAppApplicationRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewCreatePrivateGiteaAppApplicationRequestWithBody constructs an http.Request for the CreatePrivateGiteaAppApplication method, with any body, and a specified content type
+func NewCreatePrivateGiteaAppApplicationRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/applications/private-gitea-app")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -25714,6 +26362,33 @@ func NewListDnsZonesRequest(server string) (*http.Request, error) {
 	}
 
 	operationPath := fmt.Sprintf("/dns/zones")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewListGiteaAppsRequest constructs an http.Request for the ListGiteaApps method
+func NewListGiteaAppsRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/gitea-apps")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -33992,6 +34667,24 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /applications/private-deploy-key (the `CreatePrivateDeployKeyApplication` operationId).
 	CreatePrivateDeployKeyApplicationWithResponse(ctx context.Context, body CreatePrivateDeployKeyApplicationJSONRequestBody, reqEditors ...RequestEditorFn) (*CreatePrivateDeployKeyApplicationResponse, error)
 
+	// CreatePrivateGiteaAppApplicationWithBodyWithResponse Create (Private - Gitea App)
+	//
+	// Create new application based on a private repository through a Gitea App.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /applications/private-gitea-app (the `CreatePrivateGiteaAppApplication` operationId).
+	CreatePrivateGiteaAppApplicationWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreatePrivateGiteaAppApplicationResponse, error)
+
+	// CreatePrivateGiteaAppApplicationWithResponse Create (Private - Gitea App)
+	//
+	// Create new application based on a private repository through a Gitea App.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /applications/private-gitea-app (the `CreatePrivateGiteaAppApplication` operationId).
+	CreatePrivateGiteaAppApplicationWithResponse(ctx context.Context, body CreatePrivateGiteaAppApplicationJSONRequestBody, reqEditors ...RequestEditorFn) (*CreatePrivateGiteaAppApplicationResponse, error)
+
 	// CreatePrivateGithubAppApplicationWithBodyWithResponse Create (Private - GH App)
 	//
 	// Create new application based on a private repository through a Github App.
@@ -35509,6 +36202,15 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /dns/zones (the `ListDnsZones` operationId).
 	ListDnsZonesWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*ListDnsZonesResponse, error)
+
+	// ListGiteaAppsWithResponse List
+	//
+	// List all Gitea apps for the current team (and system-wide sources).
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /gitea-apps (the `ListGiteaApps` operationId).
+	ListGiteaAppsWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*ListGiteaAppsResponse, error)
 
 	// ListGithubAppsWithResponse List
 	//
@@ -38133,6 +38835,92 @@ func (r CreatePrivateDeployKeyApplicationResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r CreatePrivateDeployKeyApplicationResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type CreatePrivateGiteaAppApplicationResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON201 the response for an HTTP 201 `application/json` response
+	JSON201 *struct {
+		Uuid *string `json:"uuid,omitempty"`
+	}
+	// JSON400 the response for an HTTP 400 `application/json` response
+	JSON400 *N400
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON409 the response for an HTTP 409 `application/json` response
+	JSON409 *struct {
+		Conflicts *[]struct {
+			Domain       *string                                                                   `json:"domain,omitempty"`
+			Message      *string                                                                   `json:"message,omitempty"`
+			ResourceName *string                                                                   `json:"resource_name,omitempty"`
+			ResourceType *CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType `json:"resource_type,omitempty"`
+			ResourceUuid *string                                                                   `json:"resource_uuid,omitempty"`
+		} `json:"conflicts,omitempty"`
+		Message *string `json:"message,omitempty"`
+		Warning *string `json:"warning,omitempty"`
+	}
+}
+
+// GetJSON201 returns the response for an HTTP 201 `application/json` response
+func (r CreatePrivateGiteaAppApplicationResponse) GetJSON201() *struct {
+	Uuid *string `json:"uuid,omitempty"`
+} {
+	return r.JSON201
+}
+
+// GetJSON400 returns the response for an HTTP 400 `application/json` response
+func (r CreatePrivateGiteaAppApplicationResponse) GetJSON400() *N400 {
+	return r.JSON400
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r CreatePrivateGiteaAppApplicationResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON409 returns the response for an HTTP 409 `application/json` response
+func (r CreatePrivateGiteaAppApplicationResponse) GetJSON409() *struct {
+	Conflicts *[]struct {
+		Domain       *string                                                                   `json:"domain,omitempty"`
+		Message      *string                                                                   `json:"message,omitempty"`
+		ResourceName *string                                                                   `json:"resource_name,omitempty"`
+		ResourceType *CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType `json:"resource_type,omitempty"`
+		ResourceUuid *string                                                                   `json:"resource_uuid,omitempty"`
+	} `json:"conflicts,omitempty"`
+	Message *string `json:"message,omitempty"`
+	Warning *string `json:"warning,omitempty"`
+} {
+	return r.JSON409
+}
+
+// GetBody returns the raw response body bytes
+func (r CreatePrivateGiteaAppApplicationResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r CreatePrivateGiteaAppApplicationResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r CreatePrivateGiteaAppApplicationResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r CreatePrivateGiteaAppApplicationResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -45595,6 +46383,95 @@ func (r ListDnsZonesResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r ListDnsZonesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListGiteaAppsResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *[]struct {
+		ApiUrl     *string `json:"api_url,omitempty"`
+		ClientId   *string `json:"client_id,omitempty"`
+		CustomPort *int    `json:"custom_port,omitempty"`
+		CustomUser *string `json:"custom_user,omitempty"`
+		HtmlUrl    *string `json:"html_url,omitempty"`
+		Id         *int    `json:"id,omitempty"`
+
+		// IsConnected True when the OAuth connection is complete and the source can deploy private repositories.
+		IsConnected  *bool   `json:"is_connected,omitempty"`
+		IsPublic     *bool   `json:"is_public,omitempty"`
+		IsSystemWide *bool   `json:"is_system_wide,omitempty"`
+		Name         *string `json:"name,omitempty"`
+		Organization *string `json:"organization,omitempty"`
+		RedirectUri  *string `json:"redirect_uri,omitempty"`
+		TeamId       *int    `json:"team_id,omitempty"`
+		Uuid         *string `json:"uuid,omitempty"`
+	}
+	// JSON400 the response for an HTTP 400 `application/json` response
+	JSON400 *N400
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListGiteaAppsResponse) GetJSON200() *[]struct {
+	ApiUrl     *string `json:"api_url,omitempty"`
+	ClientId   *string `json:"client_id,omitempty"`
+	CustomPort *int    `json:"custom_port,omitempty"`
+	CustomUser *string `json:"custom_user,omitempty"`
+	HtmlUrl    *string `json:"html_url,omitempty"`
+	Id         *int    `json:"id,omitempty"`
+
+	// IsConnected True when the OAuth connection is complete and the source can deploy private repositories.
+	IsConnected  *bool   `json:"is_connected,omitempty"`
+	IsPublic     *bool   `json:"is_public,omitempty"`
+	IsSystemWide *bool   `json:"is_system_wide,omitempty"`
+	Name         *string `json:"name,omitempty"`
+	Organization *string `json:"organization,omitempty"`
+	RedirectUri  *string `json:"redirect_uri,omitempty"`
+	TeamId       *int    `json:"team_id,omitempty"`
+	Uuid         *string `json:"uuid,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON400 returns the response for an HTTP 400 `application/json` response
+func (r ListGiteaAppsResponse) GetJSON400() *N400 {
+	return r.JSON400
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ListGiteaAppsResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r ListGiteaAppsResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListGiteaAppsResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListGiteaAppsResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListGiteaAppsResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -57911,6 +58788,36 @@ func (c *ClientWithResponses) CreatePrivateDeployKeyApplicationWithResponse(ctx 
 	return ParseCreatePrivateDeployKeyApplicationResponse(rsp)
 }
 
+// CreatePrivateGiteaAppApplicationWithBodyWithResponse Create (Private - Gitea App)
+//
+// Create new application based on a private repository through a Gitea App.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /applications/private-gitea-app (the `CreatePrivateGiteaAppApplication` operationId).
+func (c *ClientWithResponses) CreatePrivateGiteaAppApplicationWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreatePrivateGiteaAppApplicationResponse, error) {
+	rsp, err := c.CreatePrivateGiteaAppApplicationWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreatePrivateGiteaAppApplicationResponse(rsp)
+}
+
+// CreatePrivateGiteaAppApplicationWithResponse Create (Private - Gitea App)
+//
+// Create new application based on a private repository through a Gitea App.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /applications/private-gitea-app (the `CreatePrivateGiteaAppApplication` operationId).
+func (c *ClientWithResponses) CreatePrivateGiteaAppApplicationWithResponse(ctx context.Context, body CreatePrivateGiteaAppApplicationJSONRequestBody, reqEditors ...RequestEditorFn) (*CreatePrivateGiteaAppApplicationResponse, error) {
+	rsp, err := c.CreatePrivateGiteaAppApplication(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseCreatePrivateGiteaAppApplicationResponse(rsp)
+}
+
 // CreatePrivateGithubAppApplicationWithBodyWithResponse Create (Private - GH App)
 //
 // Create new application based on a private repository through a Github App.
@@ -60447,6 +61354,21 @@ func (c *ClientWithResponses) ListDnsZonesWithResponse(ctx context.Context, reqE
 		return nil, err
 	}
 	return ParseListDnsZonesResponse(rsp)
+}
+
+// ListGiteaAppsWithResponse List
+//
+// List all Gitea apps for the current team (and system-wide sources).
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /gitea-apps (the `ListGiteaApps` operationId).
+func (c *ClientWithResponses) ListGiteaAppsWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*ListGiteaAppsResponse, error) {
+	rsp, err := c.ListGiteaApps(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListGiteaAppsResponse(rsp)
 }
 
 // ListGithubAppsWithResponse List
@@ -64530,6 +65452,68 @@ func ParseCreatePrivateDeployKeyApplicationResponse(rsp *http.Response) (*Create
 				ResourceName *string                                                                    `json:"resource_name,omitempty"`
 				ResourceType *CreatePrivateDeployKeyApplication409JSONResponseBodyConflictsResourceType `json:"resource_type,omitempty"`
 				ResourceUuid *string                                                                    `json:"resource_uuid,omitempty"`
+			} `json:"conflicts,omitempty"`
+			Message *string `json:"message,omitempty"`
+			Warning *string `json:"warning,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON409 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseCreatePrivateGiteaAppApplicationResponse parses an HTTP response from a CreatePrivateGiteaAppApplicationWithResponse call
+func ParseCreatePrivateGiteaAppApplicationResponse(rsp *http.Response) (*CreatePrivateGiteaAppApplicationResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &CreatePrivateGiteaAppApplicationResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 201:
+		var dest struct {
+			Uuid *string `json:"uuid,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON201 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest N400
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 409:
+		var dest struct {
+			Conflicts *[]struct {
+				Domain       *string                                                                   `json:"domain,omitempty"`
+				Message      *string                                                                   `json:"message,omitempty"`
+				ResourceName *string                                                                   `json:"resource_name,omitempty"`
+				ResourceType *CreatePrivateGiteaAppApplication409JSONResponseBodyConflictsResourceType `json:"resource_type,omitempty"`
+				ResourceUuid *string                                                                   `json:"resource_uuid,omitempty"`
 			} `json:"conflicts,omitempty"`
 			Message *string `json:"message,omitempty"`
 			Warning *string `json:"warning,omitempty"`
@@ -70280,6 +71264,63 @@ func ParseListDnsZonesResponse(rsp *http.Response) (*ListDnsZonesResponse, error
 
 	case rsp.StatusCode == 403:
 		break // No content-type
+
+	}
+
+	return response, nil
+}
+
+// ParseListGiteaAppsResponse parses an HTTP response from a ListGiteaAppsWithResponse call
+func ParseListGiteaAppsResponse(rsp *http.Response) (*ListGiteaAppsResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListGiteaAppsResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest []struct {
+			ApiUrl     *string `json:"api_url,omitempty"`
+			ClientId   *string `json:"client_id,omitempty"`
+			CustomPort *int    `json:"custom_port,omitempty"`
+			CustomUser *string `json:"custom_user,omitempty"`
+			HtmlUrl    *string `json:"html_url,omitempty"`
+			Id         *int    `json:"id,omitempty"`
+
+			// IsConnected True when the OAuth connection is complete and the source can deploy private repositories.
+			IsConnected  *bool   `json:"is_connected,omitempty"`
+			IsPublic     *bool   `json:"is_public,omitempty"`
+			IsSystemWide *bool   `json:"is_system_wide,omitempty"`
+			Name         *string `json:"name,omitempty"`
+			Organization *string `json:"organization,omitempty"`
+			RedirectUri  *string `json:"redirect_uri,omitempty"`
+			TeamId       *int    `json:"team_id,omitempty"`
+			Uuid         *string `json:"uuid,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest N400
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
 
 	}
 

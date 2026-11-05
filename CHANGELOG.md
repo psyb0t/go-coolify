@@ -2,6 +2,14 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.9.0, 2026-11-05
+
+- Breaking: `ClientInterface` and `ClientWithResponsesInterface` gain methods, so custom implementations or mocks of these interfaces must add `CreatePrivateGiteaAppApplication`, `CreatePrivateGiteaAppApplicationWithBody`, `ListGiteaApps` and the matching `WithResponse` methods.
+- Add Gitea app calls on `Client` and `ClientWithResponses`: `ListGiteaApps`, `CreatePrivateGiteaAppApplication` and `CreatePrivateGiteaAppApplicationWithBody`, with the `WithResponse` variants, the `ListGiteaAppsResponse` and `CreatePrivateGiteaAppApplicationResponse` types, and the `New...Request` and `Parse...Response` functions.
+- Add `CreatePrivateGiteaAppApplicationJSONBody` and `CreatePrivateGiteaAppApplicationJSONRequestBody`, with enum types for build pack, redirect, static image and HTTP basic auth hash algorithm.
+- Add `IncludeNetworkHostsInBuild` to `ApplicationSetting`, to the application create bodies (`CreateDockerfileApplicationJSONBody`, `CreateDockerimageApplicationJSONBody`, `CreatePrivateDeployKeyApplicationJSONBody`, `CreatePrivateGithubAppApplicationJSONBody`, `CreatePublicApplicationJSONBody`), to `UpdateApplicationByUuidJSONBody` and to the matching `JSONRequestBody` types.
+- Add `GiteaAppUuid` to `UpdateApplicationByUuidJSONBody` and `UpdateApplicationByUuidJSONRequestBody`.
+
 ## v0.8.0, 2026-11-03
 
 - Breaking: the anonymous response structs for S3 storages gain a `SkipTlsVerification` field. This changes the types of `ListS3StoragesResponse.JSON200`, `ListS3StoragesResponse.GetJSON200`, `GetS3StorageByUuidResponse.JSON200` and `GetS3StorageByUuidResponse.GetJSON200`. Code that assigns these values to a hand-written identical struct type must add the field.

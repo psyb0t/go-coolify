@@ -315,6 +315,120 @@ func (e ManagedDnsRecordType) Valid() bool {
 	}
 }
 
+// Defines values for ResourceVulnerabilitiesFindingsSeverity.
+const (
+	ResourceVulnerabilitiesFindingsSeverityCritical ResourceVulnerabilitiesFindingsSeverity = "critical"
+	ResourceVulnerabilitiesFindingsSeverityHigh     ResourceVulnerabilitiesFindingsSeverity = "high"
+	ResourceVulnerabilitiesFindingsSeverityLow      ResourceVulnerabilitiesFindingsSeverity = "low"
+	ResourceVulnerabilitiesFindingsSeverityMedium   ResourceVulnerabilitiesFindingsSeverity = "medium"
+	ResourceVulnerabilitiesFindingsSeverityUnknown  ResourceVulnerabilitiesFindingsSeverity = "unknown"
+)
+
+// Valid indicates whether the value is a known member of the ResourceVulnerabilitiesFindingsSeverity enum.
+func (e ResourceVulnerabilitiesFindingsSeverity) Valid() bool {
+	switch e {
+	case ResourceVulnerabilitiesFindingsSeverityCritical:
+		return true
+	case ResourceVulnerabilitiesFindingsSeverityHigh:
+		return true
+	case ResourceVulnerabilitiesFindingsSeverityLow:
+		return true
+	case ResourceVulnerabilitiesFindingsSeverityMedium:
+		return true
+	case ResourceVulnerabilitiesFindingsSeverityUnknown:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ResourceVulnerabilitiesFindingsState.
+const (
+	ResourceVulnerabilitiesFindingsStateFixed   ResourceVulnerabilitiesFindingsState = "fixed"
+	ResourceVulnerabilitiesFindingsStateIgnored ResourceVulnerabilitiesFindingsState = "ignored"
+	ResourceVulnerabilitiesFindingsStateNoFix   ResourceVulnerabilitiesFindingsState = "no_fix"
+)
+
+// Valid indicates whether the value is a known member of the ResourceVulnerabilitiesFindingsState enum.
+func (e ResourceVulnerabilitiesFindingsState) Valid() bool {
+	switch e {
+	case ResourceVulnerabilitiesFindingsStateFixed:
+		return true
+	case ResourceVulnerabilitiesFindingsStateIgnored:
+		return true
+	case ResourceVulnerabilitiesFindingsStateNoFix:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ResourceVulnerabilitiesImagesScanStatus.
+const (
+	ResourceVulnerabilitiesImagesScanStatusCompleted ResourceVulnerabilitiesImagesScanStatus = "completed"
+	ResourceVulnerabilitiesImagesScanStatusFailed    ResourceVulnerabilitiesImagesScanStatus = "failed"
+	ResourceVulnerabilitiesImagesScanStatusQueued    ResourceVulnerabilitiesImagesScanStatus = "queued"
+	ResourceVulnerabilitiesImagesScanStatusRunning   ResourceVulnerabilitiesImagesScanStatus = "running"
+)
+
+// Valid indicates whether the value is a known member of the ResourceVulnerabilitiesImagesScanStatus enum.
+func (e ResourceVulnerabilitiesImagesScanStatus) Valid() bool {
+	switch e {
+	case ResourceVulnerabilitiesImagesScanStatusCompleted:
+		return true
+	case ResourceVulnerabilitiesImagesScanStatusFailed:
+		return true
+	case ResourceVulnerabilitiesImagesScanStatusQueued:
+		return true
+	case ResourceVulnerabilitiesImagesScanStatusRunning:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ResourceVulnerabilitiesOffReason.
+const (
+	ResourceVulnerabilitiesOffReasonApplication ResourceVulnerabilitiesOffReason = "application"
+	ResourceVulnerabilitiesOffReasonInstance    ResourceVulnerabilitiesOffReason = "instance"
+	ResourceVulnerabilitiesOffReasonServer      ResourceVulnerabilitiesOffReason = "server"
+)
+
+// Valid indicates whether the value is a known member of the ResourceVulnerabilitiesOffReason enum.
+func (e ResourceVulnerabilitiesOffReason) Valid() bool {
+	switch e {
+	case ResourceVulnerabilitiesOffReasonApplication:
+		return true
+	case ResourceVulnerabilitiesOffReasonInstance:
+		return true
+	case ResourceVulnerabilitiesOffReasonServer:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ResourceVulnerabilitiesType.
+const (
+	ResourceVulnerabilitiesTypeApplication ResourceVulnerabilitiesType = "application"
+	ResourceVulnerabilitiesTypeDatabase    ResourceVulnerabilitiesType = "database"
+	ResourceVulnerabilitiesTypeService     ResourceVulnerabilitiesType = "service"
+)
+
+// Valid indicates whether the value is a known member of the ResourceVulnerabilitiesType enum.
+func (e ResourceVulnerabilitiesType) Valid() bool {
+	switch e {
+	case ResourceVulnerabilitiesTypeApplication:
+		return true
+	case ResourceVulnerabilitiesTypeDatabase:
+		return true
+	case ResourceVulnerabilitiesTypeService:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ScheduledTaskExecutionStatus.
 const (
 	ScheduledTaskExecutionStatusFailed  ScheduledTaskExecutionStatus = "failed"
@@ -360,6 +474,36 @@ func (e SecretManagerSourceProvider) Valid() bool {
 	}
 }
 
+// Defines values for SecurityStatusStatus.
+const (
+	SecurityStatusStatusCheckNeeded     SecurityStatusStatus = "check_needed"
+	SecurityStatusStatusNoFix           SecurityStatusStatus = "no_fix"
+	SecurityStatusStatusNotChecked      SecurityStatusStatus = "not_checked"
+	SecurityStatusStatusOk              SecurityStatusStatus = "ok"
+	SecurityStatusStatusUpdateAvailable SecurityStatusStatus = "update_available"
+	SecurityStatusStatusUpdateNow       SecurityStatusStatus = "update_now"
+)
+
+// Valid indicates whether the value is a known member of the SecurityStatusStatus enum.
+func (e SecurityStatusStatus) Valid() bool {
+	switch e {
+	case SecurityStatusStatusCheckNeeded:
+		return true
+	case SecurityStatusStatusNoFix:
+		return true
+	case SecurityStatusStatusNotChecked:
+		return true
+	case SecurityStatusStatusOk:
+		return true
+	case SecurityStatusStatusUpdateAvailable:
+		return true
+	case SecurityStatusStatusUpdateNow:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for ServerProxyType.
 const (
 	ServerProxyTypeCaddy   ServerProxyType = "caddy"
@@ -396,6 +540,30 @@ func (e ServerSettingServerRole) Valid() bool {
 	case ServerSettingServerRoleBuild:
 		return true
 	case ServerSettingServerRoleDeployment:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ServerSettingSshHostKeySource.
+const (
+	ServerSettingSshHostKeySourceManual   ServerSettingSshHostKeySource = "manual"
+	ServerSettingSshHostKeySourceTofu     ServerSettingSshHostKeySource = "tofu"
+	ServerSettingSshHostKeySourceTransfer ServerSettingSshHostKeySource = "transfer"
+	ServerSettingSshHostKeySourceUpgrade  ServerSettingSshHostKeySource = "upgrade"
+)
+
+// Valid indicates whether the value is a known member of the ServerSettingSshHostKeySource enum.
+func (e ServerSettingSshHostKeySource) Valid() bool {
+	switch e {
+	case ServerSettingSshHostKeySourceManual:
+		return true
+	case ServerSettingSshHostKeySourceTofu:
+		return true
+	case ServerSettingSshHostKeySourceTransfer:
+		return true
+	case ServerSettingSshHostKeySourceUpgrade:
 		return true
 	default:
 		return false
@@ -1440,6 +1608,78 @@ func (e DeployByTagOrUuidParamsCancelPrevious) Valid() bool {
 	}
 }
 
+// Defines values for ListS3Storages200JSONResponseBodyType.
+const (
+	ListS3Storages200JSONResponseBodyTypeFtps   ListS3Storages200JSONResponseBodyType = "ftps"
+	ListS3Storages200JSONResponseBodyTypeS3     ListS3Storages200JSONResponseBodyType = "s3"
+	ListS3Storages200JSONResponseBodyTypeSftp   ListS3Storages200JSONResponseBodyType = "sftp"
+	ListS3Storages200JSONResponseBodyTypeWebdav ListS3Storages200JSONResponseBodyType = "webdav"
+)
+
+// Valid indicates whether the value is a known member of the ListS3Storages200JSONResponseBodyType enum.
+func (e ListS3Storages200JSONResponseBodyType) Valid() bool {
+	switch e {
+	case ListS3Storages200JSONResponseBodyTypeFtps:
+		return true
+	case ListS3Storages200JSONResponseBodyTypeS3:
+		return true
+	case ListS3Storages200JSONResponseBodyTypeSftp:
+		return true
+	case ListS3Storages200JSONResponseBodyTypeWebdav:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for CreateS3StorageJSONBodyType.
+const (
+	CreateS3StorageJSONBodyTypeFtps   CreateS3StorageJSONBodyType = "ftps"
+	CreateS3StorageJSONBodyTypeS3     CreateS3StorageJSONBodyType = "s3"
+	CreateS3StorageJSONBodyTypeSftp   CreateS3StorageJSONBodyType = "sftp"
+	CreateS3StorageJSONBodyTypeWebdav CreateS3StorageJSONBodyType = "webdav"
+)
+
+// Valid indicates whether the value is a known member of the CreateS3StorageJSONBodyType enum.
+func (e CreateS3StorageJSONBodyType) Valid() bool {
+	switch e {
+	case CreateS3StorageJSONBodyTypeFtps:
+		return true
+	case CreateS3StorageJSONBodyTypeS3:
+		return true
+	case CreateS3StorageJSONBodyTypeSftp:
+		return true
+	case CreateS3StorageJSONBodyTypeWebdav:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetS3StorageByUuid200JSONResponseBodyType.
+const (
+	GetS3StorageByUuid200JSONResponseBodyTypeFtps   GetS3StorageByUuid200JSONResponseBodyType = "ftps"
+	GetS3StorageByUuid200JSONResponseBodyTypeS3     GetS3StorageByUuid200JSONResponseBodyType = "s3"
+	GetS3StorageByUuid200JSONResponseBodyTypeSftp   GetS3StorageByUuid200JSONResponseBodyType = "sftp"
+	GetS3StorageByUuid200JSONResponseBodyTypeWebdav GetS3StorageByUuid200JSONResponseBodyType = "webdav"
+)
+
+// Valid indicates whether the value is a known member of the GetS3StorageByUuid200JSONResponseBodyType enum.
+func (e GetS3StorageByUuid200JSONResponseBodyType) Valid() bool {
+	switch e {
+	case GetS3StorageByUuid200JSONResponseBodyTypeFtps:
+		return true
+	case GetS3StorageByUuid200JSONResponseBodyTypeS3:
+		return true
+	case GetS3StorageByUuid200JSONResponseBodyTypeSftp:
+		return true
+	case GetS3StorageByUuid200JSONResponseBodyTypeWebdav:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for CreateSecretManagerIntegrationTokenJSONBodyCapabilities.
 const (
 	CreateSecretManagerIntegrationTokenJSONBodyCapabilitiesDns     CreateSecretManagerIntegrationTokenJSONBodyCapabilities = "dns"
@@ -1626,6 +1866,30 @@ func (e UpdateServerByUuidJSONBodyServerRole) Valid() bool {
 	case UpdateServerByUuidJSONBodyServerRoleBuild:
 		return true
 	case UpdateServerByUuidJSONBodyServerRoleDeployment:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetServerImageScanning200JSONResponseBodyScannerState.
+const (
+	GetServerImageScanning200JSONResponseBodyScannerStateFailed           GetServerImageScanning200JSONResponseBodyScannerState = "failed"
+	GetServerImageScanning200JSONResponseBodyScannerStatePulling          GetServerImageScanning200JSONResponseBodyScannerState = "pulling"
+	GetServerImageScanning200JSONResponseBodyScannerStateReady            GetServerImageScanning200JSONResponseBodyScannerState = "ready"
+	GetServerImageScanning200JSONResponseBodyScannerStateUpdatingDatabase GetServerImageScanning200JSONResponseBodyScannerState = "updating_database"
+)
+
+// Valid indicates whether the value is a known member of the GetServerImageScanning200JSONResponseBodyScannerState enum.
+func (e GetServerImageScanning200JSONResponseBodyScannerState) Valid() bool {
+	switch e {
+	case GetServerImageScanning200JSONResponseBodyScannerStateFailed:
+		return true
+	case GetServerImageScanning200JSONResponseBodyScannerStatePulling:
+		return true
+	case GetServerImageScanning200JSONResponseBodyScannerStateReady:
+		return true
+	case GetServerImageScanning200JSONResponseBodyScannerStateUpdatingDatabase:
 		return true
 	default:
 		return false
@@ -1836,6 +2100,27 @@ func (e CreateStorageByServiceUuidJSONBodyType) Valid() bool {
 	case CreateStorageByServiceUuidJSONBodyTypeFile:
 		return true
 	case CreateStorageByServiceUuidJSONBodyTypePersistent:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for ListVulnerabilities200JSONResponseBodyResourcesType.
+const (
+	ListVulnerabilities200JSONResponseBodyResourcesTypeApplication ListVulnerabilities200JSONResponseBodyResourcesType = "application"
+	ListVulnerabilities200JSONResponseBodyResourcesTypeDatabase    ListVulnerabilities200JSONResponseBodyResourcesType = "database"
+	ListVulnerabilities200JSONResponseBodyResourcesTypeService     ListVulnerabilities200JSONResponseBodyResourcesType = "service"
+)
+
+// Valid indicates whether the value is a known member of the ListVulnerabilities200JSONResponseBodyResourcesType enum.
+func (e ListVulnerabilities200JSONResponseBodyResourcesType) Valid() bool {
+	switch e {
+	case ListVulnerabilities200JSONResponseBodyResourcesTypeApplication:
+		return true
+	case ListVulnerabilities200JSONResponseBodyResourcesTypeDatabase:
+		return true
+	case ListVulnerabilities200JSONResponseBodyResourcesTypeService:
 		return true
 	default:
 		return false
@@ -2068,6 +2353,9 @@ type Application struct {
 
 	// GitRepository Git repository URL.
 	GitRepository *string `json:"git_repository,omitempty"`
+
+	// GitSshKnownHosts SSH host keys (known_hosts lines) of self-hosted Git hosts that git over SSH accepts. Saved on the first deployment.
+	GitSshKnownHosts *string `json:"git_ssh_known_hosts,omitempty"`
 
 	// HealthCheckCommand Health check command for CMD type.
 	HealthCheckCommand *string `json:"health_check_command,omitempty"`
@@ -2776,6 +3064,72 @@ type ResourceDnsStatus struct {
 	PublicAddresses *[]string `json:"public_addresses,omitempty"`
 }
 
+// ResourceVulnerabilities Image scan results of a resource.
+type ResourceVulnerabilities struct {
+	Findings *[]struct {
+		AdvisoryUrl *string                 `json:"advisory_url,omitempty"`
+		Aliases     *[]string               `json:"aliases,omitempty"`
+		CvssScore   *float64                `json:"cvss_score,omitempty"`
+		DisplayId   *string                 `json:"display_id,omitempty"`
+		Epss        *float64                `json:"epss,omitempty"`
+		FixedIn     *string                 `json:"fixed_in,omitempty"`
+		Id          *string                 `json:"id,omitempty"`
+		Ignore      *map[string]interface{} `json:"ignore,omitempty"`
+		ImageRef    *string                 `json:"image_ref,omitempty"`
+
+		// Kev Listed in the CISA Known Exploited Vulnerabilities catalog.
+		Kev         *bool                                    `json:"kev,omitempty"`
+		OwnerUuid   *string                                  `json:"owner_uuid,omitempty"`
+		Package     *string                                  `json:"package,omitempty"`
+		PackageType *string                                  `json:"package_type,omitempty"`
+		Risk        *float64                                 `json:"risk,omitempty"`
+		Severity    *ResourceVulnerabilitiesFindingsSeverity `json:"severity,omitempty"`
+
+		// State fixed: a fix is available upstream.
+		State   *ResourceVulnerabilitiesFindingsState `json:"state,omitempty"`
+		Title   *string                               `json:"title,omitempty"`
+		Version *string                               `json:"version,omitempty"`
+	} `json:"findings,omitempty"`
+	Images *[]struct {
+		ErrorCode *string `json:"error_code,omitempty"`
+		ImageRef  *string `json:"image_ref,omitempty"`
+
+		// OwnerUuid The application, database, or service application or database that runs the image.
+		OwnerUuid      *string                                  `json:"owner_uuid,omitempty"`
+		ScanStatus     *ResourceVulnerabilitiesImagesScanStatus `json:"scan_status,omitempty"`
+		ScanUuid       *string                                  `json:"scan_uuid,omitempty"`
+		ScannedAt      *time.Time                               `json:"scanned_at,omitempty"`
+		SecurityStatus *string                                  `json:"security_status,omitempty"`
+		Truncated      *bool                                    `json:"truncated,omitempty"`
+	} `json:"images,omitempty"`
+
+	// OffReason Why the resource is not scanned. Null when it is scanned.
+	OffReason  *ResourceVulnerabilitiesOffReason `json:"off_reason,omitempty"`
+	Pagination *struct {
+		Page    *int `json:"page,omitempty"`
+		PerPage *int `json:"per_page,omitempty"`
+		Total   *int `json:"total,omitempty"`
+	} `json:"pagination,omitempty"`
+	Security *SecurityStatus              `json:"security,omitempty"`
+	Type     *ResourceVulnerabilitiesType `json:"type,omitempty"`
+	Uuid     *string                      `json:"uuid,omitempty"`
+}
+
+// ResourceVulnerabilitiesFindingsSeverity defines model for ResourceVulnerabilities.Findings.Severity.
+type ResourceVulnerabilitiesFindingsSeverity string
+
+// ResourceVulnerabilitiesFindingsState fixed: a fix is available upstream.
+type ResourceVulnerabilitiesFindingsState string
+
+// ResourceVulnerabilitiesImagesScanStatus defines model for ResourceVulnerabilities.Images.ScanStatus.
+type ResourceVulnerabilitiesImagesScanStatus string
+
+// ResourceVulnerabilitiesOffReason Why the resource is not scanned. Null when it is scanned.
+type ResourceVulnerabilitiesOffReason string
+
+// ResourceVulnerabilitiesType defines model for ResourceVulnerabilities.Type.
+type ResourceVulnerabilitiesType string
+
 // ScheduledTask Scheduled Task model
 type ScheduledTask struct {
 	// Command The command to execute.
@@ -2871,6 +3225,36 @@ type SecretManagerSource struct {
 
 // SecretManagerSourceProvider defines model for SecretManagerSource.Provider.
 type SecretManagerSourceProvider string
+
+// SecurityStatus Security status of a resource from image scanning.
+type SecurityStatus struct {
+	// Action What to do, as the UI shows it.
+	Action  *string `json:"action,omitempty"`
+	Actions *[]struct {
+		Copy     *string `json:"copy,omitempty"`
+		Image    *string `json:"image,omitempty"`
+		Ref      *string `json:"ref,omitempty"`
+		Sentence *string `json:"sentence,omitempty"`
+		Target   *string `json:"target,omitempty"`
+		Type     *string `json:"type,omitempty"`
+	} `json:"actions,omitempty"`
+	AnyExploited  *bool      `json:"any_exploited,omitempty"`
+	CheckReason   *string    `json:"check_reason,omitempty"`
+	CheckedAt     *time.Time `json:"checked_at,omitempty"`
+	CriticalCount *int       `json:"critical_count,omitempty"`
+
+	// Eol The end-of-life OS of the image.
+	Eol            *map[string]interface{} `json:"eol,omitempty"`
+	ExploitedCount *int                    `json:"exploited_count,omitempty"`
+	HighCount      *int                    `json:"high_count,omitempty"`
+	Label          *string                 `json:"label,omitempty"`
+	MediumCount    *int                    `json:"medium_count,omitempty"`
+	ProblemCount   *int                    `json:"problem_count,omitempty"`
+	Status         *SecurityStatusStatus   `json:"status,omitempty"`
+}
+
+// SecurityStatusStatus defines model for SecurityStatus.Status.
+type SecurityStatusStatus string
 
 // Server Server model
 type Server struct {
@@ -2974,6 +3358,7 @@ type ServerSetting struct {
 	IsMetricsEnabled            *bool   `json:"is_metrics_enabled,omitempty"`
 	IsReachable                 *bool   `json:"is_reachable,omitempty"`
 	IsSentinelEnabled           *bool   `json:"is_sentinel_enabled,omitempty"`
+	IsSshHostKeyCheckDisabled   *bool   `json:"is_ssh_host_key_check_disabled,omitempty"`
 	IsSwarmManager              *bool   `json:"is_swarm_manager,omitempty"`
 	IsSwarmWorker               *bool   `json:"is_swarm_worker,omitempty"`
 	IsTerminalEnabled           *bool   `json:"is_terminal_enabled,omitempty"`
@@ -2997,6 +3382,20 @@ type ServerSetting struct {
 	ServerId                          *int                     `json:"server_id,omitempty"`
 	ServerRole                        *ServerSettingServerRole `json:"server_role,omitempty"`
 
+	// SshHostKey Pinned SSH host key(s) of the server, one "type base64" line per key.
+	SshHostKey *string `json:"ssh_host_key,omitempty"`
+
+	// SshHostKeyFingerprints SHA256 fingerprints of the pinned host keys, as `ssh-keygen -lf` shows them.
+	SshHostKeyFingerprints *[]string `json:"ssh_host_key_fingerprints,omitempty"`
+
+	// SshHostKeyPending Host key that the server sent when it did not match the pinned key.
+	SshHostKeyPending *string `json:"ssh_host_key_pending,omitempty"`
+
+	// SshHostKeyPendingFingerprints SHA256 fingerprints of the host key that did not match.
+	SshHostKeyPendingFingerprints *[]string                      `json:"ssh_host_key_pending_fingerprints,omitempty"`
+	SshHostKeySource              *ServerSettingSshHostKeySource `json:"ssh_host_key_source,omitempty"`
+	SshHostKeyTrustedAt           *time.Time                     `json:"ssh_host_key_trusted_at,omitempty"`
+
 	// TraefikCertificateResolver Traefik certificate resolver for generated HTTPS routers. Null when the proxy uses its own certificates.
 	TraefikCertificateResolver *string                     `json:"traefik_certificate_resolver,omitempty"`
 	TrafficIpMode              *ServerSettingTrafficIpMode `json:"traffic_ip_mode,omitempty"`
@@ -3010,6 +3409,9 @@ type ServerSetting struct {
 
 // ServerSettingServerRole defines model for ServerSetting.ServerRole.
 type ServerSettingServerRole string
+
+// ServerSettingSshHostKeySource defines model for ServerSetting.SshHostKeySource.
+type ServerSettingSshHostKeySource string
 
 // ServerSettingTrafficIpMode defines model for ServerSetting.TrafficIpMode.
 type ServerSettingTrafficIpMode string
@@ -3132,6 +3534,9 @@ type Team struct {
 	// PersonalTeam Whether the team is personal or not.
 	PersonalTeam *bool `json:"personal_team,omitempty"`
 
+	// ScanImagesOnNewServers Whether image scanning is turned on for servers added to the team from now on.
+	ScanImagesOnNewServers *bool `json:"scan_images_on_new_servers,omitempty"`
+
 	// ShowBoarding Whether to show the boarding screen or not.
 	ShowBoarding *bool `json:"show_boarding,omitempty"`
 
@@ -3225,6 +3630,24 @@ type VolumeBackupScheduleResponse struct {
 
 // VolumeBackupScheduleResponseStorageType defines model for VolumeBackupScheduleResponse.StorageType.
 type VolumeBackupScheduleResponseStorageType string
+
+// VulnerabilityImage defines model for VulnerabilityImage.
+type VulnerabilityImage = string
+
+// VulnerabilityPage defines model for VulnerabilityPage.
+type VulnerabilityPage = int
+
+// VulnerabilityPerPage defines model for VulnerabilityPerPage.
+type VulnerabilityPerPage = int
+
+// VulnerabilitySearch defines model for VulnerabilitySearch.
+type VulnerabilitySearch = string
+
+// VulnerabilitySeverity defines model for VulnerabilitySeverity.
+type VulnerabilitySeverity = string
+
+// VulnerabilityState defines model for VulnerabilityState.
+type VulnerabilityState = string
 
 // N400 defines model for 400.
 type N400 struct {
@@ -3447,6 +3870,9 @@ type CreateDockerfileApplicationJSONBody struct {
 
 	// IsHttpBasicAuthEnabled HTTP Basic Authentication enabled.
 	IsHttpBasicAuthEnabled *bool `json:"is_http_basic_auth_enabled,omitempty"`
+
+	// IsImageScanEnabled Scan the images of the application for vulnerabilities. Needs image scanning on the server. Default true.
+	IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
 
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
@@ -3741,6 +4167,9 @@ type CreateDockerimageApplicationJSONBody struct {
 
 	// IsHttpBasicAuthEnabled HTTP Basic Authentication enabled.
 	IsHttpBasicAuthEnabled *bool `json:"is_http_basic_auth_enabled,omitempty"`
+
+	// IsImageScanEnabled Scan the images of the application for vulnerabilities. Needs image scanning on the server. Default true.
+	IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
 
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
@@ -4086,6 +4515,9 @@ type CreatePrivateDeployKeyApplicationJSONBody struct {
 
 	// IsHttpBasicAuthEnabled HTTP Basic Authentication enabled.
 	IsHttpBasicAuthEnabled *bool `json:"is_http_basic_auth_enabled,omitempty"`
+
+	// IsImageScanEnabled Scan the images of the application for vulnerabilities. Needs image scanning on the server. Default true.
+	IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
 
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
@@ -4468,6 +4900,9 @@ type CreatePrivateGiteaAppApplicationJSONBody struct {
 	// IsHttpBasicAuthEnabled HTTP Basic Authentication enabled.
 	IsHttpBasicAuthEnabled *bool `json:"is_http_basic_auth_enabled,omitempty"`
 
+	// IsImageScanEnabled Scan the images of the application for vulnerabilities. Needs image scanning on the server. Default true.
+	IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
+
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
 
@@ -4845,6 +5280,9 @@ type CreatePrivateGithubAppApplicationJSONBody struct {
 
 	// IsHttpBasicAuthEnabled HTTP Basic Authentication enabled.
 	IsHttpBasicAuthEnabled *bool `json:"is_http_basic_auth_enabled,omitempty"`
+
+	// IsImageScanEnabled Scan the images of the application for vulnerabilities. Needs image scanning on the server. Default true.
+	IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
 
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
@@ -5227,6 +5665,9 @@ type CreatePublicApplicationJSONBody struct {
 	// IsHttpBasicAuthEnabled HTTP Basic Authentication enabled.
 	IsHttpBasicAuthEnabled *bool `json:"is_http_basic_auth_enabled,omitempty"`
 
+	// IsImageScanEnabled Scan the images of the application for vulnerabilities. Needs image scanning on the server. Default true.
+	IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
+
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
 
@@ -5607,6 +6048,9 @@ type UpdateApplicationByUuidJSONBody struct {
 
 	// IsGzipEnabled Enable gzip compression.
 	IsGzipEnabled *bool `json:"is_gzip_enabled,omitempty"`
+
+	// IsImageScanEnabled Scan the images of the application for vulnerabilities. Needs image scanning on the server. Default true.
+	IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
 
 	// IsLogDrainEnabled Enable log drain for the application.
 	IsLogDrainEnabled *bool `json:"is_log_drain_enabled,omitempty"`
@@ -6047,6 +6491,23 @@ type CreateTagByApplicationUuidJSONBody struct {
 
 	// TagNames Array of tag names (each min 2 characters). Required if tag_name is not provided.
 	TagNames *[]string `json:"tag_names,omitempty"`
+}
+
+// GetApplicationVulnerabilitiesParams defines parameters for GetApplicationVulnerabilities.
+type GetApplicationVulnerabilitiesParams struct {
+	// State Comma-separated finding states: fixed, no_fix, ignored. All when not sent.
+	State *VulnerabilityState `form:"state,omitempty" json:"state,omitempty"`
+
+	// Severity Comma-separated severities: critical, high, medium, low, unknown.
+	Severity *VulnerabilitySeverity `form:"severity,omitempty" json:"severity,omitempty"`
+
+	// Image Only the findings of this scanned image ref.
+	Image *VulnerabilityImage `form:"image,omitempty" json:"image,omitempty"`
+
+	// Search Text in the vulnerability ID, an alias, the package, or the version.
+	Search  *VulnerabilitySearch  `form:"search,omitempty" json:"search,omitempty"`
+	Page    *VulnerabilityPage    `form:"page,omitempty" json:"page,omitempty"`
+	PerPage *VulnerabilityPerPage `form:"per_page,omitempty" json:"per_page,omitempty"`
 }
 
 // ListAuditEventsParams defines parameters for ListAuditEvents.
@@ -6632,7 +7093,7 @@ type CreateDatabaseRedisJSONBody struct {
 	// EnvironmentUuid UUID of the environment. You need to provide at least one of environment_name or environment_uuid.
 	EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 
-	// Image Docker Image of the database
+	// Image Docker image of the database. Default: valkey/valkey:9-alpine. For Redis, use a Redis image, for example redis:8.
 	Image *string `json:"image,omitempty"`
 
 	// InstantDeploy Instant deploy the database
@@ -7186,6 +7647,23 @@ type CreateTagByDatabaseUuidJSONBody struct {
 	TagNames *[]string `json:"tag_names,omitempty"`
 }
 
+// GetDatabaseVulnerabilitiesParams defines parameters for GetDatabaseVulnerabilities.
+type GetDatabaseVulnerabilitiesParams struct {
+	// State Comma-separated finding states: fixed, no_fix, ignored. All when not sent.
+	State *VulnerabilityState `form:"state,omitempty" json:"state,omitempty"`
+
+	// Severity Comma-separated severities: critical, high, medium, low, unknown.
+	Severity *VulnerabilitySeverity `form:"severity,omitempty" json:"severity,omitempty"`
+
+	// Image Only the findings of this scanned image ref.
+	Image *VulnerabilityImage `form:"image,omitempty" json:"image,omitempty"`
+
+	// Search Text in the vulnerability ID, an alias, the package, or the version.
+	Search  *VulnerabilitySearch  `form:"search,omitempty" json:"search,omitempty"`
+	Page    *VulnerabilityPage    `form:"page,omitempty" json:"page,omitempty"`
+	PerPage *VulnerabilityPerPage `form:"per_page,omitempty" json:"per_page,omitempty"`
+}
+
 // DeployByTagOrUuidParams defines parameters for DeployByTagOrUuid.
 type DeployByTagOrUuidParams struct {
 	// Tag Tag name(s). Comma separated list is also accepted.
@@ -7524,66 +8002,84 @@ type ListResources200JSONResponseBody_Item struct {
 	AdditionalProperties map[string]interface{} `json:"-"`
 }
 
+// ListS3Storages200JSONResponseBodyType defines parameters for ListS3Storages.
+type ListS3Storages200JSONResponseBodyType string
+
 // CreateS3StorageJSONBody defines parameters for CreateS3Storage.
 type CreateS3StorageJSONBody struct {
-	// Bucket S3 bucket name.
-	Bucket string `json:"bucket"`
-
-	// Description Optional description.
-	Description *string `json:"description,omitempty"`
-
-	// Endpoint S3-compatible endpoint URL.
-	Endpoint string `json:"endpoint"`
-
-	// IsUsable Whether the storage is marked usable.
-	IsUsable *bool `json:"is_usable,omitempty"`
-
-	// Key Access key.
-	Key string `json:"key"`
-
-	// Name A friendly name for the storage.
-	Name string `json:"name"`
-
-	// Region S3 region.
-	Region string `json:"region"`
-
-	// Secret Secret key.
-	Secret string `json:"secret"`
-
-	// SkipTlsVerification Do not check the TLS certificate of the endpoint. Use only for endpoints with a self-signed or private CA certificate. Default: false.
-	SkipTlsVerification *bool `json:"skip_tls_verification,omitempty"`
-
-	// UsePathStyleEndpoint Use path-style URLs (endpoint/bucket). Set to false for providers that only accept virtual-hosted-style URLs (bucket.endpoint). Default: false for Alibaba Cloud OSS, Tencent Cloud COS, and Volcengine TOS endpoints, true for all other endpoints.
-	UsePathStyleEndpoint *bool `json:"use_path_style_endpoint,omitempty"`
-}
-
-// UpdateS3StorageByUuidJSONBody defines parameters for UpdateS3StorageByUuid.
-type UpdateS3StorageByUuidJSONBody struct {
-	// Bucket S3 bucket name.
+	// Bucket S3 bucket name. Required for S3, not allowed for the other types.
 	Bucket *string `json:"bucket,omitempty"`
 
 	// Description Optional description.
 	Description *string `json:"description,omitempty"`
 
-	// Endpoint S3-compatible endpoint URL.
+	// Endpoint S3: the S3-compatible endpoint URL. SFTP and FTPS: sftp://host:port/directory or ftps://host:port/directory (explicit TLS); the directory is an absolute path, and without one the login directory is used. WebDAV: the https URL of the backup directory.
+	Endpoint string `json:"endpoint"`
+
+	// IsUsable Whether the storage is marked usable.
+	IsUsable *bool `json:"is_usable,omitempty"`
+
+	// Key S3: the access key. Other types: the username.
+	Key string `json:"key"`
+
+	// Name A friendly name for the storage.
+	Name string `json:"name"`
+
+	// PrivateKeyUuid SFTP only: the UUID of a private key of your team to log in with instead of a password.
+	PrivateKeyUuid *string `json:"private_key_uuid,omitempty"`
+
+	// Region S3 region. Required for S3, not allowed for the other types.
+	Region *string `json:"region,omitempty"`
+
+	// Secret S3: the secret key. Other types: the password. SFTP: not needed with private_key_uuid.
+	Secret *string `json:"secret,omitempty"`
+
+	// SkipTlsVerification S3 only. Do not check the TLS certificate of the endpoint. Use only for endpoints with a self-signed or private CA certificate. Default: false.
+	SkipTlsVerification *bool `json:"skip_tls_verification,omitempty"`
+
+	// Type The storage protocol. It cannot change later.
+	Type *CreateS3StorageJSONBodyType `json:"type,omitempty"`
+
+	// UsePathStyleEndpoint Use path-style URLs (endpoint/bucket). Set to false for providers that only accept virtual-hosted-style URLs (bucket.endpoint). Default: false for Alibaba Cloud OSS, Tencent Cloud COS, and Volcengine TOS endpoints, true for all other endpoints.
+	UsePathStyleEndpoint *bool `json:"use_path_style_endpoint,omitempty"`
+}
+
+// CreateS3StorageJSONBodyType defines parameters for CreateS3Storage.
+type CreateS3StorageJSONBodyType string
+
+// GetS3StorageByUuid200JSONResponseBodyType defines parameters for GetS3StorageByUuid.
+type GetS3StorageByUuid200JSONResponseBodyType string
+
+// UpdateS3StorageByUuidJSONBody defines parameters for UpdateS3StorageByUuid.
+type UpdateS3StorageByUuidJSONBody struct {
+	// Bucket S3 bucket name. Only for S3 storages.
+	Bucket *string `json:"bucket,omitempty"`
+
+	// Description Optional description.
+	Description *string `json:"description,omitempty"`
+
+	// Endpoint The endpoint URL, in the format of the storage type (see Create S3 Storage).
 	Endpoint *string `json:"endpoint,omitempty"`
 
 	// IsUsable Whether the storage is marked usable.
 	IsUsable *bool `json:"is_usable,omitempty"`
 
-	// Key Access key.
+	// Key S3: the access key. Other types: the username.
 	Key *string `json:"key,omitempty"`
 
 	// Name A friendly name for the storage.
 	Name *string `json:"name,omitempty"`
 
-	// Region S3 region.
+	// PrivateKeyUuid SFTP only: the UUID of a private key of your team to log in with. Null switches the login to the saved password.
+	PrivateKeyUuid *string `json:"private_key_uuid,omitempty"`
+
+	// Region S3 region. Only for S3 storages.
 	Region *string `json:"region,omitempty"`
 
-	// Secret Secret key.
+	// Secret S3: the secret key. Other types: the password. SFTP: sending a password switches the login to the password.
 	Secret *string `json:"secret,omitempty"`
 
-	// SkipTlsVerification Do not check the TLS certificate of the endpoint. Use only for endpoints with a self-signed or private CA certificate. Default: false.
+	// SkipTlsVerification S3 only. Do not check the TLS certificate of the endpoint. Use only for endpoints with a self-signed or private CA certificate. Default: false.
 	SkipTlsVerification *bool `json:"skip_tls_verification,omitempty"`
 
 	// UsePathStyleEndpoint Use path-style URLs (endpoint/bucket). Set to false for providers that only accept virtual-hosted-style URLs (bucket.endpoint), such as Alibaba Cloud OSS.
@@ -7677,6 +8173,9 @@ type CreateServerJSONBody struct {
 
 	// ServerRole Server role.
 	ServerRole *CreateServerJSONBodyServerRole `json:"server_role,omitempty"`
+
+	// SshHostKey The SSH host key(s) of the server, as public key lines (for example the content of /etc/ssh/ssh_host_ed25519_key.pub) or known_hosts lines. Without it, Coolify trusts the key that the server sends on the first connection.
+	SshHostKey *string `json:"ssh_host_key,omitempty"`
 
 	// User The user of the server.
 	User *string `json:"user,omitempty"`
@@ -7781,6 +8280,9 @@ type DeleteServerByUuidParams struct {
 
 	// DeleteFromProvider Also delete the server from its cloud provider (Hetzner, Vultr or DigitalOcean). This cannot be undone. Needs the deploy permission.
 	DeleteFromProvider *bool `form:"delete_from_provider,omitempty" json:"delete_from_provider,omitempty"`
+
+	// RemoveSshKey Remove the public key of the server's SSH key from ~/.ssh/authorized_keys on the server before the server is deleted. The server must have no resources. If the key cannot be removed, the server is not deleted.
+	RemoveSshKey *bool `form:"remove_ssh_key,omitempty" json:"remove_ssh_key,omitempty"`
 }
 
 // UpdateServerByUuidJSONBody defines parameters for UpdateServerByUuid.
@@ -7877,6 +8379,20 @@ type UpdateServerDockerCleanupJSONBody struct {
 type RunServerDockerCleanupJSONBody struct {
 	DeleteUnusedNetworks *bool `json:"delete_unused_networks,omitempty"`
 	DeleteUnusedVolumes  *bool `json:"delete_unused_volumes,omitempty"`
+}
+
+// ResetServerHostKeyByUuidJSONBody defines parameters for ResetServerHostKeyByUuid.
+type ResetServerHostKeyByUuidJSONBody struct {
+	// SshHostKey The SSH host key(s) to trust, as public key lines or known_hosts lines.
+	SshHostKey *string `json:"ssh_host_key,omitempty"`
+}
+
+// GetServerImageScanning200JSONResponseBodyScannerState defines parameters for GetServerImageScanning.
+type GetServerImageScanning200JSONResponseBodyScannerState string
+
+// UpdateServerImageScanningJSONBody defines parameters for UpdateServerImageScanning.
+type UpdateServerImageScanningJSONBody struct {
+	IsImageScanEnabled bool `json:"is_image_scan_enabled"`
 }
 
 // UpdateServerLogDrainsJSONBody defines parameters for UpdateServerLogDrains.
@@ -8410,6 +8926,23 @@ type CreateTagByServiceUuidJSONBody struct {
 	TagNames *[]string `json:"tag_names,omitempty"`
 }
 
+// GetServiceVulnerabilitiesParams defines parameters for GetServiceVulnerabilities.
+type GetServiceVulnerabilitiesParams struct {
+	// State Comma-separated finding states: fixed, no_fix, ignored. All when not sent.
+	State *VulnerabilityState `form:"state,omitempty" json:"state,omitempty"`
+
+	// Severity Comma-separated severities: critical, high, medium, low, unknown.
+	Severity *VulnerabilitySeverity `form:"severity,omitempty" json:"severity,omitempty"`
+
+	// Image Only the findings of this scanned image ref.
+	Image *VulnerabilityImage `form:"image,omitempty" json:"image,omitempty"`
+
+	// Search Text in the vulnerability ID, an alias, the package, or the version.
+	Search  *VulnerabilitySearch  `form:"search,omitempty" json:"search,omitempty"`
+	Page    *VulnerabilityPage    `form:"page,omitempty" json:"page,omitempty"`
+	PerPage *VulnerabilityPerPage `form:"per_page,omitempty" json:"per_page,omitempty"`
+}
+
 // CreateTagJSONBody defines parameters for CreateTag.
 type CreateTagJSONBody struct {
 	Name string `json:"name"`
@@ -8423,8 +8956,20 @@ type UpdateTagByUuidJSONBody struct {
 // UpdateTokenTeamJSONBody defines parameters for UpdateTokenTeam.
 type UpdateTokenTeamJSONBody struct {
 	// IsBuildServerFallbackEnabled Whether deployments can fall back to the deployment server when no usable dedicated build server is available.
-	IsBuildServerFallbackEnabled bool `json:"is_build_server_fallback_enabled"`
+	IsBuildServerFallbackEnabled *bool `json:"is_build_server_fallback_enabled,omitempty"`
+
+	// ScanImagesOnNewServers Whether image scanning is turned on for servers added to the team from now on.
+	ScanImagesOnNewServers *bool `json:"scan_images_on_new_servers,omitempty"`
 }
+
+// ListVulnerabilitiesParams defines parameters for ListVulnerabilities.
+type ListVulnerabilitiesParams struct {
+	// Status Comma-separated statuses to return.
+	Status *string `form:"status,omitempty" json:"status,omitempty"`
+}
+
+// ListVulnerabilities200JSONResponseBodyResourcesType defines parameters for ListVulnerabilities.
+type ListVulnerabilities200JSONResponseBodyResourcesType string
 
 // RemoveSecretManagerSourceParamsResourceType defines parameters for RemoveSecretManagerSource.
 type RemoveSecretManagerSourceParamsResourceType string
@@ -8702,6 +9247,12 @@ type CreateServerSharedEnvJSONRequestBody = SharedEnvironmentVariableCreateReque
 
 // UpdateServerSharedEnvJSONRequestBody defines body for UpdateServerSharedEnv for application/json ContentType.
 type UpdateServerSharedEnvJSONRequestBody = SharedEnvironmentVariableUpdateRequest
+
+// ResetServerHostKeyByUuidJSONRequestBody defines body for ResetServerHostKeyByUuid for application/json ContentType.
+type ResetServerHostKeyByUuidJSONRequestBody ResetServerHostKeyByUuidJSONBody
+
+// UpdateServerImageScanningJSONRequestBody defines body for UpdateServerImageScanning for application/json ContentType.
+type UpdateServerImageScanningJSONRequestBody UpdateServerImageScanningJSONBody
 
 // UpdateServerLogDrainsJSONRequestBody defines body for UpdateServerLogDrains for application/json ContentType.
 type UpdateServerLogDrainsJSONRequestBody UpdateServerLogDrainsJSONBody
@@ -9866,6 +10417,13 @@ type ClientInterface interface {
 	// Corresponds with DELETE /applications/{uuid}/tags/{tag_uuid} (the `DeleteTagByApplicationUuid` operationId).
 	DeleteTagByApplicationUuid(ctx context.Context, uuid string, tagUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetApplicationVulnerabilities Get application vulnerabilities
+	//
+	// Get the security status, the scanned images, and the vulnerabilities of an application.
+	//
+	// Corresponds with GET /applications/{uuid}/vulnerabilities (the `GetApplicationVulnerabilities` operationId).
+	GetApplicationVulnerabilities(ctx context.Context, uuid string, params *GetApplicationVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ListAuditEvents List
 	//
 	// List audit events of the team. Only team admins and owners can view audit events. Actor e-mail, token, metadata, changes, IP address, and user agent are returned only for tokens with the read:sensitive or root permission.
@@ -10127,18 +10685,18 @@ type ClientInterface interface {
 	// Corresponds with POST /databases/postgresql (the `CreateDatabasePostgresql` operationId).
 	CreateDatabasePostgresql(ctx context.Context, body CreateDatabasePostgresqlJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// CreateDatabaseRedisWithBody Create (Redis)
+	// CreateDatabaseRedisWithBody Create (Redis / Valkey)
 	//
-	// Create a new Redis database.
+	// Create a new Redis or Valkey database. Valkey (valkey/valkey:9-alpine) is the default. Set image to a Redis image (for example redis:8) for Redis.
 	//
 	// Takes any type of body and a specified content type.
 	//
 	// Corresponds with POST /databases/redis (the `CreateDatabaseRedis` operationId).
 	CreateDatabaseRedisWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// CreateDatabaseRedis Create (Redis)
+	// CreateDatabaseRedis Create (Redis / Valkey)
 	//
-	// Create a new Redis database.
+	// Create a new Redis or Valkey database. Valkey (valkey/valkey:9-alpine) is the default. Set image to a Redis image (for example redis:8) for Redis.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -10550,6 +11108,13 @@ type ClientInterface interface {
 	//
 	// Corresponds with DELETE /databases/{uuid}/tags/{tag_uuid} (the `DeleteTagByDatabaseUuid` operationId).
 	DeleteTagByDatabaseUuid(ctx context.Context, uuid string, tagUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetDatabaseVulnerabilities Get database vulnerabilities
+	//
+	// Get the security status, the scanned image, and the vulnerabilities of a standalone database.
+	//
+	// Corresponds with GET /databases/{uuid}/vulnerabilities (the `GetDatabaseVulnerabilities` operationId).
+	GetDatabaseVulnerabilities(ctx context.Context, uuid string, params *GetDatabaseVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// DeployByTagOrUuid Deploy
 	//
@@ -11175,7 +11740,7 @@ type ClientInterface interface {
 
 	// ListS3Storages List S3 Storages
 	//
-	// List all S3 storages for the authenticated team.
+	// List all backup storages (S3, SFTP, FTPS, and WebDAV) for the authenticated team.
 	//
 	// Corresponds with GET /s3-storages (the `ListS3Storages` operationId).
 	ListS3Storages(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -11214,7 +11779,7 @@ type ClientInterface interface {
 
 	// UpdateS3StorageByUuidWithBody Update S3 Storage
 	//
-	// Update S3 storage by UUID.
+	// Update S3 storage by UUID. The type cannot change, and only the fields of the storage type are accepted.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -11223,7 +11788,7 @@ type ClientInterface interface {
 
 	// UpdateS3StorageByUuid Update S3 Storage
 	//
-	// Update S3 storage by UUID.
+	// Update S3 storage by UUID. The type cannot change, and only the fields of the storage type are accepted.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -11232,7 +11797,7 @@ type ClientInterface interface {
 
 	// ValidateS3StorageByUuid Validate S3 Storage
 	//
-	// Validate an S3 storage connection using ListObjectsV2.
+	// Validate a storage connection. S3: lists the bucket (ListObjectsV2). SFTP, FTPS, and WebDAV: lists the backup directory; for SFTP, the first successful validation pins the host key of the server.
 	//
 	// Corresponds with POST /s3-storages/{uuid}/validate (the `ValidateS3StorageByUuid` operationId).
 	ValidateS3StorageByUuid(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -11647,6 +12212,49 @@ type ClientInterface interface {
 	//
 	// Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
 	UpdateServerSharedEnv(ctx context.Context, uuid string, envId int, body UpdateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ResetServerHostKeyByUuidWithBody Reset host key
+	//
+	// Remove the trusted SSH host key of the server, or trust the given key. Without ssh_host_key, Coolify trusts the key that the server sends on the next connection.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with POST /servers/{uuid}/host-key/reset (the `ResetServerHostKeyByUuid` operationId).
+	ResetServerHostKeyByUuidWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ResetServerHostKeyByUuid Reset host key
+	//
+	// Remove the trusted SSH host key of the server, or trust the given key. Without ssh_host_key, Coolify trusts the key that the server sends on the next connection.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with POST /servers/{uuid}/host-key/reset (the `ResetServerHostKeyByUuid` operationId).
+	ResetServerHostKeyByUuid(ctx context.Context, uuid string, body ResetServerHostKeyByUuidJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetServerImageScanning Get image scanning settings
+	//
+	// Get the image vulnerability scanning settings of a server owned by the authenticated team, and the state of the scanner on the server. Needs a team admin or owner.
+	//
+	// Corresponds with GET /servers/{uuid}/image-scanning (the `GetServerImageScanning` operationId).
+	GetServerImageScanning(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateServerImageScanningWithBody Update image scanning settings
+	//
+	// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+	//
+	// Takes any type of body and a specified content type.
+	//
+	// Corresponds with PATCH /servers/{uuid}/image-scanning (the `UpdateServerImageScanning` operationId).
+	UpdateServerImageScanningWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// UpdateServerImageScanning Update image scanning settings
+	//
+	// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+	//
+	// Takes a body of the `application/json` content type.
+	//
+	// Corresponds with PATCH /servers/{uuid}/image-scanning (the `UpdateServerImageScanning` operationId).
+	UpdateServerImageScanning(ctx context.Context, uuid string, body UpdateServerImageScanningJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetServerLogDrains Get log drain settings
 	//
@@ -12445,6 +13053,13 @@ type ClientInterface interface {
 	// Corresponds with DELETE /services/{uuid}/tags/{tag_uuid} (the `DeleteTagByServiceUuid` operationId).
 	DeleteTagByServiceUuid(ctx context.Context, uuid string, tagUuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetServiceVulnerabilities Get service vulnerabilities
+	//
+	// Get the security status, the scanned images, and the vulnerabilities of the applications and databases of a service.
+	//
+	// Corresponds with GET /services/{uuid}/vulnerabilities (the `GetServiceVulnerabilities` operationId).
+	GetServiceVulnerabilities(ctx context.Context, uuid string, params *GetServiceVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetInstanceEmailSettings Get instance email settings
 	//
 	// Get instance-wide SMTP and Resend settings. Requires a root-team token belonging to a root-team admin or owner. Sensitive fields require the `read:sensitive` or `root` token ability.
@@ -12618,6 +13233,13 @@ type ClientInterface interface {
 	//
 	// Corresponds with GET /version (the `Version` operationId).
 	Version(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ListVulnerabilities List vulnerabilities
+	//
+	// List the applications, services, and databases of the authenticated team with their stored security status from image scanning.
+	//
+	// Corresponds with GET /vulnerabilities (the `ListVulnerabilities` operationId).
+	ListVulnerabilities(ctx context.Context, params *ListVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetVultrOperatingSystems Get Vultr Operating Systems
 	//
@@ -14176,6 +14798,23 @@ func (c *Client) DeleteTagByApplicationUuid(ctx context.Context, uuid string, ta
 	return c.Client.Do(req)
 }
 
+// GetApplicationVulnerabilities Get application vulnerabilities
+//
+// Get the security status, the scanned images, and the vulnerabilities of an application.
+//
+// Corresponds with GET /applications/{uuid}/vulnerabilities (the `GetApplicationVulnerabilities` operationId).
+func (c *Client) GetApplicationVulnerabilities(ctx context.Context, uuid string, params *GetApplicationVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetApplicationVulnerabilitiesRequest(c.Server, uuid, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // ListAuditEvents List
 //
 // List audit events of the team. Only team admins and owners can view audit events. Actor e-mail, token, metadata, changes, IP address, and user agent are returned only for tokens with the read:sensitive or root permission.
@@ -14747,9 +15386,9 @@ func (c *Client) CreateDatabasePostgresql(ctx context.Context, body CreateDataba
 	return c.Client.Do(req)
 }
 
-// CreateDatabaseRedisWithBody Create (Redis)
+// CreateDatabaseRedisWithBody Create (Redis / Valkey)
 //
-// Create a new Redis database.
+// Create a new Redis or Valkey database. Valkey (valkey/valkey:9-alpine) is the default. Set image to a Redis image (for example redis:8) for Redis.
 //
 // Takes any type of body and a specified content type.
 //
@@ -14766,9 +15405,9 @@ func (c *Client) CreateDatabaseRedisWithBody(ctx context.Context, contentType st
 	return c.Client.Do(req)
 }
 
-// CreateDatabaseRedis Create (Redis)
+// CreateDatabaseRedis Create (Redis / Valkey)
 //
-// Create a new Redis database.
+// Create a new Redis or Valkey database. Valkey (valkey/valkey:9-alpine) is the default. Set image to a Redis image (for example redis:8) for Redis.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -15681,6 +16320,23 @@ func (c *Client) CreateTagByDatabaseUuid(ctx context.Context, uuid string, body 
 // Corresponds with DELETE /databases/{uuid}/tags/{tag_uuid} (the `DeleteTagByDatabaseUuid` operationId).
 func (c *Client) DeleteTagByDatabaseUuid(ctx context.Context, uuid string, tagUuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewDeleteTagByDatabaseUuidRequest(c.Server, uuid, tagUuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetDatabaseVulnerabilities Get database vulnerabilities
+//
+// Get the security status, the scanned image, and the vulnerabilities of a standalone database.
+//
+// Corresponds with GET /databases/{uuid}/vulnerabilities (the `GetDatabaseVulnerabilities` operationId).
+func (c *Client) GetDatabaseVulnerabilities(ctx context.Context, uuid string, params *GetDatabaseVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetDatabaseVulnerabilitiesRequest(c.Server, uuid, params)
 	if err != nil {
 		return nil, err
 	}
@@ -17155,7 +17811,7 @@ func (c *Client) ListResources(ctx context.Context, reqEditors ...RequestEditorF
 
 // ListS3Storages List S3 Storages
 //
-// List all S3 storages for the authenticated team.
+// List all backup storages (S3, SFTP, FTPS, and WebDAV) for the authenticated team.
 //
 // Corresponds with GET /s3-storages (the `ListS3Storages` operationId).
 func (c *Client) ListS3Storages(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -17244,7 +17900,7 @@ func (c *Client) GetS3StorageByUuid(ctx context.Context, uuid string, reqEditors
 
 // UpdateS3StorageByUuidWithBody Update S3 Storage
 //
-// Update S3 storage by UUID.
+// Update S3 storage by UUID. The type cannot change, and only the fields of the storage type are accepted.
 //
 // Takes any type of body and a specified content type.
 //
@@ -17263,7 +17919,7 @@ func (c *Client) UpdateS3StorageByUuidWithBody(ctx context.Context, uuid string,
 
 // UpdateS3StorageByUuid Update S3 Storage
 //
-// Update S3 storage by UUID.
+// Update S3 storage by UUID. The type cannot change, and only the fields of the storage type are accepted.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -17282,7 +17938,7 @@ func (c *Client) UpdateS3StorageByUuid(ctx context.Context, uuid string, body Up
 
 // ValidateS3StorageByUuid Validate S3 Storage
 //
-// Validate an S3 storage connection using ListObjectsV2.
+// Validate a storage connection. S3: lists the bucket (ListObjectsV2). SFTP, FTPS, and WebDAV: lists the backup directory; for SFTP, the first successful validation pins the host key of the server.
 //
 // Corresponds with POST /s3-storages/{uuid}/validate (the `ValidateS3StorageByUuid` operationId).
 func (c *Client) ValidateS3StorageByUuid(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -18208,6 +18864,99 @@ func (c *Client) UpdateServerSharedEnvWithBody(ctx context.Context, uuid string,
 // Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
 func (c *Client) UpdateServerSharedEnv(ctx context.Context, uuid string, envId int, body UpdateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewUpdateServerSharedEnvRequest(c.Server, uuid, envId, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ResetServerHostKeyByUuidWithBody Reset host key
+//
+// Remove the trusted SSH host key of the server, or trust the given key. Without ssh_host_key, Coolify trusts the key that the server sends on the next connection.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with POST /servers/{uuid}/host-key/reset (the `ResetServerHostKeyByUuid` operationId).
+func (c *Client) ResetServerHostKeyByUuidWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewResetServerHostKeyByUuidRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ResetServerHostKeyByUuid Reset host key
+//
+// Remove the trusted SSH host key of the server, or trust the given key. Without ssh_host_key, Coolify trusts the key that the server sends on the next connection.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with POST /servers/{uuid}/host-key/reset (the `ResetServerHostKeyByUuid` operationId).
+func (c *Client) ResetServerHostKeyByUuid(ctx context.Context, uuid string, body ResetServerHostKeyByUuidJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewResetServerHostKeyByUuidRequest(c.Server, uuid, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// GetServerImageScanning Get image scanning settings
+//
+// Get the image vulnerability scanning settings of a server owned by the authenticated team, and the state of the scanner on the server. Needs a team admin or owner.
+//
+// Corresponds with GET /servers/{uuid}/image-scanning (the `GetServerImageScanning` operationId).
+func (c *Client) GetServerImageScanning(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetServerImageScanningRequest(c.Server, uuid)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateServerImageScanningWithBody Update image scanning settings
+//
+// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+//
+// Takes any type of body and a specified content type.
+//
+// Corresponds with PATCH /servers/{uuid}/image-scanning (the `UpdateServerImageScanning` operationId).
+func (c *Client) UpdateServerImageScanningWithBody(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateServerImageScanningRequestWithBody(c.Server, uuid, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// UpdateServerImageScanning Update image scanning settings
+//
+// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+//
+// Takes a body of the `application/json` content type.
+//
+// Corresponds with PATCH /servers/{uuid}/image-scanning (the `UpdateServerImageScanning` operationId).
+func (c *Client) UpdateServerImageScanning(ctx context.Context, uuid string, body UpdateServerImageScanningJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewUpdateServerImageScanningRequest(c.Server, uuid, body)
 	if err != nil {
 		return nil, err
 	}
@@ -20005,6 +20754,23 @@ func (c *Client) DeleteTagByServiceUuid(ctx context.Context, uuid string, tagUui
 	return c.Client.Do(req)
 }
 
+// GetServiceVulnerabilities Get service vulnerabilities
+//
+// Get the security status, the scanned images, and the vulnerabilities of the applications and databases of a service.
+//
+// Corresponds with GET /services/{uuid}/vulnerabilities (the `GetServiceVulnerabilities` operationId).
+func (c *Client) GetServiceVulnerabilities(ctx context.Context, uuid string, params *GetServiceVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetServiceVulnerabilitiesRequest(c.Server, uuid, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 // GetInstanceEmailSettings Get instance email settings
 //
 // Get instance-wide SMTP and Resend settings. Requires a root-team token belonging to a root-team admin or owner. Sensitive fields require the `read:sensitive` or `root` token ability.
@@ -20389,6 +21155,23 @@ func (c *Client) GetMembersByTeamId(ctx context.Context, id int, reqEditors ...R
 // Corresponds with GET /version (the `Version` operationId).
 func (c *Client) Version(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewVersionRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+// ListVulnerabilities List vulnerabilities
+//
+// List the applications, services, and databases of the authenticated team with their stored security status from image scanning.
+//
+// Corresponds with GET /vulnerabilities (the `ListVulnerabilities` operationId).
+func (c *Client) ListVulnerabilities(ctx context.Context, params *ListVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewListVulnerabilitiesRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -23133,6 +23916,127 @@ func NewDeleteTagByApplicationUuidRequest(server string, uuid string, tagUuid st
 	return req, nil
 }
 
+// NewGetApplicationVulnerabilitiesRequest constructs an http.Request for the GetApplicationVulnerabilities method
+func NewGetApplicationVulnerabilitiesRequest(server string, uuid string, params *GetApplicationVulnerabilitiesParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/applications/%s/vulnerabilities", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Severity != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "severity", *params.Severity, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Image != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "image", *params.Image, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Search != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "search", *params.Search, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page", *params.Page, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PerPage != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "per_page", *params.PerPage, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewListAuditEventsRequest constructs an http.Request for the ListAuditEvents method
 func NewListAuditEventsRequest(server string, params *ListAuditEventsParams) (*http.Request, error) {
 	var err error
@@ -25618,6 +26522,127 @@ func NewDeleteTagByDatabaseUuidRequest(server string, uuid string, tagUuid strin
 	}
 
 	req, err := http.NewRequest(http.MethodDelete, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetDatabaseVulnerabilitiesRequest constructs an http.Request for the GetDatabaseVulnerabilities method
+func NewGetDatabaseVulnerabilitiesRequest(server string, uuid string, params *GetDatabaseVulnerabilitiesParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/databases/%s/vulnerabilities", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Severity != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "severity", *params.Severity, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Image != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "image", *params.Image, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Search != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "search", *params.Search, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page", *params.Page, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PerPage != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "per_page", *params.PerPage, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -29626,6 +30651,18 @@ func NewDeleteServerByUuidRequest(server string, uuid string, params *DeleteServ
 
 		}
 
+		if params.RemoveSshKey != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "remove_ssh_key", *params.RemoveSshKey, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -30223,6 +31260,134 @@ func NewUpdateServerSharedEnvRequestWithBody(server string, uuid string, envId i
 	}
 
 	operationPath := fmt.Sprintf("/servers/%s/envs/%s", pathParam0, pathParam1)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPatch, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewResetServerHostKeyByUuidRequest calls the generic ResetServerHostKeyByUuid builder with application/json body
+func NewResetServerHostKeyByUuidRequest(server string, uuid string, body ResetServerHostKeyByUuidJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewResetServerHostKeyByUuidRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewResetServerHostKeyByUuidRequestWithBody constructs an http.Request for the ResetServerHostKeyByUuid method, with any body, and a specified content type
+func NewResetServerHostKeyByUuidRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/servers/%s/host-key/reset", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPost, queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewGetServerImageScanningRequest constructs an http.Request for the GetServerImageScanning method
+func NewGetServerImageScanningRequest(server string, uuid string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/servers/%s/image-scanning", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewUpdateServerImageScanningRequest calls the generic UpdateServerImageScanning builder with application/json body
+func NewUpdateServerImageScanningRequest(server string, uuid string, body UpdateServerImageScanningJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewUpdateServerImageScanningRequestWithBody(server, uuid, "application/json", bodyReader)
+}
+
+// NewUpdateServerImageScanningRequestWithBody constructs an http.Request for the UpdateServerImageScanning method, with any body, and a specified content type
+func NewUpdateServerImageScanningRequestWithBody(server string, uuid string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/servers/%s/image-scanning", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -33614,6 +34779,127 @@ func NewDeleteTagByServiceUuidRequest(server string, uuid string, tagUuid string
 	return req, nil
 }
 
+// NewGetServiceVulnerabilitiesRequest constructs an http.Request for the GetServiceVulnerabilities method
+func NewGetServiceVulnerabilitiesRequest(server string, uuid string, params *GetServiceVulnerabilitiesParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithOptions("simple", false, "uuid", uuid, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationPath, Type: "string", Format: ""})
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/services/%s/vulnerabilities", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.State != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "state", *params.State, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Severity != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "severity", *params.Severity, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Image != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "image", *params.Image, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Search != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "search", *params.Search, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "page", *params.Page, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.PerPage != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "per_page", *params.PerPage, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "integer", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetInstanceEmailSettingsRequest constructs an http.Request for the GetInstanceEmailSettings method
 func NewGetInstanceEmailSettingsRequest(server string) (*http.Request, error) {
 	var err error
@@ -34170,6 +35456,60 @@ func NewVersionRequest(server string) (*http.Request, error) {
 	queryURL, err := serverURL.Parse(operationPath)
 	if err != nil {
 		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewListVulnerabilitiesRequest constructs an http.Request for the ListVulnerabilities method
+func NewListVulnerabilitiesRequest(server string, params *ListVulnerabilitiesParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/vulnerabilities")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		// queryValues collects non-styled parameters (passthrough, JSON)
+		// that are safe to round-trip through url.Values.Encode().
+		queryValues := queryURL.Query()
+		// rawQueryFragments collects pre-encoded query fragments from
+		// styled parameters, preserving literal commas as delimiters
+		// per the OpenAPI spec (e.g. "color=blue,black,brown").
+		var rawQueryFragments []string
+
+		if params.Status != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "status", *params.Status, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "string", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if encoded := queryValues.Encode(); encoded != "" {
+			rawQueryFragments = append(rawQueryFragments, encoded)
+		}
+		queryURL.RawQuery = strings.Join(rawQueryFragments, "&")
 	}
 
 	req, err := http.NewRequest(http.MethodGet, queryURL.String(), nil)
@@ -35324,6 +36664,15 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with DELETE /applications/{uuid}/tags/{tag_uuid} (the `DeleteTagByApplicationUuid` operationId).
 	DeleteTagByApplicationUuidWithResponse(ctx context.Context, uuid string, tagUuid string, reqEditors ...RequestEditorFn) (*DeleteTagByApplicationUuidResponse, error)
 
+	// GetApplicationVulnerabilitiesWithResponse Get application vulnerabilities
+	//
+	// Get the security status, the scanned images, and the vulnerabilities of an application.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /applications/{uuid}/vulnerabilities (the `GetApplicationVulnerabilities` operationId).
+	GetApplicationVulnerabilitiesWithResponse(ctx context.Context, uuid string, params *GetApplicationVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*GetApplicationVulnerabilitiesResponse, error)
+
 	// ListAuditEventsWithResponse List
 	//
 	// List audit events of the team. Only team admins and owners can view audit events. Actor e-mail, token, metadata, changes, IP address, and user agent are returned only for tokens with the read:sensitive or root permission.
@@ -35603,18 +36952,18 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with POST /databases/postgresql (the `CreateDatabasePostgresql` operationId).
 	CreateDatabasePostgresqlWithResponse(ctx context.Context, body CreateDatabasePostgresqlJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateDatabasePostgresqlResponse, error)
 
-	// CreateDatabaseRedisWithBodyWithResponse Create (Redis)
+	// CreateDatabaseRedisWithBodyWithResponse Create (Redis / Valkey)
 	//
-	// Create a new Redis database.
+	// Create a new Redis or Valkey database. Valkey (valkey/valkey:9-alpine) is the default. Set image to a Redis image (for example redis:8) for Redis.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
 	// Corresponds with POST /databases/redis (the `CreateDatabaseRedis` operationId).
 	CreateDatabaseRedisWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateDatabaseRedisResponse, error)
 
-	// CreateDatabaseRedisWithResponse Create (Redis)
+	// CreateDatabaseRedisWithResponse Create (Redis / Valkey)
 	//
-	// Create a new Redis database.
+	// Create a new Redis or Valkey database. Valkey (valkey/valkey:9-alpine) is the default. Set image to a Redis image (for example redis:8) for Redis.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -36066,6 +37415,15 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with DELETE /databases/{uuid}/tags/{tag_uuid} (the `DeleteTagByDatabaseUuid` operationId).
 	DeleteTagByDatabaseUuidWithResponse(ctx context.Context, uuid string, tagUuid string, reqEditors ...RequestEditorFn) (*DeleteTagByDatabaseUuidResponse, error)
+
+	// GetDatabaseVulnerabilitiesWithResponse Get database vulnerabilities
+	//
+	// Get the security status, the scanned image, and the vulnerabilities of a standalone database.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /databases/{uuid}/vulnerabilities (the `GetDatabaseVulnerabilities` operationId).
+	GetDatabaseVulnerabilitiesWithResponse(ctx context.Context, uuid string, params *GetDatabaseVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*GetDatabaseVulnerabilitiesResponse, error)
 
 	// DeployByTagOrUuidWithResponse Deploy
 	//
@@ -36807,7 +38165,7 @@ type ClientWithResponsesInterface interface {
 
 	// ListS3StoragesWithResponse List S3 Storages
 	//
-	// List all S3 storages for the authenticated team.
+	// List all backup storages (S3, SFTP, FTPS, and WebDAV) for the authenticated team.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -36852,7 +38210,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateS3StorageByUuidWithBodyWithResponse Update S3 Storage
 	//
-	// Update S3 storage by UUID.
+	// Update S3 storage by UUID. The type cannot change, and only the fields of the storage type are accepted.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -36861,7 +38219,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateS3StorageByUuidWithResponse Update S3 Storage
 	//
-	// Update S3 storage by UUID.
+	// Update S3 storage by UUID. The type cannot change, and only the fields of the storage type are accepted.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -36870,7 +38228,7 @@ type ClientWithResponsesInterface interface {
 
 	// ValidateS3StorageByUuidWithResponse Validate S3 Storage
 	//
-	// Validate an S3 storage connection using ListObjectsV2.
+	// Validate a storage connection. S3: lists the bucket (ListObjectsV2). SFTP, FTPS, and WebDAV: lists the backup directory; for SFTP, the first successful validation pins the host key of the server.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -37333,6 +38691,51 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with PATCH /servers/{uuid}/envs/{env_id} (the `UpdateServerSharedEnv` operationId).
 	UpdateServerSharedEnvWithResponse(ctx context.Context, uuid string, envId int, body UpdateServerSharedEnvJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateServerSharedEnvResponse, error)
+
+	// ResetServerHostKeyByUuidWithBodyWithResponse Reset host key
+	//
+	// Remove the trusted SSH host key of the server, or trust the given key. Without ssh_host_key, Coolify trusts the key that the server sends on the next connection.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /servers/{uuid}/host-key/reset (the `ResetServerHostKeyByUuid` operationId).
+	ResetServerHostKeyByUuidWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ResetServerHostKeyByUuidResponse, error)
+
+	// ResetServerHostKeyByUuidWithResponse Reset host key
+	//
+	// Remove the trusted SSH host key of the server, or trust the given key. Without ssh_host_key, Coolify trusts the key that the server sends on the next connection.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with POST /servers/{uuid}/host-key/reset (the `ResetServerHostKeyByUuid` operationId).
+	ResetServerHostKeyByUuidWithResponse(ctx context.Context, uuid string, body ResetServerHostKeyByUuidJSONRequestBody, reqEditors ...RequestEditorFn) (*ResetServerHostKeyByUuidResponse, error)
+
+	// GetServerImageScanningWithResponse Get image scanning settings
+	//
+	// Get the image vulnerability scanning settings of a server owned by the authenticated team, and the state of the scanner on the server. Needs a team admin or owner.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /servers/{uuid}/image-scanning (the `GetServerImageScanning` operationId).
+	GetServerImageScanningWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*GetServerImageScanningResponse, error)
+
+	// UpdateServerImageScanningWithBodyWithResponse Update image scanning settings
+	//
+	// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+	//
+	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /servers/{uuid}/image-scanning (the `UpdateServerImageScanning` operationId).
+	UpdateServerImageScanningWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateServerImageScanningResponse, error)
+
+	// UpdateServerImageScanningWithResponse Update image scanning settings
+	//
+	// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+	//
+	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with PATCH /servers/{uuid}/image-scanning (the `UpdateServerImageScanning` operationId).
+	UpdateServerImageScanningWithResponse(ctx context.Context, uuid string, body UpdateServerImageScanningJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateServerImageScanningResponse, error)
 
 	// GetServerLogDrainsWithResponse Get log drain settings
 	//
@@ -38221,6 +39624,15 @@ type ClientWithResponsesInterface interface {
 	// Corresponds with DELETE /services/{uuid}/tags/{tag_uuid} (the `DeleteTagByServiceUuid` operationId).
 	DeleteTagByServiceUuidWithResponse(ctx context.Context, uuid string, tagUuid string, reqEditors ...RequestEditorFn) (*DeleteTagByServiceUuidResponse, error)
 
+	// GetServiceVulnerabilitiesWithResponse Get service vulnerabilities
+	//
+	// Get the security status, the scanned images, and the vulnerabilities of the applications and databases of a service.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /services/{uuid}/vulnerabilities (the `GetServiceVulnerabilities` operationId).
+	GetServiceVulnerabilitiesWithResponse(ctx context.Context, uuid string, params *GetServiceVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*GetServiceVulnerabilitiesResponse, error)
+
 	// GetInstanceEmailSettingsWithResponse Get instance email settings
 	//
 	// Get instance-wide SMTP and Resend settings. Requires a root-team token belonging to a root-team admin or owner. Sensitive fields require the `read:sensitive` or `root` token ability.
@@ -38418,6 +39830,15 @@ type ClientWithResponsesInterface interface {
 	//
 	// Corresponds with GET /version (the `Version` operationId).
 	VersionWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*VersionResponse, error)
+
+	// ListVulnerabilitiesWithResponse List vulnerabilities
+	//
+	// List the applications, services, and databases of the authenticated team with their stored security status from image scanning.
+	//
+	// Returns a wrapper object for the known response body format(s).
+	//
+	// Corresponds with GET /vulnerabilities (the `ListVulnerabilities` operationId).
+	ListVulnerabilitiesWithResponse(ctx context.Context, params *ListVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*ListVulnerabilitiesResponse, error)
 
 	// GetVultrOperatingSystemsWithResponse Get Vultr Operating Systems
 	//
@@ -42120,6 +43541,75 @@ func (r DeleteTagByApplicationUuidResponse) ContentType() string {
 	return ""
 }
 
+type GetApplicationVulnerabilitiesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ResourceVulnerabilities
+	// JSON400 the response for an HTTP 400 `application/json` response
+	JSON400 *N400
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetApplicationVulnerabilitiesResponse) GetJSON200() *ResourceVulnerabilities {
+	return r.JSON200
+}
+
+// GetJSON400 returns the response for an HTTP 400 `application/json` response
+func (r GetApplicationVulnerabilitiesResponse) GetJSON400() *N400 {
+	return r.JSON400
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetApplicationVulnerabilitiesResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r GetApplicationVulnerabilitiesResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetApplicationVulnerabilitiesResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetApplicationVulnerabilitiesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetApplicationVulnerabilitiesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetApplicationVulnerabilitiesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetApplicationVulnerabilitiesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type ListAuditEventsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -45541,6 +47031,75 @@ func (r DeleteTagByDatabaseUuidResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r DeleteTagByDatabaseUuidResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetDatabaseVulnerabilitiesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ResourceVulnerabilities
+	// JSON400 the response for an HTTP 400 `application/json` response
+	JSON400 *N400
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetDatabaseVulnerabilitiesResponse) GetJSON200() *ResourceVulnerabilities {
+	return r.JSON200
+}
+
+// GetJSON400 returns the response for an HTTP 400 `application/json` response
+func (r GetDatabaseVulnerabilitiesResponse) GetJSON400() *N400 {
+	return r.JSON400
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetDatabaseVulnerabilitiesResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r GetDatabaseVulnerabilitiesResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetDatabaseVulnerabilitiesResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetDatabaseVulnerabilitiesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetDatabaseVulnerabilitiesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetDatabaseVulnerabilitiesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetDatabaseVulnerabilitiesResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -49798,18 +51357,28 @@ type ListS3StoragesResponse struct {
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
 	JSON200 *[]struct {
-		Bucket               *string `json:"bucket,omitempty"`
-		CreatedAt            *string `json:"created_at,omitempty"`
-		Description          *string `json:"description,omitempty"`
-		Endpoint             *string `json:"endpoint,omitempty"`
-		IsUsable             *bool   `json:"is_usable,omitempty"`
-		Name                 *string `json:"name,omitempty"`
-		Region               *string `json:"region,omitempty"`
-		SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
-		TeamId               *int    `json:"team_id,omitempty"`
-		UpdatedAt            *string `json:"updated_at,omitempty"`
-		UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
-		Uuid                 *string `json:"uuid,omitempty"`
+		// Bucket S3 only. Null for the other types.
+		Bucket      *string `json:"bucket,omitempty"`
+		CreatedAt   *string `json:"created_at,omitempty"`
+		Description *string `json:"description,omitempty"`
+		Endpoint    *string `json:"endpoint,omitempty"`
+		IsUsable    *bool   `json:"is_usable,omitempty"`
+		Name        *string `json:"name,omitempty"`
+
+		// PrivateKeyUuid SFTP only: the UUID of the private key used to log in. Null with a password login.
+		PrivateKeyUuid *string `json:"private_key_uuid,omitempty"`
+
+		// Region S3 only. The other types have a placeholder value.
+		Region *string `json:"region,omitempty"`
+
+		// SftpHostKey SFTP only: the pinned host key of the server, as "<key type> <base64>". Saved by the first successful connection test.
+		SftpHostKey          *string                                `json:"sftp_host_key,omitempty"`
+		SkipTlsVerification  *bool                                  `json:"skip_tls_verification,omitempty"`
+		TeamId               *int                                   `json:"team_id,omitempty"`
+		Type                 *ListS3Storages200JSONResponseBodyType `json:"type,omitempty"`
+		UpdatedAt            *string                                `json:"updated_at,omitempty"`
+		UsePathStyleEndpoint *bool                                  `json:"use_path_style_endpoint,omitempty"`
+		Uuid                 *string                                `json:"uuid,omitempty"`
 	}
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *N400
@@ -49819,18 +51388,28 @@ type ListS3StoragesResponse struct {
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
 func (r ListS3StoragesResponse) GetJSON200() *[]struct {
-	Bucket               *string `json:"bucket,omitempty"`
-	CreatedAt            *string `json:"created_at,omitempty"`
-	Description          *string `json:"description,omitempty"`
-	Endpoint             *string `json:"endpoint,omitempty"`
-	IsUsable             *bool   `json:"is_usable,omitempty"`
-	Name                 *string `json:"name,omitempty"`
-	Region               *string `json:"region,omitempty"`
-	SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
-	TeamId               *int    `json:"team_id,omitempty"`
-	UpdatedAt            *string `json:"updated_at,omitempty"`
-	UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
-	Uuid                 *string `json:"uuid,omitempty"`
+	// Bucket S3 only. Null for the other types.
+	Bucket      *string `json:"bucket,omitempty"`
+	CreatedAt   *string `json:"created_at,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Endpoint    *string `json:"endpoint,omitempty"`
+	IsUsable    *bool   `json:"is_usable,omitempty"`
+	Name        *string `json:"name,omitempty"`
+
+	// PrivateKeyUuid SFTP only: the UUID of the private key used to log in. Null with a password login.
+	PrivateKeyUuid *string `json:"private_key_uuid,omitempty"`
+
+	// Region S3 only. The other types have a placeholder value.
+	Region *string `json:"region,omitempty"`
+
+	// SftpHostKey SFTP only: the pinned host key of the server, as "<key type> <base64>". Saved by the first successful connection test.
+	SftpHostKey          *string                                `json:"sftp_host_key,omitempty"`
+	SkipTlsVerification  *bool                                  `json:"skip_tls_verification,omitempty"`
+	TeamId               *int                                   `json:"team_id,omitempty"`
+	Type                 *ListS3Storages200JSONResponseBodyType `json:"type,omitempty"`
+	UpdatedAt            *string                                `json:"updated_at,omitempty"`
+	UsePathStyleEndpoint *bool                                  `json:"use_path_style_endpoint,omitempty"`
+	Uuid                 *string                                `json:"uuid,omitempty"`
 } {
 	return r.JSON200
 }
@@ -50006,18 +51585,28 @@ type GetS3StorageByUuidResponse struct {
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
 	JSON200 *struct {
-		Bucket               *string `json:"bucket,omitempty"`
-		CreatedAt            *string `json:"created_at,omitempty"`
-		Description          *string `json:"description,omitempty"`
-		Endpoint             *string `json:"endpoint,omitempty"`
-		IsUsable             *bool   `json:"is_usable,omitempty"`
-		Name                 *string `json:"name,omitempty"`
-		Region               *string `json:"region,omitempty"`
-		SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
-		TeamId               *int    `json:"team_id,omitempty"`
-		UpdatedAt            *string `json:"updated_at,omitempty"`
-		UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
-		Uuid                 *string `json:"uuid,omitempty"`
+		// Bucket S3 only. Null for the other types.
+		Bucket      *string `json:"bucket,omitempty"`
+		CreatedAt   *string `json:"created_at,omitempty"`
+		Description *string `json:"description,omitempty"`
+		Endpoint    *string `json:"endpoint,omitempty"`
+		IsUsable    *bool   `json:"is_usable,omitempty"`
+		Name        *string `json:"name,omitempty"`
+
+		// PrivateKeyUuid SFTP only: the UUID of the private key used to log in. Null with a password login.
+		PrivateKeyUuid *string `json:"private_key_uuid,omitempty"`
+
+		// Region S3 only. The other types have a placeholder value.
+		Region *string `json:"region,omitempty"`
+
+		// SftpHostKey SFTP only: the pinned host key of the server, as "<key type> <base64>". Saved by the first successful connection test.
+		SftpHostKey          *string                                    `json:"sftp_host_key,omitempty"`
+		SkipTlsVerification  *bool                                      `json:"skip_tls_verification,omitempty"`
+		TeamId               *int                                       `json:"team_id,omitempty"`
+		Type                 *GetS3StorageByUuid200JSONResponseBodyType `json:"type,omitempty"`
+		UpdatedAt            *string                                    `json:"updated_at,omitempty"`
+		UsePathStyleEndpoint *bool                                      `json:"use_path_style_endpoint,omitempty"`
+		Uuid                 *string                                    `json:"uuid,omitempty"`
 	}
 	// JSON401 the response for an HTTP 401 `application/json` response
 	JSON401 *N401
@@ -50027,18 +51616,28 @@ type GetS3StorageByUuidResponse struct {
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
 func (r GetS3StorageByUuidResponse) GetJSON200() *struct {
-	Bucket               *string `json:"bucket,omitempty"`
-	CreatedAt            *string `json:"created_at,omitempty"`
-	Description          *string `json:"description,omitempty"`
-	Endpoint             *string `json:"endpoint,omitempty"`
-	IsUsable             *bool   `json:"is_usable,omitempty"`
-	Name                 *string `json:"name,omitempty"`
-	Region               *string `json:"region,omitempty"`
-	SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
-	TeamId               *int    `json:"team_id,omitempty"`
-	UpdatedAt            *string `json:"updated_at,omitempty"`
-	UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
-	Uuid                 *string `json:"uuid,omitempty"`
+	// Bucket S3 only. Null for the other types.
+	Bucket      *string `json:"bucket,omitempty"`
+	CreatedAt   *string `json:"created_at,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Endpoint    *string `json:"endpoint,omitempty"`
+	IsUsable    *bool   `json:"is_usable,omitempty"`
+	Name        *string `json:"name,omitempty"`
+
+	// PrivateKeyUuid SFTP only: the UUID of the private key used to log in. Null with a password login.
+	PrivateKeyUuid *string `json:"private_key_uuid,omitempty"`
+
+	// Region S3 only. The other types have a placeholder value.
+	Region *string `json:"region,omitempty"`
+
+	// SftpHostKey SFTP only: the pinned host key of the server, as "<key type> <base64>". Saved by the first successful connection test.
+	SftpHostKey          *string                                    `json:"sftp_host_key,omitempty"`
+	SkipTlsVerification  *bool                                      `json:"skip_tls_verification,omitempty"`
+	TeamId               *int                                       `json:"team_id,omitempty"`
+	Type                 *GetS3StorageByUuid200JSONResponseBodyType `json:"type,omitempty"`
+	UpdatedAt            *string                                    `json:"updated_at,omitempty"`
+	UsePathStyleEndpoint *bool                                      `json:"use_path_style_endpoint,omitempty"`
+	Uuid                 *string                                    `json:"uuid,omitempty"`
 } {
 	return r.JSON200
 }
@@ -52459,6 +54058,241 @@ func (r UpdateServerSharedEnvResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r UpdateServerSharedEnvResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ResetServerHostKeyByUuidResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		Message                *string   `json:"message,omitempty"`
+		SshHostKeyFingerprints *[]string `json:"ssh_host_key_fingerprints,omitempty"`
+	}
+	// JSON400 the response for an HTTP 400 `application/json` response
+	JSON400 *N400
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ResetServerHostKeyByUuidResponse) GetJSON200() *struct {
+	Message                *string   `json:"message,omitempty"`
+	SshHostKeyFingerprints *[]string `json:"ssh_host_key_fingerprints,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON400 returns the response for an HTTP 400 `application/json` response
+func (r ResetServerHostKeyByUuidResponse) GetJSON400() *N400 {
+	return r.JSON400
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ResetServerHostKeyByUuidResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r ResetServerHostKeyByUuidResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r ResetServerHostKeyByUuidResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r ResetServerHostKeyByUuidResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ResetServerHostKeyByUuidResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ResetServerHostKeyByUuidResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ResetServerHostKeyByUuidResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type GetServerImageScanningResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		// IsImageScanEnabled Whether the server scans the images of its resources.
+		IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
+
+		// IsImageScanningAllowed Whether the Coolify instance allows image scanning.
+		IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
+
+		// ScannerBuiltAt Time of the vulnerability database on the server.
+		ScannerBuiltAt *time.Time `json:"scanner_built_at,omitempty"`
+
+		// ScannerDiskUsedBytes Disk space that the scanner uses on the server.
+		ScannerDiskUsedBytes *int `json:"scanner_disk_used_bytes,omitempty"`
+
+		// ScannerFailedStep The step that failed when scanner_state is failed.
+		ScannerFailedStep *string `json:"scanner_failed_step,omitempty"`
+
+		// ScannerState State of the scanner on the server. Null when unknown.
+		ScannerState *GetServerImageScanning200JSONResponseBodyScannerState `json:"scanner_state,omitempty"`
+	}
+	// JSON400 the response for an HTTP 400 `application/json` response
+	JSON400 *N400
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetServerImageScanningResponse) GetJSON200() *struct {
+	// IsImageScanEnabled Whether the server scans the images of its resources.
+	IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
+
+	// IsImageScanningAllowed Whether the Coolify instance allows image scanning.
+	IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
+
+	// ScannerBuiltAt Time of the vulnerability database on the server.
+	ScannerBuiltAt *time.Time `json:"scanner_built_at,omitempty"`
+
+	// ScannerDiskUsedBytes Disk space that the scanner uses on the server.
+	ScannerDiskUsedBytes *int `json:"scanner_disk_used_bytes,omitempty"`
+
+	// ScannerFailedStep The step that failed when scanner_state is failed.
+	ScannerFailedStep *string `json:"scanner_failed_step,omitempty"`
+
+	// ScannerState State of the scanner on the server. Null when unknown.
+	ScannerState *GetServerImageScanning200JSONResponseBodyScannerState `json:"scanner_state,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON400 returns the response for an HTTP 400 `application/json` response
+func (r GetServerImageScanningResponse) GetJSON400() *N400 {
+	return r.JSON400
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetServerImageScanningResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r GetServerImageScanningResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetBody returns the raw response body bytes
+func (r GetServerImageScanningResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetServerImageScanningResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetServerImageScanningResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetServerImageScanningResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type UpdateServerImageScanningResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON400 the response for an HTTP 400 `application/json` response
+	JSON400 *N400
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON400 returns the response for an HTTP 400 `application/json` response
+func (r UpdateServerImageScanningResponse) GetJSON400() *N400 {
+	return r.JSON400
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r UpdateServerImageScanningResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r UpdateServerImageScanningResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r UpdateServerImageScanningResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r UpdateServerImageScanningResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r UpdateServerImageScanningResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r UpdateServerImageScanningResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r UpdateServerImageScanningResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -57240,6 +59074,75 @@ func (r DeleteTagByServiceUuidResponse) ContentType() string {
 	return ""
 }
 
+type GetServiceVulnerabilitiesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *ResourceVulnerabilities
+	// JSON400 the response for an HTTP 400 `application/json` response
+	JSON400 *N400
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
+	// JSON422 the response for an HTTP 422 `application/json` response
+	JSON422 *N422
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r GetServiceVulnerabilitiesResponse) GetJSON200() *ResourceVulnerabilities {
+	return r.JSON200
+}
+
+// GetJSON400 returns the response for an HTTP 400 `application/json` response
+func (r GetServiceVulnerabilitiesResponse) GetJSON400() *N400 {
+	return r.JSON400
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r GetServiceVulnerabilitiesResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r GetServiceVulnerabilitiesResponse) GetJSON404() *N404 {
+	return r.JSON404
+}
+
+// GetJSON422 returns the response for an HTTP 422 `application/json` response
+func (r GetServiceVulnerabilitiesResponse) GetJSON422() *N422 {
+	return r.JSON422
+}
+
+// GetBody returns the raw response body bytes
+func (r GetServiceVulnerabilitiesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r GetServiceVulnerabilitiesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetServiceVulnerabilitiesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r GetServiceVulnerabilitiesResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
 type GetInstanceEmailSettingsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -58159,6 +60062,95 @@ func (r VersionResponse) StatusCode() int {
 
 // ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
 func (r VersionResponse) ContentType() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Header.Get("Content-Type")
+	}
+	return ""
+}
+
+type ListVulnerabilitiesResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	// JSON200 the response for an HTTP 200 `application/json` response
+	JSON200 *struct {
+		IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
+		Resources              *[]struct {
+			EnvironmentUuid *string `json:"environment_uuid,omitempty"`
+			Images          *struct {
+				Total  *int `json:"total,omitempty"`
+				Update *int `json:"update,omitempty"`
+			} `json:"images,omitempty"`
+			Name        *string `json:"name,omitempty"`
+			ProjectUuid *string `json:"project_uuid,omitempty"`
+
+			// Security Security status of a resource from image scanning.
+			Security   *SecurityStatus                                      `json:"security,omitempty"`
+			ServerUuid *string                                              `json:"server_uuid,omitempty"`
+			Type       *ListVulnerabilities200JSONResponseBodyResourcesType `json:"type,omitempty"`
+			Uuid       *string                                              `json:"uuid,omitempty"`
+		} `json:"resources,omitempty"`
+	}
+	// JSON400 the response for an HTTP 400 `application/json` response
+	JSON400 *N400
+	// JSON401 the response for an HTTP 401 `application/json` response
+	JSON401 *N401
+}
+
+// GetJSON200 returns the response for an HTTP 200 `application/json` response
+func (r ListVulnerabilitiesResponse) GetJSON200() *struct {
+	IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
+	Resources              *[]struct {
+		EnvironmentUuid *string `json:"environment_uuid,omitempty"`
+		Images          *struct {
+			Total  *int `json:"total,omitempty"`
+			Update *int `json:"update,omitempty"`
+		} `json:"images,omitempty"`
+		Name        *string `json:"name,omitempty"`
+		ProjectUuid *string `json:"project_uuid,omitempty"`
+
+		// Security Security status of a resource from image scanning.
+		Security   *SecurityStatus                                      `json:"security,omitempty"`
+		ServerUuid *string                                              `json:"server_uuid,omitempty"`
+		Type       *ListVulnerabilities200JSONResponseBodyResourcesType `json:"type,omitempty"`
+		Uuid       *string                                              `json:"uuid,omitempty"`
+	} `json:"resources,omitempty"`
+} {
+	return r.JSON200
+}
+
+// GetJSON400 returns the response for an HTTP 400 `application/json` response
+func (r ListVulnerabilitiesResponse) GetJSON400() *N400 {
+	return r.JSON400
+}
+
+// GetJSON401 returns the response for an HTTP 401 `application/json` response
+func (r ListVulnerabilitiesResponse) GetJSON401() *N401 {
+	return r.JSON401
+}
+
+// GetBody returns the raw response body bytes
+func (r ListVulnerabilitiesResponse) GetBody() []byte {
+	return r.Body
+}
+
+// Status returns HTTPResponse.Status
+func (r ListVulnerabilitiesResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ListVulnerabilitiesResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+// ContentType is a convenience method to retrieve the Content-Type value from the HTTP response headers
+func (r ListVulnerabilitiesResponse) ContentType() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Header.Get("Content-Type")
 	}
@@ -59883,6 +61875,21 @@ func (c *ClientWithResponses) DeleteTagByApplicationUuidWithResponse(ctx context
 	return ParseDeleteTagByApplicationUuidResponse(rsp)
 }
 
+// GetApplicationVulnerabilitiesWithResponse Get application vulnerabilities
+//
+// Get the security status, the scanned images, and the vulnerabilities of an application.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /applications/{uuid}/vulnerabilities (the `GetApplicationVulnerabilities` operationId).
+func (c *ClientWithResponses) GetApplicationVulnerabilitiesWithResponse(ctx context.Context, uuid string, params *GetApplicationVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*GetApplicationVulnerabilitiesResponse, error) {
+	rsp, err := c.GetApplicationVulnerabilities(ctx, uuid, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetApplicationVulnerabilitiesResponse(rsp)
+}
+
 // ListAuditEventsWithResponse List
 //
 // List audit events of the team. Only team admins and owners can view audit events. Actor e-mail, token, metadata, changes, IP address, and user agent are returned only for tokens with the read:sensitive or root permission.
@@ -60348,9 +62355,9 @@ func (c *ClientWithResponses) CreateDatabasePostgresqlWithResponse(ctx context.C
 	return ParseCreateDatabasePostgresqlResponse(rsp)
 }
 
-// CreateDatabaseRedisWithBodyWithResponse Create (Redis)
+// CreateDatabaseRedisWithBodyWithResponse Create (Redis / Valkey)
 //
-// Create a new Redis database.
+// Create a new Redis or Valkey database. Valkey (valkey/valkey:9-alpine) is the default. Set image to a Redis image (for example redis:8) for Redis.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -60363,9 +62370,9 @@ func (c *ClientWithResponses) CreateDatabaseRedisWithBodyWithResponse(ctx contex
 	return ParseCreateDatabaseRedisResponse(rsp)
 }
 
-// CreateDatabaseRedisWithResponse Create (Redis)
+// CreateDatabaseRedisWithResponse Create (Redis / Valkey)
 //
-// Create a new Redis database.
+// Create a new Redis or Valkey database. Valkey (valkey/valkey:9-alpine) is the default. Set image to a Redis image (for example redis:8) for Redis.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -61122,6 +63129,21 @@ func (c *ClientWithResponses) DeleteTagByDatabaseUuidWithResponse(ctx context.Co
 		return nil, err
 	}
 	return ParseDeleteTagByDatabaseUuidResponse(rsp)
+}
+
+// GetDatabaseVulnerabilitiesWithResponse Get database vulnerabilities
+//
+// Get the security status, the scanned image, and the vulnerabilities of a standalone database.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /databases/{uuid}/vulnerabilities (the `GetDatabaseVulnerabilities` operationId).
+func (c *ClientWithResponses) GetDatabaseVulnerabilitiesWithResponse(ctx context.Context, uuid string, params *GetDatabaseVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*GetDatabaseVulnerabilitiesResponse, error) {
+	rsp, err := c.GetDatabaseVulnerabilities(ctx, uuid, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetDatabaseVulnerabilitiesResponse(rsp)
 }
 
 // DeployByTagOrUuidWithResponse Deploy
@@ -62368,7 +64390,7 @@ func (c *ClientWithResponses) ListResourcesWithResponse(ctx context.Context, req
 
 // ListS3StoragesWithResponse List S3 Storages
 //
-// List all S3 storages for the authenticated team.
+// List all backup storages (S3, SFTP, FTPS, and WebDAV) for the authenticated team.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -62443,7 +64465,7 @@ func (c *ClientWithResponses) GetS3StorageByUuidWithResponse(ctx context.Context
 
 // UpdateS3StorageByUuidWithBodyWithResponse Update S3 Storage
 //
-// Update S3 storage by UUID.
+// Update S3 storage by UUID. The type cannot change, and only the fields of the storage type are accepted.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -62458,7 +64480,7 @@ func (c *ClientWithResponses) UpdateS3StorageByUuidWithBodyWithResponse(ctx cont
 
 // UpdateS3StorageByUuidWithResponse Update S3 Storage
 //
-// Update S3 storage by UUID.
+// Update S3 storage by UUID. The type cannot change, and only the fields of the storage type are accepted.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -62473,7 +64495,7 @@ func (c *ClientWithResponses) UpdateS3StorageByUuidWithResponse(ctx context.Cont
 
 // ValidateS3StorageByUuidWithResponse Validate S3 Storage
 //
-// Validate an S3 storage connection using ListObjectsV2.
+// Validate a storage connection. S3: lists the bucket (ListObjectsV2). SFTP, FTPS, and WebDAV: lists the backup directory; for SFTP, the first successful validation pins the host key of the server.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -63247,6 +65269,81 @@ func (c *ClientWithResponses) UpdateServerSharedEnvWithResponse(ctx context.Cont
 		return nil, err
 	}
 	return ParseUpdateServerSharedEnvResponse(rsp)
+}
+
+// ResetServerHostKeyByUuidWithBodyWithResponse Reset host key
+//
+// Remove the trusted SSH host key of the server, or trust the given key. Without ssh_host_key, Coolify trusts the key that the server sends on the next connection.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /servers/{uuid}/host-key/reset (the `ResetServerHostKeyByUuid` operationId).
+func (c *ClientWithResponses) ResetServerHostKeyByUuidWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ResetServerHostKeyByUuidResponse, error) {
+	rsp, err := c.ResetServerHostKeyByUuidWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseResetServerHostKeyByUuidResponse(rsp)
+}
+
+// ResetServerHostKeyByUuidWithResponse Reset host key
+//
+// Remove the trusted SSH host key of the server, or trust the given key. Without ssh_host_key, Coolify trusts the key that the server sends on the next connection.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with POST /servers/{uuid}/host-key/reset (the `ResetServerHostKeyByUuid` operationId).
+func (c *ClientWithResponses) ResetServerHostKeyByUuidWithResponse(ctx context.Context, uuid string, body ResetServerHostKeyByUuidJSONRequestBody, reqEditors ...RequestEditorFn) (*ResetServerHostKeyByUuidResponse, error) {
+	rsp, err := c.ResetServerHostKeyByUuid(ctx, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseResetServerHostKeyByUuidResponse(rsp)
+}
+
+// GetServerImageScanningWithResponse Get image scanning settings
+//
+// Get the image vulnerability scanning settings of a server owned by the authenticated team, and the state of the scanner on the server. Needs a team admin or owner.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /servers/{uuid}/image-scanning (the `GetServerImageScanning` operationId).
+func (c *ClientWithResponses) GetServerImageScanningWithResponse(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*GetServerImageScanningResponse, error) {
+	rsp, err := c.GetServerImageScanning(ctx, uuid, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetServerImageScanningResponse(rsp)
+}
+
+// UpdateServerImageScanningWithBodyWithResponse Update image scanning settings
+//
+// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+//
+// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /servers/{uuid}/image-scanning (the `UpdateServerImageScanning` operationId).
+func (c *ClientWithResponses) UpdateServerImageScanningWithBodyWithResponse(ctx context.Context, uuid string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*UpdateServerImageScanningResponse, error) {
+	rsp, err := c.UpdateServerImageScanningWithBody(ctx, uuid, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateServerImageScanningResponse(rsp)
+}
+
+// UpdateServerImageScanningWithResponse Update image scanning settings
+//
+// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+//
+// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
+//
+// Corresponds with PATCH /servers/{uuid}/image-scanning (the `UpdateServerImageScanning` operationId).
+func (c *ClientWithResponses) UpdateServerImageScanningWithResponse(ctx context.Context, uuid string, body UpdateServerImageScanningJSONRequestBody, reqEditors ...RequestEditorFn) (*UpdateServerImageScanningResponse, error) {
+	rsp, err := c.UpdateServerImageScanning(ctx, uuid, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseUpdateServerImageScanningResponse(rsp)
 }
 
 // GetServerLogDrainsWithResponse Get log drain settings
@@ -64730,6 +66827,21 @@ func (c *ClientWithResponses) DeleteTagByServiceUuidWithResponse(ctx context.Con
 	return ParseDeleteTagByServiceUuidResponse(rsp)
 }
 
+// GetServiceVulnerabilitiesWithResponse Get service vulnerabilities
+//
+// Get the security status, the scanned images, and the vulnerabilities of the applications and databases of a service.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /services/{uuid}/vulnerabilities (the `GetServiceVulnerabilities` operationId).
+func (c *ClientWithResponses) GetServiceVulnerabilitiesWithResponse(ctx context.Context, uuid string, params *GetServiceVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*GetServiceVulnerabilitiesResponse, error) {
+	rsp, err := c.GetServiceVulnerabilities(ctx, uuid, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetServiceVulnerabilitiesResponse(rsp)
+}
+
 // GetInstanceEmailSettingsWithResponse Get instance email settings
 //
 // Get instance-wide SMTP and Resend settings. Requires a root-team token belonging to a root-team admin or owner. Sensitive fields require the `read:sensitive` or `root` token ability.
@@ -65058,6 +67170,21 @@ func (c *ClientWithResponses) VersionWithResponse(ctx context.Context, reqEditor
 		return nil, err
 	}
 	return ParseVersionResponse(rsp)
+}
+
+// ListVulnerabilitiesWithResponse List vulnerabilities
+//
+// List the applications, services, and databases of the authenticated team with their stored security status from image scanning.
+//
+// Returns a wrapper object for the known response body format(s).
+//
+// Corresponds with GET /vulnerabilities (the `ListVulnerabilities` operationId).
+func (c *ClientWithResponses) ListVulnerabilitiesWithResponse(ctx context.Context, params *ListVulnerabilitiesParams, reqEditors ...RequestEditorFn) (*ListVulnerabilitiesResponse, error) {
+	rsp, err := c.ListVulnerabilities(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseListVulnerabilitiesResponse(rsp)
 }
 
 // GetVultrOperatingSystemsWithResponse Get Vultr Operating Systems
@@ -68014,6 +70141,60 @@ func ParseDeleteTagByApplicationUuidResponse(rsp *http.Response) (*DeleteTagByAp
 	return response, nil
 }
 
+// ParseGetApplicationVulnerabilitiesResponse parses an HTTP response from a GetApplicationVulnerabilitiesWithResponse call
+func ParseGetApplicationVulnerabilitiesResponse(rsp *http.Response) (*GetApplicationVulnerabilitiesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetApplicationVulnerabilitiesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ResourceVulnerabilities
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest N400
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseListAuditEventsResponse parses an HTTP response from a ListAuditEventsWithResponse call
 func ParseListAuditEventsResponse(rsp *http.Response) (*ListAuditEventsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -68316,6 +70497,9 @@ func ParseListCloudTokensResponse(rsp *http.Response) (*ListCloudTokensResponse,
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	}
 
 	return response, nil
@@ -68358,6 +70542,9 @@ func ParseCreateCloudTokenResponse(rsp *http.Response) (*CreateCloudTokenRespons
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
 		var dest N422
@@ -68408,6 +70595,9 @@ func ParseDeleteCloudTokenByUuidResponse(rsp *http.Response) (*DeleteCloudTokenB
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -68456,6 +70646,9 @@ func ParseGetCloudTokenByUuidResponse(rsp *http.Response) (*GetCloudTokenByUuidR
 		}
 		response.JSON401 = &dest
 
+	case rsp.StatusCode == 403:
+		break // No content-type
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -68497,6 +70690,9 @@ func ParseUpdateCloudTokenByUuidResponse(rsp *http.Response) (*UpdateCloudTokenB
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -68547,6 +70743,9 @@ func ParseValidateCloudTokenByUuidResponse(rsp *http.Response) (*ValidateCloudTo
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -70643,6 +72842,60 @@ func ParseDeleteTagByDatabaseUuidResponse(rsp *http.Response) (*DeleteTagByDatab
 			return nil, err
 		}
 		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetDatabaseVulnerabilitiesResponse parses an HTTP response from a GetDatabaseVulnerabilitiesWithResponse call
+func ParseGetDatabaseVulnerabilitiesResponse(rsp *http.Response) (*GetDatabaseVulnerabilitiesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetDatabaseVulnerabilitiesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ResourceVulnerabilities
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest N400
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
 
 	}
 
@@ -73873,18 +76126,28 @@ func ParseListS3StoragesResponse(rsp *http.Response) (*ListS3StoragesResponse, e
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest []struct {
-			Bucket               *string `json:"bucket,omitempty"`
-			CreatedAt            *string `json:"created_at,omitempty"`
-			Description          *string `json:"description,omitempty"`
-			Endpoint             *string `json:"endpoint,omitempty"`
-			IsUsable             *bool   `json:"is_usable,omitempty"`
-			Name                 *string `json:"name,omitempty"`
-			Region               *string `json:"region,omitempty"`
-			SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
-			TeamId               *int    `json:"team_id,omitempty"`
-			UpdatedAt            *string `json:"updated_at,omitempty"`
-			UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
-			Uuid                 *string `json:"uuid,omitempty"`
+			// Bucket S3 only. Null for the other types.
+			Bucket      *string `json:"bucket,omitempty"`
+			CreatedAt   *string `json:"created_at,omitempty"`
+			Description *string `json:"description,omitempty"`
+			Endpoint    *string `json:"endpoint,omitempty"`
+			IsUsable    *bool   `json:"is_usable,omitempty"`
+			Name        *string `json:"name,omitempty"`
+
+			// PrivateKeyUuid SFTP only: the UUID of the private key used to log in. Null with a password login.
+			PrivateKeyUuid *string `json:"private_key_uuid,omitempty"`
+
+			// Region S3 only. The other types have a placeholder value.
+			Region *string `json:"region,omitempty"`
+
+			// SftpHostKey SFTP only: the pinned host key of the server, as "<key type> <base64>". Saved by the first successful connection test.
+			SftpHostKey          *string                                `json:"sftp_host_key,omitempty"`
+			SkipTlsVerification  *bool                                  `json:"skip_tls_verification,omitempty"`
+			TeamId               *int                                   `json:"team_id,omitempty"`
+			Type                 *ListS3Storages200JSONResponseBodyType `json:"type,omitempty"`
+			UpdatedAt            *string                                `json:"updated_at,omitempty"`
+			UsePathStyleEndpoint *bool                                  `json:"use_path_style_endpoint,omitempty"`
+			Uuid                 *string                                `json:"uuid,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -74018,18 +76281,28 @@ func ParseGetS3StorageByUuidResponse(rsp *http.Response) (*GetS3StorageByUuidRes
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest struct {
-			Bucket               *string `json:"bucket,omitempty"`
-			CreatedAt            *string `json:"created_at,omitempty"`
-			Description          *string `json:"description,omitempty"`
-			Endpoint             *string `json:"endpoint,omitempty"`
-			IsUsable             *bool   `json:"is_usable,omitempty"`
-			Name                 *string `json:"name,omitempty"`
-			Region               *string `json:"region,omitempty"`
-			SkipTlsVerification  *bool   `json:"skip_tls_verification,omitempty"`
-			TeamId               *int    `json:"team_id,omitempty"`
-			UpdatedAt            *string `json:"updated_at,omitempty"`
-			UsePathStyleEndpoint *bool   `json:"use_path_style_endpoint,omitempty"`
-			Uuid                 *string `json:"uuid,omitempty"`
+			// Bucket S3 only. Null for the other types.
+			Bucket      *string `json:"bucket,omitempty"`
+			CreatedAt   *string `json:"created_at,omitempty"`
+			Description *string `json:"description,omitempty"`
+			Endpoint    *string `json:"endpoint,omitempty"`
+			IsUsable    *bool   `json:"is_usable,omitempty"`
+			Name        *string `json:"name,omitempty"`
+
+			// PrivateKeyUuid SFTP only: the UUID of the private key used to log in. Null with a password login.
+			PrivateKeyUuid *string `json:"private_key_uuid,omitempty"`
+
+			// Region S3 only. The other types have a placeholder value.
+			Region *string `json:"region,omitempty"`
+
+			// SftpHostKey SFTP only: the pinned host key of the server, as "<key type> <base64>". Saved by the first successful connection test.
+			SftpHostKey          *string                                    `json:"sftp_host_key,omitempty"`
+			SkipTlsVerification  *bool                                      `json:"skip_tls_verification,omitempty"`
+			TeamId               *int                                       `json:"team_id,omitempty"`
+			Type                 *GetS3StorageByUuid200JSONResponseBodyType `json:"type,omitempty"`
+			UpdatedAt            *string                                    `json:"updated_at,omitempty"`
+			UsePathStyleEndpoint *bool                                      `json:"use_path_style_endpoint,omitempty"`
+			Uuid                 *string                                    `json:"uuid,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
@@ -75933,6 +78206,190 @@ func ParseUpdateServerSharedEnvResponse(rsp *http.Response) (*UpdateServerShared
 			return nil, err
 		}
 		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseResetServerHostKeyByUuidResponse parses an HTTP response from a ResetServerHostKeyByUuidWithResponse call
+func ParseResetServerHostKeyByUuidResponse(rsp *http.Response) (*ResetServerHostKeyByUuidResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ResetServerHostKeyByUuidResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			Message                *string   `json:"message,omitempty"`
+			SshHostKeyFingerprints *[]string `json:"ssh_host_key_fingerprints,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest N400
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetServerImageScanningResponse parses an HTTP response from a GetServerImageScanningWithResponse call
+func ParseGetServerImageScanningResponse(rsp *http.Response) (*GetServerImageScanningResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetServerImageScanningResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			// IsImageScanEnabled Whether the server scans the images of its resources.
+			IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
+
+			// IsImageScanningAllowed Whether the Coolify instance allows image scanning.
+			IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
+
+			// ScannerBuiltAt Time of the vulnerability database on the server.
+			ScannerBuiltAt *time.Time `json:"scanner_built_at,omitempty"`
+
+			// ScannerDiskUsedBytes Disk space that the scanner uses on the server.
+			ScannerDiskUsedBytes *int `json:"scanner_disk_used_bytes,omitempty"`
+
+			// ScannerFailedStep The step that failed when scanner_state is failed.
+			ScannerFailedStep *string `json:"scanner_failed_step,omitempty"`
+
+			// ScannerState State of the scanner on the server. Null when unknown.
+			ScannerState *GetServerImageScanning200JSONResponseBodyScannerState `json:"scanner_state,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest N400
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseUpdateServerImageScanningResponse parses an HTTP response from a UpdateServerImageScanningWithResponse call
+func ParseUpdateServerImageScanningResponse(rsp *http.Response) (*UpdateServerImageScanningResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &UpdateServerImageScanningResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case rsp.StatusCode == 200:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest N400
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case rsp.StatusCode == 409:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
 		var dest N422
@@ -79608,6 +82065,60 @@ func ParseDeleteTagByServiceUuidResponse(rsp *http.Response) (*DeleteTagByServic
 	return response, nil
 }
 
+// ParseGetServiceVulnerabilitiesResponse parses an HTTP response from a GetServiceVulnerabilitiesWithResponse call
+func ParseGetServiceVulnerabilitiesResponse(rsp *http.Response) (*GetServiceVulnerabilitiesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetServiceVulnerabilitiesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest ResourceVulnerabilities
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest N400
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 422:
+		var dest N422
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON422 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetInstanceEmailSettingsResponse parses an HTTP response from a GetInstanceEmailSettingsWithResponse call
 func ParseGetInstanceEmailSettingsResponse(rsp *http.Response) (*GetInstanceEmailSettingsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -80293,6 +82804,63 @@ func ParseVersionResponse(rsp *http.Response) (*VersionResponse, error) {
 	}
 
 	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
+		var dest N400
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON400 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 401:
+		var dest N401
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON401 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseListVulnerabilitiesResponse parses an HTTP response from a ListVulnerabilitiesWithResponse call
+func ParseListVulnerabilitiesResponse(rsp *http.Response) (*ListVulnerabilitiesResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ListVulnerabilitiesResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest struct {
+			IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
+			Resources              *[]struct {
+				EnvironmentUuid *string `json:"environment_uuid,omitempty"`
+				Images          *struct {
+					Total  *int `json:"total,omitempty"`
+					Update *int `json:"update,omitempty"`
+				} `json:"images,omitempty"`
+				Name        *string `json:"name,omitempty"`
+				ProjectUuid *string `json:"project_uuid,omitempty"`
+
+				// Security Security status of a resource from image scanning.
+				Security   *SecurityStatus                                      `json:"security,omitempty"`
+				ServerUuid *string                                              `json:"server_uuid,omitempty"`
+				Type       *ListVulnerabilities200JSONResponseBodyResourcesType `json:"type,omitempty"`
+				Uuid       *string                                              `json:"uuid,omitempty"`
+			} `json:"resources,omitempty"`
+		}
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 400:
 		var dest N400
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {

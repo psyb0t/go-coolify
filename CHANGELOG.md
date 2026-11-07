@@ -2,6 +2,19 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.10.0, 2026-11-07
+
+- Breaking: `CreateS3StorageJSONBody.Bucket`, `Region` and `Secret` change from `string` to `*string`, and the same fields change on `CreateS3StorageJSONRequestBody`. Migration: assign a pointer, for example `&bucket`.
+- Breaking: `UpdateTokenTeamJSONBody.IsBuildServerFallbackEnabled` and the field on `UpdateTokenTeamJSONRequestBody` change from `bool` to `*bool`. Migration: assign a pointer.
+- Breaking: the anonymous 200 structs of `ListS3StoragesResponse` and `GetS3StorageByUuidResponse` (`JSON200` and `GetJSON200`) gain `PrivateKeyUuid`, `SftpHostKey` and `Type`, so they are different types. Code that names these types must change.
+- Breaking: `ClientInterface` and `ClientWithResponsesInterface` gain methods, so custom implementations or mocks must add `ListVulnerabilities`, `GetApplicationVulnerabilities`, `GetDatabaseVulnerabilities`, `GetServiceVulnerabilities`, `GetServerImageScanning`, `UpdateServerImageScanning`, `ResetServerHostKeyByUuid`, `ResetServerHostKeyByUuidWithBody` and the matching `WithResponse` methods.
+- Add vulnerability calls on `Client` and `ClientWithResponses`: `ListVulnerabilities`, `GetApplicationVulnerabilities`, `GetDatabaseVulnerabilities` and `GetServiceVulnerabilities`, with their params and response types, `ResourceVulnerabilities`, `SecurityStatus` and the `Vulnerability...` query types.
+- Add image scanning calls: `GetServerImageScanning`, `UpdateServerImageScanning` and `UpdateServerImageScanningWithBody`, with the `New...Request` and `Parse...Response` functions.
+- Add `ResetServerHostKeyByUuid` and `ResetServerHostKeyByUuidWithBody`, with `ResetServerHostKeyByUuidJSONBody`.
+- Add `IsImageScanEnabled` to the application create bodies and to `UpdateApplicationByUuidJSONBody`, and `ScanImagesOnNewServers` to `Team` and `UpdateTokenTeamJSONBody`.
+- Add `Type` and `PrivateKeyUuid` to `CreateS3StorageJSONBody`, with `CreateS3StorageJSONBodyType` values `S3`, `Sftp`, `Ftps` and `Webdav`. Add `PrivateKeyUuid` to `UpdateS3StorageByUuidJSONBody`.
+- Add SSH host key fields to `ServerSetting`, including `SshHostKey`, `SshHostKeySource` and `IsSshHostKeyCheckDisabled`. Add `CreateServerJSONBody.SshHostKey`, `DeleteServerByUuidParams.RemoveSshKey` and `Application.GitSshKnownHosts`.
+
 ## v0.9.0, 2026-11-05
 
 - Breaking: `ClientInterface` and `ClientWithResponsesInterface` gain methods, so custom implementations or mocks of these interfaces must add `CreatePrivateGiteaAppApplication`, `CreatePrivateGiteaAppApplicationWithBody`, `ListGiteaApps` and the matching `WithResponse` methods.

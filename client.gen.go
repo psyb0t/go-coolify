@@ -390,7 +390,6 @@ func (e ResourceVulnerabilitiesImagesScanStatus) Valid() bool {
 // Defines values for ResourceVulnerabilitiesOffReason.
 const (
 	ResourceVulnerabilitiesOffReasonApplication ResourceVulnerabilitiesOffReason = "application"
-	ResourceVulnerabilitiesOffReasonInstance    ResourceVulnerabilitiesOffReason = "instance"
 	ResourceVulnerabilitiesOffReasonServer      ResourceVulnerabilitiesOffReason = "server"
 )
 
@@ -398,8 +397,6 @@ const (
 func (e ResourceVulnerabilitiesOffReason) Valid() bool {
 	switch e {
 	case ResourceVulnerabilitiesOffReasonApplication:
-		return true
-	case ResourceVulnerabilitiesOffReasonInstance:
 		return true
 	case ResourceVulnerabilitiesOffReasonServer:
 		return true
@@ -1872,6 +1869,108 @@ func (e UpdateServerByUuidJSONBodyServerRole) Valid() bool {
 	}
 }
 
+// Defines values for GetServerImageScanning200JSONResponseBodyImageScanCpus.
+const (
+	GetServerImageScanning200JSONResponseBodyImageScanCpusN05 GetServerImageScanning200JSONResponseBodyImageScanCpus = 0.5
+	GetServerImageScanning200JSONResponseBodyImageScanCpusN1  GetServerImageScanning200JSONResponseBodyImageScanCpus = 1
+	GetServerImageScanning200JSONResponseBodyImageScanCpusN2  GetServerImageScanning200JSONResponseBodyImageScanCpus = 2
+	GetServerImageScanning200JSONResponseBodyImageScanCpusN4  GetServerImageScanning200JSONResponseBodyImageScanCpus = 4
+)
+
+// Valid indicates whether the value is a known member of the GetServerImageScanning200JSONResponseBodyImageScanCpus enum.
+func (e GetServerImageScanning200JSONResponseBodyImageScanCpus) Valid() bool {
+	switch e {
+	case GetServerImageScanning200JSONResponseBodyImageScanCpusN05:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanCpusN1:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanCpusN2:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanCpusN4:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout.
+const (
+	GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeoutN1200 GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout = 1200
+	GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeoutN1800 GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout = 1800
+	GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeoutN300  GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout = 300
+	GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeoutN3600 GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout = 3600
+	GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeoutN600  GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout = 600
+)
+
+// Valid indicates whether the value is a known member of the GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout enum.
+func (e GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout) Valid() bool {
+	switch e {
+	case GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeoutN1200:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeoutN1800:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeoutN300:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeoutN3600:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeoutN600:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetServerImageScanning200JSONResponseBodyImageScanMemoryMb.
+const (
+	GetServerImageScanning200JSONResponseBodyImageScanMemoryMbN1024 GetServerImageScanning200JSONResponseBodyImageScanMemoryMb = 1024
+	GetServerImageScanning200JSONResponseBodyImageScanMemoryMbN2048 GetServerImageScanning200JSONResponseBodyImageScanMemoryMb = 2048
+	GetServerImageScanning200JSONResponseBodyImageScanMemoryMbN4096 GetServerImageScanning200JSONResponseBodyImageScanMemoryMb = 4096
+	GetServerImageScanning200JSONResponseBodyImageScanMemoryMbN8192 GetServerImageScanning200JSONResponseBodyImageScanMemoryMb = 8192
+)
+
+// Valid indicates whether the value is a known member of the GetServerImageScanning200JSONResponseBodyImageScanMemoryMb enum.
+func (e GetServerImageScanning200JSONResponseBodyImageScanMemoryMb) Valid() bool {
+	switch e {
+	case GetServerImageScanning200JSONResponseBodyImageScanMemoryMbN1024:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanMemoryMbN2048:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanMemoryMbN4096:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanMemoryMbN8192:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout.
+const (
+	GetServerImageScanning200JSONResponseBodyImageScanSyftTimeoutN1200 GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout = 1200
+	GetServerImageScanning200JSONResponseBodyImageScanSyftTimeoutN1800 GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout = 1800
+	GetServerImageScanning200JSONResponseBodyImageScanSyftTimeoutN300  GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout = 300
+	GetServerImageScanning200JSONResponseBodyImageScanSyftTimeoutN3600 GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout = 3600
+	GetServerImageScanning200JSONResponseBodyImageScanSyftTimeoutN600  GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout = 600
+)
+
+// Valid indicates whether the value is a known member of the GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout enum.
+func (e GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout) Valid() bool {
+	switch e {
+	case GetServerImageScanning200JSONResponseBodyImageScanSyftTimeoutN1200:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanSyftTimeoutN1800:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanSyftTimeoutN300:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanSyftTimeoutN3600:
+		return true
+	case GetServerImageScanning200JSONResponseBodyImageScanSyftTimeoutN600:
+		return true
+	default:
+		return false
+	}
+}
+
 // Defines values for GetServerImageScanning200JSONResponseBodyScannerState.
 const (
 	GetServerImageScanning200JSONResponseBodyScannerStateFailed           GetServerImageScanning200JSONResponseBodyScannerState = "failed"
@@ -1890,6 +1989,108 @@ func (e GetServerImageScanning200JSONResponseBodyScannerState) Valid() bool {
 	case GetServerImageScanning200JSONResponseBodyScannerStateReady:
 		return true
 	case GetServerImageScanning200JSONResponseBodyScannerStateUpdatingDatabase:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for UpdateServerImageScanningJSONBodyImageScanCpus.
+const (
+	UpdateServerImageScanningJSONBodyImageScanCpusN05 UpdateServerImageScanningJSONBodyImageScanCpus = 0.5
+	UpdateServerImageScanningJSONBodyImageScanCpusN1  UpdateServerImageScanningJSONBodyImageScanCpus = 1
+	UpdateServerImageScanningJSONBodyImageScanCpusN2  UpdateServerImageScanningJSONBodyImageScanCpus = 2
+	UpdateServerImageScanningJSONBodyImageScanCpusN4  UpdateServerImageScanningJSONBodyImageScanCpus = 4
+)
+
+// Valid indicates whether the value is a known member of the UpdateServerImageScanningJSONBodyImageScanCpus enum.
+func (e UpdateServerImageScanningJSONBodyImageScanCpus) Valid() bool {
+	switch e {
+	case UpdateServerImageScanningJSONBodyImageScanCpusN05:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanCpusN1:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanCpusN2:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanCpusN4:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for UpdateServerImageScanningJSONBodyImageScanGrypeTimeout.
+const (
+	UpdateServerImageScanningJSONBodyImageScanGrypeTimeoutN1200 UpdateServerImageScanningJSONBodyImageScanGrypeTimeout = 1200
+	UpdateServerImageScanningJSONBodyImageScanGrypeTimeoutN1800 UpdateServerImageScanningJSONBodyImageScanGrypeTimeout = 1800
+	UpdateServerImageScanningJSONBodyImageScanGrypeTimeoutN300  UpdateServerImageScanningJSONBodyImageScanGrypeTimeout = 300
+	UpdateServerImageScanningJSONBodyImageScanGrypeTimeoutN3600 UpdateServerImageScanningJSONBodyImageScanGrypeTimeout = 3600
+	UpdateServerImageScanningJSONBodyImageScanGrypeTimeoutN600  UpdateServerImageScanningJSONBodyImageScanGrypeTimeout = 600
+)
+
+// Valid indicates whether the value is a known member of the UpdateServerImageScanningJSONBodyImageScanGrypeTimeout enum.
+func (e UpdateServerImageScanningJSONBodyImageScanGrypeTimeout) Valid() bool {
+	switch e {
+	case UpdateServerImageScanningJSONBodyImageScanGrypeTimeoutN1200:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanGrypeTimeoutN1800:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanGrypeTimeoutN300:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanGrypeTimeoutN3600:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanGrypeTimeoutN600:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for UpdateServerImageScanningJSONBodyImageScanMemoryMb.
+const (
+	UpdateServerImageScanningJSONBodyImageScanMemoryMbN1024 UpdateServerImageScanningJSONBodyImageScanMemoryMb = 1024
+	UpdateServerImageScanningJSONBodyImageScanMemoryMbN2048 UpdateServerImageScanningJSONBodyImageScanMemoryMb = 2048
+	UpdateServerImageScanningJSONBodyImageScanMemoryMbN4096 UpdateServerImageScanningJSONBodyImageScanMemoryMb = 4096
+	UpdateServerImageScanningJSONBodyImageScanMemoryMbN8192 UpdateServerImageScanningJSONBodyImageScanMemoryMb = 8192
+)
+
+// Valid indicates whether the value is a known member of the UpdateServerImageScanningJSONBodyImageScanMemoryMb enum.
+func (e UpdateServerImageScanningJSONBodyImageScanMemoryMb) Valid() bool {
+	switch e {
+	case UpdateServerImageScanningJSONBodyImageScanMemoryMbN1024:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanMemoryMbN2048:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanMemoryMbN4096:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanMemoryMbN8192:
+		return true
+	default:
+		return false
+	}
+}
+
+// Defines values for UpdateServerImageScanningJSONBodyImageScanSyftTimeout.
+const (
+	UpdateServerImageScanningJSONBodyImageScanSyftTimeoutN1200 UpdateServerImageScanningJSONBodyImageScanSyftTimeout = 1200
+	UpdateServerImageScanningJSONBodyImageScanSyftTimeoutN1800 UpdateServerImageScanningJSONBodyImageScanSyftTimeout = 1800
+	UpdateServerImageScanningJSONBodyImageScanSyftTimeoutN300  UpdateServerImageScanningJSONBodyImageScanSyftTimeout = 300
+	UpdateServerImageScanningJSONBodyImageScanSyftTimeoutN3600 UpdateServerImageScanningJSONBodyImageScanSyftTimeout = 3600
+	UpdateServerImageScanningJSONBodyImageScanSyftTimeoutN600  UpdateServerImageScanningJSONBodyImageScanSyftTimeout = 600
+)
+
+// Valid indicates whether the value is a known member of the UpdateServerImageScanningJSONBodyImageScanSyftTimeout enum.
+func (e UpdateServerImageScanningJSONBodyImageScanSyftTimeout) Valid() bool {
+	switch e {
+	case UpdateServerImageScanningJSONBodyImageScanSyftTimeoutN1200:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanSyftTimeoutN1800:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanSyftTimeoutN300:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanSyftTimeoutN3600:
+		return true
+	case UpdateServerImageScanningJSONBodyImageScanSyftTimeoutN600:
 		return true
 	default:
 		return false
@@ -3347,25 +3548,28 @@ type ServerSetting struct {
 
 	// IsBuildServer Deprecated: use server_role instead. true when server_role is build.
 	// Deprecated: this property has been marked as deprecated upstream, but no `x-deprecated-reason` was set
-	IsBuildServer               *bool   `json:"is_build_server,omitempty"`
-	IsCloudflareTunnel          *bool   `json:"is_cloudflare_tunnel,omitempty"`
-	IsGeoipEnabled              *bool   `json:"is_geoip_enabled,omitempty"`
-	IsJumpServer                *bool   `json:"is_jump_server,omitempty"`
-	IsLogdrainAxiomEnabled      *bool   `json:"is_logdrain_axiom_enabled,omitempty"`
-	IsLogdrainCloudwatchEnabled *bool   `json:"is_logdrain_cloudwatch_enabled,omitempty"`
-	IsLogdrainCustomEnabled     *bool   `json:"is_logdrain_custom_enabled,omitempty"`
-	IsLogdrainNewrelicEnabled   *bool   `json:"is_logdrain_newrelic_enabled,omitempty"`
-	IsMetricsEnabled            *bool   `json:"is_metrics_enabled,omitempty"`
-	IsReachable                 *bool   `json:"is_reachable,omitempty"`
-	IsSentinelEnabled           *bool   `json:"is_sentinel_enabled,omitempty"`
-	IsSshHostKeyCheckDisabled   *bool   `json:"is_ssh_host_key_check_disabled,omitempty"`
-	IsSwarmManager              *bool   `json:"is_swarm_manager,omitempty"`
-	IsSwarmWorker               *bool   `json:"is_swarm_worker,omitempty"`
-	IsTerminalEnabled           *bool   `json:"is_terminal_enabled,omitempty"`
-	IsTrafficAnalyticsEnabled   *bool   `json:"is_traffic_analytics_enabled,omitempty"`
-	IsUsable                    *bool   `json:"is_usable,omitempty"`
-	LogdrainAxiomApiKey         *string `json:"logdrain_axiom_api_key,omitempty"`
-	LogdrainAxiomDatasetName    *string `json:"logdrain_axiom_dataset_name,omitempty"`
+	IsBuildServer               *bool `json:"is_build_server,omitempty"`
+	IsCloudflareTunnel          *bool `json:"is_cloudflare_tunnel,omitempty"`
+	IsGeoipEnabled              *bool `json:"is_geoip_enabled,omitempty"`
+	IsJumpServer                *bool `json:"is_jump_server,omitempty"`
+	IsLogdrainAxiomEnabled      *bool `json:"is_logdrain_axiom_enabled,omitempty"`
+	IsLogdrainCloudwatchEnabled *bool `json:"is_logdrain_cloudwatch_enabled,omitempty"`
+	IsLogdrainCustomEnabled     *bool `json:"is_logdrain_custom_enabled,omitempty"`
+	IsLogdrainNewrelicEnabled   *bool `json:"is_logdrain_newrelic_enabled,omitempty"`
+	IsMetricsEnabled            *bool `json:"is_metrics_enabled,omitempty"`
+	IsReachable                 *bool `json:"is_reachable,omitempty"`
+	IsSentinelEnabled           *bool `json:"is_sentinel_enabled,omitempty"`
+	IsSshHostKeyCheckDisabled   *bool `json:"is_ssh_host_key_check_disabled,omitempty"`
+
+	// IsSshHostKeyCheckEnforced Refuse a changed host key on this server, also when the instance only warns.
+	IsSshHostKeyCheckEnforced *bool   `json:"is_ssh_host_key_check_enforced,omitempty"`
+	IsSwarmManager            *bool   `json:"is_swarm_manager,omitempty"`
+	IsSwarmWorker             *bool   `json:"is_swarm_worker,omitempty"`
+	IsTerminalEnabled         *bool   `json:"is_terminal_enabled,omitempty"`
+	IsTrafficAnalyticsEnabled *bool   `json:"is_traffic_analytics_enabled,omitempty"`
+	IsUsable                  *bool   `json:"is_usable,omitempty"`
+	LogdrainAxiomApiKey       *string `json:"logdrain_axiom_api_key,omitempty"`
+	LogdrainAxiomDatasetName  *string `json:"logdrain_axiom_dataset_name,omitempty"`
 
 	// LogdrainAxiomDomain Base domain of the Axiom edge deployment, for example us-east-1.aws.edge.axiom.co or eu-central-1.aws.edge.axiom.co.
 	LogdrainAxiomDomain               *string                  `json:"logdrain_axiom_domain,omitempty"`
@@ -6308,7 +6512,7 @@ type MoveApplicationByUuidJSONBody struct {
 
 // CreatePreviewDeploymentByApplicationUuidJSONBody defines parameters for CreatePreviewDeploymentByApplicationUuid.
 type CreatePreviewDeploymentByApplicationUuidJSONBody struct {
-	// Commit Commit SHA to deploy. Required for Bitbucket.
+	// Commit Commit SHA to deploy. Required for a new Bitbucket preview. Needs the write permission.
 	Commit *string `json:"commit,omitempty"`
 
 	// DockerTag Docker image tag. Docker Image applications only.
@@ -6357,7 +6561,7 @@ type GetPreviewApplicationLogsByPullRequestIdParams struct {
 
 // RollbackApplicationByUuidJSONBody defines parameters for RollbackApplicationByUuid.
 type RollbackApplicationByUuidJSONBody struct {
-	// Commit Image tag / commit to roll back to.
+	// Commit Image tag / commit to roll back to. Must be a tag from the rollback images list or the commit of a successful production deployment.
 	Commit string `json:"commit"`
 }
 
@@ -7681,7 +7885,7 @@ type DeployByTagOrUuidParams struct {
 	// PullRequestId Preview deployment identifier. Alias of pr.
 	PullRequestId *int `form:"pull_request_id,omitempty" json:"pull_request_id,omitempty"`
 
-	// DockerTag Docker image tag for Docker Image preview deployments. Requires pull_request_id.
+	// DockerTag Docker image tag for Docker Image preview deployments. Requires pull_request_id. Opening a preview or changing its tag also needs the write permission.
 	DockerTag *string `form:"docker_tag,omitempty" json:"docker_tag,omitempty"`
 
 	// CancelPrevious Cancel the older webhook, API, and MCP deployments of the same application, pull request, and server. `queued` cancels the ones that wait in the queue. `building` also stops the ones that are still building; a deployment that already started to replace containers always finishes. Manual, restart, and rollback deployments are never cancelled. Default: `none`.
@@ -8387,13 +8591,48 @@ type ResetServerHostKeyByUuidJSONBody struct {
 	SshHostKey *string `json:"ssh_host_key,omitempty"`
 }
 
+// GetServerImageScanning200JSONResponseBodyImageScanCpus defines parameters for GetServerImageScanning.
+type GetServerImageScanning200JSONResponseBodyImageScanCpus float64
+
+// GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout defines parameters for GetServerImageScanning.
+type GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout int
+
+// GetServerImageScanning200JSONResponseBodyImageScanMemoryMb defines parameters for GetServerImageScanning.
+type GetServerImageScanning200JSONResponseBodyImageScanMemoryMb int
+
+// GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout defines parameters for GetServerImageScanning.
+type GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout int
+
 // GetServerImageScanning200JSONResponseBodyScannerState defines parameters for GetServerImageScanning.
 type GetServerImageScanning200JSONResponseBodyScannerState string
 
 // UpdateServerImageScanningJSONBody defines parameters for UpdateServerImageScanning.
 type UpdateServerImageScanningJSONBody struct {
-	IsImageScanEnabled bool `json:"is_image_scan_enabled"`
+	// ImageScanCpus CPU limit of each scanner step. A value above the CPU count of the server is refused.
+	ImageScanCpus *UpdateServerImageScanningJSONBodyImageScanCpus `json:"image_scan_cpus,omitempty"`
+
+	// ImageScanGrypeTimeout Time limit of one Grype run (vulnerability match), in seconds.
+	ImageScanGrypeTimeout *UpdateServerImageScanningJSONBodyImageScanGrypeTimeout `json:"image_scan_grype_timeout,omitempty"`
+
+	// ImageScanMemoryMb Memory limit of each scanner step, in MB. A value above the memory of the server is refused.
+	ImageScanMemoryMb *UpdateServerImageScanningJSONBodyImageScanMemoryMb `json:"image_scan_memory_mb,omitempty"`
+
+	// ImageScanSyftTimeout Time limit of one Syft run (package list of an image), in seconds.
+	ImageScanSyftTimeout *UpdateServerImageScanningJSONBodyImageScanSyftTimeout `json:"image_scan_syft_timeout,omitempty"`
+	IsImageScanEnabled   *bool                                                  `json:"is_image_scan_enabled,omitempty"`
 }
+
+// UpdateServerImageScanningJSONBodyImageScanCpus defines parameters for UpdateServerImageScanning.
+type UpdateServerImageScanningJSONBodyImageScanCpus float64
+
+// UpdateServerImageScanningJSONBodyImageScanGrypeTimeout defines parameters for UpdateServerImageScanning.
+type UpdateServerImageScanningJSONBodyImageScanGrypeTimeout int
+
+// UpdateServerImageScanningJSONBodyImageScanMemoryMb defines parameters for UpdateServerImageScanning.
+type UpdateServerImageScanningJSONBodyImageScanMemoryMb int
+
+// UpdateServerImageScanningJSONBodyImageScanSyftTimeout defines parameters for UpdateServerImageScanning.
+type UpdateServerImageScanningJSONBodyImageScanSyftTimeout int
 
 // UpdateServerLogDrainsJSONBody defines parameters for UpdateServerLogDrains.
 type UpdateServerLogDrainsJSONBody struct {
@@ -10120,7 +10359,7 @@ type ClientInterface interface {
 
 	// CreatePreviewDeploymentByApplicationUuidWithBody Create Preview Deployment
 	//
-	// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
+	// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. A token with the deploy permission can only redeploy an existing preview without changes; opening a preview, changing its pull request URL, git type, or docker tag, or choosing a commit also needs the write permission. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -10129,7 +10368,7 @@ type ClientInterface interface {
 
 	// CreatePreviewDeploymentByApplicationUuid Create Preview Deployment
 	//
-	// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
+	// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. A token with the deploy permission can only redeploy an existing preview without changes; opening a preview, changing its pull request URL, git type, or docker tag, or choosing a commit also needs the write permission. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -12240,7 +12479,7 @@ type ClientInterface interface {
 
 	// UpdateServerImageScanningWithBody Update image scanning settings
 	//
-	// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+	// Turn image vulnerability scanning of a server owned by the authenticated team on or off, or change the limits of the scanner (memory, CPUs, and the Syft and Grype time limits). Send at least one field. Turning it on gets the scanner on the server in the background. A new limit applies to the next scan.
 	//
 	// Takes any type of body and a specified content type.
 	//
@@ -12249,7 +12488,7 @@ type ClientInterface interface {
 
 	// UpdateServerImageScanning Update image scanning settings
 	//
-	// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+	// Turn image vulnerability scanning of a server owned by the authenticated team on or off, or change the limits of the scanner (memory, CPUs, and the Syft and Grype time limits). Send at least one field. Turning it on gets the scanner on the server in the background. A new limit applies to the next scan.
 	//
 	// Takes a body of the `application/json` content type.
 	//
@@ -14131,7 +14370,7 @@ func (c *Client) ListPreviewDeploymentsByApplicationUuid(ctx context.Context, uu
 
 // CreatePreviewDeploymentByApplicationUuidWithBody Create Preview Deployment
 //
-// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
+// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. A token with the deploy permission can only redeploy an existing preview without changes; opening a preview, changing its pull request URL, git type, or docker tag, or choosing a commit also needs the write permission. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
 //
 // Takes any type of body and a specified content type.
 //
@@ -14150,7 +14389,7 @@ func (c *Client) CreatePreviewDeploymentByApplicationUuidWithBody(ctx context.Co
 
 // CreatePreviewDeploymentByApplicationUuid Create Preview Deployment
 //
-// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
+// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. A token with the deploy permission can only redeploy an existing preview without changes; opening a preview, changing its pull request URL, git type, or docker tag, or choosing a commit also needs the write permission. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -18931,7 +19170,7 @@ func (c *Client) GetServerImageScanning(ctx context.Context, uuid string, reqEdi
 
 // UpdateServerImageScanningWithBody Update image scanning settings
 //
-// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+// Turn image vulnerability scanning of a server owned by the authenticated team on or off, or change the limits of the scanner (memory, CPUs, and the Syft and Grype time limits). Send at least one field. Turning it on gets the scanner on the server in the background. A new limit applies to the next scan.
 //
 // Takes any type of body and a specified content type.
 //
@@ -18950,7 +19189,7 @@ func (c *Client) UpdateServerImageScanningWithBody(ctx context.Context, uuid str
 
 // UpdateServerImageScanning Update image scanning settings
 //
-// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+// Turn image vulnerability scanning of a server owned by the authenticated team on or off, or change the limits of the scanner (memory, CPUs, and the Syft and Grype time limits). Send at least one field. Turning it on gets the scanner on the server in the background. A new limit applies to the next scan.
 //
 // Takes a body of the `application/json` content type.
 //
@@ -36333,7 +36572,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreatePreviewDeploymentByApplicationUuidWithBodyWithResponse Create Preview Deployment
 	//
-	// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
+	// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. A token with the deploy permission can only redeploy an existing preview without changes; opening a preview, changing its pull request URL, git type, or docker tag, or choosing a commit also needs the write permission. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -36342,7 +36581,7 @@ type ClientWithResponsesInterface interface {
 
 	// CreatePreviewDeploymentByApplicationUuidWithResponse Create Preview Deployment
 	//
-	// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
+	// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. A token with the deploy permission can only redeploy an existing preview without changes; opening a preview, changing its pull request URL, git type, or docker tag, or choosing a commit also needs the write permission. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -38721,7 +38960,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerImageScanningWithBodyWithResponse Update image scanning settings
 	//
-	// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+	// Turn image vulnerability scanning of a server owned by the authenticated team on or off, or change the limits of the scanner (memory, CPUs, and the Syft and Grype time limits). Send at least one field. Turning it on gets the scanner on the server in the background. A new limit applies to the next scan.
 	//
 	// Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -38730,7 +38969,7 @@ type ClientWithResponsesInterface interface {
 
 	// UpdateServerImageScanningWithResponse Update image scanning settings
 	//
-	// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+	// Turn image vulnerability scanning of a server owned by the authenticated team on or off, or change the limits of the scanner (memory, CPUs, and the Syft and Grype time limits). Send at least one field. Turning it on gets the scanner on the server in the background. A new limit applies to the next scan.
 	//
 	// Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 	//
@@ -54144,11 +54383,20 @@ type GetServerImageScanningResponse struct {
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
 	JSON200 *struct {
+		// ImageScanCpus CPU limit of each scanner step.
+		ImageScanCpus *GetServerImageScanning200JSONResponseBodyImageScanCpus `json:"image_scan_cpus,omitempty"`
+
+		// ImageScanGrypeTimeout Time limit of one Grype run (vulnerability match), in seconds.
+		ImageScanGrypeTimeout *GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout `json:"image_scan_grype_timeout,omitempty"`
+
+		// ImageScanMemoryMb Memory limit of each scanner step, in MB.
+		ImageScanMemoryMb *GetServerImageScanning200JSONResponseBodyImageScanMemoryMb `json:"image_scan_memory_mb,omitempty"`
+
+		// ImageScanSyftTimeout Time limit of one Syft run (package list of an image), in seconds.
+		ImageScanSyftTimeout *GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout `json:"image_scan_syft_timeout,omitempty"`
+
 		// IsImageScanEnabled Whether the server scans the images of its resources.
 		IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
-
-		// IsImageScanningAllowed Whether the Coolify instance allows image scanning.
-		IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
 
 		// ScannerBuiltAt Time of the vulnerability database on the server.
 		ScannerBuiltAt *time.Time `json:"scanner_built_at,omitempty"`
@@ -54172,11 +54420,20 @@ type GetServerImageScanningResponse struct {
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
 func (r GetServerImageScanningResponse) GetJSON200() *struct {
+	// ImageScanCpus CPU limit of each scanner step.
+	ImageScanCpus *GetServerImageScanning200JSONResponseBodyImageScanCpus `json:"image_scan_cpus,omitempty"`
+
+	// ImageScanGrypeTimeout Time limit of one Grype run (vulnerability match), in seconds.
+	ImageScanGrypeTimeout *GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout `json:"image_scan_grype_timeout,omitempty"`
+
+	// ImageScanMemoryMb Memory limit of each scanner step, in MB.
+	ImageScanMemoryMb *GetServerImageScanning200JSONResponseBodyImageScanMemoryMb `json:"image_scan_memory_mb,omitempty"`
+
+	// ImageScanSyftTimeout Time limit of one Syft run (package list of an image), in seconds.
+	ImageScanSyftTimeout *GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout `json:"image_scan_syft_timeout,omitempty"`
+
 	// IsImageScanEnabled Whether the server scans the images of its resources.
 	IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
-
-	// IsImageScanningAllowed Whether the Coolify instance allows image scanning.
-	IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
 
 	// ScannerBuiltAt Time of the vulnerability database on the server.
 	ScannerBuiltAt *time.Time `json:"scanner_built_at,omitempty"`
@@ -60073,8 +60330,7 @@ type ListVulnerabilitiesResponse struct {
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
 	JSON200 *struct {
-		IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
-		Resources              *[]struct {
+		Resources *[]struct {
 			EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 			Images          *struct {
 				Total  *int `json:"total,omitempty"`
@@ -60098,8 +60354,7 @@ type ListVulnerabilitiesResponse struct {
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
 func (r ListVulnerabilitiesResponse) GetJSON200() *struct {
-	IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
-	Resources              *[]struct {
+	Resources *[]struct {
 		EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 		Images          *struct {
 			Total  *int `json:"total,omitempty"`
@@ -61322,7 +61577,7 @@ func (c *ClientWithResponses) ListPreviewDeploymentsByApplicationUuidWithRespons
 
 // CreatePreviewDeploymentByApplicationUuidWithBodyWithResponse Create Preview Deployment
 //
-// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
+// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. A token with the deploy permission can only redeploy an existing preview without changes; opening a preview, changing its pull request URL, git type, or docker tag, or choosing a commit also needs the write permission. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -61337,7 +61592,7 @@ func (c *ClientWithResponses) CreatePreviewDeploymentByApplicationUuidWithBodyWi
 
 // CreatePreviewDeploymentByApplicationUuidWithResponse Create Preview Deployment
 //
-// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
+// Open a preview deployment for a pull request and queue its deployment. When the preview already exists, it is redeployed. A token with the deploy permission can only redeploy an existing preview without changes; opening a preview, changing its pull request URL, git type, or docker tag, or choosing a commit also needs the write permission. Git based applications need git_type unless they use a GitHub or GitLab App source; Bitbucket also needs commit. Docker Image applications need docker_tag for a new preview.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -65318,7 +65573,7 @@ func (c *ClientWithResponses) GetServerImageScanningWithResponse(ctx context.Con
 
 // UpdateServerImageScanningWithBodyWithResponse Update image scanning settings
 //
-// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+// Turn image vulnerability scanning of a server owned by the authenticated team on or off, or change the limits of the scanner (memory, CPUs, and the Syft and Grype time limits). Send at least one field. Turning it on gets the scanner on the server in the background. A new limit applies to the next scan.
 //
 // Takes any type of body and a specified content type, and returns a wrapper object for the known response body format(s).
 //
@@ -65333,7 +65588,7 @@ func (c *ClientWithResponses) UpdateServerImageScanningWithBodyWithResponse(ctx 
 
 // UpdateServerImageScanningWithResponse Update image scanning settings
 //
-// Turn image vulnerability scanning of a server owned by the authenticated team on or off. Turning it on gets the scanner on the server in the background.
+// Turn image vulnerability scanning of a server owned by the authenticated team on or off, or change the limits of the scanner (memory, CPUs, and the Syft and Grype time limits). Send at least one field. Turning it on gets the scanner on the server in the background. A new limit applies to the next scan.
 //
 // Takes a body of the `application/json` content type, and returns a wrapper object for the known response body format(s).
 //
@@ -68833,6 +69088,9 @@ func ParseCreatePreviewDeploymentByApplicationUuidResponse(rsp *http.Response) (
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 403:
+		break // No content-type
 
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
 		var dest N404
@@ -78295,11 +78553,20 @@ func ParseGetServerImageScanningResponse(rsp *http.Response) (*GetServerImageSca
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest struct {
+			// ImageScanCpus CPU limit of each scanner step.
+			ImageScanCpus *GetServerImageScanning200JSONResponseBodyImageScanCpus `json:"image_scan_cpus,omitempty"`
+
+			// ImageScanGrypeTimeout Time limit of one Grype run (vulnerability match), in seconds.
+			ImageScanGrypeTimeout *GetServerImageScanning200JSONResponseBodyImageScanGrypeTimeout `json:"image_scan_grype_timeout,omitempty"`
+
+			// ImageScanMemoryMb Memory limit of each scanner step, in MB.
+			ImageScanMemoryMb *GetServerImageScanning200JSONResponseBodyImageScanMemoryMb `json:"image_scan_memory_mb,omitempty"`
+
+			// ImageScanSyftTimeout Time limit of one Syft run (package list of an image), in seconds.
+			ImageScanSyftTimeout *GetServerImageScanning200JSONResponseBodyImageScanSyftTimeout `json:"image_scan_syft_timeout,omitempty"`
+
 			// IsImageScanEnabled Whether the server scans the images of its resources.
 			IsImageScanEnabled *bool `json:"is_image_scan_enabled,omitempty"`
-
-			// IsImageScanningAllowed Whether the Coolify instance allows image scanning.
-			IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
 
 			// ScannerBuiltAt Time of the vulnerability database on the server.
 			ScannerBuiltAt *time.Time `json:"scanner_built_at,omitempty"`
@@ -82839,8 +83106,7 @@ func ParseListVulnerabilitiesResponse(rsp *http.Response) (*ListVulnerabilitiesR
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest struct {
-			IsImageScanningAllowed *bool `json:"is_image_scanning_allowed,omitempty"`
-			Resources              *[]struct {
+			Resources *[]struct {
 				EnvironmentUuid *string `json:"environment_uuid,omitempty"`
 				Images          *struct {
 					Total  *int `json:"total,omitempty"`

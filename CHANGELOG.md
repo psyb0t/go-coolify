@@ -2,6 +2,14 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.11.0, 2026-11-10
+
+- Breaking: `UpdateServerImageScanningJSONBody.IsImageScanEnabled` and the field on `UpdateServerImageScanningJSONRequestBody` change from `bool` to `*bool`. Migration: assign a pointer, for example `&enabled`.
+- Breaking: the anonymous 200 structs of `GetServerImageScanningResponse` and `ListVulnerabilitiesResponse` (`JSON200` and `GetJSON200`) change, so they are different types. Code that names these types must change.
+- Breaking: `ResourceVulnerabilitiesOffReasonInstance` is removed.
+- Add `ImageScanCpus`, `ImageScanGrypeTimeout`, `ImageScanMemoryMb` and `ImageScanSyftTimeout` to `UpdateServerImageScanningJSONBody`, `UpdateServerImageScanningJSONRequestBody` and the `GetServerImageScanningResponse` 200 body, with typed enums such as `UpdateServerImageScanningJSONBodyImageScanCpus` and `GetServerImageScanning200JSONResponseBodyImageScanMemoryMb`, each with a `Valid` method.
+- Add `ServerSetting.IsSshHostKeyCheckEnforced`.
+
 ## v0.10.0, 2026-11-07
 
 - Breaking: `CreateS3StorageJSONBody.Bucket`, `Region` and `Secret` change from `string` to `*string`, and the same fields change on `CreateS3StorageJSONRequestBody`. Migration: assign a pointer, for example `&bucket`.

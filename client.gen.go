@@ -2745,7 +2745,7 @@ type ApplicationHttpBasicAuthHashAlgorithm string
 // ApplicationRedirect How to set redirect with Traefik / Caddy. www<->non-www.
 type ApplicationRedirect string
 
-// ApplicationDeploymentQueue Project model
+// ApplicationDeploymentQueue Application deployment model
 type ApplicationDeploymentQueue struct {
 	ApplicationId          *string                 `json:"application_id,omitempty"`
 	ApplicationName        *string                 `json:"application_name,omitempty"`
@@ -6036,6 +6036,9 @@ type DeleteApplicationByUuidParams struct {
 
 	// DeleteConnectedNetworks Delete connected networks.
 	DeleteConnectedNetworks *bool `form:"delete_connected_networks,omitempty" json:"delete_connected_networks,omitempty"`
+
+	// DeleteBackups Delete the storage backups, on the server and on S3.
+	DeleteBackups *bool `form:"delete_backups,omitempty" json:"delete_backups,omitempty"`
 }
 
 // UpdateApplicationByUuidJSONBody defines parameters for UpdateApplicationByUuid.
@@ -7422,6 +7425,9 @@ type DeleteDatabaseByUuidParams struct {
 
 	// DeleteConnectedNetworks Delete connected networks.
 	DeleteConnectedNetworks *bool `form:"delete_connected_networks,omitempty" json:"delete_connected_networks,omitempty"`
+
+	// DeleteBackups Delete the database and storage backups, on the server and on S3.
+	DeleteBackups *bool `form:"delete_backups,omitempty" json:"delete_backups,omitempty"`
 }
 
 // UpdateDatabaseByUuidJSONBody defines parameters for UpdateDatabaseByUuid.
@@ -8487,6 +8493,9 @@ type DeleteServerByUuidParams struct {
 
 	// RemoveSshKey Remove the public key of the server's SSH key from ~/.ssh/authorized_keys on the server before the server is deleted. The server must have no resources. If the key cannot be removed, the server is not deleted.
 	RemoveSshKey *bool `form:"remove_ssh_key,omitempty" json:"remove_ssh_key,omitempty"`
+
+	// RemoveResourcesFromServer With force=true, also remove the containers, volumes, and files of the resources from the server. Set it to false to delete the resources only from Coolify and leave them running on the server.
+	RemoveResourcesFromServer *bool `form:"remove_resources_from_server,omitempty" json:"remove_resources_from_server,omitempty"`
 }
 
 // UpdateServerByUuidJSONBody defines parameters for UpdateServerByUuid.
@@ -8815,6 +8824,9 @@ type DeleteServiceByUuidParams struct {
 
 	// DeleteConnectedNetworks Delete connected networks.
 	DeleteConnectedNetworks *bool `form:"delete_connected_networks,omitempty" json:"delete_connected_networks,omitempty"`
+
+	// DeleteBackups Delete the database and storage backups, on the server and on S3.
+	DeleteBackups *bool `form:"delete_backups,omitempty" json:"delete_backups,omitempty"`
 }
 
 // UpdateServiceByUuidJSONBody defines parameters for UpdateServiceByUuid.
@@ -22010,6 +22022,18 @@ func NewDeleteApplicationByUuidRequest(server string, uuid string, params *Delet
 
 		}
 
+		if params.DeleteBackups != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "delete_backups", *params.DeleteBackups, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -25237,6 +25261,18 @@ func NewDeleteDatabaseByUuidRequest(server string, uuid string, params *DeleteDa
 		if params.DeleteConnectedNetworks != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "delete_connected_networks", *params.DeleteConnectedNetworks, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DeleteBackups != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "delete_backups", *params.DeleteBackups, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -30902,6 +30938,18 @@ func NewDeleteServerByUuidRequest(server string, uuid string, params *DeleteServ
 
 		}
 
+		if params.RemoveResourcesFromServer != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "remove_resources_from_server", *params.RemoveResourcesFromServer, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
 		if encoded := queryValues.Encode(); encoded != "" {
 			rawQueryFragments = append(rawQueryFragments, encoded)
 		}
@@ -32483,6 +32531,18 @@ func NewDeleteServiceByUuidRequest(server string, uuid string, params *DeleteSer
 		if params.DeleteConnectedNetworks != nil {
 
 			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "delete_connected_networks", *params.DeleteConnectedNetworks, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
+				return nil, err
+			} else {
+				for _, qp := range strings.Split(queryFrag, "&") {
+					rawQueryFragments = append(rawQueryFragments, qp)
+				}
+			}
+
+		}
+
+		if params.DeleteBackups != nil {
+
+			if queryFrag, err := runtime.StyleParamWithOptions("form", true, "delete_backups", *params.DeleteBackups, runtime.StyleParamOptions{ParamLocation: runtime.ParamLocationQuery, Type: "boolean", Format: ""}); err != nil {
 				return nil, err
 			} else {
 				for _, qp := range strings.Split(queryFrag, "&") {
@@ -47471,15 +47531,25 @@ type ListDeploymentsByAppUuidResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	// JSON200 the response for an HTTP 200 `application/json` response
-	JSON200 *[]Application
+	JSON200 *struct {
+		// Count Total number of deployments of the application.
+		Count       *int                          `json:"count,omitempty"`
+		Deployments *[]ApplicationDeploymentQueue `json:"deployments,omitempty"`
+	}
 	// JSON400 the response for an HTTP 400 `application/json` response
 	JSON400 *N400
 	// JSON401 the response for an HTTP 401 `application/json` response
 	JSON401 *N401
+	// JSON404 the response for an HTTP 404 `application/json` response
+	JSON404 *N404
 }
 
 // GetJSON200 returns the response for an HTTP 200 `application/json` response
-func (r ListDeploymentsByAppUuidResponse) GetJSON200() *[]Application {
+func (r ListDeploymentsByAppUuidResponse) GetJSON200() *struct {
+	// Count Total number of deployments of the application.
+	Count       *int                          `json:"count,omitempty"`
+	Deployments *[]ApplicationDeploymentQueue `json:"deployments,omitempty"`
+} {
 	return r.JSON200
 }
 
@@ -47491,6 +47561,11 @@ func (r ListDeploymentsByAppUuidResponse) GetJSON400() *N400 {
 // GetJSON401 returns the response for an HTTP 401 `application/json` response
 func (r ListDeploymentsByAppUuidResponse) GetJSON401() *N401 {
 	return r.JSON401
+}
+
+// GetJSON404 returns the response for an HTTP 404 `application/json` response
+func (r ListDeploymentsByAppUuidResponse) GetJSON404() *N404 {
+	return r.JSON404
 }
 
 // GetBody returns the raw response body bytes
@@ -67967,6 +68042,9 @@ func ParseCreatePrivateGithubAppApplicationResponse(rsp *http.Response) (*Create
 		}
 		response.JSON409 = &dest
 
+	case rsp.StatusCode == 429:
+		break // No content-type
+
 	}
 
 	return response, nil
@@ -73261,7 +73339,11 @@ func ParseListDeploymentsByAppUuidResponse(rsp *http.Response) (*ListDeployments
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest []Application
+		var dest struct {
+			// Count Total number of deployments of the application.
+			Count       *int                          `json:"count,omitempty"`
+			Deployments *[]ApplicationDeploymentQueue `json:"deployments,omitempty"`
+		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -73280,6 +73362,13 @@ func ParseListDeploymentsByAppUuidResponse(rsp *http.Response) (*ListDeployments
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 404:
+		var dest N404
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON404 = &dest
 
 	}
 
@@ -74368,6 +74457,9 @@ func ParseHealthcheckResponse(rsp *http.Response) (*HealthcheckResponse, error) 
 			return nil, err
 		}
 		response.JSON401 = &dest
+
+	case rsp.StatusCode == 503:
+		break // No content-type
 
 	}
 

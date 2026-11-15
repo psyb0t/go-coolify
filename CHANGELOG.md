@@ -2,6 +2,15 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.12.0, 2026-11-15
+
+- Breaking: `ListDeploymentsByAppUuidResponse.JSON200` and `GetJSON200` change from `*[]Application` to a pointer to an anonymous struct with `Count` and `Deployments` (`*[]ApplicationDeploymentQueue`). Migration: read `Deployments` for the list and `Count` for the total.
+- Add `ListDeploymentsByAppUuidResponse.JSON404` and `GetJSON404`, which the parser fills for HTTP 404 responses.
+- Add `DeleteBackups` to `DeleteApplicationByUuidParams`, `DeleteDatabaseByUuidParams` and `DeleteServiceByUuidParams`.
+- Add `RemoveResourcesFromServer` to `DeleteServerByUuidParams`. Set it to false to delete resources from Coolify and leave them running on the server.
+- Fix the `ApplicationDeploymentQueue` doc comment, which said "Project model".
+- Move the development image and `go.mod` to Go 1.26.11, which fixes the `net/http` vulnerability GO-2026-6859 that `make sec` reported on 1.26.10.
+
 ## v0.11.0, 2026-11-10
 
 - Breaking: `UpdateServerImageScanningJSONBody.IsImageScanEnabled` and the field on `UpdateServerImageScanningJSONRequestBody` change from `bool` to `*bool`. Migration: assign a pointer, for example `&enabled`.

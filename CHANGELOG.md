@@ -2,6 +2,13 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.12.1, 2026-11-18
+
+- Add `ServerSetting.PublicIpv4` and `ServerSetting.PublicIpv6`, the public addresses that DNS records of resources on a server point to. Null uses the server IP.
+- Add `PublicIpv4` and `PublicIpv6` to `UpdateServerByUuidJSONBody` and `UpdateServerByUuidJSONRequestBody`. They set the addresses used for DNS checks and records on servers that Coolify reaches over a private network. Null removes them.
+- Update the doc comments of `DeleteBackupConfigurationByUuid` and `DeleteBackupExecutionByUuid`: when the server is not reachable, the local backup files stay on the server.
+- Update the doc comment of `StartServiceByUuid`: it pulls the latest images first.
+
 ## v0.12.0, 2026-11-15
 
 - Breaking: `ListDeploymentsByAppUuidResponse.JSON200` and `GetJSON200` change from `*[]Application` to a pointer to an anonymous struct with `Count` and `Deployments` (`*[]ApplicationDeploymentQueue`). Migration: read `Deployments` for the list and `Count` for the total.

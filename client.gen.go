@@ -3572,14 +3572,20 @@ type ServerSetting struct {
 	LogdrainAxiomDatasetName  *string `json:"logdrain_axiom_dataset_name,omitempty"`
 
 	// LogdrainAxiomDomain Base domain of the Axiom edge deployment, for example us-east-1.aws.edge.axiom.co or eu-central-1.aws.edge.axiom.co.
-	LogdrainAxiomDomain               *string                  `json:"logdrain_axiom_domain,omitempty"`
-	LogdrainCloudwatchGroup           *string                  `json:"logdrain_cloudwatch_group,omitempty"`
-	LogdrainCloudwatchRegion          *string                  `json:"logdrain_cloudwatch_region,omitempty"`
-	LogdrainCloudwatchStreamPrefix    *string                  `json:"logdrain_cloudwatch_stream_prefix,omitempty"`
-	LogdrainCustomConfig              *string                  `json:"logdrain_custom_config,omitempty"`
-	LogdrainCustomConfigParser        *string                  `json:"logdrain_custom_config_parser,omitempty"`
-	LogdrainNewrelicBaseUri           *string                  `json:"logdrain_newrelic_base_uri,omitempty"`
-	LogdrainNewrelicLicenseKey        *string                  `json:"logdrain_newrelic_license_key,omitempty"`
+	LogdrainAxiomDomain            *string `json:"logdrain_axiom_domain,omitempty"`
+	LogdrainCloudwatchGroup        *string `json:"logdrain_cloudwatch_group,omitempty"`
+	LogdrainCloudwatchRegion       *string `json:"logdrain_cloudwatch_region,omitempty"`
+	LogdrainCloudwatchStreamPrefix *string `json:"logdrain_cloudwatch_stream_prefix,omitempty"`
+	LogdrainCustomConfig           *string `json:"logdrain_custom_config,omitempty"`
+	LogdrainCustomConfigParser     *string `json:"logdrain_custom_config_parser,omitempty"`
+	LogdrainNewrelicBaseUri        *string `json:"logdrain_newrelic_base_uri,omitempty"`
+	LogdrainNewrelicLicenseKey     *string `json:"logdrain_newrelic_license_key,omitempty"`
+
+	// PublicIpv4 Public IPv4 address that DNS records of resources on this server point to. Null uses the server IP.
+	PublicIpv4 *string `json:"public_ipv4,omitempty"`
+
+	// PublicIpv6 Public IPv6 address that DNS records of resources on this server point to. Null uses the server IP.
+	PublicIpv6                        *string                  `json:"public_ipv6,omitempty"`
 	SentinelMetricsHistoryDays        *int                     `json:"sentinel_metrics_history_days,omitempty"`
 	SentinelMetricsRefreshRateSeconds *int                     `json:"sentinel_metrics_refresh_rate_seconds,omitempty"`
 	SentinelToken                     *string                  `json:"sentinel_token,omitempty"`
@@ -8540,6 +8546,12 @@ type UpdateServerByUuidJSONBody struct {
 	// ProxyType The proxy type. Changing it starts the new proxy on the server and needs the deploy permission.
 	ProxyType *UpdateServerByUuidJSONBodyProxyType `json:"proxy_type,omitempty"`
 
+	// PublicIpv4 Public IPv4 that DNS checks and DNS records use instead of the server IP, for servers that Coolify reaches over a private network. Ignored for localhost. Null removes it.
+	PublicIpv4 *string `json:"public_ipv4,omitempty"`
+
+	// PublicIpv6 Public IPv6 that DNS checks and DNS records use instead of the server IP, for servers that Coolify reaches over a private network. Ignored for localhost. Null removes it.
+	PublicIpv6 *string `json:"public_ipv6,omitempty"`
+
 	// ServerDiskUsageCheckFrequency Cron expression for disk usage check frequency.
 	ServerDiskUsageCheckFrequency *string `json:"server_disk_usage_check_frequency,omitempty"`
 
@@ -11031,7 +11043,7 @@ type ClientInterface interface {
 
 	// DeleteBackupConfigurationByUuid Delete backup configuration
 	//
-	// Deletes a backup configuration and all its executions.
+	// Deletes a backup configuration and all its executions. When the server is not reachable, the local backup files stay on the server.
 	//
 	// Corresponds with DELETE /databases/{uuid}/backups/{scheduled_backup_uuid} (the `DeleteBackupConfigurationByUuid` operationId).
 	DeleteBackupConfigurationByUuid(ctx context.Context, uuid string, scheduledBackupUuid string, params *DeleteBackupConfigurationByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -11063,7 +11075,7 @@ type ClientInterface interface {
 
 	// DeleteBackupExecutionByUuid Delete backup execution
 	//
-	// Deletes a specific backup execution.
+	// Deletes a specific backup execution. When the server is not reachable, the local backup file stays on the server.
 	//
 	// Corresponds with DELETE /databases/{uuid}/backups/{scheduled_backup_uuid}/executions/{execution_uuid} (the `DeleteBackupExecutionByUuid` operationId).
 	DeleteBackupExecutionByUuid(ctx context.Context, uuid string, scheduledBackupUuid string, executionUuid string, params *DeleteBackupExecutionByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -13178,7 +13190,7 @@ type ClientInterface interface {
 
 	// StartServiceByUuid Start
 	//
-	// Start service.
+	// Start service. Pulls the latest images first.
 	//
 	// Corresponds with POST /services/{uuid}/start (the `StartServiceByUuid` operationId).
 	StartServiceByUuid(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -15842,7 +15854,7 @@ func (c *Client) CreateDatabaseBackup(ctx context.Context, uuid string, body Cre
 
 // DeleteBackupConfigurationByUuid Delete backup configuration
 //
-// Deletes a backup configuration and all its executions.
+// Deletes a backup configuration and all its executions. When the server is not reachable, the local backup files stay on the server.
 //
 // Corresponds with DELETE /databases/{uuid}/backups/{scheduled_backup_uuid} (the `DeleteBackupConfigurationByUuid` operationId).
 func (c *Client) DeleteBackupConfigurationByUuid(ctx context.Context, uuid string, scheduledBackupUuid string, params *DeleteBackupConfigurationByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -15914,7 +15926,7 @@ func (c *Client) ListBackupExecutions(ctx context.Context, uuid string, schedule
 
 // DeleteBackupExecutionByUuid Delete backup execution
 //
-// Deletes a specific backup execution.
+// Deletes a specific backup execution. When the server is not reachable, the local backup file stays on the server.
 //
 // Corresponds with DELETE /databases/{uuid}/backups/{scheduled_backup_uuid}/executions/{execution_uuid} (the `DeleteBackupExecutionByUuid` operationId).
 func (c *Client) DeleteBackupExecutionByUuid(ctx context.Context, uuid string, scheduledBackupUuid string, executionUuid string, params *DeleteBackupExecutionByUuidParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -20719,7 +20731,7 @@ func (c *Client) ListScheduledTaskExecutionsByServiceUuid(ctx context.Context, u
 
 // StartServiceByUuid Start
 //
-// Start service.
+// Start service. Pulls the latest images first.
 //
 // Corresponds with POST /services/{uuid}/start (the `StartServiceByUuid` operationId).
 func (c *Client) StartServiceByUuid(ctx context.Context, uuid string, reqEditors ...RequestEditorFn) (*http.Response, error) {
@@ -37352,7 +37364,7 @@ type ClientWithResponsesInterface interface {
 
 	// DeleteBackupConfigurationByUuidWithResponse Delete backup configuration
 	//
-	// Deletes a backup configuration and all its executions.
+	// Deletes a backup configuration and all its executions. When the server is not reachable, the local backup files stay on the server.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -37388,7 +37400,7 @@ type ClientWithResponsesInterface interface {
 
 	// DeleteBackupExecutionByUuidWithResponse Delete backup execution
 	//
-	// Deletes a specific backup execution.
+	// Deletes a specific backup execution. When the server is not reachable, the local backup file stays on the server.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -39781,7 +39793,7 @@ type ClientWithResponsesInterface interface {
 
 	// StartServiceByUuidWithResponse Start
 	//
-	// Start service.
+	// Start service. Pulls the latest images first.
 	//
 	// Returns a wrapper object for the known response body format(s).
 	//
@@ -62852,7 +62864,7 @@ func (c *ClientWithResponses) CreateDatabaseBackupWithResponse(ctx context.Conte
 
 // DeleteBackupConfigurationByUuidWithResponse Delete backup configuration
 //
-// Deletes a backup configuration and all its executions.
+// Deletes a backup configuration and all its executions. When the server is not reachable, the local backup files stay on the server.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -62912,7 +62924,7 @@ func (c *ClientWithResponses) ListBackupExecutionsWithResponse(ctx context.Conte
 
 // DeleteBackupExecutionByUuidWithResponse Delete backup execution
 //
-// Deletes a specific backup execution.
+// Deletes a specific backup execution. When the server is not reachable, the local backup file stays on the server.
 //
 // Returns a wrapper object for the known response body format(s).
 //
@@ -66919,7 +66931,7 @@ func (c *ClientWithResponses) ListScheduledTaskExecutionsByServiceUuidWithRespon
 
 // StartServiceByUuidWithResponse Start
 //
-// Start service.
+// Start service. Pulls the latest images first.
 //
 // Returns a wrapper object for the known response body format(s).
 //

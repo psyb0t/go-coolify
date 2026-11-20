@@ -8212,10 +8212,10 @@ type ListResources200JSONResponseBody_Item struct {
 	Status *string `json:"status,omitempty"`
 
 	// Type application, service, or standalone-<engine> for databases (for example standalone-postgresql).
-	Type                 *string                `json:"type,omitempty"`
-	UpdatedAt            *time.Time             `json:"updated_at,omitempty"`
-	Uuid                 *string                `json:"uuid,omitempty"`
-	AdditionalProperties map[string]interface{} `json:"-"`
+	Type                 *string                    `json:"type,omitempty"`
+	UpdatedAt            *time.Time                 `json:"updated_at,omitempty"`
+	Uuid                 *string                    `json:"uuid,omitempty"`
+	AdditionalProperties map[string]json.RawMessage `json:"-"`
 }
 
 // ListS3Storages200JSONResponseBodyType defines parameters for ListS3Storages.
@@ -9621,7 +9621,7 @@ type AddSecretManagerReferenceJSONRequestBody AddSecretManagerReferenceJSONBody
 
 // Getter for additional properties for ListResources200JSONResponseBody_Item. Returns the specified
 // element and whether it was found
-func (a ListResources200JSONResponseBody_Item) Get(fieldName string) (value interface{}, found bool) {
+func (a ListResources200JSONResponseBody_Item) Get(fieldName string) (value json.RawMessage, found bool) {
 	if a.AdditionalProperties != nil {
 		value, found = a.AdditionalProperties[fieldName]
 	}
@@ -9629,9 +9629,9 @@ func (a ListResources200JSONResponseBody_Item) Get(fieldName string) (value inte
 }
 
 // Setter for additional properties for ListResources200JSONResponseBody_Item
-func (a *ListResources200JSONResponseBody_Item) Set(fieldName string, value interface{}) {
+func (a *ListResources200JSONResponseBody_Item) Set(fieldName string, value json.RawMessage) {
 	if a.AdditionalProperties == nil {
-		a.AdditionalProperties = make(map[string]interface{})
+		a.AdditionalProperties = make(map[string]json.RawMessage)
 	}
 	a.AdditionalProperties[fieldName] = value
 }
@@ -9709,9 +9709,9 @@ func (a *ListResources200JSONResponseBody_Item) UnmarshalJSON(b []byte) error {
 	}
 
 	if len(object) != 0 {
-		a.AdditionalProperties = make(map[string]interface{})
+		a.AdditionalProperties = make(map[string]json.RawMessage)
 		for fieldName, fieldBuf := range object {
-			var fieldVal interface{}
+			var fieldVal json.RawMessage
 			err := json.Unmarshal(fieldBuf, &fieldVal)
 			if err != nil {
 				return fmt.Errorf("error unmarshaling field %s: %w", fieldName, err)

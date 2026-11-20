@@ -4,6 +4,8 @@
 # add a description-only definition without inventing its response body.
 # Promote log-line query unions to a named component so oapi-codegen emits
 # exported union helpers instead of unusable anonymous structs.
+# Open objects keep their extra properties as raw JSON, so the generated
+# unmarshaller does not decode into interface{}.
 set -euo pipefail
 trap 'on_error "$?" "$LINENO"' ERR
 
@@ -58,6 +60,11 @@ main() {
         else . end
       )
       | .components.responses["403"] //= {"description": "Forbidden."}
+      | walk(
+          if type == "object" and .additionalProperties? == true then
+            .additionalProperties = {"x-go-type": "json.RawMessage", "x-go-type-import": {"path": "encoding/json"}}
+          else . end
+        )
       | [.. | objects | select(.in? == "query" and .name? == "lines"
           and (.schema.oneOf? | type == "array")) | .schema] as $tails
       | if ($tails | length) > 0 then

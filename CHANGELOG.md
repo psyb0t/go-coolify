@@ -2,6 +2,12 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.13.0, 2026-11-20
+
+- Breaking: `ListResources200JSONResponseBody_Item.AdditionalProperties` changes from `map[string]interface{}` to `map[string]json.RawMessage`. Migration: unmarshal the raw values yourself.
+- Breaking: `ListResources200JSONResponseBody_Item.Get` now returns `json.RawMessage` instead of `interface{}`, and `ListResources200JSONResponseBody_Item.Set` takes a `json.RawMessage` value.
+- `scripts/patch-spec.sh` now maps every `additionalProperties: true` in the spec to `json.RawMessage`. This clears the semgrep finding (CWE-502) on the generated unmarshaller. The wire format does not change.
+
 ## v0.12.1, 2026-11-18
 
 - Add `ServerSetting.PublicIpv4` and `ServerSetting.PublicIpv6`, the public addresses that DNS records of resources on a server point to. Null uses the server IP.
